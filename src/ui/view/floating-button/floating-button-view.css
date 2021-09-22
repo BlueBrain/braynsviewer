@@ -1,0 +1,38 @@
+button.ui-view-FloatingButtonView {
+    font: inherit;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    cursor: pointer;
+    box-shadow: var(--theme-shadow-button);
+    transition: all 0.2s;
+    filter: brightness(100%);
+}
+
+button.ui-view-FloatingButtonView.small {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+button.ui-view-FloatingButtonView.disabled {
+    cursor: default;
+    pointer-events: none;
+    box-shadow: none;
+    opacity: 0.5;
+    filter: grayscale(100%);
+}
+
+button.ui-view-FloatingButtonView:active {
+    box-shadow: var(--theme-shadow-button-pressed);
+    filter: brightness(150%);
+}
+
+button.ui-view-FloatingButtonView > svg {
+    width: 80%;
+    height: 80%;
+}

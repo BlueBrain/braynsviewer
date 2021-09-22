@@ -1,3 +1,16 @@
-# BraynsViewer
+# Brayns Viewer
 
-Advanced UI for Brayns renderer, exposes Brayns renderer interface to the user, highly tunable, web based.
+## Installation
+
+...
+
+## External Libraries
+
+### hammer js
+
+https://github.com/hammerjs/hammer.js
+
+### math.gl
+
+https://math.gl/
+

@@ -1,0 +1,11 @@
+.view-app-AppMenuView {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.view-app-AppMenuView > * {
+    margin: .25rem;
+}

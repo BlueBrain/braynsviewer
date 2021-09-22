@@ -1,0 +1,17 @@
+.view-entryPoints-DetailView {
+    padding: 0;
+}
+
+.view-entryPoints-DetailView > header {
+    padding: .5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.view-entryPoints-DetailView > header > h1 {
+    font-family: monospace;
+    flex: 1 1 auto;
+}
