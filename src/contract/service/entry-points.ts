@@ -1,3 +1,4 @@
+import SerializableData from "../type/serializable-data"
 import { TypeDef } from "../type/type-definition"
 export { TypeDef } from "../type/type-definition"
 
@@ -15,5 +16,12 @@ export interface EntryPointSchema {
 export default interface EntryPointsServiceInterface {
     listAvailableEntryPoints(): Promise<string[]>
     getEntryPointSchema(entryPointName: string): Promise<EntryPointSchema>
+    /**
+     * Call a Brayns entrypoint and return the result.
+     * Throws an exception in case of failure.
+     * @param entryPointName "get-camera", "get-scene", 'add-light", ...
+     * @param param A serializable param for the entry point.
+     */
+    exec(entryPointName: string, param?: any): Promise<SerializableData>
 }
 

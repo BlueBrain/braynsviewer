@@ -4,6 +4,7 @@ import EntryPointsServiceInterface, {
     EntryPointSchema,
     TypeDef
 } from "../../contract/service/entry-points"
+import SerializableData from "../../contract/type/serializable-data"
 import { PropertyDef } from "../../contract/type/type-definition"
 
 export default class EntryPointsService implements EntryPointsServiceInterface {
@@ -14,6 +15,10 @@ export default class EntryPointsService implements EntryPointsServiceInterface {
     private static schemas = new Map<string, EntryPointSchema>()
 
     constructor(private readonly brayns: BraynsServiceInterface) {}
+
+    async exec(entryPointName: string, param?: any): Promise<SerializableData> {
+        return await this.brayns.exec(entryPointName, param)
+    }
 
     async getEntryPointSchema(
         entryPointName: string

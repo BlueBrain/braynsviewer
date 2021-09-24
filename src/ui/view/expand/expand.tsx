@@ -1,4 +1,5 @@
 import * as React from "react"
+import reactSimpleCodeEditor from "react-simple-code-editor"
 import Icon from '../icon'
 import Touchable from '../touchable'
 import "./expand.css"
@@ -9,6 +10,7 @@ interface IExpandProps {
     label: string
     value: boolean
     onChange?(value: boolean): void
+    children: React.ReactNode
 }
 
 interface IExpandState {

@@ -92,7 +92,7 @@
 }
 
 .view-AppView > nav > header {
-    padding: 0.5rem 1rem;
+    padding: 0;
     z-index: 1;
 }
 .view-AppView > nav > header > div.flex {
@@ -102,7 +102,10 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    margin-bottom: 1rem;
+    padding: 0 1em;
+}
+.view-AppView > nav > header > .menu {
+    margin-top: 1rem;
 }
 
 .view-AppView > nav > header > div.flex .inline {

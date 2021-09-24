@@ -3,12 +3,7 @@ import "./touchable-view.css"
 
 export interface TouchableViewProps<T> {
     className?: string
-    children:
-        | string
-        | boolean
-        | null
-        | JSX.Element
-        | Array<string | boolean | null | JSX.Element>
+    children: React.ReactNode
     enabled?: boolean
     tag?: T
     onClick(tag?: T): void

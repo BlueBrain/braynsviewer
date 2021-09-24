@@ -104,7 +104,7 @@ export default function AppView(props: AppViewProps) {
                             <span>{Math.floor(0.5 + fps)}</span>
                         </div>
                     </div>
-                    <AppMenu value={page} onChange={setPage} />
+                    <AppMenu className="menu" value={page} onChange={setPage} />
                 </header>
                 <menu className="theme-color-screen">
                     <Stack className="fullheight" value={page} animation="none">
