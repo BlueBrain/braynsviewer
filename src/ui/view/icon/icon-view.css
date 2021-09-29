@@ -1,0 +1,30 @@
+.ui-view-IconView {
+    display: inline-block;
+    padding: 0;
+    transition: all 0.3s;
+    flex: 0 0 auto;
+}
+
+.ui-view-IconView.clickable {
+    cursor: pointer;
+}
+
+.ui-view-IconView.clickable:active {
+    filter: brightness(150%);
+    transform: scale(0.9);
+}
+
+.ui-view-IconView > svg {
+    height: 100%;
+}
+
+.ui-view-IconView.animate {
+    animation: ui-view-IconView-anim 1s linear infinite;
+}
+
+@keyframes ui-view-IconView-anim {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(-360deg); } 
+}

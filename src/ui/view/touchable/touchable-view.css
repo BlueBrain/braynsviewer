@@ -1,0 +1,21 @@
+.ui-view-TouchableView {
+    box-sizing: border-box;
+    font: inherit;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.2s;
+    filter: brightness(100%);
+    margin: 0.5rem;
+}
+
+.ui-view-TouchableView:active {
+    transition: all 0.2s;
+    filter: brightness(150%);
+}
+
+.ui-view-TouchableView.disabled {
+    cursor: default;
+    filter: grayscale(100%);
+    opacity: .6;
+}

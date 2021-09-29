@@ -1,0 +1,93 @@
+.ui-view-CheckboxView {
+    padding: 0;
+    border: none;
+    background: transparent;
+    font: inherit;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    color: inherit;
+}
+
+.ui-view-CheckboxView[disabled] {
+    opacity: .5;
+    font-style: italic;
+    cursor: default;
+    pointer-events: none;
+    font-style: italic;
+}
+
+.ui-view-CheckboxView.wide {
+    display: flex;
+    width: 100%;
+}
+
+.ui-view-CheckboxView>div.label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+    text-align: left;
+    transition: opacity .2s;
+    cursor: pointer;
+    padding: 0 .75em;
+    order: 1;
+}
+
+.ui-view-CheckboxView.reverse>div.label {
+    order: -1;
+}
+
+.ui-view-CheckboxView>div.pin {
+    position: relative;
+    width: 34px;
+    height: 20px;
+    overflow: visible;
+    flex-grow: 0;
+    margin: 0.125rem;
+    order: 0;
+    filter: grayscale(100%);
+}
+.ui-view-CheckboxView.ok>div.pin {
+    filter: none;
+}
+
+.ui-view-CheckboxView>div.pin>div.bar {
+    content: ".";
+    font-size: 0;
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 34px;
+    height: 14px;
+    border-radius: 7px;
+    box-shadow: var(--theme-shadow-button);
+    background-color: var(--theme-color-accent-light);
+}
+
+.ui-view-CheckboxView>div.pin>div.btn {
+    content: ".";
+    font-size: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    transform: translateX(0);
+    transition: transform .2s, opacity .2s;
+    box-shadow: var(--theme-shadow-button);
+    background-color: var(--theme-color-accent-dark);
+}
+
+.ui-view-CheckboxView.ok>div.pin>div.btn {
+    transform: translateX(14px);
+}
+
+.ui-view-CheckboxView>header.hide {
+    display: none;
+}
+
