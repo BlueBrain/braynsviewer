@@ -1,6 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import { makeConfigManager } from "./factory/global"
+import { makeBraynsService, makeConfigManager } from "./factory/global"
 import "./index.css"
 import Modal from "./ui/modal"
 import Theme from "./ui/theme"
@@ -14,6 +14,9 @@ async function start() {
     const braynsAddress = await configManager.getBraynsAddress()
 
     try {
+        const brayns = makeBraynsService(braynsAddress)
+        await Modal.wait("Connecting Brayns Service...", brayns.connect())
+
         // Entry point for our app
         const root = document.getElementById("root") as HTMLElement
         ReactDOM.render(<AppView />, root)
