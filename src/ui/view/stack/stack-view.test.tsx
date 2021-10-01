@@ -5,13 +5,14 @@
 // If a test failed just because you intended to improve the component,
 // just call `jest --updateSnapshot`.
 
-import React from 'react';
+import React from 'react'
 import Renderer from 'react-test-renderer'
-import StackView, { IStackViewProps } from './stack-view'
+import StackView, { StackViewProps } from './stack-view'
 
-function view(partialProps: Partial<IStackViewProps>) {
-    const props: IStackViewProps = {
-        // @TODO Set default props.
+function view(partialProps: Partial<StackViewProps>) {
+    const props: StackViewProps = {
+        children: [],
+        value: "Hello",
         ...partialProps
     }
     return Renderer.create(<StackView {...props} />).toJSON()

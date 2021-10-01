@@ -1,8 +1,8 @@
 import * as React from "react"
-
 import "./model-button-view.css"
 
-interface Model {
+
+export interface Model {
     id: number
     name: string
     path: string

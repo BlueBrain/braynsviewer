@@ -5,13 +5,17 @@
 // If a test failed just because you intended to improve the component,
 // just call `jest --updateSnapshot`.
 
-import React from 'react';
+import React from 'react'
 import Renderer from 'react-test-renderer'
-import ModelButtonView, { IModelButtonViewProps } from './model-button-view'
+import ModelButtonView, { ModelButtonViewProps } from './model-button-view'
 
-function view(partialProps: Partial<IModelButtonViewProps>) {
-    const props: IModelButtonViewProps = {
-        // @TODO Set default props.
+function view(partialProps: Partial<ModelButtonViewProps>) {
+    const props: ModelButtonViewProps = {
+        model: {
+            id: 666,
+            name: "My model",
+            path: "/gpfs/somewhere/in/this/huge/data/storage/BlueConfig"
+        },
         ...partialProps
     }
     return Renderer.create(<ModelButtonView {...props} />).toJSON()

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoadersView/> in view should be consistent with previous snapshot 1`] = `
+<div
+  className="custom view-LoadersView"
+>
+  <h1>
+    Loaders
+  </h1>
+</div>
+`;

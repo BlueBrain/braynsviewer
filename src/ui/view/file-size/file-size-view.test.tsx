@@ -5,13 +5,13 @@
 // If a test failed just because you intended to improve the component,
 // just call `jest --updateSnapshot`.
 
-import React from 'react';
+import React from 'react'
 import Renderer from 'react-test-renderer'
-import FileSizeView, { IFileSizeViewProps } from './file-size-view'
+import FileSizeView, { FileSizeViewProps } from './file-size-view'
 
-function view(partialProps: Partial<IFileSizeViewProps>) {
-    const props: IFileSizeViewProps = {
-        // @TODO Set default props.
+function view(partialProps: Partial<FileSizeViewProps>) {
+    const props: FileSizeViewProps = {
+        value: 99999,
         ...partialProps
     }
     return Renderer.create(<FileSizeView {...props} />).toJSON()

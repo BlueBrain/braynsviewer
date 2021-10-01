@@ -8,7 +8,8 @@ import {
     makeInfoService,
     makeRendererService,
     makeSceneService,
-    makeSceneViewManager
+    makeSceneViewManager,
+    makeSpontaneousUpdatesService
 } from "./factory/global"
 import "./index.css"
 import Modal from "./ui/modal"
@@ -36,6 +37,7 @@ async function start() {
                 rendererService={makeRendererService(braynsAddress)}
                 sceneService={makeSceneService(braynsAddress)}
                 sceneView={makeSceneViewManager(braynsAddress)}
+                spontaneaousUpdatesService={makeSpontaneousUpdatesService(braynsAddress)}
             />,
             root
         )

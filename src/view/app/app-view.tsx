@@ -28,6 +28,7 @@ export interface AppViewProps {
     rendererService: RendererServiceInterface
     sceneService: SceneServiceInterface
     sceneView: SceneViewManagerInterface
+    spontaneaousUpdatesService: SpontaneousUpdatesServiceInterface
 }
 
 export default function AppView(props: AppViewProps) {
@@ -38,6 +39,7 @@ export default function AppView(props: AppViewProps) {
         rendererService,
         sceneService,
         sceneView,
+        spontaneaousUpdatesService,
     } = props
     const [page, setPage] = React.useState("camera")
     const [fps, memory, version] = useStatistics(infoService)
@@ -78,7 +80,10 @@ export default function AppView(props: AppViewProps) {
                             key="renderer"
                             rendererService={rendererService}
                         />
-                        <SpontaneousUpdatesView key="broadcast" />
+                        <SpontaneousUpdatesView
+                            key="broadcast"
+                            service={spontaneaousUpdatesService}
+                        />
                         <EntryPointsView key="entrypoints" />
                     </Stack>
                 </menu>

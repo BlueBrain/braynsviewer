@@ -5,13 +5,13 @@
 // If a test failed just because you intended to improve the component,
 // just call `jest --updateSnapshot`.
 
-import React from 'react';
+import React from 'react'
 import Renderer from 'react-test-renderer'
-import SurfaceView, { ISurfaceViewProps } from './surface-view'
+import SurfaceView, { SurfaceViewProps } from './surface-view'
 
-function view(partialProps: Partial<ISurfaceViewProps>) {
-    const props: ISurfaceViewProps = {
-        // @TODO Set default props.
+function view(partialProps: Partial<SurfaceViewProps>) {
+    const props: SurfaceViewProps = {
+        children: [],
         ...partialProps
     }
     return Renderer.create(<SurfaceView {...props} />).toJSON()

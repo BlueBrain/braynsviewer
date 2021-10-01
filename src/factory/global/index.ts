@@ -9,5 +9,6 @@ export { default as makeRendererService } from "./renderer-service"
 export { default as makeResizeWatcher } from "./resize-watcher"
 export { default as makeSceneService } from "./scene-service"
 export { default as makeSceneViewManager } from "./scene-view-manager"
+export { default as makeSpontaneousUpdatesService } from "./spontaneous-updates-service"
 export { default as makeTransfoGestureWatcher } from "./transfo-gesture-watcher"
 

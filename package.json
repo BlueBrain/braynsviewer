@@ -29,6 +29,7 @@
         "@types/math3d": "^0.2.3",
         "@types/react": "^17.0.22",
         "@types/react-dom": "^17.0.9",
+        "@types/react-test-renderer": "^17.0.1",
         "@types/three": "^0.131.1",
         "@typescript-eslint/eslint-plugin": "^4.31.2",
         "@typescript-eslint/eslint-plugin-tslint": "^4.31.2",
@@ -59,6 +60,7 @@
         "mock-socket": "^9.0.3",
         "node-sass": "^6.0.1",
         "raw-loader": "^4.0.2",
+        "react-test-renderer": "^17.0.2",
         "sass-loader": "^12.1.0",
         "style-loader": "^3.2.1",
         "ts-jest": "^27.0.5",
@@ -72,7 +74,28 @@
         "yaml-loader": "^0.6.0"
     },
     "jest": {
-        "preset": "ts-jest",
+        "testEnvironment": "jsdom",
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js"
+        ],
+        "transform": {
+            "^.+\\.tsx?$": "ts-jest"
+        },
+        "testMatch": [
+            "**/*.(test|spec).(ts|tsx)"
+        ],
+        "globals": {
+            "ts-jest": {
+                "babelConfig": true,
+                "tsConfig": "tsconfig.json"
+            }
+        },
+        "moduleNameMapper": {
+            "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/mocks.js",
+            "\\.(css|less)$": "<rootDir>/__mocks__/mocks.js"
+        },
         "verbose": true,
         "collectCoverage": true,
         "coverageReporters": [
