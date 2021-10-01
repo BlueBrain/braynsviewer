@@ -5,13 +5,12 @@
 // If a test failed just because you intended to improve the component,
 // just call `jest --updateSnapshot`.
 
-import React from 'react';
+import React from 'react'
 import Renderer from 'react-test-renderer'
-import LoadersView, { ILoadersViewProps } from './loaders-view'
+import LoadersView, { LoadersViewProps } from './loaders-view'
 
-function view(partialProps: Partial<ILoadersViewProps>) {
-    const props: ILoadersViewProps = {
-        // @TODO Set default props.
+function view(partialProps: Partial<LoadersViewProps>) {
+    const props: LoadersViewProps = {        
         ...partialProps
     }
     return Renderer.create(<LoadersView {...props} />).toJSON()

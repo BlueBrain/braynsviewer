@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ModelButtonView/> in view/scene should be consistent with previous snapshot 1`] = `
+<button
+  className="custom view-scene-ModelButtonView"
+>
+  <div>
+    <div>
+      My model
+    </div>
+    <div>
+      666
+    </div>
+  </div>
+  <div
+    title="/gpfs/somewhere/in/this/huge/data/storage/BlueConfig"
+  >
+    /gpfs/somewhere/in/this/huge/data/storage/BlueConfig
+  </div>
+</button>
+`;
