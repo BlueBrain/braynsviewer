@@ -17,7 +17,7 @@ import SceneView from "../scene"
 import SpontaneousUpdatesView from "../spontaneous-updates"
 import AppMenu from "./app-menu"
 import "./app-view.css"
-import { useScreenLock, useStatistics } from "./handler"
+import { useScreenLock, useStatistics } from "./hooks"
 
 export interface AppViewProps {
     className?: string
@@ -25,11 +25,13 @@ export interface AppViewProps {
     address: { host: string; port: number }
     cameraService: CameraServiceInterface
     infoService: InfoServiceInterface
+    rendererService: RendererServiceInterface
     sceneView: SceneViewManagerInterface
 }
 
 export default function AppView(props: AppViewProps) {
-    const { address, cameraService, infoService, sceneView } = props
+    const { address, cameraService, infoService, rendererService, sceneView } =
+        props
     const [page, setPage] = React.useState("camera")
     const [fps, memory, version] = useStatistics(infoService)
     const [locked, toggleLocked] = useScreenLock(sceneView)
@@ -65,7 +67,10 @@ export default function AppView(props: AppViewProps) {
                             key="camera"
                             cameraService={cameraService}
                         />
-                        <RendererView key="renderer" />
+                        <RendererView
+                            key="renderer"
+                            rendererService={rendererService}
+                        />
                         <SpontaneousUpdatesView key="broadcast" />
                         <EntryPointsView key="entrypoints" />
                     </Stack>

@@ -6,6 +6,7 @@ import {
     makeCameraService,
     makeConfigManager,
     makeInfoService,
+    makeRendererService,
     makeSceneViewManager
 } from "./factory/global"
 import "./index.css"
@@ -31,6 +32,7 @@ async function start() {
                 address={braynsAddress}
                 cameraService={makeCameraService(braynsAddress)}
                 infoService={makeInfoService(braynsAddress)}
+                rendererService={makeRendererService(braynsAddress)}
                 sceneView={makeSceneViewManager(braynsAddress)}
             />,
             root
