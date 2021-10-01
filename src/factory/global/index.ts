@@ -1,5 +1,11 @@
 export { default as makeBraynsService } from "./brayns-service"
+export { default as makeCameraService } from "./camera-service"
 export { default as makeConfigManager } from "./config-manager"
 export { default as makeEvent } from "./event"
-export { default as makeInfoService } from './info-service'
+export { default as makeGeometry } from "./geometry"
+export { default as makeImageFactory } from "./image-factory"
+export { default as makeInfoService } from "./info-service"
+export { default as makeResizeWatcher } from "./resize-watcher"
+export { default as makeSceneViewManager } from "./scene-view-manager"
+export { default as makeTransfoGestureWatcher } from "./transfo-gesture-watcher"
 

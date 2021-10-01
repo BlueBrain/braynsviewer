@@ -1,11 +1,11 @@
-import InfoServiceInterface from "@/contract/service/info"
 import TriggerableEvent from "@/tool/event"
 import React from "react"
 import ReactDOM from "react-dom"
 import {
     makeBraynsService,
     makeConfigManager,
-    makeInfoService
+    makeInfoService,
+    makeSceneViewManager
 } from "./factory/global"
 import "./index.css"
 import Modal from "./ui/modal"
@@ -29,6 +29,7 @@ async function start() {
             <AppView
                 address={braynsAddress}
                 infoService={makeInfoService(braynsAddress)}
+                sceneView={makeSceneViewManager(braynsAddress)}
             />,
             root
         )

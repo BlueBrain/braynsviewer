@@ -24,14 +24,33 @@ export interface AppViewProps {
     // Brayns address.
     address: { host: string; port: number }
     infoService: InfoServiceInterface
+    sceneView: SceneViewManagerInterface
 }
 
 export default function AppView(props: AppViewProps) {
-    const { address, infoService } = props
+    const { address, infoService, sceneView } = props
     const [version, setVersion] = React.useState("...")
     const [page, setPage] = React.useState("camera")
     const [fps, setFps] = React.useState(0)
     const [memory, setMemory] = React.useState(0)
+    const [locked, setLocked] = React.useState(sceneView.locked)
+    const handleLockClick = React.useCallback(() => {
+        const later = async () => {
+            console.log("🚀 [app-view] sceneView.locked = ", sceneView.locked) // @FIXME: Remove this line written on 2021-07-20 at 10:30
+            if (sceneView.locked) {
+                if (await confirmUnlock()) {
+                    setLocked(false)
+                    sceneView.locked = false
+                }
+            } else {
+                if (await confirmLock()) {
+                    setLocked(true)
+                    sceneView.locked = true
+                }
+            }
+        }
+        later()
+    }, [sceneView])
     React.useEffect(() => {
         const handleInfoUpdate = () => {
             const { major, minor, patch, revision } = infoService.version
@@ -78,13 +97,31 @@ export default function AppView(props: AppViewProps) {
                     </Stack>
                 </menu>
             </nav>
-            <main>
-                <canvas></canvas>
+            <main
+                className={locked ? "locked" : ""}
+                title={
+                    locked
+                        ? "The view is locked! Use the button on the top right to unlock it."
+                        : ""
+                }
+            >
+                {sceneView.getView()}
                 <div className="icons">
                     <FloatingButton
                         icon="snapshot"
                         onClick={() => console.log("Click")}
                     />
+                    <FloatingButton
+                        icon={locked ? "lock-off" : "lock-on"}
+                        onClick={handleLockClick}
+                    />
+                </div>
+                <div className="gizmo">
+                    {locked && (
+                        <div className="lock-warning" onClick={handleLockClick}>
+                            Viewport is locked!
+                        </div>
+                    )}
                 </div>
             </main>
         </div>
