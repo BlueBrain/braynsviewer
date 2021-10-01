@@ -17,7 +17,7 @@ import SceneView from "../scene"
 import SpontaneousUpdatesView from "../spontaneous-updates"
 import AppMenu from "./app-menu"
 import "./app-view.css"
-import { confirmLock, confirmUnlock } from "./lock-confirm"
+import { useScreenLock, useStatistics } from "./handler"
 
 export interface AppViewProps {
     className?: string
@@ -29,40 +29,10 @@ export interface AppViewProps {
 }
 
 export default function AppView(props: AppViewProps) {
-    const { address,cameraService, infoService, sceneView } = props
-    const [version, setVersion] = React.useState("...")
+    const { address, cameraService, infoService, sceneView } = props
     const [page, setPage] = React.useState("camera")
-    const [fps, setFps] = React.useState(0)
-    const [memory, setMemory] = React.useState(0)
-    const [locked, setLocked] = React.useState(sceneView.locked)
-    const handleLockClick = React.useCallback(() => {
-        const later = async () => {
-            console.log("🚀 [app-view] sceneView.locked = ", sceneView.locked) // @FIXME: Remove this line written on 2021-07-20 at 10:30
-            if (sceneView.locked) {
-                if (await confirmUnlock()) {
-                    setLocked(false)
-                    sceneView.locked = false
-                }
-            } else {
-                if (await confirmLock()) {
-                    setLocked(true)
-                    sceneView.locked = true
-                }
-            }
-        }
-        later()
-    }, [sceneView])
-    React.useEffect(() => {
-        const handleInfoUpdate = () => {
-            const { major, minor, patch, revision } = infoService.version
-            setVersion(`${major}.${minor}.${patch} (${revision})`)
-            setFps(infoService.framesPerSecond)
-            setMemory(infoService.memoryUsage)
-        }
-        handleInfoUpdate()
-        infoService.eventChange.add(handleInfoUpdate)
-        return () => infoService.eventChange.remove(handleInfoUpdate)
-    }, [infoService])
+    const [fps, memory, version] = useStatistics(infoService)
+    const [locked, toggleLocked] = useScreenLock(sceneView)
     return (
         <div className={getClassNames(props)}>
             <nav>
@@ -117,12 +87,12 @@ export default function AppView(props: AppViewProps) {
                     />
                     <FloatingButton
                         icon={locked ? "lock-off" : "lock-on"}
-                        onClick={handleLockClick}
+                        onClick={toggleLocked}
                     />
                 </div>
                 <div className="gizmo">
                     {locked && (
-                        <div className="lock-warning" onClick={handleLockClick}>
+                        <div className="lock-warning" onClick={toggleLocked}>
                             Viewport is locked!
                         </div>
                     )}
