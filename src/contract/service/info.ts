@@ -7,18 +7,12 @@ export interface Version {
     revision: string
 }
 
-export interface Statistics {
-    framesPerSecond: number
-    memoryUsage: number
-}
-
 /**
  * Deals with Brayns's information.
  * Like version, statistics, ...
  */
 export default interface InfoServiceInterface {
-    getVersion(): Promise<Version>
-    getStatistics(): Promise<Statistics>
+    readonly version: Version
     /**
      * Number of frames rendered on server side per second.
      */
