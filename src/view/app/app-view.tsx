@@ -23,12 +23,13 @@ export interface AppViewProps {
     className?: string
     // Brayns address.
     address: { host: string; port: number }
+    cameraService: CameraServiceInterface
     infoService: InfoServiceInterface
     sceneView: SceneViewManagerInterface
 }
 
 export default function AppView(props: AppViewProps) {
-    const { address, infoService, sceneView } = props
+    const { address,cameraService, infoService, sceneView } = props
     const [version, setVersion] = React.useState("...")
     const [page, setPage] = React.useState("camera")
     const [fps, setFps] = React.useState(0)
@@ -90,7 +91,10 @@ export default function AppView(props: AppViewProps) {
                     <Stack className="fullheight" value={page} animation="none">
                         <SceneView key="models" />
                         <LoadersView key="loaders" />
-                        <CameraView key="camera" />
+                        <CameraView
+                            key="camera"
+                            cameraService={cameraService}
+                        />
                         <RendererView key="renderer" />
                         <SpontaneousUpdatesView key="broadcast" />
                         <EntryPointsView key="entrypoints" />

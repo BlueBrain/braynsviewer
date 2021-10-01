@@ -3,6 +3,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 import {
     makeBraynsService,
+    makeCameraService,
     makeConfigManager,
     makeInfoService,
     makeSceneViewManager
@@ -28,6 +29,7 @@ async function start() {
         ReactDOM.render(
             <AppView
                 address={braynsAddress}
+                cameraService={makeCameraService(braynsAddress)}
                 infoService={makeInfoService(braynsAddress)}
                 sceneView={makeSceneViewManager(braynsAddress)}
             />,
