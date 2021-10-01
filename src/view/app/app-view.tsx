@@ -26,12 +26,19 @@ export interface AppViewProps {
     cameraService: CameraServiceInterface
     infoService: InfoServiceInterface
     rendererService: RendererServiceInterface
+    sceneService: SceneServiceInterface
     sceneView: SceneViewManagerInterface
 }
 
 export default function AppView(props: AppViewProps) {
-    const { address, cameraService, infoService, rendererService, sceneView } =
-        props
+    const {
+        address,
+        cameraService,
+        infoService,
+        rendererService,
+        sceneService,
+        sceneView,
+    } = props
     const [page, setPage] = React.useState("camera")
     const [fps, memory, version] = useStatistics(infoService)
     const [locked, toggleLocked] = useScreenLock(sceneView)
@@ -61,7 +68,7 @@ export default function AppView(props: AppViewProps) {
                 </header>
                 <menu className="theme-color-screen">
                     <Stack className="fullheight" value={page} animation="none">
-                        <SceneView key="models" />
+                        <SceneView key="models" sceneService={sceneService} />
                         <LoadersView key="loaders" />
                         <CameraView
                             key="camera"

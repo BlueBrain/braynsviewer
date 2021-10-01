@@ -7,6 +7,7 @@ export { default as makeImageFactory } from "./image-factory"
 export { default as makeInfoService } from "./info-service"
 export { default as makeRendererService } from "./renderer-service"
 export { default as makeResizeWatcher } from "./resize-watcher"
+export { default as makeSceneService } from "./scene-service"
 export { default as makeSceneViewManager } from "./scene-view-manager"
 export { default as makeTransfoGestureWatcher } from "./transfo-gesture-watcher"
 
