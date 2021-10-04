@@ -1,0 +1,21 @@
+.ui-view-SurfaceView {
+    position: relative;
+    margin: 0;
+}
+
+.ui.view.SurfaceView.screen {
+    background-color: var(--theme-color-screen);
+    color: var(--theme-color-on-screen);
+}
+.ui.view.SurfaceView.frame {
+    background-color: var(--theme-color-frame);
+    color: var(--theme-color-on-frame);
+}
+.ui.view.SurfaceView.section {
+    background-color: var(--theme-color-section);
+    color: var(--theme-color-on-section);
+}
+.ui.view.SurfaceView.input {
+    background-color: var(--theme-color-input);
+    color: var(--theme-color-on-input);
+}

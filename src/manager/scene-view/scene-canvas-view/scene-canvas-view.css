@@ -1,0 +1,5 @@
+.factory-sceneViewFactory-SceneCanvasView {
+    margin: 0;
+    background-image: url(./background.jpg);
+    background-repeat: repeat;
+}

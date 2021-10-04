@@ -1,0 +1,18 @@
+.ui-view-LabelView {
+    opacity: .5;
+    font-size: .8rem;
+    line-height: 1.5rem;
+    margin: 0;
+    padding: 0 .5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ui-view-LabelView.error {
+    color: var(--theme-color-error);
+}
+
+.ui-view-LabelView.hide {
+    visibility: hidden;
+}

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FileSizeView/> in ui/view should be consistent with previous snapshot 1`] = `
+<div
+  className="custom ui-view-FileSizeView"
+>
+  <span
+    className="kb"
+  >
+    97 Kb
+  </span>
+</div>
+`;

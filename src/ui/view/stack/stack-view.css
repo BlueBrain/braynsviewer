@@ -1,0 +1,619 @@
+.ui-view-StackView {
+    position: relative;
+    overflow: hidden;
+    --duration: 300ms;
+}
+
+.ui-view-StackView.fullscreen {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.ui-view-StackView.fullscreen > *,
+.ui-view-StackView.animating > * {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.ui-view-StackView > div {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.ui-view-StackView.scrollable > div {
+    overflow-y: auto;
+}
+
+.ui-view-StackView.animating {
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.ui-view-StackView.animating > * {
+    animation-duration: var(--duration, 0.3s);
+    animation-fill-mode: forwards;
+}
+
+/** opacity **/
+@keyframes ui-view-StackView-ANIM-opacity-push-first {
+}
+
+@keyframes ui-view-StackView-ANIM-opacity-push-last {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes ui-view-StackView-ANIM-opacity-pop-first {
+}
+
+@keyframes ui-view-StackView-ANIM-opacity-pop-last {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.ui-view-StackView.anim-opacity.push > *:first-child {
+    animation-name: ui-view-StackView-ANIM-opacity-push-first;
+}
+
+.ui-view-StackView.anim-opacity.push > *:last-child {
+    animation-name: ui-view-StackView-ANIM-opacity-push-last;
+}
+
+.ui-view-StackView.anim-opacity.pop > *:first-child {
+    animation-name: ui-view-StackView-ANIM-opacity-pop-first;
+}
+
+.ui-view-StackView.anim-opacity.pop > *:last-child {
+    animation-name: ui-view-StackView-ANIM-opacity-pop-last;
+}
+
+/** circle **/
+@keyframes ui-view-StackView-ANIM-circle-push-first {
+}
+
+@keyframes ui-view-StackView-ANIM-circle-push-last {
+    from {
+        clip-path: circle(0);
+    }
+
+    to {
+        clip-path: circle(71%);
+    }
+}
+
+@keyframes ui-view-StackView-ANIM-circle-pop-first {
+}
+
+@keyframes ui-view-StackView-ANIM-circle-pop-last {
+    from {
+        clip-path: circle(71%);
+    }
+
+    to {
+        clip-path: circle(0);
+    }
+}
+
+.ui-view-StackView.anim-circle.push > *:first-child {
+    animation-name: ui-view-StackView-ANIM-circle-push-first;
+}
+
+.ui-view-StackView.anim-circle.push > *:last-child {
+    animation-name: ui-view-StackView-ANIM-circle-push-last;
+}
+
+.ui-view-StackView.anim-circle.pop > *:first-child {
+    animation-name: ui-view-StackView-ANIM-circle-pop-first;
+}
+
+.ui-view-StackView.anim-circle.pop > *:last-child {
+    animation-name: ui-view-StackView-ANIM-circle-pop-last;
+}
+
+/** scale **/
+@keyframes ui-view-StackView-ANIM-scale-push-first {
+}
+
+@keyframes ui-view-StackView-ANIM-scale-push-last {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes ui-view-StackView-ANIM-scale-pop-first {
+}
+
+@keyframes ui-view-StackView-ANIM-scale-pop-last {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+}
+
+.ui-view-StackView.anim-scale.push > *:first-child {
+    animation-name: ui-view-StackView-ANIM-scale-push-first;
+}
+
+.ui-view-StackView.anim-scale.push > *:last-child {
+    animation-name: ui-view-StackView-ANIM-scale-push-last;
+}
+
+.ui-view-StackView.anim-scale.pop > *:first-child {
+    animation-name: ui-view-StackView-ANIM-scale-pop-first;
+}
+
+.ui-view-StackView.anim-scale.pop > *:last-child {
+    animation-name: ui-view-StackView-ANIM-scale-pop-last;
+}
+
+/** slideright **/
+@keyframes ui-view-StackView-ANIM-slideright-push-first {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes ui-view-StackView-ANIM-slideright-push-last {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes ui-view-StackView-ANIM-slideright-pop-first {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes ui-view-StackView-ANIM-slideright-pop-last {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.ui-view-StackView.anim-slideright.push > *:first-child {
+    animation-name: ui-view-StackView-ANIM-slideright-push-first;
+}
+
+.ui-view-StackView.anim-slideright.push > *:last-child {
+    animation-name: ui-view-StackView-ANIM-slideright-push-last;
+}
+
+.ui-view-StackView.anim-slideright.pop > *:first-child {
+    animation-name: ui-view-StackView-ANIM-slideright-pop-first;
+}
+
+.ui-view-StackView.anim-slideright.pop > *:last-child {
+    animation-name: ui-view-StackView-ANIM-slideright-pop-last;
+}
+
+/** slideleft **/
+@keyframes ui-view-StackView-ANIM-slideleft-push-first {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes ui-view-StackView-ANIM-slideleft-push-last {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes ui-view-StackView-ANIM-slideleft-pop-first {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes ui-view-StackView-ANIM-slideleft-pop-last {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.ui-view-StackView.anim-slideleft.push > *:first-child {
+    animation-name: ui-view-StackView-ANIM-slideleft-push-first;
+}
+
+.ui-view-StackView.anim-slideleft.push > *:last-child {
+    animation-name: ui-view-StackView-ANIM-slideleft-push-last;
+}
+
+.ui-view-StackView.anim-slideleft.pop > *:first-child {
+    animation-name: ui-view-StackView-ANIM-slideleft-pop-first;
+}
+
+.ui-view-StackView.anim-slideleft.pop > *:last-child {
+    animation-name: ui-view-StackView-ANIM-slideleft-pop-last;
+}
+
+/** slidebottom **/
+@keyframes ui-view-StackView-ANIM-slidebottom-push-first {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes ui-view-StackView-ANIM-slidebottom-push-last {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes ui-view-StackView-ANIM-slidebottom-pop-first {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes ui-view-StackView-ANIM-slidebottom-pop-last {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(100%);
+    }
+}
+
+.ui-view-StackView.anim-slidebottom.push > *:first-child {
+    animation-name: ui-view-StackView-ANIM-slidebottom-push-first;
+}
+
+.ui-view-StackView.anim-slidebottom.push > *:last-child {
+    animation-name: ui-view-StackView-ANIM-slidebottom-push-last;
+}
+
+.ui-view-StackView.anim-slidebottom.pop > *:first-child {
+    animation-name: ui-view-StackView-ANIM-slidebottom-pop-first;
+}
+
+.ui-view-StackView.anim-slidebottom.pop > *:last-child {
+    animation-name: ui-view-StackView-ANIM-slidebottom-pop-last;
+}
+
+/** slidetop **/
+@keyframes ui-view-StackView-ANIM-slidetop-push-first {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes ui-view-StackView-ANIM-slidetop-push-last {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes ui-view-StackView-ANIM-slidetop-pop-first {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes ui-view-StackView-ANIM-slidetop-pop-last {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+.ui-view-StackView.anim-slidetop.push > *:first-child {
+    animation-name: ui-view-StackView-ANIM-slidetop-push-first;
+}
+
+.ui-view-StackView.anim-slidetop.push > *:last-child {
+    animation-name: ui-view-StackView-ANIM-slidetop-push-last;
+}
+
+.ui-view-StackView.anim-slidetop.pop > *:first-child {
+    animation-name: ui-view-StackView-ANIM-slidetop-pop-first;
+}
+
+.ui-view-StackView.anim-slidetop.pop > *:last-child {
+    animation-name: ui-view-StackView-ANIM-slidetop-pop-last;
+}
+
+/** coverright **/
+@keyframes ui-view-StackView-ANIM-coverright-push-first {
+}
+
+@keyframes ui-view-StackView-ANIM-coverright-push-last {
+    0% {
+        transform: translateX(100%);
+    }
+
+    80% {
+        transform: translateX(-15%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes ui-view-StackView-ANIM-coverright-pop-first {
+}
+
+@keyframes ui-view-StackView-ANIM-coverright-pop-last {
+    0% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-20%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.ui-view-StackView.anim-coverright.push > *:first-child {
+    animation-name: ui-view-StackView-ANIM-coverright-push-first;
+}
+
+.ui-view-StackView.anim-coverright.push > *:last-child {
+    animation-name: ui-view-StackView-ANIM-coverright-push-last;
+}
+
+.ui-view-StackView.anim-coverright.pop > *:first-child {
+    animation-name: ui-view-StackView-ANIM-coverright-pop-first;
+}
+
+.ui-view-StackView.anim-coverright.pop > *:last-child {
+    animation-name: ui-view-StackView-ANIM-coverright-pop-last;
+}
+
+/** coverleft **/
+@keyframes ui-view-StackView-ANIM-coverleft-push-first {
+}
+
+@keyframes ui-view-StackView-ANIM-coverleft-push-last {
+    from {
+        transform: translateX(-100%);
+    }
+
+    80% {
+        transform: translateX(15%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes ui-view-StackView-ANIM-coverleft-pop-first {
+}
+
+@keyframes ui-view-StackView-ANIM-coverleft-pop-last {
+    from {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(20%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.ui-view-StackView.anim-coverleft.push > *:first-child {
+    animation-name: ui-view-StackView-ANIM-coverleft-push-first;
+}
+
+.ui-view-StackView.anim-coverleft.push > *:last-child {
+    animation-name: ui-view-StackView-ANIM-coverleft-push-last;
+}
+
+.ui-view-StackView.anim-coverleft.pop > *:first-child {
+    animation-name: ui-view-StackView-ANIM-coverleft-pop-first;
+}
+
+.ui-view-StackView.anim-coverleft.pop > *:last-child {
+    animation-name: ui-view-StackView-ANIM-coverleft-pop-last;
+}
+
+/** coverbottom **/
+@keyframes ui-view-StackView-ANIM-coverbottom-push-first {
+}
+
+@keyframes ui-view-StackView-ANIM-coverbottom-push-last {
+    from {
+        transform: translateY(100%);
+    }
+
+    80% {
+        transform: translateY(-15%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes ui-view-StackView-ANIM-coverbottom-pop-first {
+}
+
+@keyframes ui-view-StackView-ANIM-coverbottom-pop-last {
+    from {
+        transform: translateY(0);
+    }
+
+    20% {
+        transform: translateY(-20%);
+    }
+
+    to {
+        transform: translateY(100%);
+    }
+}
+
+.ui-view-StackView.anim-coverbottom.push > *:first-child {
+    animation-name: ui-view-StackView-ANIM-coverbottom-push-first;
+}
+
+.ui-view-StackView.anim-coverbottom.push > *:last-child {
+    animation-name: ui-view-StackView-ANIM-coverbottom-push-last;
+}
+
+.ui-view-StackView.anim-coverbottom.pop > *:first-child {
+    animation-name: ui-view-StackView-ANIM-coverbottom-pop-first;
+}
+
+.ui-view-StackView.anim-coverbottom.pop > *:last-child {
+    animation-name: ui-view-StackView-ANIM-coverbottom-pop-last;
+}
+
+/** covertop **/
+@keyframes ui-view-StackView-ANIM-covertop-push-first {
+}
+
+@keyframes ui-view-StackView-ANIM-covertop-push-last {
+    from {
+        transform: translateY(-100%);
+    }
+
+    80% {
+        transform: translateY(15%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes ui-view-StackView-ANIM-covertop-pop-first {
+}
+
+@keyframes ui-view-StackView-ANIM-covertop-pop-last {
+    from {
+        transform: translateY(0);
+    }
+
+    20% {
+        transform: translateY(20%);
+    }
+
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+.ui-view-StackView.anim-covertop.push > *:first-child {
+    animation-name: ui-view-StackView-ANIM-covertop-push-first;
+}
+
+.ui-view-StackView.anim-covertop.push > *:last-child {
+    animation-name: ui-view-StackView-ANIM-covertop-push-last;
+}
+
+.ui-view-StackView.anim-covertop.pop > *:first-child {
+    animation-name: ui-view-StackView-ANIM-covertop-pop-first;
+}
+
+.ui-view-StackView.anim-covertop.pop > *:last-child {
+    animation-name: ui-view-StackView-ANIM-covertop-pop-last;
+}

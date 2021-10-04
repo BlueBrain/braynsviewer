@@ -1,0 +1,43 @@
+.ui-view-input-TextView {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.ui-view-input-TextView input {
+    line-height: 2rem;
+    background-color: var(--theme-color-input);
+    color: var(--theme-color-on-input);
+    border: none;
+    box-shadow: var(--theme-shadow-button);
+    padding: 0 0.5rem;
+}
+
+.ui-view-input-TextView.invalid input,
+.ui-view-input-TextView.invalid input:focus {
+    background-color: var(--theme-color-error);
+    color: var(--theme-color-on-error);
+}
+
+.ui-view-input-TextView input:focus {
+    background-color: var(--theme-color-accent-light);
+    color: var(--theme-color-on-accent-light);
+}
+
+.ui-view-input-TextView input[disabled] {
+    box-shadow: none;
+    outline: 1px solid var(--theme-color-input-opacity-50);
+    background-color: inherit;
+    color: inherit;
+}
+
+.ui-view-input-TextView.wide {
+    display: flex;
+    width: 100%;
+    box-sizing: content-box;
+}
+
+.ui-view-input-TextView.wide * {
+    width: 100%;
+    box-sizing: border-box;
+}
