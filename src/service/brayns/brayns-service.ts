@@ -1,4 +1,3 @@
-import JSON5 from "json5"
 import BraynsServiceInterface, {
     BraynsQueryFailure,
     BraynsQueryResult,
@@ -41,11 +40,19 @@ export default class BraynsService implements BraynsServiceInterface {
         this.eventConnectionStatus = makeEvent<boolean>()
     }
 
+    /**
+     * @throws `{ code: number, message: string, data?: any }`
+     */
     async exec(entryPointName: string, param?: any): Promise<SerializableData> {
         const data = await this.tryToExec(entryPointName, param)
         if (this.isError(data)) {
-            console.log("Brayns query failure!", data)
-            throw new Error(`${data.message} (#${data.code})`)
+            console.error(
+                `Brayns query failure for entrypoint "${entryPointName}"!`
+            )
+            console.error("    Params:", param)
+            console.error("    Error: ", data)
+            // eslint-disable-next-line no-throw-literal
+            throw { code: data.code, message: data.message, data: data.data }
         }
         return data.result
     }
@@ -167,9 +174,10 @@ export default class BraynsService implements BraynsServiceInterface {
             }
             this.pendingQueries.set(id, { id, entryPointName, param, resolve })
             try {
-                console.log(">>>", entryPointName, param)
-                this.ws?.send(JSON.stringify(message))
+                const payload = JSON.stringify(message)
+                this.ws?.send(payload)
             } catch (ex) {
+                console.log(">>>", entryPointName, param)
                 console.error(
                     "Unable to send a message through WebSocket: ",
                     ex
@@ -258,6 +266,7 @@ export default class BraynsService implements BraynsServiceInterface {
             success: false,
             code: error.code ?? 0,
             message: error.message ?? "Unknown error!",
+            data: error.data,
             entrypoint: query.entryPointName,
             param: query.param,
         })

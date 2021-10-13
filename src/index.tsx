@@ -1,10 +1,10 @@
-import TriggerableEvent from "@/tool/event"
 import React from "react"
 import ReactDOM from "react-dom"
 import {
     makeBraynsService,
     makeCameraService,
     makeConfigManager,
+    makeEntryPointsService,
     makeInfoService,
     makeRendererService,
     makeSceneService,
@@ -33,11 +33,14 @@ async function start() {
             <AppView
                 address={braynsAddress}
                 cameraService={makeCameraService(braynsAddress)}
+                entryPointsService={makeEntryPointsService(braynsAddress)}
                 infoService={makeInfoService(braynsAddress)}
                 rendererService={makeRendererService(braynsAddress)}
                 sceneService={makeSceneService(braynsAddress)}
                 sceneView={makeSceneViewManager(braynsAddress)}
-                spontaneaousUpdatesService={makeSpontaneousUpdatesService(braynsAddress)}
+                spontaneaousUpdatesService={makeSpontaneousUpdatesService(
+                    braynsAddress
+                )}
             />,
             root
         )

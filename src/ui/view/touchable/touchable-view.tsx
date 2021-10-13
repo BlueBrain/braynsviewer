@@ -3,6 +3,7 @@ import "./touchable-view.css"
 
 export interface TouchableViewProps<T> {
     className?: string
+    title?: string
     children: React.ReactNode
     enabled?: boolean
     tag?: T
@@ -12,6 +13,7 @@ export interface TouchableViewProps<T> {
 export default function TouchableView<T>(props: TouchableViewProps<T>) {
     return (
         <button
+            title={props.title}
             className={getClassNames<T>(props)}
             onClick={() => props.onClick(props.tag)}
         >

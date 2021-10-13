@@ -1,0 +1,16 @@
+include:
+  - project: viz/ci/gitlabpipelines
+    file: index.yml
+
+build:
+  extends: .build-ts
+
+docker:
+  variables:
+    CI_REGISTRY_IMAGE: docker-registry-default.ocp.bbp.epfl.ch/bbp-ou-visualization/brayns-viewer
+  extends: .build-image-using-kaniko
+
+publish:
+  variables:
+    CI_REGISTRY_IMAGE: docker-registry-default.ocp.bbp.epfl.ch/bbp-ou-visualization/brayns-viewer
+  extends: .publish-image-using-kaniko

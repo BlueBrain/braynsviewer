@@ -166,6 +166,7 @@ function applyColor(
     }
 }
 
+// eslint-disable-next-line no-unused-vars
 const COLOR_CLASSNAME_MAPPING: { [key in ColorNames]: string } = {
     "accent-dark": CSS_COLOR_ACCENT_DARK,
     "accent-light": CSS_COLOR_ACCENT_LIGHT,

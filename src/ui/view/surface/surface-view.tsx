@@ -1,6 +1,6 @@
 import * as React from "react"
-
 import "./surface-view.css"
+
 
 export interface SurfaceViewProps {
     className?: string
@@ -8,7 +8,7 @@ export interface SurfaceViewProps {
     children: string | JSX.Element | JSX.Element[]
 }
 
-export default function (props: SurfaceViewProps) {
+export default function SurfaceView(props: SurfaceViewProps) {
     return <div className={getClassNames(props)}>{props.children}</div>
 }
 
