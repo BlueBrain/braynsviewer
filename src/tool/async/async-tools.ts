@@ -48,8 +48,10 @@ const throttle = <F extends (...args: any[]) => any>(action: F, delay: number) =
     }
 }
 
-export default {
+const EXPORT = {
     sleep,
     debounce,
     throttle
 }
+
+export default EXPORT

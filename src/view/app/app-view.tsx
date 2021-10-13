@@ -24,6 +24,7 @@ export interface AppViewProps {
     // Brayns address.
     address: { host: string; port: number }
     cameraService: CameraServiceInterface
+    entryPointsService: EntryPointsServiceInterface
     infoService: InfoServiceInterface
     rendererService: RendererServiceInterface
     sceneService: SceneServiceInterface
@@ -35,6 +36,7 @@ export default function AppView(props: AppViewProps) {
     const {
         address,
         cameraService,
+        entryPointsService,
         infoService,
         rendererService,
         sceneService,
@@ -84,7 +86,10 @@ export default function AppView(props: AppViewProps) {
                             key="broadcast"
                             service={spontaneaousUpdatesService}
                         />
-                        <EntryPointsView key="entrypoints" />
+                        <EntryPointsView
+                            key="entrypoints"
+                            service={entryPointsService}
+                        />
                     </Stack>
                 </menu>
             </nav>

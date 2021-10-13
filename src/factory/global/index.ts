@@ -1,6 +1,7 @@
 export { default as makeBraynsService } from "./brayns-service"
 export { default as makeCameraService } from "./camera-service"
 export { default as makeConfigManager } from "./config-manager"
+export { default as makeEntryPointsService } from "./entry-points"
 export { default as makeEvent } from "./event"
 export { default as makeGeometry } from "./geometry"
 export { default as makeImageFactory } from "./image-factory"

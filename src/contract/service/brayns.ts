@@ -80,4 +80,5 @@ export interface BraynsQueryFailure extends BraynsQuery {
     success: false
     code: number
     message: string
+    data?: any
 }

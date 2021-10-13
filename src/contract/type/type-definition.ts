@@ -1,5 +1,3 @@
-import SerializableData from "./serializable-data"
-
 export type TypeDef =
     | BasicTypeDef
     | TypeIntegerDef
