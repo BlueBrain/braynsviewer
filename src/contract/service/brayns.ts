@@ -1,7 +1,7 @@
 import EventInterface from "../tool/event"
 import SerializableData from "../type/serializable-data"
 
-export default interface BraynsServiceInterface {
+export default interface BraynsServiceInterface {    
     // Triggers when Brayns send us unsollicited updates.
     eventUpdate: EventInterface<BraynsUpdate>
     // Triggers when Brayns send us a new image of the scene.
@@ -11,7 +11,7 @@ export default interface BraynsServiceInterface {
     // Try yo connect to BraynsService. Throws an exception in case of failure.
     connect(): Promise<void>
     /**
-     * Call a Brayns entrypoint and return the result.
+     * Call a Brayns entryPoint and return the result.
      * Throws an exception in case of failure.
      * @param entryPointName "get-camera", "get-scene", 'add-light", ...
      * @param param A serializable param for the entry point.
@@ -43,6 +43,16 @@ export default interface BraynsServiceInterface {
      * @see tryToExec()
      */
     isSuccess(data: BraynsQueryResult): data is BraynsQuerySuccess
+    /**
+     * When debug mode is enabled, this service will log to the console
+     * depending on the value of `debug`.
+     * * `false`: Nothing is logged.
+     * * `true`: Everything is logged.
+     * * Regular expression: Log only entryPoints whose name match the regexp.
+     * * Function: Log only if the function returns `true` for a given
+     * entryPoint name and its parameters.
+     */
+    debug: boolean | RegExp | ((entryPointName: string, params?: any) => boolean)
 }
 
 export interface LongTask {
@@ -67,7 +77,7 @@ export interface BraynsServiceAddress {
 export type BraynsQueryResult = BraynsQuerySuccess | BraynsQueryFailure
 
 interface BraynsQuery {
-    entrypoint: string
+    entryPoint: string
     param: SerializableData
 }
 

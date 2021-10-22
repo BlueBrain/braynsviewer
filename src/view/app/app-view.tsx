@@ -90,7 +90,7 @@ export default function AppView(props: AppViewProps) {
                             service={spontaneaousUpdatesService}
                         />
                         <EntryPointsView
-                            key="entrypoints"
+                            key="entryPoints"
                             service={entryPointsService}
                         />
                     </Stack>

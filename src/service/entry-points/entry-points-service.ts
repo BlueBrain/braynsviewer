@@ -72,11 +72,11 @@ export default class EntryPointsService implements EntryPointsServiceInterface {
             const data = await this.brayns.exec("registry")
             if (!isArray(data)) throw Error("We were expecting an array!")
 
-            const entrypoints: string[] = data.filter(
+            const entryPoints: string[] = data.filter(
                 item => typeof item === "string"
             ) as string[]
-            entrypoints.sort()
-            return entrypoints
+            entryPoints.sort()
+            return entryPoints
         } catch (ex) {
             console.error(
                 "Unable to get the list of available entry points:",

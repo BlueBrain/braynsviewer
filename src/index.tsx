@@ -26,6 +26,7 @@ async function start() {
 
     try {
         const brayns = makeBraynsService(braynsAddress)
+        brayns.debug = /stream/  // false
         await Modal.wait("Connecting Brayns Service...", brayns.connect())
 
         // Entry point for our app
