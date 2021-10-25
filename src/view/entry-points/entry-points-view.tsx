@@ -1,6 +1,6 @@
+import EntryPointsServiceInterface from "@/contract/service/entry-points"
+import Wizard from "@/ui/view/wizard"
 import * as React from "react"
-import EntryPointsServiceInterface from "../../contract/service/entry-points"
-import Wizard from "../../ui/view/wizard"
 import Detail from "./detail"
 import "./entry-points-view.css"
 import List from "./list"

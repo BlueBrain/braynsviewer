@@ -7,6 +7,7 @@ import {
     TypeObjectDef,
     TypeOneOfDef
 } from "@/contract/type/type-definition"
+import { isObject } from "@/tool/type-check"
 import * as React from "react"
 import "./params-documentation.css"
 
@@ -136,11 +137,6 @@ function getClassNames(props: ParamsDocumentationProps): string {
     }
 
     return classNames.join(" ")
-}
-
-function isObject(data: any): data is { [key: string]: any } {
-    if (Array.isArray(data)) return false
-    return typeof data === "object"
 }
 
 function isTypeInteger(data: any): data is TypeIntegerDef {

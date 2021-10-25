@@ -1,0 +1,14 @@
+.view-loaders-detail-FieldView {
+    margin: 0 -1rem;
+    padding: 1rem;
+    background-color: var(--theme-color-screen);
+}
+
+.view-loaders-detail-FieldView:nth-child(2n) {
+    background-color: var(--theme-color-section);
+}
+
+.view-loaders-detail-FieldView small {
+    opacity: .5;
+    font-size: .8em;
+}

@@ -7,10 +7,13 @@
 
 import React from 'react'
 import Renderer from 'react-test-renderer'
+import LoadersServiceInterface, { LoaderDefinition } from '../../contract/service/loaders'
+import LoadersServiceMock from '../../mock/loaders-service-mock'
 import LoadersView, { LoadersViewProps } from './loaders-view'
 
 function view(partialProps: Partial<LoadersViewProps>) {
-    const props: LoadersViewProps = {        
+    const props: LoadersViewProps = {
+        loadersService: new LoadersServiceMock(),
         ...partialProps
     }
     return Renderer.create(<LoadersView {...props} />).toJSON()

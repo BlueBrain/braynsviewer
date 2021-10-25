@@ -19,7 +19,7 @@
         "start": "webpack serve --mode development",
         "build": "webpack --mode production",
         "lint": "eslint -c .eslintrc.js 'src/**/*.ts' 'src/**/*.tsx'",
-        "test": "jest",
+        "test": "jest --testTimeout 10000 --runInBand --detectOpenHandles --forceExit",
         "test:watch": "jest --watch"
     },
     "devDependencies": {
@@ -55,7 +55,7 @@
         "html-webpack-plugin": "^5.3.2",
         "htmlparser2": "^7.1.2",
         "identity-obj-proxy": "^3.0.0",
-        "jest": "^27.2.5",
+        "jest": "^27.3.1",
         "jest-websocket-mock": "^2.2.1",
         "mock-socket": "^9.0.5",
         "node-sass": "^6.0.1",
@@ -76,9 +76,11 @@
     "jest": {
         "testEnvironment": "jsdom",
         "moduleFileExtensions": [
-            "ts",
             "tsx",
-            "js"
+            "ts",
+            "js",
+            "jsx",
+            "wasm"
         ],
         "transform": {
             "^.+\\.tsx?$": "ts-jest"
@@ -93,6 +95,11 @@
             }
         },
         "moduleNameMapper": {
+            "^@/contract/(.*)$": "<rootDir>/src/contract/$1",
+            "^@/mock/(.*)$": "<rootDir>/src/mock/$1",
+            "^@/tool/(.*)$": "<rootDir>/src/tool/$1",
+            "^@/ui/(.*)$": "<rootDir>/src/ui/$1",
+            "^@/view/(.*)$": "<rootDir>/src/view/$1",
             "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/mocks.js",
             "\\.(css|less)$": "<rootDir>/__mocks__/mocks.js"
         },
