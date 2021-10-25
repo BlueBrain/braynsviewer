@@ -1,12 +1,10 @@
-import { TriggerableEventInterface } from "../../contract/tool/event"
-import SceneServiceInterface, {
-    Model,
-    Scene
-} from "../../contract/service/scene"
-import { BoundingBox, Quaternion, Vector3 } from "../../contract/tool/geometry"
 import BraynsServiceInterface, {
     BraynsUpdate
-} from "../../contract/service/brayns"
+} from "@/contract/service/brayns"
+import SceneServiceInterface, { Model, Scene } from "@/contract/service/scene"
+import { TriggerableEventInterface } from "@/contract/tool/event"
+import { BoundingBox, Quaternion, Vector3 } from "@/contract/tool/geometry"
+import { isArray, isVector3, isVector4 } from "@/tool/type-check"
 
 export default class SceneService implements SceneServiceInterface {
     readonly eventChange: TriggerableEventInterface<SceneServiceInterface>
@@ -110,7 +108,7 @@ function isBraynsScene(data: any): data is BraynsScene {
     if (!data || typeof data !== "object") return false
     const { bounds, models } = data
     if (!isBoundingBox(bounds)) return false
-    if (!Array.isArray(models)) return false
+    if (!isArray(models)) return false
     for (const model of models) {
         if (!isBraynsModel(model)) return false
     }
@@ -150,25 +148,6 @@ function isBoundingBox(data: any): data is BoundingBox {
     return true
 }
 
-function isVector3(data: any): data is Vector3 {
-    if (!Array.isArray(data)) return false
-    const [x, y, z] = data
-    if (typeof x !== "number") return false
-    if (typeof y !== "number") return false
-    if (typeof z !== "number") return false
-    return true
-}
-
-function isQuaternion(data: any): data is Vector3 {
-    if (!Array.isArray(data)) return false
-    const [a, b, c, d] = data
-    if (typeof a !== "number") return false
-    if (typeof b !== "number") return false
-    if (typeof c !== "number") return false
-    if (typeof d !== "number") return false
-    return true
-}
-
 function isMetadata(data: any): data is { [key: string]: string } {
     if (!data || typeof data !== "object") return false
     return true
@@ -180,6 +159,6 @@ function isTransformation(data: any): data is BraynsModelTransformation {
     if (!isVector3(rotation_center)) return false
     if (!isVector3(translation)) return false
     if (!isVector3(scale)) return false
-    if (!isQuaternion(rotation)) return false
+    if (!isVector4(rotation)) return false
     return true
 }

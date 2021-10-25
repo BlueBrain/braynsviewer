@@ -1,1 +1,11 @@
-.view-LoadersView {}
+.view-LoadersView > div.children {
+    padding: .5rem;
+}
+
+.view-LoadersView div.error {
+    padding: 1rem;
+    border-radius: .5rem;
+    background-color: var(--theme-color-error);
+    color: var(--theme-color-on-error);
+    margin: 1rem;
+}

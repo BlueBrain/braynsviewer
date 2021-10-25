@@ -160,7 +160,7 @@ export default class Modal {
         promise: Promise<T>,
         options: Partial<ModalOptions> = {}
     ): Promise<T> {
-        return new Promise(resolve => {
+        return new Promise((resolve, reject) => {
             const modal = new Modal(options)
             modal.show(
                 <div className="ui-Modal-promise-waiter">
@@ -172,7 +172,10 @@ export default class Modal {
                 modal.hide()
                 resolve(arg)
             }
-            promise.then(hide, hide)
+            promise.then(hide, ex => {
+                modal.hide()
+                reject(ex)
+            })
         })
     }
 }

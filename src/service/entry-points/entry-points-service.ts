@@ -1,3 +1,4 @@
+import { isArray, isObject } from '@/tool/type-check'
 import JSON5 from "json5"
 import BraynsServiceInterface from "../../contract/service/brayns"
 import EntryPointsServiceInterface, {
@@ -86,25 +87,14 @@ export default class EntryPointsService implements EntryPointsServiceInterface {
     }
 }
 
-function isArray(data: any): data is any[] {
-    return Array.isArray(data)
-}
-
-function isDict(data: any): data is { [key: string]: any } {
-    if (typeof data !== "object") return false
-    if (Array.isArray(data)) return false
-
-    return true
-}
-
 function isSchemaMethod(data: any): data is SchemaMethod {
-    if (!isDict(data)) return false
+    if (!isObject(data)) return false
     const { type, async, description, title, params } = data
     if (type !== "method") return false
     if (typeof async !== "boolean") return false
     if (typeof description !== "string") return false
     if (typeof title !== "string") return false
-    if (!Array.isArray(params)) return false
+    if (!isArray(params)) return false
     return true
 }
 
@@ -152,7 +142,7 @@ function sanitizeTypeDef(type: TypeDef | string): TypeDef {
             if (type.type === "object") {
                 return {
                     ...type,
-                    required: Array.isArray(type.required) ? type.required : [],
+                    required: isArray(type.required) ? type.required : [],
                     properties: sanitizeProperties(type.properties ?? {}),
                 }
             }

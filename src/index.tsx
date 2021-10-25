@@ -6,6 +6,7 @@ import {
     makeConfigManager,
     makeEntryPointsService,
     makeInfoService,
+    makeLoadersService,
     makeRendererService,
     makeSceneService,
     makeSceneViewManager,
@@ -35,6 +36,7 @@ async function start() {
                 cameraService={makeCameraService(braynsAddress)}
                 entryPointsService={makeEntryPointsService(braynsAddress)}
                 infoService={makeInfoService(braynsAddress)}
+                loadersService={makeLoadersService(braynsAddress)}
                 rendererService={makeRendererService(braynsAddress)}
                 sceneService={makeSceneService(braynsAddress)}
                 sceneView={makeSceneViewManager(braynsAddress)}
