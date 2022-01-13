@@ -1,130 +1,259 @@
 /**
  * `is*()` functions are useful to help Typescript to narrow the type of a var.
- * `try*()` functions will throw an exception is the type is not the expected one.
+ * `assert*()` functions will throw an exception is the type is not the expected one.
  * These functions can be helpful when writing a complex type checker `is*()`
  * and being able to report where in the structure the type was wrong.
  */
 
-/**
- * Is `data` of type string?
- */
-export function isString(data: any): data is string {
-    return typeof data === "string"
-}
-
-export function tryString(data: any, name: string = "data") {
-    if (!isString(data)) {
-        throw Error(`Typeof ${name} must be String!`)
-    }
-}
-
-/**
- * Is `data` of type number?
- */
-export function isNumber(data: any): data is string {
-    return typeof data === "number"
-}
-
-export function tryNumber(data: any, name: string = "data") {
-    if (!isNumber(data)) {
-        throw Error(`Typeof ${name} must be Number!`)
-    }
-}
-
-/**
- * Is `data` of type array?
- */
-export function isArray(data: any): data is any[] {
-    return Array.isArray(data)
-}
-
-export function tryArray(data: any, name: string = "data") {
-    if (!isArray(data)) {
-        throw Error(`Typeof ${name} must be Array!`)
-    }
-}
-
-/**
- * Is `data` an array with each element being a string.
- */
-export function isStringArray(data: any): data is string[] {
-    if (!isArray(data)) return false
-    for (const value of data) {
-        if (typeof value !== "string") return false
-    }
-    return true
-}
-
-export function tryStringArray(data: any, name: string = "data") {
-    if (!isStringArray(data)) {
-        throw Error(`Typeof ${name} must be StringArray!`)
-    }
-}
-
-/**
- * Is `data` an array with each element being a number.
- */
-export function isNumberArray(data: any): data is number[] {
-    if (!isArray(data)) return false
-    for (const value of data) {
-        if (typeof value !== "number") return false
-    }
-    return true
-}
-
-export function tryNumberArray(data: any, name: string = "data") {
-    if (!isNumberArray(data)) {
-        throw Error(`Typeof ${name} must be NumberArray!`)
-    }
-}
-
-/**
- * Check if `data` is a non-null, non-undefined object
- * with string attributes of any type.
- */
-export function isObject(data: any): data is { [key: string]: any } {
-    if (!data || isArray(data)) return false
+export function isObject(data: unknown): data is { [key: string]: unknown } {
+    if (Array.isArray(data)) return false
     return typeof data === "object"
 }
 
-export function tryObject(data: any, name: string = "data") {
+export function assertObject(
+    data: unknown,
+    name = "data"
+): asserts data is { [key: string]: unknown } {
     if (!isObject(data)) {
-        throw Error(`Typeof ${name} must be Object!`)
+        console.error(`${name}:`, data)
+        throw Error(
+            `${name} was expected to be an object but we got ${typeof data}!`
+        )
+    }
+}
+
+export function assertObjectOrUndefined(
+    data: unknown,
+    name = "data"
+): asserts data is { [key: string]: unknown } | undefined {
+    if (typeof data !== "undefined" && !isObject(data)) {
+        console.error(`${name}:`, data)
+        throw Error(
+            `${name} was expected to be an object but we got ${typeof data}!`
+        )
+    }
+}
+
+export function isString(data: unknown): data is string {
+    return typeof data === "string"
+}
+
+export function assertString(
+    data: unknown,
+    name = "data"
+): asserts data is string {
+    if (!isString(data)) {
+        throw Error(
+            `${name} was expected to be a string but we got ${typeof data}!`
+        )
     }
 }
 
 /**
- * Is `data` of type [number, number, number]?
+ * Return `data` only if it is a string, otherwise return `defaultValue`.
  */
-export function isVector3(data: any): data is [number, number, number] {
-    if (!isArray(data)) return false
-    if (data.length !== 3) return false
-    for (const item of data) {
-        if (!isNumber(item)) return false
-    }
-    return true
+export function ensureString(data: unknown, defaultValue: string): string {
+    return isString(data) ? data : defaultValue
 }
 
-export function tryVector3(data: any, name: string = "data") {
-    if (!isVector3(data)) {
-        throw Error(`Typeof ${name} must be Vector3!`)
+export function isStringOrUndefined(data: unknown): data is string | undefined {
+    return typeof data === "string" || typeof data === "undefined"
+}
+
+export function assertStringOrUndefined(
+    data: unknown,
+    name = "data"
+): asserts data is string | undefined {
+    if (!isStringOrUndefined(data)) {
+        console.error(`${name}:`, data)
+        throw Error(
+            `${name} was expected to ba a string or undefined but we got ${typeof data}!`
+        )
+    }
+}
+
+export function isNumber(data: unknown): data is number {
+    return typeof data === "number"
+}
+
+export function assertNumber(
+    data: unknown,
+    name = "data"
+): asserts data is number {
+    if (!isNumber(data)) {
+        throw Error(
+            `${name} was expected to be a number but we got ${typeof data}!`
+        )
+    }
+}
+
+export function assertNumberOrUndefined(
+    data: unknown,
+    name = "data"
+): asserts data is number | undefined {
+    if (typeof data !== "undefined" && !isNumber(data)) {
+        throw Error(
+            `${name} was expected to be a number but we got ${typeof data}!`
+        )
     }
 }
 
 /**
- * Is `data` of type [number, number, number, number]?
+ * Return `data` only if it is a number, otherwise return `defaultValue`.
  */
-export function isVector4(data: any): data is [number, number, number, number] {
-    if (!isArray(data)) return false
-    if (data.length !== 4) return false
+export function ensureNumber(data: unknown, defaultValue: number): number {
+    return isNumber(data) ? data : defaultValue
+}
+
+export function isBoolean(data: unknown): data is boolean {
+    return typeof data === "boolean"
+}
+
+export function assertBoolean(
+    data: unknown,
+    name = "data"
+): asserts data is boolean {
+    if (!isBoolean(data)) {
+        throw Error(
+            `${name} was expected to be a boolean but we got ${typeof data}!`
+        )
+    }
+}
+
+export function assertBooleanOrUndefined(
+    data: unknown,
+    name = "data"
+): asserts data is boolean | undefined {
+    if (typeof data !== "undefined" && !isBoolean(data)) {
+        throw Error(
+            `${name} was expected to be a boolean but we got ${typeof data}!`
+        )
+    }
+}
+
+export function isArrayBuffer(data: unknown): data is ArrayBuffer {
+    if (!data) return false
+    return data instanceof ArrayBuffer
+}
+
+export function isStringArray(data: unknown): data is string[] {
+    if (!Array.isArray(data)) return false
     for (const item of data) {
-        if (!isNumber(item)) return false
+        if (!isString(item)) return false
     }
     return true
 }
 
-export function tryVector4(data: any, name: string = "data") {
-    if (!isVector4(data)) {
-        throw Error(`Typeof ${name} must be Vector4!`)
+export function assertStringArray(
+    data: unknown,
+    name = "data"
+): asserts data is string[] {
+    if (!isStringArray(data)) {
+        throw Error(
+            `${name} was expected to be an array of strings but we got ${typeof data}!`
+        )
     }
+}
+
+export function assertStringArrayOrUndefined(
+    data: unknown,
+    name = "data"
+): asserts data is string[] | undefined {
+    if (typeof data !== "undefined" && !isStringArray(data)) {
+        throw Error(
+            `${name} was expected to be an array of strings but we got ${typeof data}!`
+        )
+    }
+}
+
+export function isArray(data: unknown): data is unknown[] {
+    return Array.isArray(data)
+}
+
+export function assertArray(
+    data: unknown,
+    name = "data"
+): asserts data is unknown[] {
+    if (!isArray(data)) {
+        throw Error(
+            `${name} was expected to be an array but we got ${typeof data}!`
+        )
+    }
+}
+
+export function isNumberArray(data: unknown): data is number[] {
+    if (!isArray(data)) return false
+    for (const element of data) {
+        if (!isNumber(element)) return false
+    }
+    return true
+}
+
+export function assertVector2Array(
+    data: unknown,
+    suffix = "data"
+): asserts data is Array<[number, number]> {
+    assertArray(data, suffix)
+    for (let i = 0; i < data.length; i++) {
+        const elem: unknown = data[i]
+        assertVector2(elem, `${suffix}[${i}]`)
+    }
+}
+
+export function assertVector3Array(
+    data: unknown,
+    suffix = "data"
+): asserts data is Array<[number, number, number]> {
+    assertArray(data, suffix)
+    for (let i = 0; i < data.length; i++) {
+        const elem: unknown = data[i]
+        assertVector3(elem, `${suffix}[${i}]`)
+    }
+}
+
+export function assertVector2(
+    data: unknown,
+    suffix = "data"
+): asserts data is [number, number] {
+    assertArray(data, suffix)
+    const [x, y] = data as [unknown, unknown]
+    assertNumber(x, `${suffix}[0]`)
+    assertNumber(y, `${suffix}[1]`)
+}
+
+export function isVector3(data: unknown): data is [number, number, number] {
+    if (!isArray(data)) return false
+    const [x, y, z] = data as [unknown, unknown, unknown]
+    return isNumber(x) && isNumber(y) && isNumber(z)
+}
+
+export function assertVector3(
+    data: unknown,
+    suffix = "data"
+): asserts data is [number, number, number] {
+    assertArray(data, suffix)
+    const [x, y, z] = data as [unknown, unknown, unknown]
+    assertNumber(x, `${suffix}[0]`)
+    assertNumber(y, `${suffix}[1]`)
+    assertNumber(z, `${suffix}[2]`)
+}
+
+export function isVector4(
+    data: unknown
+): data is [number, number, number, number] {
+    if (!isArray(data)) return false
+    const [x, y, z, w] = data as [unknown, unknown, unknown, unknown]
+    return isNumber(x) && isNumber(y) && isNumber(z) && isNumber(w)
+}
+
+export function assertVector4(
+    data: unknown,
+    suffix = "data"
+): asserts data is [number, number, number, number] {
+    assertArray(data, suffix)
+    const [x, y, z, w] = data as [unknown, unknown, unknown, unknown]
+    assertNumber(x, `${suffix}[0]`)
+    assertNumber(y, `${suffix}[1]`)
+    assertNumber(z, `${suffix}[2]`)
+    assertNumber(w, `${suffix}[3]`)
 }

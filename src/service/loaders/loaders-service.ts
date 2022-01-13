@@ -2,15 +2,18 @@ import BraynsServiceInterface from "@/contract/service/brayns"
 import LoadersServiceInterface, {
     AddModelParams,
     LoaderDefinition,
-    LoaderPropertyDefinition
+    LoaderPropertyDefinition,
 } from "@/contract/service/loaders"
 import {
-    isStringArray,
-    tryArray,
-    tryNumber,
-    tryObject,
-    tryString,
-    tryStringArray
+    assertArray,
+    assertObject,
+    assertString,
+    assertStringArray,
+    assertBooleanOrUndefined,
+    assertStringOrUndefined,
+    assertStringArrayOrUndefined,
+    assertNumberOrUndefined,
+    assertObjectOrUndefined,
 } from "@/tool/type-check"
 
 export default class LoadersService implements LoadersServiceInterface {
@@ -32,7 +35,6 @@ export default class LoadersService implements LoadersServiceInterface {
             await this.getLoadersExtensionsAndDefaultValues(
                 LoadersService.loaders
             )
-            await this.getLoadersPropertiesDefinitions(LoadersService.loaders)
             // Sort by names in ascending order without taking care of case.
             LoadersService.loaders.sort((a, b) => {
                 const nameA = a.name.trim().toLowerCase()
@@ -43,20 +45,6 @@ export default class LoadersService implements LoadersServiceInterface {
             })
         }
         return LoadersService.loaders
-    }
-
-    /**
-     * By calling "loaders-schema" we get the detail of loaders properties.
-     * That means human readable name, description and expected type.
-     */
-    private async getLoadersPropertiesDefinitions(loaders: LoaderDefinition[]) {
-        const loadersSchema = await this.brayns.exec("loaders-schema")
-        if (!isLoadersSchema(loadersSchema)) return
-
-        for (const loaderSchema of loadersSchema.oneOf) {
-            const loader = findLoader(loaders, loaderSchema.title)
-            if (loader) completeProperties(loader, loaderSchema.properties)
-        }
     }
 
     /**
@@ -79,14 +67,7 @@ export default class LoadersService implements LoadersServiceInterface {
             loaders.push({
                 name: def.name,
                 extensions: def.extensions,
-                properties: Object.keys(def.properties).map(propertyName => ({
-                    name: propertyName,
-                    // `title` will be defined by "schema-loaders".
-                    // If not, we will use the technical name.
-                    title: propertyName,
-                    defaultValue: def.properties[propertyName],
-                    type: "string",
-                })),
+                properties: parseInputParameters(def.inputParametersSchema),
             })
         }
     }
@@ -98,15 +79,23 @@ export default class LoadersService implements LoadersServiceInterface {
 interface LoadersExtensionDef {
     name: string
     extensions: string[]
-    properties: { [key: string]: string | number | boolean | number[] }
+    inputParametersSchema: InputParametersSchema
+}
+
+interface InputParametersSchema {
+    additionalProperties?: boolean
+    properties?: { [key: string]: LoadersSchemaProperty }
+    required?: string[]
+    title?: string
+    type?: string
 }
 
 function isLoadersExtensionDefArray(data: any): data is LoadersExtensionDef[] {
     try {
-        tryArray(data)
+        assertArray(data)
         for (let i = 0; i < data.length; i++) {
             const item = data[i]
-            tryLoadersExtensionDef(item, `data[${i}]`)
+            assertLoadersExtensionDef(item, `data[${i}]`)
         }
         return true
     } catch (ex) {
@@ -115,27 +104,49 @@ function isLoadersExtensionDefArray(data: any): data is LoadersExtensionDef[] {
     }
 }
 
-function tryLoadersExtensionDef(data: any, prefix: string) {
-    tryObject(data, prefix)
-    const { name, extensions, properties } = data
-    tryString(name, `${prefix}.name`)
-    tryStringArray(extensions, `${prefix}.extensions`)
-    tryObject(properties, `${prefix}.properties`)
+function assertLoadersExtensionDef(
+    data: any,
+    prefix: string
+): asserts data is LoadersExtensionDef {
+    assertObject(data, prefix)
+    const { name, extensions, inputParametersSchema } = data
+    assertString(name, `${prefix}.name`)
+    assertStringArray(extensions, `${prefix}.extensions`)
+    assertInputParametersSchema(
+        inputParametersSchema,
+        `${prefix}.inputParametersSchema`
+    )
 }
 
-interface LoadersSchema {
-    title: "loaders"
-    oneOf: Array<{
-        title: string
-        properties: {
-            [key: string]: LoadersSchemaProperty
+function assertInputParametersSchema(
+    data: unknown,
+    prefix: string
+): asserts data is InputParametersSchema {
+    assertObject(data, prefix)
+    const { additionalProperties, properties, required, title, type } = data
+    assertBooleanOrUndefined(
+        additionalProperties,
+        `${prefix}.additionalProperties`
+    )
+    assertObjectOrUndefined(properties, `${prefix}.properties`)
+    if (properties) {
+        for (const propName of Object.keys(properties)) {
+            const prop = properties[propName]
+            assertLoadersSchemaProperty(
+                prop,
+                `${prefix}.properties.${propName}`
+            )
         }
-    }>
+    }
+    assertStringArrayOrUndefined(required, `${prefix}.required`)
+    assertStringOrUndefined(title, `${prefix}.title`)
+    assertStringOrUndefined(type, `${prefix}.type`)
 }
 
 interface LoadersSchemaProperty {
-    title: string
-    type: string
+    title?: string
+    type?: string
+    default?: string | number | boolean
     description?: string
     enum?: any[]
     minItems?: number
@@ -143,151 +154,99 @@ interface LoadersSchemaProperty {
     items?: { type: string }
 }
 
-function isLoadersSchema(data: any): data is LoadersSchema {
-    try {
-        tryObject(data)
-        if (data.title !== "loaders")
-            throw Error('Value of data.title must be "loaders"!')
-        const { oneOf } = data
-        tryArray(oneOf, "data.oneOf")
-        for (let i = 0; i < oneOf.length; i++) {
-            const loader = oneOf[i]
-            const prefix = `data.oneOf[${i}]`
-            tryObject(loader, prefix)
-            if (typeof loader.properties === "undefined") loader.properties = {}
-            const { title, properties } = loader
-            tryString(title, `${prefix}.title`)
-            tryObject(properties, `${prefix}.properties`)
-            for (const propertyName of Object.keys(properties)) {
-                const property = properties[propertyName]
-                tryLoadersSchemaProperty(
-                    property,
-                    `${prefix}.properties["${propertyName}"]`
-                )
-            }
-        }
-        return true
-    } catch (ex) {
-        console.error("This data is not of type LoadersSchema:", data)
-        console.error(ex)
-        return false
-    }
-}
-
 /**
  * Throw a meaningful exception if `property` is not
  * of type `LoadersSchemaProperty`.
  */
-function tryLoadersSchemaProperty(property: any, prefix: string) {
-    tryObject(property, prefix)
-    const { title, type } = property
-    tryString(title, `${prefix}.title`)
-    tryString(type, `${prefix}.type`)
-    if (typeof property.description !== "undefined") {
-        tryString(property.description, `${prefix}.description`)
-    }
-    if (typeof property.enum !== "undefined") {
-        tryArray(property.enum, `${prefix}.enum`)
-    }
-    if (typeof property.minItems !== "undefined") {
-        tryNumber(property.minItems, `${prefix}.minItems`)
-    }
-    if (typeof property.maxItems !== "undefined") {
-        tryNumber(property.maxItems, `${prefix}.maxItems`)
+function assertLoadersSchemaProperty(
+    property: any,
+    prefix: string
+): asserts property is LoadersSchemaProperty {
+    try {
+        assertObject(property, prefix)
+        const { title, type } = property
+        assertStringOrUndefined(title, `${prefix}.title`)
+        assertStringOrUndefined(type, `${prefix}.type`)
+        assertStringOrUndefined(property.description, `${prefix}.description`)
+        assertStringArrayOrUndefined(property.enum, `${prefix}.enum`)
+        assertNumberOrUndefined(property.minItems, `${prefix}.minItems`)
+        assertNumberOrUndefined(property.maxItems, `${prefix}.maxItems`)
+    } catch (ex) {
+        console.error(
+            `Property "${prefix}" is not of type "LoadersSchemaProperty":`,
+            property
+        )
+        throw ex
     }
 }
 
-/**
- * Try to find a loader given its title.
- * @returns `null` if not found.
- */
-function findLoader(
-    loaders: LoaderDefinition[],
-    title: string
-): LoaderDefinition | null {
-    const loader = loaders.find(item => item.name === title)
-    if (typeof loader !== "undefined") return loader
-
-    console.error(
-        `Loader "${title}" is defined in "loaders-schema" but not in "get-loaders"!`
-    )
-    return null
-}
-
-function completeProperties(
-    loader: LoaderDefinition,
-    propertiesSchemas: { [key: string]: LoadersSchemaProperty }
-) {
-    for (const propertyName of Object.keys(propertiesSchemas)) {
-        const property = loader.properties.find(p => p.name === propertyName)
-        if (!property) {
-            console.error(`Problem with definition of loader "${loader.name}"!`)
-            console.error(
-                `Property "${propertyName}" is defined in "schema-loaders" but not in "get-loaders"!`
+function parseInputParameters(
+    inputParametersSchema: InputParametersSchema
+): LoaderPropertyDefinition[] {
+    const loaderPropsDef: LoaderPropertyDefinition[] = []
+    const { properties } = inputParametersSchema
+    if (properties) {
+        for (const name of Object.keys(properties)) {
+            const prop = properties[name]
+            loaderPropsDef.push(
+                convertType(prop, {
+                    name,
+                    title: prop.title ?? name,
+                    defaultValue: prop.default,
+                    description: prop.description,
+                    minItems: prop.minItems,
+                    maxItems: prop.maxItems,
+                })
             )
-            continue
         }
-        const propertySchema = propertiesSchemas[
-            propertyName
-        ] as LoadersSchemaProperty
-        completeProperty(property, propertySchema)
     }
+    return loaderPropsDef
 }
 
-function completeProperty(
-    property: LoaderPropertyDefinition,
-    schema: LoadersSchemaProperty
-) {
-    property.title = schema.title
-    property.description = schema.description
-    if (isStringArray(schema.enum)) {
-        property.type = schema.enum
-        return
-    }
-    switch (schema.type) {
+function convertType(
+    propSchema: LoadersSchemaProperty,
+    propDef: LoaderPropertyDefinition
+): LoaderPropertyDefinition {
+    switch (propSchema.type) {
         case "string":
         case "number":
         case "boolean":
         case "integer":
-            property.type = schema.type
-            return
+            propDef.type = propSchema.type
+            return propDef
         case "array":
-            completePropertyArray(property, schema)
-            break
+            return convertArrayType(propSchema, propDef)
         default:
-            console.error(
-                `Don't know type "${schema.type}" of property "${property.name}"!`,
-                property,
-                schema
-            )
+            return propDef
     }
 }
 
-function completePropertyArray(
-    property: LoaderPropertyDefinition,
-    schema: LoadersSchemaProperty
-) {
-    const { minItems, maxItems } = schema
-    property.minItems = minItems
-    property.maxItems = maxItems
-    const subType = schema.items?.type
+function convertArrayType(
+    propSchema: LoadersSchemaProperty,
+    propDef: LoaderPropertyDefinition
+): LoaderPropertyDefinition {
+    const { minItems, maxItems } = propSchema
+    propSchema.minItems = minItems
+    propSchema.maxItems = maxItems
+    const subType = propSchema.items?.type
     if (subType === "number") {
         if (minItems === 3 && maxItems === 3) {
-            property.type = "vector3"
-            return
+            propDef.type = "vector3"
+            return propDef
         }
         if (minItems === 4 && maxItems === 4) {
-            property.type = "vector4"
-            return
+            propDef.type = "vector4"
+            return propDef
         }
     }
     switch (subType) {
         case "integer":
         case "number":
         case "string":
-            property.type = `${subType}[]`
-            return
+            propDef.type = `${subType}[]`
+            return propDef
         default:
-            throw Error(`Don't know how to deal with Array of "${subType}"!`)
+            console.warn(`Don't know how to deal with Array of "${subType}"!`)
+            return propDef
     }
 }

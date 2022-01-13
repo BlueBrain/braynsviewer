@@ -124,6 +124,7 @@ export default class BraynsService implements BraynsServiceInterface {
         }
         return new Promise((resolve, reject) => {
             const url = this.getWebSocketURL()
+            console.log('🚀 [brayns-service] url = ', url) // @FIXME: Remove this line written on 2022-01-13 at 10:14
             const protocol = "rockets"
             const handleError = ex => {
                 console.error(
@@ -141,6 +142,7 @@ export default class BraynsService implements BraynsServiceInterface {
                 resolve()
             }
             try {
+                console.log(`Connecting "${url}" with protocol "${protocol}"...`)
                 const ws = new WebSocket(url, [protocol])
                 this.ws = ws
                 // This is very IMPORTANT!

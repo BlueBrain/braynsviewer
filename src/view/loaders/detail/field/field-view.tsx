@@ -6,6 +6,7 @@ import Options from "@/ui/view/options"
 import Combo from "@/ui/view/simple-combo"
 import JSON5 from 'json5'
 import * as React from "react"
+import { isArray } from "../../../../tool/type-check"
 import JsonEditorView from "../../../json-editor/json-editor-view"
 import "./field-view.css"
 import Vector3Field from './vector3'
@@ -38,6 +39,7 @@ function getClassNames(props: FieldViewProps): string {
     if (typeof props.className === "string") {
         classNames.push(props.className)
     }
+    classNames.push(getTypeClassName(props.property.type))
 
     return classNames.join(" ")
 }
@@ -115,3 +117,13 @@ function renderProperty(
             </>
     }
 }
+
+/**
+ * With a classname for every type, we can adjust some margins.
+ */
+function getTypeClassName(type: string | string[] | undefined): string {
+    if (!type) return "undefined"
+    if (isArray(type)) return "enum"
+    return type
+}
+
