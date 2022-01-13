@@ -20,7 +20,10 @@
         "build": "webpack --mode production",
         "lint": "eslint -c .eslintrc.js 'src/**/*.ts' 'src/**/*.tsx'",
         "test": "jest --testTimeout 10000 --runInBand --detectOpenHandles --forceExit",
-        "test:watch": "jest --watch"
+        "test:watch": "jest --watch",
+        "docker:build": "docker build -t bbpgitlab.epfl.ch:5050/viz/brayns/brayns-viewer:latest .",
+        "docker:push": "docker login bbpgitlab.epfl.ch:5050 && docker image push bbpgitlab.epfl.ch:5050/viz/brayns/brayns-viewer:latest",
+        "k8s:dashboard": "kubectl auth-proxy -n kubernetes-dashboard https://kubernetes-dashboard.svc"
     },
     "devDependencies": {
         "@babel/preset-typescript": "^7.15.0",

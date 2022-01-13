@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dev-frontend-braynsviewer-ingress
+  namespace: bbp-ou-visualization
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: dev.braynsviewer.kcp.bbp.epfl.ch
+      http:
+        paths:
+          - path: "/"
+            pathType: Prefix
+            backend:
+              service:
+                name: dev-frontend-braynsviewer-service
+                port:
+                  number: 80
