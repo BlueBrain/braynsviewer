@@ -19,10 +19,11 @@
         "start": "webpack serve --mode development",
         "build": "webpack --mode production",
         "lint": "eslint -c .eslintrc.js 'src/**/*.ts' 'src/**/*.tsx'",
+        "format": "npx prettier --write src/",
         "test": "jest --testTimeout 10000 --runInBand --detectOpenHandles --forceExit",
         "test:watch": "jest --watch",
-        "docker:build": "docker build -t bbpgitlab.epfl.ch:5050/viz/brayns/brayns-viewer:latest .",
-        "docker:push": "docker login bbpgitlab.epfl.ch:5050 && docker image push bbpgitlab.epfl.ch:5050/viz/brayns/brayns-viewer:latest",
+        "docker:build": "docker build -t bbpgitlab.epfl.ch:5050/viz/brayns/braynsviewer:latest .",
+        "docker:push": "docker login bbpgitlab.epfl.ch:5050 && docker image push bbpgitlab.epfl.ch:5050/viz/brayns/braynsviewer:latest",
         "k8s:dashboard": "kubectl auth-proxy -n kubernetes-dashboard https://kubernetes-dashboard.svc"
     },
     "devDependencies": {
@@ -61,6 +62,7 @@
         "jest": "^27.3.1",
         "jest-websocket-mock": "^2.2.1",
         "mock-socket": "^9.0.5",
+        "prettier": "2.5.1",
         "raw-loader": "^4.0.2",
         "react-test-renderer": "^17.0.2",
         "style-loader": "^3.3.0",
