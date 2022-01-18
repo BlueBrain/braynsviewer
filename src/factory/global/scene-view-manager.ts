@@ -7,7 +7,7 @@ import makeEvent from "./event"
 import makeGeometry from "./geometry"
 import makeTransfoGestureWatcher from "./transfo-gesture-watcher"
 
-import SceneViewManager from '../../manager/scene-view'
+import SceneViewManager from "../../manager/scene-view"
 
 /**
  * Return a new scene view manager for this `braynsAddress`.

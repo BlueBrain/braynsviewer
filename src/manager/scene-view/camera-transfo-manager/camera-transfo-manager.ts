@@ -1,10 +1,10 @@
 import CameraServiceInterface, {
     CameraCommonParams,
-    CameraTransformation
+    CameraTransformation,
 } from "../../../contract/service/camera"
 import GeometryInterface, { Vector3 } from "../../../contract/tool/geometry"
 import TransfoGestureWatcherInterface, {
-    TranslationEvent
+    TranslationEvent,
 } from "../../../contract/watcher/transfo-gesture"
 
 export default class CameraTransfoManager {
@@ -69,7 +69,7 @@ export default class CameraTransfoManager {
 
     private handleOrbit = (evt: TranslationEvent) => {
         if (!this.enabled) return
-        
+
         console.log("ORBIT")
         if (evt.isBegin) {
             this._referenceCameraTransfo = {
@@ -124,7 +124,7 @@ export default class CameraTransfoManager {
 
     private handleZoom = (delta: number) => {
         if (!this.enabled) return
-        
+
         const SCALE = 0.001
         const geom = this.geometry
         const transfo = this._cameraTransfo

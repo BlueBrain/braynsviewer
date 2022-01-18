@@ -1,10 +1,9 @@
-import { IRule, ISection } from './types'
-
+import { IRule, ISection } from "./types"
 
 /**
  * Reduce a content into an array of tokens.
  * Each token is made of a className, a starting position and a length.
- * 
+ *
  * @param content String content we want to tokenize.
  * @param rules Rules to be tested one after the other.
  * The first matching one will return the className of a section: the token.
@@ -30,7 +29,7 @@ export function tokenize(
             sections.push({
                 className,
                 start: index,
-                length: matchedItem.length
+                length: matchedItem.length,
             })
             index += matchedItem.length
             hasMatchedSomething = true
@@ -41,7 +40,7 @@ export function tokenize(
             sections.push({
                 className: errorClassName,
                 start: index,
-                length: content.length - index
+                length: content.length - index,
             })
             break
         }
@@ -50,8 +49,11 @@ export function tokenize(
     return sections
 }
 
-export function filter(sections: ISection[], classNamesToRemove: string[]): ISection[] {
+export function filter(
+    sections: ISection[],
+    classNamesToRemove: string[]
+): ISection[] {
     return sections.filter(
-        section => !classNamesToRemove.includes(section.className)
+        (section) => !classNamesToRemove.includes(section.className)
     )
 }

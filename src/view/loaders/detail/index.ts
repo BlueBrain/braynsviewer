@@ -1,1 +1,1 @@
-export { default } from './loader-detail-view'
+export { default } from "./loader-detail-view"

@@ -1,15 +1,18 @@
-import LoadersServiceInterface, { AddModelParams, LoaderDefinition } from "@/contract/service/loaders"
-import { isObject } from '@/tool/type-check'
+import LoadersServiceInterface, {
+    AddModelParams,
+    LoaderDefinition,
+} from "@/contract/service/loaders"
+import { isObject } from "@/tool/type-check"
 import { useLocalStorageState } from "@/ui/hook"
-import Modal from '@/ui/modal'
+import Modal from "@/ui/modal"
 import Button from "@/ui/view/button"
 import Expand from "@/ui/view/expand"
 import FloatingButton from "@/ui/view/floating-button"
 import Input from "@/ui/view/input/text"
-import Runnable from '@/view/runnable'
+import Runnable from "@/view/runnable"
 import * as React from "react"
 import Field from "./field"
-import { useLoaderValues } from './hooks'
+import { useLoaderValues } from "./hooks"
 import "./loader-detail-view.css"
 
 export interface LoaderDetailViewProps {
@@ -31,8 +34,13 @@ export default function LoaderDetailView(props: LoaderDetailViewProps) {
         `LoadersDetailView/${props.loader?.name}`
     )
     const [values, setValues] = useLoaderValues(loader)
-    const addModelParams = makeAddModelParams(loader?.name ?? '', filename, values)
-    const handleExportCode = () => Modal.info(<pre>{prettify(addModelParams)}</pre>)
+    const addModelParams = makeAddModelParams(
+        loader?.name ?? "",
+        filename,
+        values
+    )
+    const handleExportCode = () =>
+        Modal.info(<pre>{prettify(addModelParams)}</pre>)
     const handleExecute = makeExecute(
         addModelParams,
         setBusy,
@@ -44,32 +52,41 @@ export default function LoaderDetailView(props: LoaderDetailViewProps) {
     )
     return (
         <Runnable className={getClassNames(props)} running={busy}>
-            <div >
+            <div>
                 {loader && (
                     <>
                         <header>
-                            <FloatingButton icon="arrow-left" onClick={onBack} />
+                            <FloatingButton
+                                icon="arrow-left"
+                                onClick={onBack}
+                            />
                             <h1>{loader.name}</h1>
                         </header>
-                        {
-                            error &&
-                            <Expand label="Error" value={showError} onChange={setExpandError}>
+                        {error && (
+                            <Expand
+                                label="Error"
+                                value={showError}
+                                onChange={setExpandError}
+                            >
                                 <pre className="error">{error}</pre>
                             </Expand>
-                        }
-                        {
-                            result &&
-                            <Expand label="result" value={showResult} onChange={setExpandResult}>
+                        )}
+                        {result && (
+                            <Expand
+                                label="result"
+                                value={showResult}
+                                onChange={setExpandResult}
+                            >
                                 <pre className="result">{result}</pre>
                             </Expand>
-                        }
+                        )}
                         <Input
                             wide={true}
                             label="Full path of the file to load"
                             value={filename}
                             onChange={setFilename}
                         />
-                        {loader.properties.map(property => (
+                        {loader.properties.map((property) => (
                             <Field
                                 key={property.name}
                                 property={property}
@@ -130,21 +147,24 @@ function makeAddModelParams(
             rotation: [0, 0, 0, 1],
             rotation_center: [0, 0, 0],
             scale: [1, 1, 1],
-            translation: [0, 0, 0]
-        }
+            translation: [0, 0, 0],
+        },
     }
     return data
 }
 
-function prettify(dic: { [key: string]: any }, indent: string = ''): string {
+function prettify(dic: { [key: string]: any }, indent: string = ""): string {
     return `{
 ${indent}    ${Object.keys(dic)
-            .map(key => `"${key}": ${isObject(dic[key])
-                ? prettify(dic[key], `${indent}    `)
-                : JSON.stringify(dic[key])
-                }`)
-            .join(`,\n    ${indent}`)
-        }
+        .map(
+            (key) =>
+                `"${key}": ${
+                    isObject(dic[key])
+                        ? prettify(dic[key], `${indent}    `)
+                        : JSON.stringify(dic[key])
+                }`
+        )
+        .join(`,\n    ${indent}`)}
 ${indent}}`
 }
 
@@ -171,7 +191,7 @@ function makeExecute(
             setError(prettify(ex))
             setExpandError(true)
         } finally {
-            setBusy(false)            
+            setBusy(false)
         }
     }
 }

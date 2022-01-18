@@ -7,13 +7,13 @@ export default async function SelectCamera(
     currentType: string,
     availableTypes: string[]
 ): Promise<null | string> {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
         const modal = new Modal({ align: "TL" })
         modal.show(
             <TypesListDialog
                 type={currentType}
                 types={availableTypes}
-                onSelect={v => {
+                onSelect={(v) => {
                     modal.hide()
                     resolve(v)
                 }}
@@ -44,13 +44,13 @@ function TypesListDialog(props: TypesListDialogProps) {
             onCancel={() => onSelect(null)}
             onOK={() => onSelect(current)}
         >
-            {types.map(type => (
+            {types.map((type) => (
                 <Checkbox
                     key={type}
                     label={type}
                     wide={true}
                     value={type === current}
-                    onChange={v => handleClick(type, v)}
+                    onChange={(v) => handleClick(type, v)}
                 />
             ))}
         </Dialog>

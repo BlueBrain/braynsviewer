@@ -43,13 +43,8 @@ export default function SimpleComboView(props: SimpleComboViewProps) {
     }
     return (
         <div className={getClassNames(props)}>
-            <Label
-                value={label}
-                target={refId.current}
-            />
-            <div
-                style={{ width: width ?? "auto" }}
-            >
+            <Label value={label} target={refId.current} />
+            <div style={{ width: width ?? "auto" }}>
                 <select
                     id={refId.current}
                     name={name}
@@ -57,9 +52,13 @@ export default function SimpleComboView(props: SimpleComboViewProps) {
                     disabled={enabled === false ? true : undefined}
                     onChange={handleChange}
                     onKeyDownCapture={handleKeyDown}
-                >{
-                        values.map(v => <option key={v} value={v}>{v}</option>)
-                    }</select>
+                >
+                    {values.map((v) => (
+                        <option key={v} value={v}>
+                            {v}
+                        </option>
+                    ))}
+                </select>
                 <div className="button">▼</div>
             </div>
             <Label className="hide" value={label} />
@@ -67,8 +66,11 @@ export default function SimpleComboView(props: SimpleComboViewProps) {
     )
 }
 
-function makeHandleChange(onChange: (value: string) => void): (evt: React.ChangeEvent<HTMLSelectElement>) => void {
-    return (evt: React.ChangeEvent<HTMLSelectElement>) => onChange(evt.target.value)
+function makeHandleChange(
+    onChange: (value: string) => void
+): (evt: React.ChangeEvent<HTMLSelectElement>) => void {
+    return (evt: React.ChangeEvent<HTMLSelectElement>) =>
+        onChange(evt.target.value)
 }
 
 function getClassNames(props: SimpleComboViewProps): string {

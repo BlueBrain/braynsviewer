@@ -25,12 +25,14 @@ export default function AppMenuView(props: AppMenuViewProps) {
         <div className={getClassNames(props)}>
             {MENU_ITEMS.map(([key, label]) => (
                 <Touchable
-                key={key}
+                    key={key}
                     className={`menu-item theme-color-primary${
                         key === value ? "-light" : ""
                     }`}
-                    onClick={()=>onChange(key)}
-                >{label}</Touchable>
+                    onClick={() => onChange(key)}
+                >
+                    {label}
+                </Touchable>
             ))}
         </div>
     )

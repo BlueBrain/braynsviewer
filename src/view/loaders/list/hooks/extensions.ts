@@ -4,9 +4,7 @@ import * as React from "react"
 /**
  * Sorted list of extensions names used in all available loaders.
  */
-export function useExtensions(
-    loaders: LoaderDefinition[]
-): string[] {
+export function useExtensions(loaders: LoaderDefinition[]): string[] {
     const [extensions, setExtensions] = React.useState<string[]>([])
     React.useEffect(() => {
         const extensionsSet = new Set<string>()

@@ -5,7 +5,7 @@ import {
     TypeArrayDef,
     TypeIntegerDef,
     TypeObjectDef,
-    TypeOneOfDef
+    TypeOneOfDef,
 } from "@/contract/type/type-definition"
 import { isObject } from "@/tool/type-check"
 import * as React from "react"
@@ -67,7 +67,7 @@ function renderType(type: TypeDef): JSX.Element {
                     One among {type.oneOf.length} types
                 </span>
                 <ol>
-                    {type.oneOf.map(item => (
+                    {type.oneOf.map((item) => (
                         <li>
                             {renderTitle(item)}
                             {renderType(item)}
@@ -82,7 +82,7 @@ function renderType(type: TypeDef): JSX.Element {
             <>
                 <span className="type">Any of {type.anyOf.length} types</span>
                 <ol>
-                    {type.anyOf.map(item => (
+                    {type.anyOf.map((item) => (
                         <li>
                             {renderTitle(item)}
                             {renderType(item)}
@@ -98,7 +98,7 @@ function renderType(type: TypeDef): JSX.Element {
             return <span className="type">DICTIONARY</span>
         return (
             <ul>
-                {propertyNames.map(propertyName => {
+                {propertyNames.map((propertyName) => {
                     const property = type.properties[propertyName]
                     return (
                         <li key={propertyName}>
@@ -198,5 +198,5 @@ function renderIntegerBoundaries(type: TypeIntegerDef) {
 function renderTitle(item: TypeDef) {
     if (!isObject(item)) return null
     const { title } = item as any
-    if (typeof title === 'string') return <span className="desc">{title}</span>
+    if (typeof title === "string") return <span className="desc">{title}</span>
 }

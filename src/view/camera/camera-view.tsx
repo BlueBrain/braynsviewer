@@ -1,6 +1,6 @@
 import CameraServiceInterface, {
     CameraCommonParams,
-    CameraExtraParams
+    CameraExtraParams,
 } from "@/contract/service/camera"
 import { Quaternion, Vector3 } from "@/contract/tool/geometry"
 import ButtonView from "@/ui/view/button"
@@ -11,7 +11,6 @@ import Runnable from "../../view/runnable"
 import "./camera-view.css"
 import ExtraParamView from "./extra-param"
 import SelectCamera from "./select-camera"
-
 
 export interface CameraViewProps {
     className?: string
@@ -28,7 +27,7 @@ export default function CameraView(props: CameraViewProps) {
     const [extra, setExtra] = React.useState<any>(null)
     const [editMode, setEditMode] = React.useState(false)
     const [running, setRunning] = React.useState(true)
-    const run: RunnableFunction = async f => {
+    const run: RunnableFunction = async (f) => {
         try {
             setRunning(true)
             return await f()
@@ -75,7 +74,7 @@ export default function CameraView(props: CameraViewProps) {
             async () =>
                 await cameraService.setCommonParams({
                     ...transfo,
-                    type
+                    type,
                 })
         )
     }
@@ -85,7 +84,7 @@ export default function CameraView(props: CameraViewProps) {
 
         await run(async () => {
             await cameraService.setCommonParams({
-                type: selectedType
+                type: selectedType,
             })
             setType(selectedType)
             setExtra(await cameraService.getExtraParams())
@@ -150,7 +149,7 @@ export default function CameraView(props: CameraViewProps) {
                     <>
                         <hr />
                         <div className="extra-params">
-                            {Object.keys(extra).map(name => (
+                            {Object.keys(extra).map((name) => (
                                 <ExtraParamView
                                     key={name}
                                     enabled={editMode}
@@ -204,7 +203,7 @@ interface CameraTransformation {
 const REST_TRANSFO: CameraTransformation = {
     position: [0, 0, -1],
     target: [0, 0, 0],
-    orientation: [0, 0, 0, 1]
+    orientation: [0, 0, 0, 1],
 }
 
 function notImplemented() {

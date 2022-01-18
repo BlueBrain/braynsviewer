@@ -6,7 +6,7 @@ import SerializableData from "../type/serializable-data"
  * when we receive messages that bear the same ID.
  * For instance if you send `getCamera({id: 666})`, vou will eventually
  * receive a WebSocket message like this `{id: 666, camera: ...}`.
- * 
+ *
  * But you can also receice messages without any ID. Such messages are
  * called spontaneous and they are Brayns state updates broadcasted to
  * every client.
@@ -29,4 +29,3 @@ export interface SpontaneousUpdateItemValue {
     timestamp: number
     value: SerializableData
 }
-

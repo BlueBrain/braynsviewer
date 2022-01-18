@@ -14,11 +14,11 @@ const overridenWindowObject = window as any
  * * `window.clearTime()`
  * * `window.setInterval()`
  * * `window.setTime()`
- * 
+ *
  * Once activated, it takes place of the real `window.*` methods.
  * You can then `run()` in time to trigger all he timed action without
  * being compelled to wait for the actual seconds to pass.
- * 
+ *
  * It makes easy to test timed functions without the need to wait.
  */
 class TimerMock {
@@ -65,7 +65,7 @@ class TimerMock {
             throw new Error("Going back in time is not allowed!")
         }
 
-        return new Promise(resolve =>
+        return new Promise((resolve) =>
             this._setTimeout(() => {
                 this._time = time
                 this.sortTasks()
@@ -120,9 +120,9 @@ class TimerMock {
         const tasks = this._tasks
         const newTask: Task = {
             ...task,
-            nextTime: task.nextTime + task.repeat
+            nextTime: task.nextTime + task.repeat,
         }
-        const index = tasks.findIndex(t => t.nextTime > newTask.nextTime)
+        const index = tasks.findIndex((t) => t.nextTime > newTask.nextTime)
         if (index < 0) tasks.push(newTask)
         else tasks.splice(index, 0, newTask)
     }
@@ -131,26 +131,34 @@ class TimerMock {
         this._tasks.sort((a, b) => a.nextTime - b.nextTime)
     }
 
-    readonly setTimeout = (slot: TimerHandler, delay?: number, ...args: any[]) => {
+    readonly setTimeout = (
+        slot: TimerHandler,
+        delay?: number,
+        ...args: any[]
+    ) => {
         const id = this._id++
         this._tasks.push({
             id,
             nextTime: this._time + (delay ?? 0),
             repeat: 0,
             slot,
-            args
+            args,
         })
         return id
     }
 
-    readonly setInterval = (slot: TimerHandler, delay?: number, ...args: any[]) => {
+    readonly setInterval = (
+        slot: TimerHandler,
+        delay?: number,
+        ...args: any[]
+    ) => {
         const id = this._id++
         this._tasks.push({
             id,
             nextTime: this._time + (delay ?? 0),
             repeat: delay ?? 0,
             slot,
-            args
+            args,
         })
         return id
     }
@@ -159,7 +167,7 @@ class TimerMock {
         if (typeof id !== "number") return
 
         const tasks = this._tasks
-        const index = tasks.findIndex(task => task.id === id)
+        const index = tasks.findIndex((task) => task.id === id)
         if (index > -1) tasks.splice(index, 1)
     }
 

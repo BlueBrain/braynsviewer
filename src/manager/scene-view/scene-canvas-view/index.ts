@@ -1,1 +1,1 @@
-export { default } from './scene-canvas-view'
+export { default } from "./scene-canvas-view"

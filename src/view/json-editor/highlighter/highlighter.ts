@@ -1,6 +1,6 @@
-import Color from '@/ui/color'
+import Color from "@/ui/color"
 import ColorArrayEater from "./color-array-eater"
-import Rules from './rules'
+import Rules from "./rules"
 import { tokenize } from "./tokenizer"
 
 export interface ISection {
@@ -51,7 +51,7 @@ export function highlightJSON5(
 }
 
 function toHTML(content: string, sections: ISection[]): string {
-    return sections.map(section => mapSection(content, section)).join("")
+    return sections.map((section) => mapSection(content, section)).join("")
 }
 
 function mapSection(content: string, section: ISection) {

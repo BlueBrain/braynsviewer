@@ -17,7 +17,7 @@ export default function OptionsView(props: OptionsViewProps) {
         <div className={getClassNames(props)}>
             <Label value={label} />
             <div className="options theme-shadow-button">
-                {Object.keys(options).map(key =>
+                {Object.keys(options).map((key) =>
                     key === value ? (
                         <div className="button theme-color-primary" key={key}>
                             {options[key]}

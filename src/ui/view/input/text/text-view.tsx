@@ -97,7 +97,7 @@ export default function TextView(props: TextViewProps) {
             />
             {suggestions && (
                 <datalist id={listId}>
-                    {suggestions.map(suggestion => (
+                    {suggestions.map((suggestion) => (
                         <option key={suggestion} value={suggestion} />
                     ))}
                 </datalist>

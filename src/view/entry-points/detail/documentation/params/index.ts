@@ -1,1 +1,1 @@
-export { default } from './params-documentation'
+export { default } from "./params-documentation"

@@ -5,21 +5,21 @@
 // If a test failed just because you intended to improve the component,
 // just call `jest --updateSnapshot`.
 
-import React from 'react'
-import Renderer from 'react-test-renderer'
-import Vector3View, { Vector3ViewProps } from './vector3-view'
+import React from "react"
+import Renderer from "react-test-renderer"
+import Vector3View, { Vector3ViewProps } from "./vector3-view"
 
 function view(partialProps: Partial<Vector3ViewProps>) {
     const props: Vector3ViewProps = {
         value: [1.618, 2, 3.14],
-        onChange() { },
-        ...partialProps
+        onChange() {},
+        ...partialProps,
     }
     return Renderer.create(<Vector3View {...props} />).toJSON()
 }
 
-describe('<Vector3View/> in view/loaders/detail/field', () => {
-    it('should be consistent with previous snapshot', () => {
+describe("<Vector3View/> in view/loaders/detail/field", () => {
+    it("should be consistent with previous snapshot", () => {
         expect(view({})).toMatchSnapshot()
     })
 })

@@ -1,1 +1,1 @@
-export { default } from './model-button-view'
+export { default } from "./model-button-view"

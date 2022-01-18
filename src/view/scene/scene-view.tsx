@@ -46,7 +46,7 @@ export default function SceneView(props: SceneViewProps) {
                     <Button label="Refresh" onClick={loadScene} />
                 </header>
                 <div className="models-list">
-                    {models.map(model => (
+                    {models.map((model) => (
                         <ModelButton key={model.id} model={model} />
                     ))}
                 </div>

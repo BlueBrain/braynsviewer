@@ -108,7 +108,10 @@ function makeHandleExec(
         setExecuting(true)
         setError(null)
         try {
-            const result = await service.exec(entryPointName, JSON5.parse(params))
+            const result = await service.exec(
+                entryPointName,
+                JSON5.parse(params)
+            )
             setResult(JSON5.stringify(result, null, "  "))
         } catch (ex) {
             console.error(`Unable to exec entryPoint "${entryPointName}"!`, ex)

@@ -85,7 +85,7 @@
     cursor: pointer;
     font-size: 80%;
     font-weight: bolder;
-}   
+}
 
 .view-AppView > main > div.gizmo > div.lock-warning:hover {
     text-decoration: underline;

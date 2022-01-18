@@ -5,24 +5,24 @@
 // If a test failed just because you intended to improve the component,
 // just call `jest --updateSnapshot`.
 
-import React from 'react'
-import Renderer from 'react-test-renderer'
-import ModelButtonView, { ModelButtonViewProps } from './model-button-view'
+import React from "react"
+import Renderer from "react-test-renderer"
+import ModelButtonView, { ModelButtonViewProps } from "./model-button-view"
 
 function view(partialProps: Partial<ModelButtonViewProps>) {
     const props: ModelButtonViewProps = {
         model: {
             id: 666,
             name: "My model",
-            path: "/gpfs/somewhere/in/this/huge/data/storage/BlueConfig"
+            path: "/gpfs/somewhere/in/this/huge/data/storage/BlueConfig",
         },
-        ...partialProps
+        ...partialProps,
     }
     return Renderer.create(<ModelButtonView {...props} />).toJSON()
 }
 
-describe('<ModelButtonView/> in view/scene', () => {
-    it('should be consistent with previous snapshot', () => {
+describe("<ModelButtonView/> in view/scene", () => {
+    it("should be consistent with previous snapshot", () => {
         expect(view({})).toMatchSnapshot()
     })
 })

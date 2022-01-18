@@ -1,1 +1,1 @@
-export { default } from './float-view'
+export { default } from "./float-view"

@@ -1,1 +1,1 @@
-export { default } from './touchable-view'
+export { default } from "./touchable-view"

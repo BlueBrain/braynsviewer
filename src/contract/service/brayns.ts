@@ -1,7 +1,7 @@
 import EventInterface from "../tool/event"
 import SerializableData from "../type/serializable-data"
 
-export default interface BraynsServiceInterface {    
+export default interface BraynsServiceInterface {
     // Triggers when Brayns send us unsollicited updates.
     eventUpdate: EventInterface<BraynsUpdate>
     // Triggers when Brayns send us a new image of the scene.
@@ -52,7 +52,10 @@ export default interface BraynsServiceInterface {
      * * Function: Log only if the function returns `true` for a given
      * entryPoint name and its parameters.
      */
-    debug: boolean | RegExp | ((entryPointName: string, params?: any) => boolean)
+    debug:
+        | boolean
+        | RegExp
+        | ((entryPointName: string, params?: any) => boolean)
 }
 
 export interface LongTask {

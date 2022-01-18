@@ -5,11 +5,11 @@ expect.extend({
     toEqualSizeAndPos(received: any, expected: SizeAndPos) {
         const success = (msg: string) => ({
             pass: true,
-            message: () => msg
+            message: () => msg,
         })
         const failure = (msg: string) => ({
             pass: false,
-            message: () => msg
+            message: () => msg,
         })
         if (typeof received !== "object") {
             return failure("Expected an object { x, y, width, height }!")
@@ -35,13 +35,19 @@ expect.extend({
             return failure(`Expected obj.y to be close to ${expected.y}!`)
         }
         if (Math.abs(width - expected.width) > EPSILON) {
-            return failure(`Expected obj.width to be close to ${expected.width}!`)
+            return failure(
+                `Expected obj.width to be close to ${expected.width}!`
+            )
         }
         if (Math.abs(height - expected.height) > EPSILON) {
-            return failure(`Expected obj.height to be close to ${expected.height}!`)
+            return failure(
+                `Expected obj.height to be close to ${expected.height}!`
+            )
         }
-        return success(`Expected ${JSON.stringify(received)} not to be a valid SizeAndPos!`)
-    }
+        return success(
+            `Expected ${JSON.stringify(received)} not to be a valid SizeAndPos!`
+        )
+    },
 })
 
 describe("common/geometry.ts", () => {
@@ -58,7 +64,7 @@ describe("common/geometry.ts", () => {
                 x: 0,
                 y: 0,
                 width: 640,
-                height: 480
+                height: 480,
             })
         })
         it("should fit same ratio but smaller size", () => {
@@ -72,7 +78,7 @@ describe("common/geometry.ts", () => {
                 x: 0,
                 y: 0,
                 width: 640,
-                height: 480
+                height: 480,
             })
         })
         it("should fit same ratio but bigger size", () => {
@@ -86,7 +92,7 @@ describe("common/geometry.ts", () => {
                 x: 0,
                 y: 0,
                 width: 640,
-                height: 480
+                height: 480,
             })
         })
         it("should fit big square ratio in landscape", () => {
@@ -100,7 +106,7 @@ describe("common/geometry.ts", () => {
                 x: 0,
                 y: -80,
                 width: 640,
-                height: 640
+                height: 640,
             })
         })
         it("should fit small square ratio in landscape", () => {
@@ -114,7 +120,7 @@ describe("common/geometry.ts", () => {
                 x: 0,
                 y: -80,
                 width: 640,
-                height: 640
+                height: 640,
             })
         })
         it("should fit big square ratio in portrait", () => {
@@ -128,7 +134,7 @@ describe("common/geometry.ts", () => {
                 x: -80,
                 y: 0,
                 width: 640,
-                height: 640
+                height: 640,
             })
         })
         it("should fit small square ratio in portrait", () => {
@@ -142,7 +148,7 @@ describe("common/geometry.ts", () => {
                 x: -80,
                 y: 0,
                 width: 640,
-                height: 640
+                height: 640,
             })
         })
     })

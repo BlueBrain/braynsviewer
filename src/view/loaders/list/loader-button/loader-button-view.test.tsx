@@ -6,25 +6,25 @@
 // just call `jest --updateSnapshot`.
 
 import { LoaderDefinition } from "@/contract/service/loaders"
-import React from 'react'
-import Renderer from 'react-test-renderer'
-import LoaderButtonView, { LoaderButtonViewProps } from './loader-button-view'
+import React from "react"
+import Renderer from "react-test-renderer"
+import LoaderButtonView, { LoaderButtonViewProps } from "./loader-button-view"
 
 function view(partialProps: Partial<LoaderButtonViewProps>) {
     const props: LoaderButtonViewProps = {
         value: {
             name: "mesh",
-            extensions: ['.obj', '.blend'],
-            properties: []
+            extensions: [".obj", ".blend"],
+            properties: [],
         },
-        onClick(){},
-        ...partialProps
+        onClick() {},
+        ...partialProps,
     }
     return Renderer.create(<LoaderButtonView {...props} />).toJSON()
 }
 
-describe('<LoaderButtonView/> in view/loaders', () => {
-    it('should be consistent with previous snapshot', () => {
+describe("<LoaderButtonView/> in view/loaders", () => {
+    it("should be consistent with previous snapshot", () => {
         expect(view({})).toMatchSnapshot()
     })
 })

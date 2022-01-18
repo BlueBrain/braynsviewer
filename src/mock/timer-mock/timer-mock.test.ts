@@ -1,6 +1,6 @@
-import TimerMock from './timer-mock'
+import TimerMock from "./timer-mock"
 
-describe('common/async-tools/timer-mock.ts', () => {
+describe("common/async-tools/timer-mock.ts", () => {
     describe("TimerMock.setTimeout()", () => {
         let path = ""
         function scenario(): number[] {

@@ -3,7 +3,7 @@
 }
 
 .view-entryPoints-DetailView header {
-    padding: .5rem;
+    padding: 0.5rem;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -22,7 +22,7 @@
 
 .view-entryPoints-DetailView pre {
     font-size: 80%;
-    padding: .5em;
+    padding: 0.5em;
 }
 
 .view-entryPoints-DetailView pre.result {

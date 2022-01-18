@@ -20,7 +20,7 @@ export default function ExtraParamView(props: ExtraParamViewProps) {
     const update = (v: any) => {
         onChange({
             ...params,
-            [name]: v
+            [name]: v,
         })
     }
     const className = getClassNames(props)

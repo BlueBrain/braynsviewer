@@ -14,15 +14,15 @@ export interface IconViewProps {
 
 export default function IconView(props: IconViewProps) {
     const size = props.size ?? "1.5rem"
-    const handleClick = () =>  props.onClick && props.onClick()
+    const handleClick = () => props.onClick && props.onClick()
     return (
         <div
             className={getClassNames(props)}
             tabIndex={0}
             onClick={handleClick}
-            style = {{
+            style={{
                 width: size,
-                height: size
+                height: size,
             }}
         >
             {IconFactory.make(props.name)}

@@ -1,5 +1,5 @@
 import EntryPointsServiceInterface, {
-    EntryPointSchema
+    EntryPointSchema,
 } from "@/contract/service/entry-points"
 import Modal from "@/ui/modal"
 import Expand from "@/ui/view/expand"

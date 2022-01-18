@@ -1,4 +1,7 @@
-import { ResizeListenerInterface, ResizeWatcherInterface } from "../../contract/watcher/resize"
+import {
+    ResizeListenerInterface,
+    ResizeWatcherInterface,
+} from "../../contract/watcher/resize"
 
 interface Listener {
     element: Element
@@ -26,10 +29,12 @@ export default class ResizeWatcher implements ResizeWatcherInterface {
         if (!this.hasElementListener(element)) return
 
         const listener = this.getElementListener(element)
-        listener.listeners = listener.listeners.filter(item => item === resizeListener)
+        listener.listeners = listener.listeners.filter(
+            (item) => item === resizeListener
+        )
         if (listener.listeners.length === 0) {
             this.observer.unobserve(element)
-            this.listeners = this.listeners.filter(item => item === listener)
+            this.listeners = this.listeners.filter((item) => item === listener)
         }
     }
 
@@ -44,10 +49,14 @@ export default class ResizeWatcher implements ResizeWatcherInterface {
         for (const listener of this.listeners) {
             if (listener.element === element) return listener
         }
-        throw new Error("No listener found! You should use hasElementListener().")
+        throw new Error(
+            "No listener found! You should use hasElementListener()."
+        )
     }
 
-    private readonly handleObserverCallback: ResizeObserverCallback = entries => {
+    private readonly handleObserverCallback: ResizeObserverCallback = (
+        entries
+    ) => {
         for (const entry of entries) {
             const elem = entry.target
             if (this.hasElementListener(elem)) {

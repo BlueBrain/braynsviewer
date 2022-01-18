@@ -11,7 +11,7 @@ import SceneCanvasView from "./scene-canvas-view"
 
 /**
  * Manage the Canvas that can display Brayns images.
- * 
+ *
  * ```
  *   Brayns                                      BraynsViewer
  *     |                                               |
@@ -93,7 +93,7 @@ export default class SceneViewManager implements SceneViewManagerInterface {
 
         await this.brayns.exec("trigger-jpeg-stream")
 
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             window.setTimeout(resolve, timeout)
         })
     }
@@ -138,9 +138,12 @@ export default class SceneViewManager implements SceneViewManagerInterface {
         if (!ctx) return
 
         try {
-        const img = await this.buffer.getImage()
-        const { x, y, width, height } = this.geometry.fitToCover(img, canvas)
-        ctx.drawImage(img, x, y, width, height)
+            const img = await this.buffer.getImage()
+            const { x, y, width, height } = this.geometry.fitToCover(
+                img,
+                canvas
+            )
+            ctx.drawImage(img, x, y, width, height)
         } catch (ex) {
             console.error("Unable to paint current image!", ex)
         }

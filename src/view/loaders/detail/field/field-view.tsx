@@ -4,12 +4,12 @@ import InputInteger from "@/ui/view/input/integer"
 import InputText from "@/ui/view/input/text"
 import Options from "@/ui/view/options"
 import Combo from "@/ui/view/simple-combo"
-import JSON5 from 'json5'
+import JSON5 from "json5"
 import * as React from "react"
 import { isArray } from "../../../../tool/type-check"
 import JsonEditorView from "../../../json-editor/json-editor-view"
 import "./field-view.css"
-import Vector3Field from './vector3'
+import Vector3Field from "./vector3"
 
 export interface FieldViewProps {
     className?: string
@@ -27,8 +27,7 @@ export default function FieldView(props: FieldViewProps) {
             {renderProperty(property, value, (newValue: any) => {
                 if (JSON.stringify(value) === JSON.stringify(newValue)) return
                 onChange({ ...values, [property.name]: newValue })
-            }
-            )}
+            })}
             <p>{property.description}</p>
         </div>
     )
@@ -50,21 +49,18 @@ function renderProperty(
     onChange: (value: any) => void
 ) {
     if (Array.isArray(property.type)) {
-        return <Combo
-            wide={true}
-            value={value}
-            values={property.type}
-            onChange={onChange}
-        />
+        return (
+            <Combo
+                wide={true}
+                value={value}
+                values={property.type}
+                onChange={onChange}
+            />
+        )
     }
     switch (property.type) {
         case "vector3":
-            return (
-                <Vector3Field
-                    value={value}
-                    onChange={onChange}
-                />
-            )
+            return <Vector3Field value={value} onChange={onChange} />
         case "string":
             return (
                 <InputText
@@ -100,21 +96,26 @@ function renderProperty(
                         false: "False",
                     }}
                     value={value === true ? "true" : "false"}
-                    onClick={key => onChange(key === "true")}
+                    onClick={(key) => onChange(key === "true")}
                 ></Options>
             )
         default:
-            return <>
-                <JsonEditorView
-                    label="JSON Format"
-                    value={JSON5.stringify(value) ?? 'undefined'}
-                    onChange={text => {
-                        try { onChange(JSON5.parse(text ?? 'undefined')) }
-                        catch (ex) { console.error("Unble to parse JSON5:", ex) }
-                    }}
-                />
-                <pre>{JSON.stringify(property, null, "  ")}</pre>
-            </>
+            return (
+                <>
+                    <JsonEditorView
+                        label="JSON Format"
+                        value={JSON5.stringify(value) ?? "undefined"}
+                        onChange={(text) => {
+                            try {
+                                onChange(JSON5.parse(text ?? "undefined"))
+                            } catch (ex) {
+                                console.error("Unble to parse JSON5:", ex)
+                            }
+                        }}
+                    />
+                    <pre>{JSON.stringify(property, null, "  ")}</pre>
+                </>
+            )
     }
 }
 
@@ -126,4 +127,3 @@ function getTypeClassName(type: string | string[] | undefined): string {
     if (isArray(type)) return "enum"
     return type
 }
-
