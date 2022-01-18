@@ -22,6 +22,8 @@ interface PendingQuery {
 }
 
 export default class BraynsService implements BraynsServiceInterface {
+    // By default, log nothing to the console (unless there is an error).
+    debug: boolean | RegExp | ((entryPointName: string, params?: any) => boolean) = false
     // For spontaneous updates coming from BraynsService.
     public readonly eventUpdate: TriggerableEventInterface<BraynsUpdate>
     // For scene images.
@@ -47,7 +49,7 @@ export default class BraynsService implements BraynsServiceInterface {
         const data = await this.tryToExec(entryPointName, param)
         if (this.isError(data)) {
             console.error(
-                `Brayns query failure for entrypoint "${entryPointName}"!`
+                `Brayns query failure for entryPoint "${entryPointName}"!`
             )
             console.error("    Params:", param)
             console.error("    Error: ", data)
@@ -122,6 +124,7 @@ export default class BraynsService implements BraynsServiceInterface {
         }
         return new Promise((resolve, reject) => {
             const url = this.getWebSocketURL()
+            console.log('🚀 [brayns-service] url = ', url) // @FIXME: Remove this line written on 2022-01-13 at 10:14
             const protocol = "rockets"
             const handleError = ex => {
                 console.error(
@@ -139,6 +142,7 @@ export default class BraynsService implements BraynsServiceInterface {
                 resolve()
             }
             try {
+                console.log(`Connecting "${url}" with protocol "${protocol}"...`)
                 const ws = new WebSocket(url, [protocol])
                 this.ws = ws
                 // This is very IMPORTANT!
@@ -160,7 +164,7 @@ export default class BraynsService implements BraynsServiceInterface {
 
     async tryToExec(
         entryPointName: string,
-        param: any = {}
+        params: any = {}
     ): Promise<BraynsQueryResult> {
         if (!this.ws) throw Error("BraynsService is not connected yet!")
 
@@ -170,14 +174,17 @@ export default class BraynsService implements BraynsServiceInterface {
                 jsonrpc: "2.0",
                 id,
                 method: entryPointName,
-                params: param,
+                params: params,
             }
-            this.pendingQueries.set(id, { id, entryPointName, param, resolve })
+            this.pendingQueries.set(id, { id, entryPointName, param: params, resolve })
             try {
                 const payload = JSON.stringify(message)
+                if (this.isDebugEnabled(entryPointName, params)) {
+                    console.log(">>>", entryPointName, params, id)
+                }
                 this.ws?.send(payload)
             } catch (ex) {
-                console.log(">>>", entryPointName, param)
+                console.log(">>>", entryPointName, params)
                 console.error(
                     "Unable to send a message through WebSocket: ",
                     ex
@@ -196,6 +203,16 @@ export default class BraynsService implements BraynsServiceInterface {
     private readonly pendingQueries = new Map<string, PendingQuery>()
     private readonly resources = new Map<string, SerializableData>()
 
+    private isDebugEnabled(entryPointName: string, params?: any): boolean {
+        const { debug } = this
+        if (debug === true || debug === false) return debug
+        if (typeof debug === 'function') {
+            return debug(entryPointName, params)
+        }
+        debug.lastIndex = -1
+        return debug.test(entryPointName)
+    }
+
     private getWebSocketURL() {
         const RX_BB5_HOST = /^r[0-9]+i[0-9]+n[0-9]+$/g
         const { host, port } = this
@@ -207,9 +224,11 @@ export default class BraynsService implements BraynsServiceInterface {
     }
 
     private handleMessage = (event: MessageEvent) => {
+        console.log("🚀 [brayns-service] event = ", event) // @FIXME: Remove this line written on 2021-10-21 at 16:07
         if (typeof event.data === "string") {
             this.handleStringMessage(event.data)
         } else {
+            console.log("eventImage.trigger", event.data)
             this.eventImage.trigger(event.data)
         }
     }
@@ -244,10 +263,13 @@ export default class BraynsService implements BraynsServiceInterface {
         }
 
         this.pendingQueries.delete(id)
+        if (this.isDebugEnabled(query.entryPointName, params)) {
+            console.log("<<<", query.entryPointName, params, id)
+        }
         const result: BraynsQueryResult = {
             success: true,
             result: params,
-            entrypoint: query.entryPointName,
+            entryPoint: query.entryPointName,
             param: query.param,
         }
         query.resolve(result)
@@ -267,7 +289,7 @@ export default class BraynsService implements BraynsServiceInterface {
             code: error.code ?? 0,
             message: error.message ?? "Unknown error!",
             data: error.data,
-            entrypoint: query.entryPointName,
+            entryPoint: query.entryPointName,
             param: query.param,
         })
     }

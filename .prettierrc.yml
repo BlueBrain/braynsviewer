@@ -1,0 +1,16 @@
+arrowParens: avoid
+bracketSameLine: false
+bracketSpacing: true
+embeddedLanguageFormatting: auto
+endOfLine: lf
+htmlWhitespaceSensitivity: css
+jsxSingleQuote: false
+printWidth: 80
+proseWrap: always
+quoteProps: as-needed
+semi: false
+# It's easy to mixup single quotes with backticks.
+singleQuote: false
+tabWidth: 4
+tabs: false
+trailingComma: es5

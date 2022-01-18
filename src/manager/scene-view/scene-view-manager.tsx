@@ -11,6 +11,23 @@ import SceneCanvasView from "./scene-canvas-view"
 
 /**
  * Manage the Canvas that can display Brayns images.
+ * 
+ * ```
+ *   Brayns                                      BraynsViewer
+ *     |                                               |
+ * Render #01                                          |
+ * Render #02                                          |
+ *     |  image-streaming-mode({ type: "quanta" }) <---+
+ * Render #03                                          |
+ *     |                     trigger-jpeg-stream() <---+
+ *     +---> Image #03                                 |
+ * Render #04                                          |
+ * Render #05                                          |
+ * Render #06                                          |
+ *     |                     trigger-jpeg-stream() <---+
+ *     +---> Image #06                                 |
+ *     |                                               |
+ * ```
  */
 export default class SceneViewManager implements SceneViewManagerInterface {
     public readonly eventRepaint: TriggerableEventInterface<SceneViewManagerInterface>
@@ -106,6 +123,7 @@ export default class SceneViewManager implements SceneViewManagerInterface {
     }
 
     private readonly handleImageFromBrayns = async (data: ArrayBuffer) => {
+        console.log("<binary>", data)
         this.buffer.setData(data)
         await this.paintCurrentImage()
         this.acceptNextFrame()
@@ -119,9 +137,13 @@ export default class SceneViewManager implements SceneViewManagerInterface {
         const ctx = canvas.getContext("2d")
         if (!ctx) return
 
+        try {
         const img = await this.buffer.getImage()
         const { x, y, width, height } = this.geometry.fitToCover(img, canvas)
         ctx.drawImage(img, x, y, width, height)
+        } catch (ex) {
+            console.error("Unable to paint current image!", ex)
+        }
     }
 
     private readonly handleSizeChange = async (size: Size) => {

@@ -15,7 +15,7 @@ const MENU_ITEMS: Array<[key: string, label: string]> = [
     ["loaders", "Loaders"],
     ["camera", "Camera"],
     ["renderer", "Renderer"],
-    ["entrypoints", "API"],
+    ["entryPoints", "API"],
     ["broadcast", "Events"],
 ]
 

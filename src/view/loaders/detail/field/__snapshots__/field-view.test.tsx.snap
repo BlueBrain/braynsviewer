@@ -2,7 +2,7 @@
 
 exports[`<FieldView/> in view/loaders/detail should be consistent with previous snapshot 1`] = `
 <div
-  className="custom view-loaders-detail-FieldView"
+  className="custom view-loaders-detail-FieldView number"
 >
   <b>
     radius

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dev-frontend-braynsviewer-deployment
+  namespace: bbp-ou-visualization
+  labels:
+    app: dev-frontend-braynsviewer-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dev-frontend-braynsviewer-app
+  template:
+    metadata:
+      labels:
+        app: dev-frontend-braynsviewer-app
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+      - name: dev-frontend-braynsviewer-app
+        image: bbpgitlab.epfl.ch:5050/viz/brayns/braynsviewer
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 8080        
+      imagePullSecrets:
+        - name: braynsviewer-pull-registry-credentials

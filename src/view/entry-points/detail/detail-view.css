@@ -2,7 +2,7 @@
     padding: 0;
 }
 
-.view-entryPoints-DetailView > header {
+.view-entryPoints-DetailView header {
     padding: .5rem;
     display: flex;
     flex-direction: row;
@@ -11,7 +11,7 @@
     gap: 1rem;
 }
 
-.view-entryPoints-DetailView > header > h1 {
+.view-entryPoints-DetailView header > h1 {
     font-family: monospace;
     flex: 1 1 auto;
 }
