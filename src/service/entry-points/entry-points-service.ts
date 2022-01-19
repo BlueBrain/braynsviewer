@@ -1,9 +1,9 @@
-import { isArray, isObject } from '@/tool/type-check'
+import { isArray, isObject } from "@/tool/type-check"
 import JSON5 from "json5"
 import BraynsServiceInterface from "../../contract/service/brayns"
 import EntryPointsServiceInterface, {
     EntryPointSchema,
-    TypeDef
+    TypeDef,
 } from "../../contract/service/entry-points"
 import SerializableData from "../../contract/type/serializable-data"
 import { PropertyDef } from "../../contract/type/type-definition"
@@ -73,7 +73,7 @@ export default class EntryPointsService implements EntryPointsServiceInterface {
             if (!isArray(data)) throw Error("We were expecting an array!")
 
             const entryPoints: string[] = data.filter(
-                item => typeof item === "string"
+                (item) => typeof item === "string"
             ) as string[]
             entryPoints.sort()
             return entryPoints

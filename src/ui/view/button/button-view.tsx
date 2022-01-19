@@ -72,8 +72,7 @@ export default function ButtonView<Tag>(props: ButtonViewProps<Tag>) {
 }
 
 function getClassNames<Tag>(props: ButtonViewProps<Tag>): string {
-    const { className, enabled, reversed, outline, wide, flat, icon } =
-        props
+    const { className, enabled, reversed, outline, wide, flat, icon } = props
     const classNames = ["custom", "ui-view-ButtonView"]
     if (typeof className === "string") {
         classNames.push(className)

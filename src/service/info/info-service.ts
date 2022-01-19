@@ -1,5 +1,5 @@
 import BraynsServiceInterface, {
-    BraynsUpdate
+    BraynsUpdate,
 } from "../../contract/service/brayns"
 import InfoServiceInterface, { Version } from "../../contract/service/info"
 import { TriggerableEventInterface } from "../../contract/tool/event"

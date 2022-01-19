@@ -1,10 +1,10 @@
 import SceneViewManagerInterface from "@/contract/manager/scene-view-manager"
-import * as React from 'react'
+import * as React from "react"
 import { confirmLock, confirmUnlock } from "./lock-confirm"
 
 export function useScreenLock(
     sceneView: SceneViewManagerInterface
-): [locked: boolean, toggleLocked: ()=>void] {
+): [locked: boolean, toggleLocked: () => void] {
     const [locked, setLocked] = React.useState(sceneView.locked)
     const toggleLocked = React.useCallback(() => {
         const later = async () => {
@@ -25,4 +25,3 @@ export function useScreenLock(
     }, [sceneView])
     return [locked, toggleLocked]
 }
-

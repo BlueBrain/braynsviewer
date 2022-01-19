@@ -1,4 +1,4 @@
-import EventInterface from '../tool/event'
+import EventInterface from "../tool/event"
 
 export interface TranslationEvent {
     /**

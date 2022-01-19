@@ -1,11 +1,11 @@
 import { isArray, isVector3 } from "@/tool/type-check"
 import BraynsServiceInterface, {
-    BraynsUpdate
+    BraynsUpdate,
 } from "../../contract/service/brayns"
 import RendererServiceInterface, {
     RendererCommonParams,
     RendererCommonParamsInput,
-    RendererExtraParams
+    RendererExtraParams,
 } from "../../contract/service/renderer"
 import { TriggerableEventInterface } from "../../contract/tool/event"
 
@@ -38,7 +38,7 @@ export default class RendererService implements RendererServiceInterface {
             max_accum_frames: params.maxAccumFrames,
             samples_per_pixel: params.samplesPerpixel,
             subsampling: params.subsampling,
-            variance_threshold: params.varianceThreshold
+            variance_threshold: params.varianceThreshold,
         })
     }
 
@@ -114,7 +114,7 @@ function isBraynsRenderer(data: any): data is BraynsRenderer {
         samples_per_pixel,
         subsampling,
         types,
-        variance_threshold
+        variance_threshold,
     } = data
     if (typeof current !== "string") return false
     if (typeof max_accum_frames !== "number") return false
@@ -178,6 +178,6 @@ function castRendererCommonParams(data: BraynsRenderer): RendererCommonParams {
         samplesPerpixel: data.samples_per_pixel,
         subsampling: data.subsampling,
         type: data.current,
-        varianceThreshold: data.variance_threshold
+        varianceThreshold: data.variance_threshold,
     }
 }

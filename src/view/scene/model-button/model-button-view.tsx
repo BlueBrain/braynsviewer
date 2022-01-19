@@ -1,7 +1,6 @@
 import * as React from "react"
 import "./model-button-view.css"
 
-
 export interface Model {
     id: number
     name: string

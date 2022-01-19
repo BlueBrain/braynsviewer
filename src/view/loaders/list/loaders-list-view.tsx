@@ -1,5 +1,5 @@
 import LoadersServiceInterface, {
-    LoaderDefinition
+    LoaderDefinition,
 } from "@/contract/service/loaders"
 import Button from "@/ui/view/button"
 import InputView from "@/ui/view/input/text"
@@ -36,7 +36,7 @@ export default function LoadersListView(props: LoadersListViewProps) {
                 suggestions={extensions}
             />
             <div>
-                {loadersToDisplay.map(loader => (
+                {loadersToDisplay.map((loader) => (
                     <LoaderButton
                         key={loader.name}
                         value={loader}
@@ -87,7 +87,7 @@ function makeFilter(filterString: string) {
         .trim()
         .toLowerCase()
         .split(RX_FILTER_SEPARATOR)
-        .filter(item => item.length > 0)
+        .filter((item) => item.length > 0)
     if (extensions.length === 0) return () => true
     return (loader: LoaderDefinition) => {
         for (const ext of loader.extensions) {

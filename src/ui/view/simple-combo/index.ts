@@ -1,1 +1,1 @@
-export { default } from './simple-combo-view'
+export { default } from "./simple-combo-view"

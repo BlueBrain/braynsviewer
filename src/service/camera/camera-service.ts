@@ -2,7 +2,7 @@ import BraynsServiceInterface, { BraynsUpdate } from "@/contract/service/brayns"
 import CameraServiceInterface, {
     CameraCommonParams,
     CameraCommonParamsInput,
-    CameraExtraParams
+    CameraExtraParams,
 } from "@/contract/service/camera"
 import { TriggerableEventInterface } from "@/contract/tool/event"
 import { Quaternion, Vector3 } from "@/contract/tool/geometry"

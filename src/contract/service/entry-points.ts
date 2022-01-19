@@ -24,4 +24,3 @@ export default interface EntryPointsServiceInterface {
      */
     exec(entryPointName: string, param?: any): Promise<SerializableData>
 }
-

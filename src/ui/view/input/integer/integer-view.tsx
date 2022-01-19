@@ -17,8 +17,16 @@ export interface FloatViewProps {
 }
 
 export default function FloatView(props: FloatViewProps) {
-    const { value, label, size, enabled, wide, width, onChange, onEnterPressed } =
-        props
+    const {
+        value,
+        label,
+        size,
+        enabled,
+        wide,
+        width,
+        onChange,
+        onEnterPressed,
+    } = props
     const validator = (value: string) => {
         RX_INTEGER.lastIndex = -1
         if (!RX_INTEGER.test(value)) return false
@@ -39,8 +47,8 @@ export default function FloatView(props: FloatViewProps) {
             wide={wide}
             width={width}
             validator={validator}
-            onChange={value => onChange && onChange(parseFloat(value))}
-            onEnterPressed={value =>
+            onChange={(value) => onChange && onChange(parseFloat(value))}
+            onEnterPressed={(value) =>
                 onEnterPressed && onEnterPressed(parseFloat(value))
             }
         />

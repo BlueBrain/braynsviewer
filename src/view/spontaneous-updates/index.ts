@@ -1,1 +1,1 @@
-export { default } from './spontaneous-updates-view'
+export { default } from "./spontaneous-updates-view"

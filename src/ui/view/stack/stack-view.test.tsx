@@ -5,21 +5,21 @@
 // If a test failed just because you intended to improve the component,
 // just call `jest --updateSnapshot`.
 
-import React from 'react'
-import Renderer from 'react-test-renderer'
-import StackView, { StackViewProps } from './stack-view'
+import React from "react"
+import Renderer from "react-test-renderer"
+import StackView, { StackViewProps } from "./stack-view"
 
 function view(partialProps: Partial<StackViewProps>) {
     const props: StackViewProps = {
         children: [],
         value: "Hello",
-        ...partialProps
+        ...partialProps,
     }
     return Renderer.create(<StackView {...props} />).toJSON()
 }
 
-describe('<StackView/> in ui/view', () => {
-    it('should be consistent with previous snapshot', () => {
+describe("<StackView/> in ui/view", () => {
+    it("should be consistent with previous snapshot", () => {
         expect(view({})).toMatchSnapshot()
     })
 })

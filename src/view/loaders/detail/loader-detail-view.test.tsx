@@ -5,22 +5,22 @@
 // If a test failed just because you intended to improve the component,
 // just call `jest --updateSnapshot`.
 
-import LoaderServiceMock from '@/mock/loaders-service-mock'
-import React from 'react'
-import Renderer from 'react-test-renderer'
-import LoaderDetailView, { LoaderDetailViewProps } from './loader-detail-view'
+import LoaderServiceMock from "@/mock/loaders-service-mock"
+import React from "react"
+import Renderer from "react-test-renderer"
+import LoaderDetailView, { LoaderDetailViewProps } from "./loader-detail-view"
 
 function view(partialProps: Partial<LoaderDetailViewProps>) {
     const props: LoaderDetailViewProps = {
         loadersService: new LoaderServiceMock(),
-        onBack() { },
-        ...partialProps
+        onBack() {},
+        ...partialProps,
     }
     return Renderer.create(<LoaderDetailView {...props} />).toJSON()
 }
 
-describe('<LoaderDetailView/> in view/loaders', () => {
-    it('should be consistent with previous snapshot', () => {
+describe("<LoaderDetailView/> in view/loaders", () => {
+    it("should be consistent with previous snapshot", () => {
         expect(view({})).toMatchSnapshot()
     })
 })

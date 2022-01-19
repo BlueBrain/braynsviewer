@@ -1,1 +1,1 @@
-export { default } from './integer-view'
+export { default } from "./integer-view"

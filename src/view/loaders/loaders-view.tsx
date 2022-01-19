@@ -1,5 +1,5 @@
 import LoadersServiceInterface, {
-    LoaderDefinition
+    LoaderDefinition,
 } from "@/contract/service/loaders"
 import Wizard from "@/ui/view/wizard"
 import * as React from "react"
@@ -26,7 +26,7 @@ export default function LoadersView(props: LoadersViewProps) {
             <LoadersList
                 key={STEP_LIST}
                 loadersService={loadersService}
-                onSelect={loader => {
+                onSelect={(loader) => {
                     setSelectedLoader(loader)
                     setStep(STEP_DETAIL)
                 }}

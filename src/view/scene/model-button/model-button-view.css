@@ -3,10 +3,10 @@
     border: none;
     background-color: var(--theme-color-primary);
     color: var(--theme-color-on-primary);
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     box-shadow: var(--theme-shadow-button);
-    margin: .5rem;
-    padding: 0 .5rem;
+    margin: 0.5rem;
+    padding: 0 0.5rem;
     max-width: calc(100% - 1rem);
     display: flex;
     flex-direction: column;
@@ -28,6 +28,6 @@
 }
 
 .view-scene-ModelButtonView > div:last-child {
-    opacity: .5;
+    opacity: 0.5;
     font-size: 80%;
 }

@@ -10,7 +10,7 @@
 }
 
 .view-loaders-LoaderDetailView div.extensions > b {
-    opacity: .5;
+    opacity: 0.5;
 }
 
 .view-loaders-LoaderDetailView div.buttons {
@@ -21,7 +21,7 @@
 
 .view-loaders-LoaderDetailView pre.error,
 .view-loaders-LoaderDetailView pre.result {
-    padding: .5rem;
+    padding: 0.5rem;
     margin: 0 -1rem 0 -2rem;
     white-space: pre-wrap;
     word-break: break-all;

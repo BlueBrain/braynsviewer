@@ -2,7 +2,7 @@ import EventInterface from "../tool/event"
 
 export interface RendererCommonParamsInput {
     accumulation: boolean
-    backgroundColor: [number,number,number]
+    backgroundColor: [number, number, number]
     headLight: boolean
     maxAccumFrames: number
     samplesPerpixel: number

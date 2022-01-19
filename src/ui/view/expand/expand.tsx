@@ -1,8 +1,7 @@
 import * as React from "react"
-import Icon from '../icon'
-import Touchable from '../touchable'
+import Icon from "../icon"
+import Touchable from "../touchable"
 import "./expand.css"
-
 
 interface IExpandProps {
     className?: string
@@ -18,10 +17,13 @@ interface IExpandState {
 
 const ICON_SIZE = "2rem"
 
-export default class Expand extends React.Component<IExpandProps, IExpandState> {
+export default class Expand extends React.Component<
+    IExpandProps,
+    IExpandState
+> {
     private lastValue = this.props.value
     state: IExpandState = {
-        value: this.props.value
+        value: this.props.value,
     }
 
     refresh = () => {
@@ -38,31 +40,35 @@ export default class Expand extends React.Component<IExpandProps, IExpandState> 
         const value = !this.state.value
         this.setState({ value })
         const { onChange } = this.props
-        if (typeof onChange === 'function') {
+        if (typeof onChange === "function") {
             onChange(value)
         }
     }
 
     render() {
-        const classes = ["custom", "tfw-view-Expand", this.props.className || ""]
+        const classes = [
+            "custom",
+            "tfw-view-Expand",
+            this.props.className || "",
+        ]
 
-        return (<div
-            className={classes.join(' ')}
-            tabIndex={0}
-            aria-expanded={this.state.value}
-        >
-            <Touchable onClick={this.handleValueChange}>
-                <div className="head">
-                    <div className="icons">
-                        <Icon name="plus-o" size={ICON_SIZE} />
-                        <Icon name="minus-o" size={ICON_SIZE} />
+        return (
+            <div
+                className={classes.join(" ")}
+                tabIndex={0}
+                aria-expanded={this.state.value}
+            >
+                <Touchable onClick={this.handleValueChange}>
+                    <div className="head">
+                        <div className="icons">
+                            <Icon name="plus-o" size={ICON_SIZE} />
+                            <Icon name="minus-o" size={ICON_SIZE} />
+                        </div>
+                        <div>{this.props.label}</div>
                     </div>
-                    <div>{this.props.label}</div>
-                </div>
-            </Touchable>
-            <div className="body">{
-                this.props.children
-            }</div>
-        </div>)
+                </Touchable>
+                <div className="body">{this.props.children}</div>
+            </div>
+        )
     }
 }

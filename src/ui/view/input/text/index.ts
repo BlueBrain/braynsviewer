@@ -1,1 +1,1 @@
-export { default } from './text-view'
+export { default } from "./text-view"

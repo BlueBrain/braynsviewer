@@ -1,6 +1,5 @@
-import EventInterface from '../tool/event'
-import { Vector3, Quaternion } from '../tool/geometry'
-
+import EventInterface from "../tool/event"
+import { Vector3, Quaternion } from "../tool/geometry"
 
 /**
  * Deals with position/orientation of a camera in the space.

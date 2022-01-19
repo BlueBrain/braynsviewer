@@ -1,1 +1,1 @@
-export { default } from './update-button-view'
+export { default } from "./update-button-view"

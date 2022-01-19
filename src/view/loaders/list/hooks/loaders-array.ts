@@ -1,5 +1,5 @@
 import LoadersServiceInterface, {
-    LoaderDefinition
+    LoaderDefinition,
 } from "@/contract/service/loaders"
 import * as React from "react"
 

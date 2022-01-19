@@ -1,1 +1,1 @@
-export { default } from './entry-points-view'
+export { default } from "./entry-points-view"

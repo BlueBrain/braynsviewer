@@ -4,7 +4,7 @@ import GeometryInterface, {
     Size,
     SizeAndPos,
     Vector3,
-    Quaternion
+    Quaternion,
 } from "../../contract/tool/geometry"
 
 export default class Geometry implements GeometryInterface {
@@ -14,7 +14,7 @@ export default class Geometry implements GeometryInterface {
         return {
             x: mtx.getColumn(0),
             y: mtx.getColumn(1),
-            z: mtx.getColumn(2)
+            z: mtx.getColumn(2),
         }
     }
 
@@ -80,14 +80,14 @@ export default class Geometry implements GeometryInterface {
         const scale = Math.max(scaleW, scaleH)
         const coverSize: Size = {
             width: scale * sourceSize.width,
-            height: scale * sourceSize.height
+            height: scale * sourceSize.height,
         }
         const overflowX = coverSize.width - targetSize.width
         const overflowY = coverSize.height - targetSize.height
         return {
             ...coverSize,
             x: -alignement * overflowX,
-            y: -alignement * overflowY
+            y: -alignement * overflowY,
         }
     }
 }

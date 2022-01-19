@@ -1,1 +1,1 @@
-export { default } from './extra-param-view'
+export { default } from "./extra-param-view"

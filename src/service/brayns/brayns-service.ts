@@ -4,7 +4,7 @@ import BraynsServiceInterface, {
     BraynsQuerySuccess,
     BraynsServiceAddress,
     BraynsUpdate,
-    LongTask
+    LongTask,
 } from "../../contract/service/brayns"
 import { TriggerableEventInterface } from "../../contract/tool/event"
 import SerializableData from "../../contract/type/serializable-data"
@@ -23,7 +23,10 @@ interface PendingQuery {
 
 export default class BraynsService implements BraynsServiceInterface {
     // By default, log nothing to the console (unless there is an error).
-    debug: boolean | RegExp | ((entryPointName: string, params?: any) => boolean) = false
+    debug:
+        | boolean
+        | RegExp
+        | ((entryPointName: string, params?: any) => boolean) = false
     // For spontaneous updates coming from BraynsService.
     public readonly eventUpdate: TriggerableEventInterface<BraynsUpdate>
     // For scene images.
@@ -124,9 +127,9 @@ export default class BraynsService implements BraynsServiceInterface {
         }
         return new Promise((resolve, reject) => {
             const url = this.getWebSocketURL()
-            console.log('🚀 [brayns-service] url = ', url) // @FIXME: Remove this line written on 2022-01-13 at 10:14
+            console.log("🚀 [brayns-service] url = ", url) // @FIXME: Remove this line written on 2022-01-13 at 10:14
             const protocol = "rockets"
-            const handleError = ex => {
+            const handleError = (ex) => {
                 console.error(
                     `Unable to connect to Brayns Service on "${url}"!`,
                     ex
@@ -142,7 +145,9 @@ export default class BraynsService implements BraynsServiceInterface {
                 resolve()
             }
             try {
-                console.log(`Connecting "${url}" with protocol "${protocol}"...`)
+                console.log(
+                    `Connecting "${url}" with protocol "${protocol}"...`
+                )
                 const ws = new WebSocket(url, [protocol])
                 this.ws = ws
                 // This is very IMPORTANT!
@@ -176,7 +181,12 @@ export default class BraynsService implements BraynsServiceInterface {
                 method: entryPointName,
                 params: params,
             }
-            this.pendingQueries.set(id, { id, entryPointName, param: params, resolve })
+            this.pendingQueries.set(id, {
+                id,
+                entryPointName,
+                param: params,
+                resolve,
+            })
             try {
                 const payload = JSON.stringify(message)
                 if (this.isDebugEnabled(entryPointName, params)) {
@@ -206,7 +216,7 @@ export default class BraynsService implements BraynsServiceInterface {
     private isDebugEnabled(entryPointName: string, params?: any): boolean {
         const { debug } = this
         if (debug === true || debug === false) return debug
-        if (typeof debug === 'function') {
+        if (typeof debug === "function") {
             return debug(entryPointName, params)
         }
         debug.lastIndex = -1
@@ -301,7 +311,7 @@ export default class BraynsService implements BraynsServiceInterface {
         return btoa(`${globalIncrementalId++}`)
     }
 
-    private handleError = event => {
+    private handleError = (event) => {
         console.error("### [WS] Error:", event)
     }
 

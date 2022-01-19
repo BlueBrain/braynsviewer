@@ -5,7 +5,6 @@ import Dialog from "../view/dialog"
 import { ColorName } from "../view/types"
 import "./modal.css"
 
-
 export interface ModalOptions {
     align:
         | ""
@@ -85,7 +84,7 @@ export default class Modal {
     }
 
     static async confirm(options: ConfirmOptions): Promise<boolean> {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             const modal = new Modal({
                 autoClosable: true,
                 ...options,
@@ -113,7 +112,7 @@ export default class Modal {
         content: JSX.Element | string,
         options: Partial<ModalOptions> = {}
     ): Promise<void> {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             const modal = new Modal(options)
             const hide = () => {
                 modal.hide()
@@ -136,7 +135,7 @@ export default class Modal {
         content: JSX.Element | string,
         options: Partial<ModalOptions> = {}
     ): Promise<void> {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             const modal = new Modal(options)
             const hide = () => {
                 modal.hide()
@@ -172,7 +171,7 @@ export default class Modal {
                 modal.hide()
                 resolve(arg)
             }
-            promise.then(hide, ex => {
+            promise.then(hide, (ex) => {
                 modal.hide()
                 reject(ex)
             })

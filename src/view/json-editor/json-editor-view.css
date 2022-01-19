@@ -12,7 +12,7 @@
 }
 
 .view-JsonEditorView.invalid > *.editor {
-    box-shadow: 0 0 1px .25em var(--theme-color-error) inset;
+    box-shadow: 0 0 1px 0.25em var(--theme-color-error) inset;
 }
 
 .view-JsonEditorView > *:first-child {

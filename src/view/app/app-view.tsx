@@ -76,7 +76,10 @@ export default function AppView(props: AppViewProps) {
                 <menu className="theme-color-screen">
                     <Stack className="fullheight" value={page} animation="none">
                         <SceneView key="models" sceneService={sceneService} />
-                        <LoadersView key="loaders" loadersService={loadersService}/>
+                        <LoadersView
+                            key="loaders"
+                            loadersService={loadersService}
+                        />
                         <CameraView
                             key="camera"
                             cameraService={cameraService}

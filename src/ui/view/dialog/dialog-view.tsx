@@ -3,7 +3,6 @@ import Button from "../button"
 import { ColorName } from "../types"
 import "./dialog-view.css"
 
-
 export interface DialogViewProps {
     className?: string
     /** If a `title` is defined, a dark primary header will be displayed. */

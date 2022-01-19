@@ -23,9 +23,9 @@ Advanced UI for Brayns renderer, exposes Brayns renderer interface to the user, 
 ### Build Docker image
 
 ```bash
-docker build -t bbpgitlab.epfl.ch:5050/viz/brayns/brayns-viewer:latest .
+docker build -t bbpgitlab.epfl.ch:5050/viz/brayns/braynsviewer:latest .
 docker login bbpgitlab.epfl.ch:5050
-docker image push bbpgitlab.epfl.ch:5050/viz/brayns/brayns-viewer:latest
+docker image push bbpgitlab.epfl.ch:5050/viz/brayns/braynsviewer:latest
 ```
 
 or

@@ -1,1 +1,1 @@
-export { default } from './documentation-view'
+export { default } from "./documentation-view"
