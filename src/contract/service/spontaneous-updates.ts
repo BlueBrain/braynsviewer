@@ -1,5 +1,4 @@
 import EventInterface from "../tool/event"
-import SerializableData from "../type/serializable-data"
 
 /**
  * In JSON RPC protocol, we can attach responses of messages we sent
@@ -27,5 +26,5 @@ export interface SpontaneousUpdateItem {
 
 export interface SpontaneousUpdateItemValue {
     timestamp: number
-    value: SerializableData
+    value: unknown
 }

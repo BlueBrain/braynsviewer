@@ -1,4 +1,3 @@
-import SerializableData from "../type/serializable-data"
 import { TypeDef } from "../type/type-definition"
 export { TypeDef } from "../type/type-definition"
 
@@ -22,5 +21,5 @@ export default interface EntryPointsServiceInterface {
      * @param entryPointName "get-camera", "get-scene", 'add-light", ...
      * @param param A serializable param for the entry point.
      */
-    exec(entryPointName: string, param?: any): Promise<SerializableData>
+    exec(entryPointName: string, param?: any): Promise<unknown>
 }

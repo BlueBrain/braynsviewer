@@ -16,7 +16,7 @@ export default interface BraynsServiceInterface {
      * @param entryPointName "get-camera", "get-scene", 'add-light", ...
      * @param param A serializable param for the entry point.
      */
-    exec(entryPointName: string, param?: any): Promise<SerializableData>
+    exec(entryPointName: string, param?: any): Promise<unknown>
 
     /**
      * A long task can be cancelled and can provide progress feedbacks.
@@ -64,12 +64,12 @@ export interface LongTask {
      * You will get an error in the promise though.
      */
     cancel(): void
-    promise: Promise<SerializableData>
+    promise: Promise<unknown>
 }
 
 export interface BraynsUpdate {
     name: string
-    value: SerializableData
+    value: unknown
 }
 
 export interface BraynsServiceAddress {
@@ -81,12 +81,12 @@ export type BraynsQueryResult = BraynsQuerySuccess | BraynsQueryFailure
 
 interface BraynsQuery {
     entryPoint: string
-    param: SerializableData
+    param?: unknown
 }
 
 export interface BraynsQuerySuccess extends BraynsQuery {
     success: true
-    result: SerializableData
+    result: unknown
 }
 
 export interface BraynsQueryFailure extends BraynsQuery {

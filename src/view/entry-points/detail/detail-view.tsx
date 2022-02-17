@@ -110,7 +110,7 @@ function makeHandleExec(
         try {
             const result = await service.exec(
                 entryPointName,
-                JSON5.parse(params)
+                params ? JSON5.parse(params) : undefined
             )
             setResult(JSON5.stringify(result, null, "  "))
         } catch (ex) {
