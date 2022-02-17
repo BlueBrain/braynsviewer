@@ -5,7 +5,6 @@ import EntryPointsServiceInterface, {
     EntryPointSchema,
     TypeDef,
 } from "../../contract/service/entry-points"
-import SerializableData from "../../contract/type/serializable-data"
 import { PropertyDef } from "../../contract/type/type-definition"
 
 export default class EntryPointsService implements EntryPointsServiceInterface {
@@ -17,7 +16,7 @@ export default class EntryPointsService implements EntryPointsServiceInterface {
 
     constructor(private readonly brayns: BraynsServiceInterface) {}
 
-    async exec(entryPointName: string, param?: any): Promise<SerializableData> {
+    async exec(entryPointName: string, param?: unknown): Promise<unknown> {
         return await this.brayns.exec(entryPointName, param)
     }
 

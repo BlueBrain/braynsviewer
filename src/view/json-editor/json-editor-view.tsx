@@ -71,6 +71,8 @@ function getClassNames(props: JsonEditorViewProps, valid: boolean): string {
  * Check if `text` is a valid JSON5 string.
  */
 function isValid(text: string): boolean {
+    if (text.trim().length === 0) return true
+
     try {
         JSON5.parse(text)
         return true

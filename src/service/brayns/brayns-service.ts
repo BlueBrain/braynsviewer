@@ -17,7 +17,7 @@ let globalIncrementalId = 0
 interface PendingQuery {
     id: string
     entryPointName: string
-    param: SerializableData
+    param?: unknown
     resolve(result: BraynsQueryResult): void
 }
 
@@ -46,9 +46,9 @@ export default class BraynsService implements BraynsServiceInterface {
     }
 
     /**
-     * @throws `{ code: number, message: string, data?: any }`
+     * @throws `{ code: number, message: string, data?: unknown }`
      */
-    async exec(entryPointName: string, param?: any): Promise<SerializableData> {
+    async exec(entryPointName: string, param?: unknown): Promise<unknown> {
         const data = await this.tryToExec(entryPointName, param)
         if (this.isError(data)) {
             console.error(
@@ -62,7 +62,7 @@ export default class BraynsService implements BraynsServiceInterface {
         return data.result
     }
 
-    execLongTask(entryPointName: string, param?: any): LongTask {
+    execLongTask(entryPointName: string, param?: unknown): LongTask {
         const { ws } = this
         if (!ws) throw Error("BraynsService is not connected yet!")
 
@@ -73,7 +73,7 @@ export default class BraynsService implements BraynsServiceInterface {
             method: entryPointName,
             params: param,
         }
-        const promise = new Promise<SerializableData>((resolve, reject) => {
+        const promise = new Promise<unknown>((resolve, reject) => {
             this.pendingQueries.set(id, {
                 id,
                 entryPointName,
@@ -169,7 +169,7 @@ export default class BraynsService implements BraynsServiceInterface {
 
     async tryToExec(
         entryPointName: string,
-        params: any = {}
+        params?: unknown
     ): Promise<BraynsQueryResult> {
         if (!this.ws) throw Error("BraynsService is not connected yet!")
 
