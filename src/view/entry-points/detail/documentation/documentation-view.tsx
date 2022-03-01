@@ -49,10 +49,13 @@ export default function DocumentationView(props: DocumentationViewProps) {
     )
 }
 
-function useEntryPointSchema(entryPointName: string, setSchema: React.Dispatch<React.SetStateAction<EntryPointSchema | null>>, service: EntryPointsServiceInterface) {
+function useEntryPointSchema(
+    entryPointName: string,
+    setSchema: React.Dispatch<React.SetStateAction<EntryPointSchema | null>>,
+    service: EntryPointsServiceInterface
+) {
     React.useEffect(() => {
-        if (!entryPointName)
-            return
+        if (!entryPointName) return
         const asyncFunction = async () => {
             try {
                 setSchema(await service.getEntryPointSchema(entryPointName))
