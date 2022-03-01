@@ -1,5 +1,6 @@
 import * as React from "react"
 import Button from "../../ui/view/button"
+import Modal from "@/ui/modal"
 import SceneServiceInterface, { Model } from "../../contract/service/scene"
 import Runnable from "../runnable"
 import ModelButton from "./model-button"
@@ -29,12 +30,27 @@ export default function SceneView(props: SceneViewProps) {
     }, [sceneService])
     React.useEffect(() => {
         loadScene()
-        const handleUpdate = () => {
-            setModels(sceneService.models)
-        }
-        sceneService.eventChange.add(handleUpdate)
-        return () => sceneService.eventChange.remove(handleUpdate)
+        sceneService.eventChange.add(loadScene)
+        return () => sceneService.eventChange.remove(loadScene)
     }, [loadScene, sceneService])
+    const handleDeleteModel = async (model: Model) => {
+        const confirm = await Modal.confirm({
+            content: (
+                <div>
+                    <p>You are about to delete this model:</p>
+                    <ul>
+                        <li>
+                            <b>{model.name}</b> &nbsp; <span>#{model.id}</span>
+                        </li>
+                        <li>{model.loaderName}</li>
+                    </ul>
+                </div>
+            ),
+        })
+        if (!confirm) return
+
+        sceneService.removeModel(model.id)
+    }
     return (
         <div className={getClassNames(props)}>
             <Runnable running={running}>
@@ -47,7 +63,11 @@ export default function SceneView(props: SceneViewProps) {
                 </header>
                 <div className="models-list">
                     {models.map((model) => (
-                        <ModelButton key={model.id} model={model} />
+                        <ModelButton
+                            key={model.id}
+                            model={model}
+                            onDelete={handleDeleteModel}
+                        />
                     ))}
                 </div>
             </Runnable>

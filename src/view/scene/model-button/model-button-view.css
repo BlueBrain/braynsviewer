@@ -1,4 +1,15 @@
 .view-scene-ModelButtonView {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.view-scene-ModelButtonView > * {
+    flex: 0 0 auto;
+}
+
+.view-scene-ModelButtonView > button.model {
+    flex: 1 1 auto;
     font: inherit;
     border: none;
     background-color: var(--theme-color-primary);
@@ -7,27 +18,27 @@
     box-shadow: var(--theme-shadow-button);
     margin: 0.5rem;
     padding: 0 0.5rem;
-    max-width: calc(100% - 1rem);
-    display: flex;
+    max-width: calc(100% - 4rem);
+    display: inline-flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: stretch;
 }
 
-.view-scene-ModelButtonView div {
+.view-scene-ModelButtonView > button.model div {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.view-scene-ModelButtonView > div:first-child {
+.view-scene-ModelButtonView > button.model > div:first-child {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-.view-scene-ModelButtonView > div:last-child {
+.view-scene-ModelButtonView > button.model > div:last-child {
     opacity: 0.5;
     font-size: 80%;
 }

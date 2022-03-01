@@ -127,7 +127,6 @@ export default class BraynsService implements BraynsServiceInterface {
         }
         return new Promise((resolve, reject) => {
             const url = this.getWebSocketURL()
-            console.log("🚀 [brayns-service] url = ", url) // @FIXME: Remove this line written on 2022-01-13 at 10:14
             const protocol = "rockets"
             const handleError = (ex) => {
                 console.error(
@@ -194,7 +193,7 @@ export default class BraynsService implements BraynsServiceInterface {
                 }
                 this.ws?.send(payload)
             } catch (ex) {
-                console.log(">>>", entryPointName, params)
+                console.error(">>>", entryPointName, params)
                 console.error(
                     "Unable to send a message through WebSocket: ",
                     ex
@@ -234,7 +233,6 @@ export default class BraynsService implements BraynsServiceInterface {
     }
 
     private handleMessage = (event: MessageEvent) => {
-        console.log("🚀 [brayns-service] event = ", event) // @FIXME: Remove this line written on 2021-10-21 at 16:07
         if (typeof event.data === "string") {
             this.handleStringMessage(event.data)
         } else {
