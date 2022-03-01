@@ -38,6 +38,12 @@ export default class EntryPointsService implements EntryPointsServiceInterface {
                 throw Error("Bad schema format!")
             }
             try {
+                if (entryPointName === "set-material") {
+                    console.log(
+                        "🚀 [entry-points-service] data.params = ",
+                        data.params
+                    ) // @FIXME: Remove this line written on 2022-03-01 at 10:20
+                }
                 const schema: EntryPointSchema = {
                     spawnAsyncTask: data.async,
                     description: data.description,

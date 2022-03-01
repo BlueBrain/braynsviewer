@@ -18,26 +18,7 @@ export default function DocumentationView(props: DocumentationViewProps) {
     const { service, entryPointName } = props
     const [schema, setSchema] = React.useState<null | EntryPointSchema>(null)
     const [expanded, setExpanded] = React.useState(false)
-    React.useEffect(() => {
-        if (!entryPointName) return
-        const asyncFunction = async () => {
-            try {
-                setSchema(await service.getEntryPointSchema(entryPointName))
-            } catch (ex) {
-                console.error(ex)
-                Modal.error(
-                    <div>
-                        <b>
-                            Unable to get schema for entry point{" "}
-                            <code>{entryPointName}</code>
-                        </b>
-                        <pre>{`${ex}`}</pre>
-                    </div>
-                )
-            }
-        }
-        asyncFunction()
-    }, [service, entryPointName])
+    useEntryPointSchema(entryPointName, setSchema, service)
     return (
         <div className={getClassNames(props)}>
             {schema && (
@@ -66,6 +47,30 @@ export default function DocumentationView(props: DocumentationViewProps) {
             )}
         </div>
     )
+}
+
+function useEntryPointSchema(entryPointName: string, setSchema: React.Dispatch<React.SetStateAction<EntryPointSchema | null>>, service: EntryPointsServiceInterface) {
+    React.useEffect(() => {
+        if (!entryPointName)
+            return
+        const asyncFunction = async () => {
+            try {
+                setSchema(await service.getEntryPointSchema(entryPointName))
+            } catch (ex) {
+                console.error(ex)
+                Modal.error(
+                    <div>
+                        <b>
+                            Unable to get schema for entry point{" "}
+                            <code>{entryPointName}</code>
+                        </b>
+                        <pre>{`${ex}`}</pre>
+                    </div>
+                )
+            }
+        }
+        asyncFunction()
+    }, [service, entryPointName, setSchema])
 }
 
 function getClassNames(props: DocumentationViewProps): string {

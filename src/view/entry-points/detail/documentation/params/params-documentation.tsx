@@ -7,7 +7,7 @@ import {
     TypeObjectDef,
     TypeOneOfDef,
 } from "@/contract/type/type-definition"
-import { isObject } from "@/tool/type-check"
+import { isObject, isStringArray } from "@/tool/type-check"
 import * as React from "react"
 import "./params-documentation.css"
 
@@ -30,6 +30,18 @@ export default function ParamsDocumentation(props: ParamsDocumentationProps) {
 }
 
 function renderType(type: TypeDef): JSX.Element {
+    if (isTypeEnum(type)) {
+        return (
+            <>
+                <span className="type">ENUM</span>{" "}
+                <code>
+                    {"{ "}
+                    {type.enum.map((item) => JSON.stringify(item)).join(", ")}
+                    {" }"}
+                </code>
+            </>
+        )
+    }
     if (isTypeInteger(type)) {
         return (
             <>
@@ -143,6 +155,11 @@ function isTypeInteger(data: any): data is TypeIntegerDef {
     if (!isObject(data)) return false
     const { type } = data
     return type === "integer"
+}
+
+function isTypeEnum(data: any): data is { enum: string[] } {
+    if (!isObject(data)) return false
+    return isStringArray(data.enum)
 }
 
 function isTypeBasic(data: any): data is BasicTypeDef {
