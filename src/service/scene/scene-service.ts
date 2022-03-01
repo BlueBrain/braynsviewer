@@ -36,6 +36,11 @@ export default class SceneService implements SceneServiceInterface {
         }
     }
 
+    async removeModel(modelId: number): Promise<void> {
+        await this.brayns.exec("remove-model", { ids: [modelId] })
+        this.eventChange.trigger(this)
+    }
+
     private _models: Model[] = []
     private _boundingBox: BoundingBox = {
         min: [0, 0, 0],
