@@ -20,7 +20,7 @@ export interface DetailViewProps {
 export default function DetailView(props: DetailViewProps) {
     const { entryPointName, service, onBack } = props
     const [params, setParams] = useLocalStorageState(
-        "{}",
+        "",
         `entry-point/${entryPointName}/params`
     )
     const [executing, setExecuting] = React.useState(false)

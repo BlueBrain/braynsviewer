@@ -33,7 +33,7 @@ export default function DocumentationView(props: DocumentationViewProps) {
                     <h2>Input</h2>
                     <ParamsDocumentation params={schema.params} />
                     <h2>Output</h2>
-                    <ParamsDocumentation params={[schema.result]} />
+                    <ParamsDocumentation params={schema.result} />
                     <Expand
                         className="technical-view theme-color-section"
                         label="Schema in JSON format"

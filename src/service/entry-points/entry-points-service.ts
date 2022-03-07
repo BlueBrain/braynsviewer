@@ -1,4 +1,10 @@
-import { isArray, isObject } from "@/tool/type-check"
+import {
+    assertBoolean,
+    assertObject,
+    assertString,
+    isArray,
+    isObject,
+} from "@/tool/type-check"
 import JSON5 from "json5"
 import BraynsServiceInterface from "../../contract/service/brayns"
 import EntryPointsServiceInterface, {
@@ -23,32 +29,27 @@ export default class EntryPointsService implements EntryPointsServiceInterface {
     async getEntryPointSchema(
         entryPointName: string
     ): Promise<EntryPointSchema> {
+        if (EntryPointsService.schemas.has(entryPointName)) {
+            return EntryPointsService.schemas.get(
+                entryPointName
+            ) as EntryPointSchema
+        }
         try {
-            if (EntryPointsService.schemas.has(entryPointName)) {
-                return EntryPointsService.schemas.get(
-                    entryPointName
-                ) as EntryPointSchema
-            }
-
             const data = await this.brayns.exec("schema", {
                 endpoint: entryPointName,
             })
-            if (!isSchemaMethod(data)) {
-                console.error("Bad schema:", data)
-                throw Error("Bad schema format!")
+            try {
+                assertSchemaMethod(data)
+            } catch (ex) {
+                console.error(data)
+                throw ex
             }
             try {
-                if (entryPointName === "set-material") {
-                    console.log(
-                        "🚀 [entry-points-service] data.params = ",
-                        data.params
-                    ) // @FIXME: Remove this line written on 2022-03-01 at 10:20
-                }
                 const schema: EntryPointSchema = {
                     spawnAsyncTask: data.async,
                     description: data.description,
                     name: data.title,
-                    params: data.params.map(sanitizeTypeDef),
+                    params: sanitizeTypeDef(data.params),
                     result: sanitizeTypeDef(data.returns),
                 }
                 EntryPointsService.schemas.set(entryPointName, schema)
@@ -92,25 +93,22 @@ export default class EntryPointsService implements EntryPointsServiceInterface {
     }
 }
 
-function isSchemaMethod(data: any): data is SchemaMethod {
-    if (!isObject(data)) return false
-    const { type, async, description, title, params } = data
-    if (type !== "method") return false
-    if (typeof async !== "boolean") return false
-    if (typeof description !== "string") return false
-    if (typeof title !== "string") return false
-    if (!isArray(params)) return false
-    return true
+function assertSchemaMethod(data: any): asserts data is SchemaMethod {
+    assertObject(data)
+    const { async, description, title, params } = data
+    assertBoolean(async, "data.async")
+    assertString(description, "data.description")
+    assertString(title, "data.title")
+    assertObject(params, "data.params")
 }
 
 type SchemaType = SchemaObject
 
 interface SchemaMethod {
-    type: "method"
     title: string
     async: boolean
     description: string
-    params: any[]
+    params: any
     returns: any
 }
 
