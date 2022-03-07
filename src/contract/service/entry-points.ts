@@ -5,7 +5,7 @@ export interface EntryPointSchema {
     spawnAsyncTask: boolean
     description: string
     name: string
-    params: TypeDef[]
+    params: TypeDef
     result: TypeDef
 }
 

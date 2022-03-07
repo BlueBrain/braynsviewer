@@ -13,18 +13,14 @@ import "./params-documentation.css"
 
 export interface ParamsDocumentationProps {
     className?: string
-    params: TypeDef[]
+    params: TypeDef
 }
 
 export default function ParamsDocumentation(props: ParamsDocumentationProps) {
     const { params } = props
     return (
         <div className={getClassNames(props)}>
-            {params.map((param, index) => (
-                <div className="param" key={index}>
-                    {renderType(param)}
-                </div>
-            ))}
+            <div className="param">{renderType(params)}</div>
         </div>
     )
 }
