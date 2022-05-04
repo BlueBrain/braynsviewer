@@ -61,8 +61,8 @@ export default class Expand extends React.Component<
                 <Touchable onClick={this.handleValueChange}>
                     <div className="head">
                         <div className="icons">
-                            <Icon name="plus-o" size={ICON_SIZE} />
-                            <Icon name="minus-o" size={ICON_SIZE} />
+                            <Icon name="plus" size={ICON_SIZE} />
+                            <Icon name="minus" size={ICON_SIZE} />
                         </div>
                         <div>{this.props.label}</div>
                     </div>

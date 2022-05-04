@@ -34,6 +34,7 @@ async function start() {
         ReactDOM.render(
             <AppView
                 address={braynsAddress}
+                braynsService={brayns}
                 cameraService={makeCameraService(braynsAddress)}
                 entryPointsService={makeEntryPointsService(braynsAddress)}
                 infoService={makeInfoService(braynsAddress)}

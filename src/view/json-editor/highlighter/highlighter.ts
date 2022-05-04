@@ -36,7 +36,10 @@ export function highlightJSON5(
             continue
         }
         if (prvSection && section.className === "symbol") {
-            const symbol = content.substr(section.start, section.length)
+            const symbol = content.substring(
+                section.start,
+                section.start + section.length
+            )
             if (symbol === ":") {
                 // Identify "keys". There are just after a colon (":").
                 prvSection.className = "key"

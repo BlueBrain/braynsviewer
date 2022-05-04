@@ -48,7 +48,7 @@ exports[`<LoadersView/> in view should be consistent with previous snapshot 1`] 
     className="overlay"
   >
     <svg
-      preserveAspectRatio="meet xMidYmid"
+      preserveAspectRatio="xMidYMid meet"
       viewBox="0 0 24 24"
     >
       <path

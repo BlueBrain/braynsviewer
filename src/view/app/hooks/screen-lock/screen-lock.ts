@@ -8,7 +8,6 @@ export function useScreenLock(
     const [locked, setLocked] = React.useState(sceneView.locked)
     const toggleLocked = React.useCallback(() => {
         const later = async () => {
-            console.log("🚀 [app-view] sceneView.locked = ", sceneView.locked) // @FIXME: Remove this line written on 2021-07-20 at 10:30
             if (sceneView.locked) {
                 if (await confirmUnlock()) {
                     setLocked(false)

@@ -13,7 +13,7 @@ exports[`<LoaderDetailView/> in view/loaders should be consistent with previous 
     className="overlay"
   >
     <svg
-      preserveAspectRatio="meet xMidYmid"
+      preserveAspectRatio="xMidYMid meet"
       viewBox="0 0 24 24"
     >
       <path
