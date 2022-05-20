@@ -1,9 +1,9 @@
 import {
     assertBoolean,
     assertObject,
+    assertObjectOrUndefined,
     assertString,
     isArray,
-    isObject,
 } from "@/tool/type-check"
 import JSON5 from "json5"
 import BraynsServiceInterface from "../../contract/service/brayns"
@@ -99,7 +99,7 @@ function assertSchemaMethod(data: any): asserts data is SchemaMethod {
     assertBoolean(async, "data.async")
     assertString(description, "data.description")
     assertString(title, "data.title")
-    assertObject(params, "data.params")
+    assertObjectOrUndefined(params, "data.params")
 }
 
 type SchemaType = SchemaObject
@@ -107,6 +107,7 @@ type SchemaType = SchemaObject
 interface SchemaMethod {
     title: string
     async: boolean
+    plugin: string
     description: string
     params: any
     returns: any
@@ -125,7 +126,9 @@ interface SchemaObject {
  * This function will ensure all mandatory attributes are set and
  * that they stick to our definition of TypeDef.
  */
-function sanitizeTypeDef(type: TypeDef | string): TypeDef {
+function sanitizeTypeDef(type: TypeDef | string | undefined): TypeDef {
+    if (typeof type === "undefined") return { type: "undefined" }
+
     try {
         if (type === "string") return { type }
         if (type === "number") return { type }

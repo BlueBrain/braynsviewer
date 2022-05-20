@@ -15,15 +15,18 @@ import EntryPointsView from "../entry-points"
 import LoadersView from "../loaders"
 import RendererView from "../renderer"
 import SceneView from "../scene"
+import PythonScriptingView from "../python-scripting"
 import SpontaneousUpdatesView from "../spontaneous-updates"
 import AppMenu from "./app-menu"
 import "./app-view.css"
 import { useScreenLock, useStatistics } from "./hooks"
+import BraynsServiceInterface from "@/contract/service/brayns"
 
 export interface AppViewProps {
     className?: string
     // Brayns address.
     address: { host: string; port: number }
+    braynsService: BraynsServiceInterface
     cameraService: CameraServiceInterface
     entryPointsService: EntryPointsServiceInterface
     infoService: InfoServiceInterface
@@ -37,6 +40,7 @@ export interface AppViewProps {
 export default function AppView(props: AppViewProps) {
     const {
         address,
+        braynsService,
         cameraService,
         entryPointsService,
         infoService,
@@ -95,6 +99,10 @@ export default function AppView(props: AppViewProps) {
                         <EntryPointsView
                             key="entryPoints"
                             service={entryPointsService}
+                        />
+                        <PythonScriptingView
+                            key="python"
+                            brayns={braynsService}
                         />
                     </Stack>
                 </menu>

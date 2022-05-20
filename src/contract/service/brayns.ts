@@ -1,5 +1,4 @@
 import EventInterface from "../tool/event"
-import SerializableData from "../type/serializable-data"
 
 export default interface BraynsServiceInterface {
     // Triggers when Brayns send us unsollicited updates.
@@ -8,6 +7,8 @@ export default interface BraynsServiceInterface {
     eventImage: EventInterface<ArrayBuffer>
     // `true` means that the WebSocket is connected.
     eventConnectionStatus: EventInterface<boolean>
+    /** the host and port this is connected to. */
+    readonly hostAndPort: string
     // Try yo connect to BraynsService. Throws an exception in case of failure.
     connect(): Promise<void>
     /**

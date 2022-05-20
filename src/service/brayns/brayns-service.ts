@@ -45,6 +45,10 @@ export default class BraynsService implements BraynsServiceInterface {
         this.eventConnectionStatus = makeEvent<boolean>()
     }
 
+    public get hostAndPort() {
+        return `${this.host}:${this.port}`
+    }
+
     /**
      * @throws `{ code: number, message: string, data?: unknown }`
      */

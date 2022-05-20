@@ -17,6 +17,7 @@ const MENU_ITEMS: Array<[key: string, label: string]> = [
     ["renderer", "Renderer"],
     ["entryPoints", "API"],
     ["broadcast", "Events"],
+    ["python", "Python"],
 ]
 
 export default function AppMenuView(props: AppMenuViewProps) {

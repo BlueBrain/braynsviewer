@@ -26,6 +26,13 @@ export default function ParamsDocumentation(props: ParamsDocumentationProps) {
 }
 
 function renderType(type: TypeDef): JSX.Element {
+    if (isTypeUndefined(type)) {
+        return (
+            <>
+                <span className="type">UNDEF</span>{" "}
+            </>
+        )
+    }
     if (isTypeEnum(type)) {
         return (
             <>
@@ -131,7 +138,7 @@ function renderType(type: TypeDef): JSX.Element {
     if (isTypeVoid(type)) {
         return <span className="type">VOID</span>
     }
-    console.warn("🚀 [params-documentation] Don't know what it is = ", type) // @FIXME: Remove this line written on 2021-09-21 at 16:48
+    console.warn("🚀 [params-documentation] Don't know what it is = ", type)
     return <pre>{JSON.stringify(type)}</pre>
 }
 
@@ -151,6 +158,12 @@ function isTypeInteger(data: any): data is TypeIntegerDef {
     if (!isObject(data)) return false
     const { type } = data
     return type === "integer"
+}
+
+function isTypeUndefined(data: any): data is BasicTypeDef {
+    if (!isObject(data)) return false
+    const { type } = data
+    return type === "undefined"
 }
 
 function isTypeEnum(data: any): data is { enum: string[] } {

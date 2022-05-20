@@ -20,7 +20,6 @@ export default function SceneView(props: SceneViewProps) {
         setRunning(true)
         try {
             const data = await sceneService.getScene()
-            console.log("[scene-view] data = ", data) // @FIXME: Remove this line written on 2021-04-23 at 09:07
             setModels(data.models)
         } catch (ex) {
             console.error(ex)
