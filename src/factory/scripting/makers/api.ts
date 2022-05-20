@@ -1,5 +1,5 @@
-import { PythonScripting } from "@/contract/factory/scripting"
 import { makeComment } from "./comment"
+import { PythonScripting } from "@/contract/factory/scripting"
 
 export function makeApiFunction(): Promise<PythonScripting> {
     return new Promise((resolve) =>
@@ -18,14 +18,14 @@ export function makeApiFunction(): Promise<PythonScripting> {
                 ),
                 "class Api:",
                 [
-                    "__init__(self, hostname_and_port: str):",
+                    "def __init__(self):",
                     [
                         "hostname_and_port = sys.argv[1]",
                         'print("Connecting to Brayns Renderer on", hostname_and_port, "...")',
                         "self.brayns = Client(hostname_and_port)",
                     ],
                     "",
-                    "exec(self, entry_point: str, params=None):",
+                    "def exec(self, entry_point: str, params=None):",
                     [
                         "try:",
                         [
@@ -35,7 +35,7 @@ export function makeApiFunction(): Promise<PythonScripting> {
                         [
                             `print()`,
                             `print("########## ERROR ##########")`,
-                            `print("Entrypoint: ", name)`,
+                            `print("Entrypoint: ", entry_point)`,
                             `print("Params: ", json.dumps(params, indent=4))`,
                             `print()`,
                             `print(traceback.format_exc())`,
