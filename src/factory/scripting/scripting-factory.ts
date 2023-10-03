@@ -86,4 +86,4 @@ async function makeScriptHeader(
         ],
     }
 }
-``
+;``

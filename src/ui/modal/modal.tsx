@@ -6,20 +6,8 @@ import { ColorName } from "../view/types"
 import "./modal.css"
 
 export interface ModalOptions {
-    align:
-        | ""
-        | "L"
-        | "R"
-        | "T"
-        | "B"
-        | "BL"
-        | "LB"
-        | "BR"
-         
-        | "TL"
-        | "LT"
-        | "TR"
-         
+    align: "" | "L" | "R" | "T" | "B" | "BL" | "LB" | "BR" | "TL" | "LT" | "TR"
+
     padding: string
     transitionDuration: number
     /**

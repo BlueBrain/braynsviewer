@@ -78,7 +78,9 @@
     height: 20px;
     border-radius: 10px;
     transform: translateX(0);
-    transition: transform 0.2s, opacity 0.2s;
+    transition:
+        transform 0.2s,
+        opacity 0.2s;
     box-shadow: var(--theme-shadow-button);
     background-color: var(--theme-color-accent-dark);
 }

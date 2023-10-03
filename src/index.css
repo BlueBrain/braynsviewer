@@ -60,6 +60,7 @@ hr {
     );
 }
 
-a, a:visited {
+a,
+a:visited {
     color: var(--theme-color-accent);
 }
