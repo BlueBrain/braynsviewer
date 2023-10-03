@@ -1,0 +1,1027 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s]+">
+      
+      <link rel="shortcut icon" href="">
+      <meta name="generator" content="mkdocs-5.2.2, mkdocs-material-4.4.2">
+    
+<meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+<!-- Generator banner -->
+<meta name="generator" content="sphinx-5.2.2" />
+
+    
+      
+        <title>Load a model - Brayns</title>
+      
+    
+    
+
+      <link rel="stylesheet" href="_static/stylesheets/application.4031d38b.css">
+      
+        <link rel="stylesheet" href="_static/stylesheets/application-palette.3e3d1dff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#2196f3">
+      
+    
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/stylesheets/theme.css" />
+
+    
+      <script src="_static/javascripts/modernizr.74668098.js"></script>
+    
+    
+
+    <link rel="stylesheet" href="_static/fonts/material-icons.css">
+    
+    
+    
+
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#loader" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      
+
+<!-- Application header -->
+<header class="md-header" data-md-component="header">
+
+  <!-- Top-level navigation -->
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+
+      <!-- Link to home -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.epfl.ch/"
+            title="Brayns"
+            class="md-header-nav__button md-logo">
+          
+            <img src="_static/images/epfl-logo-new.svg" width="24" height="24" />
+          
+        </a>
+      </div>
+
+      <!-- Button to toggle drawer -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button"
+            for="__drawer"></label>
+      </div>
+
+      
+      <!-- Home button to ecosystem -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div id="homeBtnContainer" class="documentation-homepage-icon">
+          <!-- this href will be overwritten by utils.js -->
+          <a href="#" id="homepageLink">
+            <i class="fa fa-home"></i>
+          </a>
+        </div>
+      </div>
+      
+
+      <!-- Header title -->
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title"
+            data-md-component="title">
+          
+          
+          <span class="md-header-nav__topic">
+            <a href="index.html"
+                title="Brayns">
+            <span class="md-header-nav__prefix">
+            Blue Brain</span> &ndash;
+            Brayns<span class="md-header-nav__version">
+            2.0.0</span></a>
+          </span>
+          <span class="md-header-nav__topic">
+            <a href="" title="Load a model">
+            <span class="md-header-nav__prefix">
+            Blue Brain</span> &ndash;
+            Brayns &ndash;
+            Load a model<span class="md-header-nav__version">
+            2.0.0</span></a>
+          </span>
+        
+        
+        </div>
+      </div>
+
+      <!-- Button to open search dialogue -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button"
+              for="__search"></label>
+
+          <!-- Search interface -->
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+
+      <!-- Repository containing source -->
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.epfl.ch/" title="Brayns" class="md-nav__button md-logo">
+      
+        <img src="_static/images/epfl-logo-new.svg" width="48" height="48">
+      
+    </a>
+    Brayns
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="index.html" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="install.html" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Usage
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Usage
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="usage_launchbraynsbackend.html" title="Running a Brayns backend service" class="md-nav__link">
+      Running a Brayns backend service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="usage_usepythonapi.html" title="Using Brayns Python API" class="md-nav__link">
+      Using Brayns Python API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="usage_usejsonrpcapi.html" title="Using Brayns JSON-RPC API" class="md-nav__link">
+      Using Brayns JSON-RPC API
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="plugins.html" title="Brayns plugins" class="md-nav__link">
+      Brayns plugins
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples_connector.html" title="Connection to a running backend instance" class="md-nav__link">
+      Connection to a running backend instance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Load a model
+      </label>
+    
+    <a href="#" title="Load a model" class="md-nav__link md-nav__link--active">
+      Load a model
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#loader" class="md-nav__link">
+    Loader
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geometries" class="md-nav__link">
+    Geometries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#models" class="md-nav__link">
+    Models
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-a-model" class="md-nav__link">
+    Update a model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-a-circuit" class="md-nav__link">
+    Color a circuit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#switch-between-original-color-and-simulation-color" class="md-nav__link">
+    Switch between original color and simulation color
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples_snapshot.html" title="Take a snapshot" class="md-nav__link">
+      Take a snapshot
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples_exporter.html" title="Export frames" class="md-nav__link">
+      Export frames
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples_movie.html" title="Make a movie from exported frames" class="md-nav__link">
+      Make a movie from exported frames
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples_service.html" title="Launch Brayns backend from Python" class="md-nav__link">
+      Launch Brayns backend from Python
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      JSON-RPC API reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        JSON-RPC API reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="jsonrpcapi/api_atlasexplorer_methods.html" title="Atlas Explorer API methods" class="md-nav__link">
+      Atlas Explorer API methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="jsonrpcapi/api_circuitinfo_methods.html" title="Circuit Info API methods" class="md-nav__link">
+      Circuit Info API methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="jsonrpcapi/api_circuitexplorer_methods.html" title="Circuit Explorer API methods" class="md-nav__link">
+      Circuit Explorer API methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="jsonrpcapi/api_core_methods.html" title="Core API methods" class="md-nav__link">
+      Core API methods
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Python API reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Python API reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="pythonapi/core.html" title="core" class="md-nav__link">
+      core
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="pythonapi/movie.html" title="movie" class="md-nav__link">
+      movie
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="pythonapi/network.html" title="network" class="md-nav__link">
+      network
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="pythonapi/plugins.html" title="plugins" class="md-nav__link">
+      plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="pythonapi/service.html" title="service" class="md-nav__link">
+      service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="pythonapi/utils.html" title="utils" class="md-nav__link">
+      utils
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#loader" class="md-nav__link">
+    Loader
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geometries" class="md-nav__link">
+    Geometries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#models" class="md-nav__link">
+    Models
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-a-model" class="md-nav__link">
+    Update a model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-a-circuit" class="md-nav__link">
+    Color a circuit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#switch-between-original-color-and-simulation-color" class="md-nav__link">
+    Switch between original color and simulation color
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <section id="load-a-model">
+<h1>Load a model<a class="headerlink" href="#load-a-model" title="Permalink to this heading">¶</a></h1>
+<p>Everything that is rendered by Brayns is called <cite>Model</cite>. A model is usually an
+assembly of primitives (spheres, boxes, planes, meshes, …) and can have
+a simulation attached to it.</p>
+<p>A simulation can change the model color or radius depending on the global
+<cite>Simulation</cite> state (current frame). The user is responsible to choose the
+current simulation frame, the backend doesn’t perform any update on this.</p>
+<p>Models can be built from different file formats. The support to parse and load
+different files (SONATA, BlueConfig, DTI, …) is added by plugins
+<a class="reference internal" href="plugins.html#plugins-label"><span class="std std-ref">Brayns plugins</span></a>. By default, Brayns only supports mesh loading without
+plugins.</p>
+<section id="loader">
+<h2>Loader<a class="headerlink" href="#loader" title="Permalink to this heading">¶</a></h2>
+<p>Loaders contain the settings to load specific file formats. They are mostly
+contained in the <cite>braynsCircuitExplorer</cite> plugin (SONATA, BBP) for the backend
+support and in <cite>SonataLoader</cite> and <cite>BbpLoader</cite> for the Python API.</p>
+<p>Here in this example, we will load a file a BBP format (BlueConfig).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">loader</span> <span class="o">=</span> <span class="n">brayns</span><span class="o">.</span><span class="n">BbpLoader</span><span class="p">(</span>
+    <span class="n">cells</span><span class="o">=</span><span class="n">brayns</span><span class="o">.</span><span class="n">BbpCells</span><span class="o">.</span><span class="n">from_density</span><span class="p">(</span><span class="mf">0.01</span><span class="p">),</span>
+    <span class="n">report</span><span class="o">=</span><span class="n">brayns</span><span class="o">.</span><span class="n">BbpReport</span><span class="o">.</span><span class="n">compartment</span><span class="p">(</span><span class="s1">&#39;soma&#39;</span><span class="p">),</span>
+    <span class="n">morphology</span><span class="o">=</span><span class="n">brayns</span><span class="o">.</span><span class="n">Morphology</span><span class="p">(</span>
+        <span class="n">radius_multiplier</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">load_soma</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">load_axon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">load_dendrites</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">geometry_type</span><span class="o">=</span><span class="n">brayns</span><span class="o">.</span><span class="n">GeometryType</span><span class="o">.</span><span class="n">SMOOTH</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Here we won’t get too much in the details of the parameters as they depend on
+the loader but basically user can specify:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>The density of cells to load, it can also be specified by target or by listing</dt><dd><p>the GIDs.</p>
+</dd>
+</dl>
+</li>
+<li><p>Which report to load (here compartment or spike) with the report parameters.</p></li>
+<li><dl class="simple">
+<dt>How to load the morphologies of the circuit (radius multiplier, which parts</dt><dd><p>to load, …).</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="geometries">
+<h2>Geometries<a class="headerlink" href="#geometries" title="Permalink to this heading">¶</a></h2>
+<p>Raw geometries with custom colors can also be loaded using a list of objects. A
+geometry is basically a primitive shape (sphere, box, …) with a color. It
+always create one single model per function call.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">brayns</span><span class="o">.</span><span class="n">add_geometries</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="p">[</span>
+    <span class="n">brayns</span><span class="o">.</span><span class="n">Sphere</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">with_color</span><span class="p">(</span><span class="n">brayns</span><span class="o">.</span><span class="n">Color4</span><span class="o">.</span><span class="n">red</span><span class="p">),</span>
+    <span class="n">brayns</span><span class="o">.</span><span class="n">Sphere</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">brayns</span><span class="o">.</span><span class="n">Vector3</span><span class="o">.</span><span class="n">one</span><span class="p">),</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="models">
+<h2>Models<a class="headerlink" href="#models" title="Permalink to this heading">¶</a></h2>
+<p>Now we can use the loader to load models from a file and retreive them.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">circuit_path</span> <span class="o">=</span> <span class="s1">&#39;path/to/BlueConfig&#39;</span>
+
+<span class="n">models</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">circuit_path</span><span class="p">)</span>
+
+<span class="c1"># We will take the first one for the next examples.</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>It returns a list of <cite>Model</cite> created by the loader (usually it is a single
+model). It is important to get their ID (<cite>model.id</cite>) if you need to update them.</p>
+<p>Model can also be retreived with <cite>get_model</cite> and removed using <cite>remove_models</cite>,
+to select the IDs to erase, or <cite>clear_models</cite> to remove them all.</p>
+<section id="update-a-model">
+<h3>Update a model<a class="headerlink" href="#update-a-model" title="Permalink to this heading">¶</a></h3>
+<p>Models can be moved and made invisible using the <cite>update_model</cite> function.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The model transform is the identity by default and is relative to the
+original location of the object when loaded.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We use the transform to move the model.</span>
+<span class="n">transform</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">transform</span>
+
+<span class="c1"># Move the model upward.</span>
+<span class="n">transform</span><span class="o">.</span><span class="n">translation</span> <span class="o">+=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">brayns</span><span class="o">.</span><span class="n">Vector3</span><span class="o">.</span><span class="n">up</span>
+
+<span class="c1"># Rotate the model of 90 degrees around Y.</span>
+<span class="n">euler</span> <span class="o">=</span> <span class="n">brayns</span><span class="o">.</span><span class="n">Vector3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">transform</span><span class="o">.</span><span class="n">rotation</span> <span class="o">=</span> <span class="n">brayns</span><span class="o">.</span><span class="n">Rotation</span><span class="o">.</span><span class="n">from_euler</span><span class="p">(</span><span class="n">euler</span><span class="p">,</span> <span class="n">degrees</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Upload the model and retreive its new state.</span>
+<span class="c1"># It is important to use the model returned by update_model as the bounds</span>
+<span class="c1"># will be updated if we change the transform.</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">brayns</span><span class="o">.</span><span class="n">update_model</span><span class="p">(</span>
+    <span class="n">instance</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+    <span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">,</span>
+    <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="color-a-circuit">
+<h3>Color a circuit<a class="headerlink" href="#color-a-circuit" title="Permalink to this heading">¶</a></h3>
+<p>Models loaded from a circuit (not regular models) can be colored using special
+methods.</p>
+<p>Here is an example to color SSCX circuit by layer.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Choose a coloring method.</span>
+<span class="n">method</span> <span class="o">=</span> <span class="n">brayns</span><span class="o">.</span><span class="n">ColorMethod</span><span class="o">.</span><span class="n">LAYER</span>
+
+<span class="c1"># Map method value to color.</span>
+<span class="n">color</span> <span class="o">=</span> <span class="n">brayns</span><span class="o">.</span><span class="n">color_circuit_by_method</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s1">&#39;1&#39;</span><span class="p">:</span> <span class="n">brayns</span><span class="o">.</span><span class="n">Color4</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">242</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span>
+    <span class="s1">&#39;2&#39;</span><span class="p">:</span> <span class="n">brayns</span><span class="o">.</span><span class="n">Color4</span><span class="p">(</span><span class="mi">248</span><span class="p">,</span> <span class="mi">148</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span>
+    <span class="s1">&#39;3&#39;</span><span class="p">:</span> <span class="n">brayns</span><span class="o">.</span><span class="n">Color4</span><span class="p">(</span><span class="mi">225</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span>
+    <span class="s1">&#39;4&#39;</span><span class="p">:</span> <span class="n">brayns</span><span class="o">.</span><span class="n">Color4</span><span class="p">(</span><span class="mi">253</span><span class="p">,</span> <span class="mi">156</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span>
+    <span class="s1">&#39;5&#39;</span><span class="p">:</span> <span class="n">brayns</span><span class="o">.</span><span class="n">Color4</span><span class="p">(</span><span class="mi">103</span><span class="p">,</span> <span class="mi">168</span><span class="p">,</span> <span class="mi">222</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span>
+    <span class="s1">&#39;6&#39;</span><span class="p">:</span> <span class="n">brayns</span><span class="o">.</span><span class="n">Color4</span><span class="p">(</span><span class="mi">106</span><span class="p">,</span> <span class="mi">230</span><span class="p">,</span> <span class="mi">109</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>Available color methods and method values for a given circuit (model) can be
+retreived using <cite>get_color_methods</cite> and <cite>get_color_method_values</cite>.</p>
+<p>Some alternatives exist with <cite>color_circuit_by_id</cite> and <cite>color_circuit</cite>.</p>
+</section>
+<section id="switch-between-original-color-and-simulation-color">
+<h3>Switch between original color and simulation color<a class="headerlink" href="#switch-between-original-color-and-simulation-color" title="Permalink to this heading">¶</a></h3>
+<p>If a model has a simulation attached, its original color can be overriden by
+the simulation color. To avoid this <cite>enable_simulation</cite> can be used to enable /
+disable simulation colors for a given model.</p>
+</section>
+</section>
+</section>
+
+                
+  
+
+              
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+
+        <!-- Link to previous page -->
+        
+          <a href="examples_connector.html"
+              title="Connection to a running backend instance"
+              class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+              rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back
+                    md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Connection to a running backend instance
+              </span>
+            </div>
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          <a href="examples_snapshot.html"
+              title="Take a snapshot"
+              class="md-flex md-footer-nav__link md-footer-nav__link--next"
+              rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Take a snapshot
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward
+                    md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+      
+        
+          
+          <div class="md-footer-copyright__company">
+            Blue Brain Project
+          </div>
+          
+          
+          <div class="md-footer-copyright__address__title">
+            Address
+          </div>
+          <div class="md-footer-copyright__address">
+            EPFL/Campus Biotech<br>Chemin des Mines 9,<br>CH-1202 Geneva<br>Switzerland
+          </div>
+          
+        
+        
+          <div class="md-footer-copyright__highlight">
+            &copy; Blue Brain Project/EPFL 2005-2022. All rights reserved.
+          </div>
+        
+        
+      </div>
+      
+
+      <!-- Social links -->
+      
+
+<!-- Social links in footer -->
+
+  <div class="md-footer-social">
+    <link rel="stylesheet" type="text/css"
+        href="_static/fonts/font-awesome.css" />
+    
+    
+    <div class="md-footer-social__title">Follow the Blue Brain</div>
+    
+    
+    
+      <a href="https://www.linkedin.com/showcase/blue-brain-project/" class="md-footer-social__link
+            fa fa-linkedin-square"></a>
+    
+      <a href="https://twitter.com/bluebrainpjt?lang=en" class="md-footer-social__link
+            fa fa-twitter-square"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+<script src="_static/javascripts/theme.js"></script>
+<script src="_static/javascripts/utils.js"></script>
+
+      <script src="_static/javascripts/application.718059d6.js"></script>
+      
+      <script>app.initialize({version:"5.2.2",url:{base:"./_static"}})</script>
+      
+    
+
+  </body>
+</html>

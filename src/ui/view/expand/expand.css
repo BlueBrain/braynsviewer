@@ -1,7 +1,7 @@
 .tfw-view-Expand {
     display: block;
     padding: 0 16px;
-    --transition-delay: .2s;
+    --transition-delay: 0.2s;
 }
 
 .tfw-view-Expand > button {

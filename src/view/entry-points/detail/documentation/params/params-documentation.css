@@ -1,14 +1,14 @@
 .view-entryPoints-detail-documentation-ParamsDocumentation span.desc {
     font-size: 80%;
-    opacity: .5;
+    opacity: 0.5;
 }
 
 .view-entryPoints-detail-documentation-ParamsDocumentation span.type {
     font-size: 90%;
     background-color: var(--theme-color-section);
     color: var(--theme-color-on-section);
-    margin: 0 .25em;
-    padding: .125em .25em;
+    margin: 0 0.25em;
+    padding: 0.125em 0.25em;
 }
 
 .view-entryPoints-detail-documentation-ParamsDocumentation span.property {
@@ -16,15 +16,17 @@
     color: var(--theme-color-accent-dark);
 }
 
-.view-entryPoints-detail-documentation-ParamsDocumentation span.property.required {
+.view-entryPoints-detail-documentation-ParamsDocumentation
+    span.property.required {
     font-weight: 900;
     color: var(--theme-color-accent);
 }
 
-.view-entryPoints-detail-documentation-ParamsDocumentation span.property.optional::after {
+.view-entryPoints-detail-documentation-ParamsDocumentation
+    span.property.optional::after {
     content: "?";
     color: var(--theme-color-on-frame);
-    margin: 0 .25em;
+    margin: 0 0.25em;
 }
 
 .view-entryPoints-detail-documentation-ParamsDocumentation ul {

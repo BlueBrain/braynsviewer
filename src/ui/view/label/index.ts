@@ -1,1 +1,1 @@
-export { default } from './label-view'
+export { default } from "./label-view"

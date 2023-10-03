@@ -1,5 +1,5 @@
 # Build ReactJS application
-ARG BRAYNSVIEWER_NODE_IMAGE_VERSION=14.18.0
+ARG BRAYNSVIEWER_NODE_IMAGE_VERSION=16.13.1
 ARG BRAYNSVIEWER_NGINX_IMAGE_VERSION=stable-alpine
 
 # Build React app
@@ -7,6 +7,7 @@ FROM node:${BRAYNSVIEWER_NODE_IMAGE_VERSION} as builder
 WORKDIR /app
 ADD . /app
 RUN npm install && \
+    npm test && \
     npm run build
 
 # Build Nginx server

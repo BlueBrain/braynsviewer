@@ -26,7 +26,7 @@ describe("common/async-tools/async-tools.ts", () => {
     describe(`"AsyncTools.debounce()`, () => {
         it(`should debounce when called twice withint delay`, async () => {
             let path = ["START"]
-            const push = AsyncTools.debounce(step => path.push(step), 100)
+            const push = AsyncTools.debounce((step) => path.push(step), 100)
             push("A")
             await TimerMock.run(50)
             push("B")
@@ -37,7 +37,7 @@ describe("common/async-tools/async-tools.ts", () => {
     describe(`"AsyncTools.throttle()`, () => {
         it(`should throttle every 100 ms`, async () => {
             let path: number[] = []
-            const push = AsyncTools.throttle(step => path.push(step), 100)
+            const push = AsyncTools.throttle((step) => path.push(step), 100)
             push(1)
             await TimerMock.run(30)
             push(2)

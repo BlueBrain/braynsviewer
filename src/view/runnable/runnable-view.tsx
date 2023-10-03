@@ -2,7 +2,6 @@ import * as React from "react"
 import IconFactory from "../../ui/factory/icon"
 import "./runnable-view.css"
 
-
 export interface RunnableViewProps {
     className?: string
     running: boolean

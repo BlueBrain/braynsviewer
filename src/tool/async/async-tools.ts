@@ -3,7 +3,7 @@
  * @param timeout Number of milliseconds to wait.
  */
 async function sleep(timeout: number): Promise<void> {
-    return new Promise(resolve => window.setTimeout(resolve, timeout))
+    return new Promise((resolve) => window.setTimeout(resolve, timeout))
 }
 
 /**
@@ -14,17 +14,23 @@ async function sleep(timeout: number): Promise<void> {
  * less than `delay` ms between them.
  * @param delay Number of milliseconds.
  */
-const debounce = <F extends (...args: any[]) => any>(action: F, delay: number) => {
+const debounce = <F extends (...args: any[]) => any>(
+    action: F,
+    delay: number
+) => {
     let timeout = 0
 
     return (...args: Parameters<F>): Promise<ReturnType<F>> =>
-        new Promise(resolve => {
+        new Promise((resolve) => {
             window.clearTimeout(timeout)
             timeout = window.setTimeout(() => resolve(action(...args)), delay)
         })
 }
 
-const throttle = <F extends (...args: any[]) => any>(action: F, delay: number) => {
+const throttle = <F extends (...args: any[]) => any>(
+    action: F,
+    delay: number
+) => {
     let protectedTime = false
     let savedArgs: Parameters<F> | undefined
     const exec = () => {
@@ -51,7 +57,7 @@ const throttle = <F extends (...args: any[]) => any>(action: F, delay: number) =
 const EXPORT = {
     sleep,
     debounce,
-    throttle
+    throttle,
 }
 
 export default EXPORT

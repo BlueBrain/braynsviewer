@@ -1,6 +1,6 @@
 import RendererServiceInterface, {
     RendererCommonParams,
-    RendererExtraParams
+    RendererExtraParams,
 } from "@/contract/service/renderer"
 import ButtonView from "@/ui/view/button"
 import CheckboxView from "@/ui/view/checkbox"
@@ -8,9 +8,9 @@ import FloatInput from "@/ui/view/input/float"
 import * as React from "react"
 import Runnable from "../runnable"
 import ExtraParamView from "./extra-param"
-import "./renderer-view.css"
 import SelectRenderer from "./select-renderer"
 
+import "./renderer-view.css"
 
 export interface RendererViewProps {
     className?: string
@@ -21,15 +21,14 @@ type RunnableFunction = (f: () => Promise<void>) => Promise<void>
 
 export default function RendererView(props: RendererViewProps) {
     const { rendererService } = props
-    const [params, setParams] = React.useState<RendererCommonParams>(
-        DEFAULT_PARAMS
-    )
+    const [params, setParams] =
+        React.useState<RendererCommonParams>(DEFAULT_PARAMS)
     const [type, setType] = React.useState("Undefined Renderer")
     const [types, setTypes] = React.useState(["perspective", "orthographic"])
     const [extra, setExtra] = React.useState<any>(null)
     const [editMode, setEditMode] = React.useState(false)
     const [running, setRunning] = React.useState(true)
-    const run: RunnableFunction = async f => {
+    const run: RunnableFunction = async (f) => {
         try {
             setRunning(true)
             return await f()
@@ -78,7 +77,7 @@ export default function RendererView(props: RendererViewProps) {
             async () =>
                 await rendererService.setCommonParams({
                     ...params,
-                    type
+                    type,
                 })
         )
     }
@@ -88,7 +87,7 @@ export default function RendererView(props: RendererViewProps) {
 
         await run(async () => {
             await rendererService.setCommonParams({
-                type: selectedType
+                type: selectedType,
             })
             setType(selectedType)
             setExtra(await rendererService.getExtraParams())
@@ -97,7 +96,7 @@ export default function RendererView(props: RendererViewProps) {
     const updateParam = (param: Partial<RendererCommonParams>) => {
         setParams({
             ...params,
-            ...param
+            ...param,
         })
     }
     return (
@@ -125,7 +124,9 @@ export default function RendererView(props: RendererViewProps) {
                             params.accumulation ? "ON" : "OFF"
                         }`}
                         value={params.accumulation}
-                        onChange={accumulation => updateParam({ accumulation })}
+                        onChange={(accumulation) =>
+                            updateParam({ accumulation })
+                        }
                     />
                     <CheckboxView
                         enabled={editMode}
@@ -133,14 +134,14 @@ export default function RendererView(props: RendererViewProps) {
                             params.headLight ? "ON" : "OFF"
                         }`}
                         value={params.headLight}
-                        onChange={headLight => updateParam({ headLight })}
+                        onChange={(headLight) => updateParam({ headLight })}
                     />
                     <FloatInput
                         enabled={editMode}
                         size={8}
                         value={params.maxAccumFrames}
                         label="Max Accu. Frames"
-                        onChange={maxAccumFrames =>
+                        onChange={(maxAccumFrames) =>
                             updateParam({ maxAccumFrames })
                         }
                     />
@@ -149,7 +150,7 @@ export default function RendererView(props: RendererViewProps) {
                         size={8}
                         value={params.samplesPerpixel}
                         label="Samples per Pixel"
-                        onChange={samplesPerpixel =>
+                        onChange={(samplesPerpixel) =>
                             updateParam({ samplesPerpixel })
                         }
                     />
@@ -158,14 +159,14 @@ export default function RendererView(props: RendererViewProps) {
                         size={8}
                         value={params.subsampling}
                         label="Subsampling"
-                        onChange={subsampling => updateParam({ subsampling })}
+                        onChange={(subsampling) => updateParam({ subsampling })}
                     />
                     <FloatInput
                         enabled={editMode}
                         size={8}
                         value={params.varianceThreshold}
                         label="Variance Threshold"
-                        onChange={varianceThreshold =>
+                        onChange={(varianceThreshold) =>
                             updateParam({ varianceThreshold })
                         }
                     />
@@ -174,7 +175,7 @@ export default function RendererView(props: RendererViewProps) {
                     <>
                         <hr />
                         <div className="extra-params">
-                            {Object.keys(extra).map(name => (
+                            {Object.keys(extra).map((name) => (
                                 <ExtraParamView
                                     key={name}
                                     enabled={editMode}
@@ -228,7 +229,7 @@ const DEFAULT_PARAMS: RendererCommonParams = {
     samplesPerpixel: 1,
     subsampling: 1,
     type: "...",
-    varianceThreshold: -1
+    varianceThreshold: -1,
 }
 
 function notImplemented() {

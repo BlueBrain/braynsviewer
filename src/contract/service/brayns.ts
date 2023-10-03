@@ -1,5 +1,4 @@
 import EventInterface from "../tool/event"
-import SerializableData from "../type/serializable-data"
 
 export default interface BraynsServiceInterface {
     // Triggers when Brayns send us unsollicited updates.
@@ -8,15 +7,17 @@ export default interface BraynsServiceInterface {
     eventImage: EventInterface<ArrayBuffer>
     // `true` means that the WebSocket is connected.
     eventConnectionStatus: EventInterface<boolean>
+    /** the host and port this is connected to. */
+    readonly hostAndPort: string
     // Try yo connect to BraynsService. Throws an exception in case of failure.
     connect(): Promise<void>
     /**
-     * Call a Brayns entrypoint and return the result.
+     * Call a Brayns entryPoint and return the result.
      * Throws an exception in case of failure.
      * @param entryPointName "get-camera", "get-scene", 'add-light", ...
      * @param param A serializable param for the entry point.
      */
-    exec(entryPointName: string, param?: any): Promise<SerializableData>
+    exec(entryPointName: string, param?: any): Promise<unknown>
 
     /**
      * A long task can be cancelled and can provide progress feedbacks.
@@ -43,6 +44,19 @@ export default interface BraynsServiceInterface {
      * @see tryToExec()
      */
     isSuccess(data: BraynsQueryResult): data is BraynsQuerySuccess
+    /**
+     * When debug mode is enabled, this service will log to the console
+     * depending on the value of `debug`.
+     * * `false`: Nothing is logged.
+     * * `true`: Everything is logged.
+     * * Regular expression: Log only entryPoints whose name match the regexp.
+     * * Function: Log only if the function returns `true` for a given
+     * entryPoint name and its parameters.
+     */
+    debug:
+        | boolean
+        | RegExp
+        | ((entryPointName: string, params?: any) => boolean)
 }
 
 export interface LongTask {
@@ -51,12 +65,12 @@ export interface LongTask {
      * You will get an error in the promise though.
      */
     cancel(): void
-    promise: Promise<SerializableData>
+    promise: Promise<unknown>
 }
 
 export interface BraynsUpdate {
     name: string
-    value: SerializableData
+    value: unknown
 }
 
 export interface BraynsServiceAddress {
@@ -67,13 +81,13 @@ export interface BraynsServiceAddress {
 export type BraynsQueryResult = BraynsQuerySuccess | BraynsQueryFailure
 
 interface BraynsQuery {
-    entrypoint: string
-    param: SerializableData
+    entryPoint: string
+    param?: unknown
 }
 
 export interface BraynsQuerySuccess extends BraynsQuery {
     success: true
-    result: SerializableData
+    result: unknown
 }
 
 export interface BraynsQueryFailure extends BraynsQuery {

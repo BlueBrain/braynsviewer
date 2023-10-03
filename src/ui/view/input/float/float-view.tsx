@@ -15,7 +15,8 @@ export interface FloatViewProps {
 }
 
 export default function FloatView(props: FloatViewProps) {
-    const { value, label, size, enabled, wide, onChange, onEnterPressed } = props
+    const { value, label, size, enabled, wide, onChange, onEnterPressed } =
+        props
     return (
         <TextInput
             className={getClassNames(props)}
@@ -25,8 +26,8 @@ export default function FloatView(props: FloatViewProps) {
             enabled={enabled}
             wide={wide}
             validator={RX_FLOAT}
-            onChange={value => onChange && onChange(parseFloat(value))}
-            onEnterPressed={value =>
+            onChange={(value) => onChange && onChange(parseFloat(value))}
+            onEnterPressed={(value) =>
                 onEnterPressed && onEnterPressed(parseFloat(value))
             }
         />

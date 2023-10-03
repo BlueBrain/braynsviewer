@@ -1,4 +1,4 @@
-import { IRule } from './types'
+import { IRule } from "./types"
 
 const JSON5_RULES: IRule[] = [
     ["space", /^[ \t\n\r]+/],
@@ -17,12 +17,11 @@ const JSON5_RULES: IRule[] = [
     ["number", /^[-+]?[0-9]+(\.[0-9]*)?([eE][-+]?[0-9]+)?/],
     ["number", /^[-+]?\.[0-9]*([eE][-+]?[0-9]+)?/],
     ["string", /^'([^\\']+|\\')*'/],
-    ["string", /^"([^\\"]+|\\")*"/]
+    ["string", /^"([^\\"]+|\\")*"/],
 ]
 
 const RULES = {
     JSON5_RULES,
 }
-
 
 export default RULES

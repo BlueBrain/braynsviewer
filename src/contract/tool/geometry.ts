@@ -38,7 +38,7 @@ export default interface GeometryInterface {
      */
     distance(pointA: Vector3, pointB: Vector3): number
 
-    rotateVectorWithQuaternion(vec: Vector3, quat: Quaternion): Vector3 
+    rotateVectorWithQuaternion(vec: Vector3, quat: Quaternion): Vector3
 
     /**
      * Get the X, Y, Z axis of the matrix that maps this orientation.

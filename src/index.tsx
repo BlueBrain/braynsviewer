@@ -1,20 +1,14 @@
+import AppView from "./view/app"
+import Modal from "./ui/modal"
 import React from "react"
 import ReactDOM from "react-dom"
+import Theme from "./ui/theme"
+import "./index.css"
 import {
     makeBraynsService,
-    makeCameraService,
     makeConfigManager,
     makeEntryPointsService,
-    makeInfoService,
-    makeRendererService,
-    makeSceneService,
-    makeSceneViewManager,
-    makeSpontaneousUpdatesService
 } from "./factory/global"
-import "./index.css"
-import Modal from "./ui/modal"
-import Theme from "./ui/theme"
-import AppView from "./view/app"
 
 start()
 
@@ -25,6 +19,7 @@ async function start() {
 
     try {
         const brayns = makeBraynsService(braynsAddress)
+        brayns.debug = /stream/ // false
         await Modal.wait("Connecting Brayns Service...", brayns.connect())
 
         // Entry point for our app
@@ -32,15 +27,8 @@ async function start() {
         ReactDOM.render(
             <AppView
                 address={braynsAddress}
-                cameraService={makeCameraService(braynsAddress)}
+                braynsService={brayns}
                 entryPointsService={makeEntryPointsService(braynsAddress)}
-                infoService={makeInfoService(braynsAddress)}
-                rendererService={makeRendererService(braynsAddress)}
-                sceneService={makeSceneService(braynsAddress)}
-                sceneView={makeSceneViewManager(braynsAddress)}
-                spontaneaousUpdatesService={makeSpontaneousUpdatesService(
-                    braynsAddress
-                )}
             />,
             root
         )

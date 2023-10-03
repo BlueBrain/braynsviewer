@@ -1,1 +1,1 @@
-export { default } from './floating-button-view'
+export { default } from "./floating-button-view"

@@ -1,0 +1,2412 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s]+">
+      
+      <link rel="shortcut icon" href="">
+      <meta name="generator" content="mkdocs-5.2.2, mkdocs-material-4.4.2">
+    
+<meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+<!-- Generator banner -->
+<meta name="generator" content="sphinx-5.2.2" />
+
+    
+      
+        <title>network - Brayns</title>
+      
+    
+    
+
+      <link rel="stylesheet" href="../_static/stylesheets/application.4031d38b.css">
+      
+        <link rel="stylesheet" href="../_static/stylesheets/application-palette.3e3d1dff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#2196f3">
+      
+    
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/stylesheets/theme.css" />
+
+    
+      <script src="../_static/javascripts/modernizr.74668098.js"></script>
+    
+    
+
+    <link rel="stylesheet" href="../_static/fonts/material-icons.css">
+    
+    
+    
+
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#classes" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      
+
+<!-- Application header -->
+<header class="md-header" data-md-component="header">
+
+  <!-- Top-level navigation -->
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+
+      <!-- Link to home -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.epfl.ch/"
+            title="Brayns"
+            class="md-header-nav__button md-logo">
+          
+            <img src="../_static/images/epfl-logo-new.svg" width="24" height="24" />
+          
+        </a>
+      </div>
+
+      <!-- Button to toggle drawer -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button"
+            for="__drawer"></label>
+      </div>
+
+      
+      <!-- Home button to ecosystem -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div id="homeBtnContainer" class="documentation-homepage-icon">
+          <!-- this href will be overwritten by utils.js -->
+          <a href="#" id="homepageLink">
+            <i class="fa fa-home"></i>
+          </a>
+        </div>
+      </div>
+      
+
+      <!-- Header title -->
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title"
+            data-md-component="title">
+          
+          
+          <span class="md-header-nav__topic">
+            <a href="../index.html"
+                title="Brayns">
+            <span class="md-header-nav__prefix">
+            Blue Brain</span> &ndash;
+            Brayns<span class="md-header-nav__version">
+            2.0.0</span></a>
+          </span>
+          <span class="md-header-nav__topic">
+            <a href="" title="network">
+            <span class="md-header-nav__prefix">
+            Blue Brain</span> &ndash;
+            Brayns &ndash;
+            network<span class="md-header-nav__version">
+            2.0.0</span></a>
+          </span>
+        
+        
+        </div>
+      </div>
+
+      <!-- Button to open search dialogue -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button"
+              for="__search"></label>
+
+          <!-- Search interface -->
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+
+      <!-- Repository containing source -->
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.epfl.ch/" title="Brayns" class="md-nav__button md-logo">
+      
+        <img src="../_static/images/epfl-logo-new.svg" width="48" height="48">
+      
+    </a>
+    Brayns
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../index.html" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../install.html" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Usage
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Usage
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage_launchbraynsbackend.html" title="Running a Brayns backend service" class="md-nav__link">
+      Running a Brayns backend service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage_usepythonapi.html" title="Using Brayns Python API" class="md-nav__link">
+      Using Brayns Python API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage_usejsonrpcapi.html" title="Using Brayns JSON-RPC API" class="md-nav__link">
+      Using Brayns JSON-RPC API
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../plugins.html" title="Brayns plugins" class="md-nav__link">
+      Brayns plugins
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_connector.html" title="Connection to a running backend instance" class="md-nav__link">
+      Connection to a running backend instance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_loader.html" title="Load a model" class="md-nav__link">
+      Load a model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_snapshot.html" title="Take a snapshot" class="md-nav__link">
+      Take a snapshot
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_exporter.html" title="Export frames" class="md-nav__link">
+      Export frames
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_movie.html" title="Make a movie from exported frames" class="md-nav__link">
+      Make a movie from exported frames
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_service.html" title="Launch Brayns backend from Python" class="md-nav__link">
+      Launch Brayns backend from Python
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      JSON-RPC API reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        JSON-RPC API reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jsonrpcapi/api_atlasexplorer_methods.html" title="Atlas Explorer API methods" class="md-nav__link">
+      Atlas Explorer API methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jsonrpcapi/api_circuitinfo_methods.html" title="Circuit Info API methods" class="md-nav__link">
+      Circuit Info API methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jsonrpcapi/api_circuitexplorer_methods.html" title="Circuit Explorer API methods" class="md-nav__link">
+      Circuit Explorer API methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jsonrpcapi/api_core_methods.html" title="Core API methods" class="md-nav__link">
+      Core API methods
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
+    
+    <label class="md-nav__link" for="nav-7">
+      Python API reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Python API reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="core.html" title="core" class="md-nav__link">
+      core
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="movie.html" title="movie" class="md-nav__link">
+      movie
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        network
+      </label>
+    
+    <a href="#" title="network" class="md-nav__link md-nav__link--active">
+      network
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connectionclosederror" class="md-nav__link">
+    ConnectionClosedError
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.websocket.exceptions.connection_closed_error.ConnectionClosedError" class="md-nav__link">
+    ConnectionClosedError
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connector" class="md-nav__link">
+    Connector
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.connector.Connector" class="md-nav__link">
+    Connector
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.connector.Connector.attempt_period" class="md-nav__link">
+    Connector.attempt_period
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.connector.Connector.binary_handler" class="md-nav__link">
+    Connector.binary_handler()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.connector.Connector.connect" class="md-nav__link">
+    Connector.connect()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.connector.Connector.logger" class="md-nav__link">
+    Connector.logger
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.connector.Connector.max_attempts" class="md-nav__link">
+    Connector.max_attempts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.connector.Connector.ssl_context" class="md-nav__link">
+    Connector.ssl_context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.connector.Connector.uri" class="md-nav__link">
+    Connector.uri
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance" class="md-nav__link">
+    Instance
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.instance.Instance" class="md-nav__link">
+    Instance
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.instance.Instance.cancel" class="md-nav__link">
+    Instance.cancel()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.instance.Instance.connected" class="md-nav__link">
+    Instance.connected
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.instance.Instance.disconnect" class="md-nav__link">
+    Instance.disconnect()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.instance.Instance.is_running" class="md-nav__link">
+    Instance.is_running()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.instance.Instance.poll" class="md-nav__link">
+    Instance.poll()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.instance.Instance.request" class="md-nav__link">
+    Instance.request()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.instance.Instance.send" class="md-nav__link">
+    Instance.send()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.instance.Instance.task" class="md-nav__link">
+    Instance.task()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#invalidservercertificateerror" class="md-nav__link">
+    InvalidServerCertificateError
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.websocket.exceptions.invalid_server_certificate_error.InvalidServerCertificateError" class="md-nav__link">
+    InvalidServerCertificateError
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logger" class="md-nav__link">
+    Logger
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.logger.Logger" class="md-nav__link">
+    Logger
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protocolerror" class="md-nav__link">
+    ProtocolError
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.websocket.exceptions.protocol_error.ProtocolError" class="md-nav__link">
+    ProtocolError
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request" class="md-nav__link">
+    Request
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.messages.request.Request" class="md-nav__link">
+    Request
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.messages.request.Request.binary" class="md-nav__link">
+    Request.binary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requesterror" class="md-nav__link">
+    RequestError
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.messages.request_error.RequestError" class="md-nav__link">
+    RequestError
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.messages.request_error.RequestError.code" class="md-nav__link">
+    RequestError.code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.messages.request_error.RequestError.data" class="md-nav__link">
+    RequestError.data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.messages.request_error.RequestError.message" class="md-nav__link">
+    RequestError.message
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requestfuture" class="md-nav__link">
+    RequestFuture
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.request_future.RequestFuture" class="md-nav__link">
+    RequestFuture
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.request_future.RequestFuture.cancel" class="md-nav__link">
+    RequestFuture.cancel()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.request_future.RequestFuture.from_result" class="md-nav__link">
+    RequestFuture.from_result()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.request_future.RequestFuture.get_progress" class="md-nav__link">
+    RequestFuture.get_progress()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.request_future.RequestFuture.has_progress" class="md-nav__link">
+    RequestFuture.has_progress()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.request_future.RequestFuture.is_ready" class="md-nav__link">
+    RequestFuture.is_ready()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.request_future.RequestFuture.poll" class="md-nav__link">
+    RequestFuture.poll()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.request_future.RequestFuture.wait_for_result" class="md-nav__link">
+    RequestFuture.wait_for_result()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requestprogress" class="md-nav__link">
+    RequestProgress
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.messages.request_progress.RequestProgress" class="md-nav__link">
+    RequestProgress
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.messages.request_progress.RequestProgress.amount" class="md-nav__link">
+    RequestProgress.amount
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.messages.request_progress.RequestProgress.operation" class="md-nav__link">
+    RequestProgress.operation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serviceunavailableerror" class="md-nav__link">
+    ServiceUnavailableError
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.websocket.exceptions.service_unavailable_error.ServiceUnavailableError" class="md-nav__link">
+    ServiceUnavailableError
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sslclientcontext" class="md-nav__link">
+    SslClientContext
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.websocket.ssl_client_context.SslClientContext" class="md-nav__link">
+    SslClientContext
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.websocket.ssl_client_context.SslClientContext.cadata" class="md-nav__link">
+    SslClientContext.cadata
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.websocket.ssl_client_context.SslClientContext.cafile" class="md-nav__link">
+    SslClientContext.cafile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.websocket.ssl_client_context.SslClientContext.capath" class="md-nav__link">
+    SslClientContext.capath
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#websocketerror" class="md-nav__link">
+    WebSocketError
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.websocket.exceptions.web_socket_error.WebSocketError" class="md-nav__link">
+    WebSocketError
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.websocket.exceptions.web_socket_error.WebSocketError.reason" class="md-nav__link">
+    WebSocketError.reason
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="plugins.html" title="plugins" class="md-nav__link">
+      plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="service.html" title="service" class="md-nav__link">
+      service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="utils.html" title="utils" class="md-nav__link">
+      utils
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connectionclosederror" class="md-nav__link">
+    ConnectionClosedError
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.websocket.exceptions.connection_closed_error.ConnectionClosedError" class="md-nav__link">
+    ConnectionClosedError
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connector" class="md-nav__link">
+    Connector
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.connector.Connector" class="md-nav__link">
+    Connector
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.connector.Connector.attempt_period" class="md-nav__link">
+    Connector.attempt_period
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.connector.Connector.binary_handler" class="md-nav__link">
+    Connector.binary_handler()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.connector.Connector.connect" class="md-nav__link">
+    Connector.connect()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.connector.Connector.logger" class="md-nav__link">
+    Connector.logger
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.connector.Connector.max_attempts" class="md-nav__link">
+    Connector.max_attempts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.connector.Connector.ssl_context" class="md-nav__link">
+    Connector.ssl_context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.connector.Connector.uri" class="md-nav__link">
+    Connector.uri
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance" class="md-nav__link">
+    Instance
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.instance.Instance" class="md-nav__link">
+    Instance
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.instance.Instance.cancel" class="md-nav__link">
+    Instance.cancel()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.instance.Instance.connected" class="md-nav__link">
+    Instance.connected
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.instance.Instance.disconnect" class="md-nav__link">
+    Instance.disconnect()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.instance.Instance.is_running" class="md-nav__link">
+    Instance.is_running()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.instance.Instance.poll" class="md-nav__link">
+    Instance.poll()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.instance.Instance.request" class="md-nav__link">
+    Instance.request()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.instance.Instance.send" class="md-nav__link">
+    Instance.send()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.instance.Instance.task" class="md-nav__link">
+    Instance.task()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#invalidservercertificateerror" class="md-nav__link">
+    InvalidServerCertificateError
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.websocket.exceptions.invalid_server_certificate_error.InvalidServerCertificateError" class="md-nav__link">
+    InvalidServerCertificateError
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logger" class="md-nav__link">
+    Logger
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.logger.Logger" class="md-nav__link">
+    Logger
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protocolerror" class="md-nav__link">
+    ProtocolError
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.websocket.exceptions.protocol_error.ProtocolError" class="md-nav__link">
+    ProtocolError
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request" class="md-nav__link">
+    Request
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.messages.request.Request" class="md-nav__link">
+    Request
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.messages.request.Request.binary" class="md-nav__link">
+    Request.binary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requesterror" class="md-nav__link">
+    RequestError
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.messages.request_error.RequestError" class="md-nav__link">
+    RequestError
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.messages.request_error.RequestError.code" class="md-nav__link">
+    RequestError.code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.messages.request_error.RequestError.data" class="md-nav__link">
+    RequestError.data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.messages.request_error.RequestError.message" class="md-nav__link">
+    RequestError.message
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requestfuture" class="md-nav__link">
+    RequestFuture
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.request_future.RequestFuture" class="md-nav__link">
+    RequestFuture
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.request_future.RequestFuture.cancel" class="md-nav__link">
+    RequestFuture.cancel()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.request_future.RequestFuture.from_result" class="md-nav__link">
+    RequestFuture.from_result()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.request_future.RequestFuture.get_progress" class="md-nav__link">
+    RequestFuture.get_progress()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.request_future.RequestFuture.has_progress" class="md-nav__link">
+    RequestFuture.has_progress()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.request_future.RequestFuture.is_ready" class="md-nav__link">
+    RequestFuture.is_ready()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.request_future.RequestFuture.poll" class="md-nav__link">
+    RequestFuture.poll()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.request_future.RequestFuture.wait_for_result" class="md-nav__link">
+    RequestFuture.wait_for_result()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requestprogress" class="md-nav__link">
+    RequestProgress
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.messages.request_progress.RequestProgress" class="md-nav__link">
+    RequestProgress
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.messages.request_progress.RequestProgress.amount" class="md-nav__link">
+    RequestProgress.amount
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.jsonrpc.messages.request_progress.RequestProgress.operation" class="md-nav__link">
+    RequestProgress.operation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serviceunavailableerror" class="md-nav__link">
+    ServiceUnavailableError
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.websocket.exceptions.service_unavailable_error.ServiceUnavailableError" class="md-nav__link">
+    ServiceUnavailableError
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sslclientcontext" class="md-nav__link">
+    SslClientContext
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.websocket.ssl_client_context.SslClientContext" class="md-nav__link">
+    SslClientContext
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.websocket.ssl_client_context.SslClientContext.cadata" class="md-nav__link">
+    SslClientContext.cadata
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.websocket.ssl_client_context.SslClientContext.cafile" class="md-nav__link">
+    SslClientContext.cafile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.websocket.ssl_client_context.SslClientContext.capath" class="md-nav__link">
+    SslClientContext.capath
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#websocketerror" class="md-nav__link">
+    WebSocketError
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.websocket.exceptions.web_socket_error.WebSocketError" class="md-nav__link">
+    WebSocketError
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.network.websocket.exceptions.web_socket_error.WebSocketError.reason" class="md-nav__link">
+    WebSocketError.reason
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <section id="network">
+<h1>network<a class="headerlink" href="#network" title="Permalink to this heading">¶</a></h1>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.network"></span><p>Subpackage to connect to a Brayns service instance (backend).</p>
+<p>An instance is a wrapper around a websocket connection and a JSON-RPC context.</p>
+<p>It provides functionalities to send JSON-RPC requests and receive replies with a
+Brayns instance.</p>
+</div>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h2>
+<section id="connectionclosederror">
+<h3>ConnectionClosedError<a class="headerlink" href="#connectionclosederror" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.network.websocket.exceptions.connection_closed_error"></span><dl class="py exception">
+<dt class="sig sig-object py" id="brayns.network.websocket.exceptions.connection_closed_error.ConnectionClosedError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConnectionClosedError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reason</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.network.websocket.exceptions.connection_closed_error.ConnectionClosedError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#brayns.network.websocket.exceptions.web_socket_error.WebSocketError" title="brayns.network.websocket.exceptions.web_socket_error.WebSocketError"><code class="xref py py-class docutils literal notranslate"><span class="pre">WebSocketError</span></code></a></p>
+<p>Raised when doing operation on a disconnected instance.</p>
+<p>Happens after the connection to an instance.</p>
+</dd></dl>
+
+</div>
+</section>
+<section id="connector">
+<h3>Connector<a class="headerlink" href="#connector" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.network.connector"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.network.connector.Connector">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Connector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">uri:</span> <span class="pre">str,</span> <span class="pre">ssl_context:</span> <span class="pre">~typing.Optional[~brayns.network.websocket.ssl_client_context.SslClientContext]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">binary_handler:</span> <span class="pre">~collections.abc.Callable[[bytes],</span> <span class="pre">None]</span> <span class="pre">=</span> <span class="pre">&lt;function</span> <span class="pre">Connector.&lt;lambda&gt;&gt;,</span> <span class="pre">logger:</span> <span class="pre">~logging.Logger</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;,</span> <span class="pre">max_attempts:</span> <span class="pre">int</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">attempt_period:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.network.connector.Connector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Used to connect to a braynsService instance.</p>
+<p>A connector must at least have the URI the braynsService instance was
+started with.</p>
+<p>URI is always in format host:port, wss:// or ws:// will be added depending
+if an SSL context is provided (SSL is disabled if context is None).</p>
+<p>SSL context can be provided for a secure connection. If the instance uses a
+certificate signed by a CA installed on the local machine, the default value
+of brayns.SslClientContext() can be used. Otherwise, the CA file or path
+must be provided in the SSL context constructor.</p>
+<p>Binary messages received from the instance are not JSON-RPC requests but can
+be handled using an optional callback (see <code class="docutils literal notranslate"><span class="pre">binary_handler</span></code>).</p>
+<p>If you don’t know when your instance of braynsService will be ready when you
+call connect(), you can set <code class="docutils literal notranslate"><span class="pre">max_attempts</span></code> to None to try to connect in
+loop until it works (or with a maximum count and a delay to have a timeout).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>uri</strong> (<em>str</em>) – Instance URI with format ‘host:port’.</p></li>
+<li><p><strong>ssl_context</strong> (<a class="reference internal" href="#brayns.network.websocket.ssl_client_context.SslClientContext" title="brayns.network.websocket.ssl_client_context.SslClientContext"><em>SslClientContext</em></a><em> | </em><em>None</em><em>, </em><em>optional</em>) – SSL context if secure, defaults to None.</p></li>
+<li><p><strong>binary_handler</strong> (<em>Callable</em><em>[</em><em>[</em><em>bytes</em><em>]</em><em>, </em><em>None</em><em>]</em><em>, </em><em>optional</em>) – Callback for binary, defaults to (bytes) -&gt; None.</p></li>
+<li><p><strong>logger</strong> (<em>logging.Logger</em><em>, </em><em>optional</em>) – Instance logger, defaults to brayns.Logger().</p></li>
+<li><p><strong>max_attempts</strong> (<em>int</em><em> | </em><em>None</em><em>, </em><em>optional</em>) – Max connection attempts, defaults to 1.</p></li>
+<li><p><strong>attempt_period</strong> (<em>float</em><em>, </em><em>optional</em>) – Delay in seconds between attempts, defaults to 0.1.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.network.connector.Connector.attempt_period">
+<span class="sig-name descname"><span class="pre">attempt_period</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.1</span></em><a class="headerlink" href="#brayns.network.connector.Connector.attempt_period" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.network.connector.Connector.binary_handler">
+<span class="sig-name descname"><span class="pre">binary_handler</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#brayns.network.connector.Connector.binary_handler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.network.connector.Connector.connect">
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#brayns.network.instance.Instance" title="brayns.network.instance.Instance"><span class="pre">Instance</span></a></span></span><a class="headerlink" href="#brayns.network.connector.Connector.connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connect to instance and return it.</p>
+<p>Try to connect <code class="docutils literal notranslate"><span class="pre">max_attempts</span></code> times waiting <code class="docutils literal notranslate"><span class="pre">attempt_period</span></code> between
+two attempts. If it fails, ServiceUnavailableError will be raised.</p>
+<p>:raises WebSocketError
+:return: Connected braynsService instance.
+:rtype: Instance</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.network.connector.Connector.logger">
+<span class="sig-name descname"><span class="pre">logger</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Logger</span></em><a class="headerlink" href="#brayns.network.connector.Connector.logger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.network.connector.Connector.max_attempts">
+<span class="sig-name descname"><span class="pre">max_attempts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#brayns.network.connector.Connector.max_attempts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.network.connector.Connector.ssl_context">
+<span class="sig-name descname"><span class="pre">ssl_context</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.network.websocket.ssl_client_context.SslClientContext" title="brayns.network.websocket.ssl_client_context.SslClientContext"><span class="pre">brayns.network.websocket.ssl_client_context.SslClientContext</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#brayns.network.connector.Connector.ssl_context" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.network.connector.Connector.uri">
+<span class="sig-name descname"><span class="pre">uri</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#brayns.network.connector.Connector.uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+<section id="instance">
+<h3>Instance<a class="headerlink" href="#instance" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.network.instance"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.network.instance.Instance">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.network.instance.Instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Protocol</span></code></p>
+<p>Protocol used to interact with a connected instance of the backend.</p>
+<p>Contains the connection state with a backend instance and provide methods to
+interact with it.</p>
+<p>An instance is a running process of braynsService executable that runs a
+websocket server and performs the rendering tasks.</p>
+<p>The backend instance can be running on the local machine or a remote one.</p>
+<p>Once finished using an instance, user must call disconnect() on it or use
+its context manager to do it automatically when it goes out of scope.</p>
+<p>The recommended way of doing this is the context manager because it is safe
+regarding exceptions (ie with instance: …).</p>
+<p>If a websocket communication error occurs, a WebSocketError is raised.</p>
+<p>If a JSON-RPC error message is replied, a RequestError is raised.</p>
+<p>For non-blocking requests, the future is iterable and yield RequestProgess
+objects. Call wait_for_result() to wait for the result.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.network.instance.Instance.cancel">
+<span class="sig-name descname"><span class="pre">cancel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#brayns.network.instance.Instance.cancel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel request with given ID.</p>
+<p>Send a cancellation request to the instance for a given task.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>int</em><em> | </em><em>str</em>) – JSON-RPC request ID.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#brayns.network.jsonrpc.messages.request_error.RequestError" title="brayns.network.jsonrpc.messages.request_error.RequestError"><strong>RequestError</strong></a> – Task is not running.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.network.instance.Instance.connected">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">connected</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#brayns.network.instance.Instance.connected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the instance is connected.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Connection state.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.network.instance.Instance.disconnect">
+<span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#brayns.network.instance.Instance.disconnect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disconnect instance (mandatory).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.network.instance.Instance.is_running">
+<span class="sig-name descname"><span class="pre">is_running</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#brayns.network.instance.Instance.is_running" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the request with the given ID is running.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>int</em><em> | </em><em>str</em>) – JSON-RPC request ID.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Running state.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.network.instance.Instance.poll">
+<span class="sig-name descname"><span class="pre">poll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#brayns.network.instance.Instance.poll" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if messages are received from the instance.</p>
+<p>When a message is received, it will update all existing futures.</p>
+<p>The futures call this method in blocking mode when iterated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>block</strong> (<em>bool</em><em>, </em><em>optional</em>) – Wait until a message is received, defaults to True</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.network.instance.Instance.request">
+<span class="sig-name descname"><span class="pre">request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">b''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#brayns.network.instance.Instance.request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a request to the instance and wait for the result.</p>
+<p>Generate automatically the JSON-RPC ID using integers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method</strong> (<em>str</em>) – JSON-RPC method (entrypoint name).</p></li>
+<li><p><strong>params</strong> (<em>Any</em><em>, </em><em>optional</em>) – JSON-RPC params, defaults to None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>JSON-RPC result.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.network.instance.Instance.send">
+<span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#brayns.network.jsonrpc.messages.request.Request" title="brayns.network.jsonrpc.messages.request.Request"><span class="pre">Request</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#brayns.network.jsonrpc.request_future.RequestFuture" title="brayns.network.jsonrpc.request_future.RequestFuture"><span class="pre">RequestFuture</span></a></span></span><a class="headerlink" href="#brayns.network.instance.Instance.send" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a request in a non blocking way.</p>
+<p>This method is the most basic one, it doesn’t generate any ID and can be
+used asynchronously (doesn’t block until result is received).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<a class="reference internal" href="#brayns.network.jsonrpc.messages.request.Request" title="brayns.network.jsonrpc.messages.request.Request"><em>Request</em></a>) – Request.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Future object to monitor the request.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#brayns.network.jsonrpc.request_future.RequestFuture" title="brayns.network.jsonrpc.request_future.RequestFuture">RequestFuture</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.network.instance.Instance.task">
+<span class="sig-name descname"><span class="pre">task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">b''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#brayns.network.jsonrpc.request_future.RequestFuture" title="brayns.network.jsonrpc.request_future.RequestFuture"><span class="pre">RequestFuture</span></a></span></span><a class="headerlink" href="#brayns.network.instance.Instance.task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a request to the instance in a non-blocking way.</p>
+<p>Generate automatically the JSON-RPC ID using integers.</p>
+<p>Use the future returned to wait for progresses or results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method</strong> (<em>str</em>) – JSON-RPC method.</p></li>
+<li><p><strong>params</strong> (<em>Any</em><em>, </em><em>optional</em>) – JSON-RPC params, defaults to None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Future object to monitor the request.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#brayns.network.jsonrpc.request_future.RequestFuture" title="brayns.network.jsonrpc.request_future.RequestFuture">RequestFuture</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+<section id="invalidservercertificateerror">
+<h3>InvalidServerCertificateError<a class="headerlink" href="#invalidservercertificateerror" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.network.websocket.exceptions.invalid_server_certificate_error"></span><dl class="py exception">
+<dt class="sig sig-object py" id="brayns.network.websocket.exceptions.invalid_server_certificate_error.InvalidServerCertificateError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">InvalidServerCertificateError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reason</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.network.websocket.exceptions.invalid_server_certificate_error.InvalidServerCertificateError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#brayns.network.websocket.exceptions.web_socket_error.WebSocketError" title="brayns.network.websocket.exceptions.web_socket_error.WebSocketError"><code class="xref py py-class docutils literal notranslate"><span class="pre">WebSocketError</span></code></a></p>
+<p>Raised when the server certificate is rejected by the client.</p>
+<p>SSL specific error happening during the connection to an instance.</p>
+</dd></dl>
+
+</div>
+</section>
+<section id="logger">
+<h3>Logger<a class="headerlink" href="#logger" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.network.logger"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.network.logger.Logger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.network.logger.Logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></p>
+<p>Brayns default logger.</p>
+<p>Log to stdout with simple formatting (name, level, message).</p>
+<p>Can be used to change only the log level without creating a new logger.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>level</strong> (<em>int</em><em>, </em><em>optional</em>) – Log level from logging module, defaults to WARN.</p>
+</dd>
+</dl>
+<p>Initialize the logger with a name and an optional level.</p>
+</dd></dl>
+
+</div>
+</section>
+<section id="protocolerror">
+<h3>ProtocolError<a class="headerlink" href="#protocolerror" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.network.websocket.exceptions.protocol_error"></span><dl class="py exception">
+<dt class="sig sig-object py" id="brayns.network.websocket.exceptions.protocol_error.ProtocolError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ProtocolError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reason</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.network.websocket.exceptions.protocol_error.ProtocolError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#brayns.network.websocket.exceptions.web_socket_error.WebSocketError" title="brayns.network.websocket.exceptions.web_socket_error.WebSocketError"><code class="xref py py-class docutils literal notranslate"><span class="pre">WebSocketError</span></code></a></p>
+<p>Raised when a websocket protocol error occurs.</p>
+<p>Usually happens during the connection to an instance.</p>
+</dd></dl>
+
+</div>
+</section>
+<section id="request">
+<h3>Request<a class="headerlink" href="#request" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.network.jsonrpc.messages.request"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.network.jsonrpc.messages.request.Request">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">b''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.network.jsonrpc.messages.request.Request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">JsonRpcRequest</span></code></p>
+<p>Request to send to a running instance of brayns service.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em><em> | </em><em>str</em><em> | </em><em>None</em>) – Request ID to monitor the request.
+No replies will be received if set to None.</p></li>
+<li><p><strong>method</strong> (<em>str</em>) – JSON-RPC method.</p></li>
+<li><p><strong>params</strong> (<em>Any</em><em>, </em><em>optional</em>) – Request parameters (usually objects).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.network.jsonrpc.messages.request.Request.binary">
+<span class="sig-name descname"><span class="pre">binary</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bytes</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">b''</span></em><a class="headerlink" href="#brayns.network.jsonrpc.messages.request.Request.binary" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+<section id="requesterror">
+<h3>RequestError<a class="headerlink" href="#requesterror" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.network.jsonrpc.messages.request_error"></span><dl class="py exception">
+<dt class="sig sig-object py" id="brayns.network.jsonrpc.messages.request_error.RequestError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RequestError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.network.jsonrpc.messages.request_error.RequestError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="utils.html#brayns.utils.exceptions.error.Error" title="brayns.utils.exceptions.error.Error"><code class="xref py py-class docutils literal notranslate"><span class="pre">Error</span></code></a></p>
+<p>Error raised by an instance when a request fails.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>code</strong> (<em>int</em>) – Error code.</p></li>
+<li><p><strong>message</strong> (<em>str</em>) – Error description.</p></li>
+<li><p><strong>data</strong> (<em>Any</em><em>, </em><em>optional</em>) – Optional additional error information.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.network.jsonrpc.messages.request_error.RequestError.code">
+<span class="sig-name descname"><span class="pre">code</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#brayns.network.jsonrpc.messages.request_error.RequestError.code" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.network.jsonrpc.messages.request_error.RequestError.data">
+<span class="sig-name descname"><span class="pre">data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#brayns.network.jsonrpc.messages.request_error.RequestError.data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.network.jsonrpc.messages.request_error.RequestError.message">
+<span class="sig-name descname"><span class="pre">message</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#brayns.network.jsonrpc.messages.request_error.RequestError.message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+<section id="requestfuture">
+<h3>RequestFuture<a class="headerlink" href="#requestfuture" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.network.jsonrpc.request_future"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.network.jsonrpc.request_future.RequestFuture">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RequestFuture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">JsonRpcTask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cancel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poll</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.network.jsonrpc.request_future.RequestFuture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Future used to monitor a running request.</p>
+<p>Can be iterated to yield <code class="docutils literal notranslate"><span class="pre">RequestProgress</span></code> if the request send any.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">wait_for_result</span></code> to block until the request is over.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">poll</span></code> to refresh the state of the request.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">cancel</span></code> to send a message to cancel the request.</p>
+<p>Future ready and progress state can also be queried.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.network.jsonrpc.request_future.RequestFuture.cancel">
+<span class="sig-name descname"><span class="pre">cancel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#brayns.network.jsonrpc.request_future.RequestFuture.cancel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.network.jsonrpc.request_future.RequestFuture.from_result">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#brayns.network.jsonrpc.request_future.RequestFuture" title="brayns.network.jsonrpc.request_future.RequestFuture"><span class="pre">RequestFuture</span></a></span></span><a class="headerlink" href="#brayns.network.jsonrpc.request_future.RequestFuture.from_result" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.network.jsonrpc.request_future.RequestFuture.get_progress">
+<span class="sig-name descname"><span class="pre">get_progress</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#brayns.network.jsonrpc.messages.request_progress.RequestProgress" title="brayns.network.jsonrpc.messages.request_progress.RequestProgress"><span class="pre">RequestProgress</span></a></span></span><a class="headerlink" href="#brayns.network.jsonrpc.request_future.RequestFuture.get_progress" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.network.jsonrpc.request_future.RequestFuture.has_progress">
+<span class="sig-name descname"><span class="pre">has_progress</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#brayns.network.jsonrpc.request_future.RequestFuture.has_progress" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.network.jsonrpc.request_future.RequestFuture.is_ready">
+<span class="sig-name descname"><span class="pre">is_ready</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#brayns.network.jsonrpc.request_future.RequestFuture.is_ready" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.network.jsonrpc.request_future.RequestFuture.poll">
+<span class="sig-name descname"><span class="pre">poll</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#brayns.network.jsonrpc.request_future.RequestFuture.poll" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.network.jsonrpc.request_future.RequestFuture.wait_for_result">
+<span class="sig-name descname"><span class="pre">wait_for_result</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#brayns.network.jsonrpc.request_future.RequestFuture.wait_for_result" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+<section id="requestprogress">
+<h3>RequestProgress<a class="headerlink" href="#requestprogress" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.network.jsonrpc.messages.request_progress"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.network.jsonrpc.messages.request_progress.RequestProgress">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RequestProgress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.network.jsonrpc.messages.request_progress.RequestProgress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Request progress info.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>operation</strong> (<em>str</em>) – Description of the current task.</p></li>
+<li><p><strong>amount</strong> (<em>float</em>) – Progress amount [0-1].</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.network.jsonrpc.messages.request_progress.RequestProgress.amount">
+<span class="sig-name descname"><span class="pre">amount</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#brayns.network.jsonrpc.messages.request_progress.RequestProgress.amount" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.network.jsonrpc.messages.request_progress.RequestProgress.operation">
+<span class="sig-name descname"><span class="pre">operation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#brayns.network.jsonrpc.messages.request_progress.RequestProgress.operation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+<section id="serviceunavailableerror">
+<h3>ServiceUnavailableError<a class="headerlink" href="#serviceunavailableerror" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.network.websocket.exceptions.service_unavailable_error"></span><dl class="py exception">
+<dt class="sig sig-object py" id="brayns.network.websocket.exceptions.service_unavailable_error.ServiceUnavailableError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ServiceUnavailableError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reason</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.network.websocket.exceptions.service_unavailable_error.ServiceUnavailableError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#brayns.network.websocket.exceptions.web_socket_error.WebSocketError" title="brayns.network.websocket.exceptions.web_socket_error.WebSocketError"><code class="xref py py-class docutils literal notranslate"><span class="pre">WebSocketError</span></code></a></p>
+<p>Raised when braynsService instance is not available at given URI.</p>
+<p>Occurs when the backend instance is not ready or started.</p>
+<p>Can be used to try multiple connections to wait for an instance to be ready.</p>
+</dd></dl>
+
+</div>
+</section>
+<section id="sslclientcontext">
+<h3>SslClientContext<a class="headerlink" href="#sslclientcontext" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.network.websocket.ssl_client_context"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.network.websocket.ssl_client_context.SslClientContext">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SslClientContext</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cafile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'str</span> <span class="pre">|</span> <span class="pre">None'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'str</span> <span class="pre">|</span> <span class="pre">None'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'str</span> <span class="pre">|</span> <span class="pre">None'</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.network.websocket.ssl_client_context.SslClientContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.network.websocket.ssl_client_context.SslClientContext.cadata">
+<span class="sig-name descname"><span class="pre">cadata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#brayns.network.websocket.ssl_client_context.SslClientContext.cadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.network.websocket.ssl_client_context.SslClientContext.cafile">
+<span class="sig-name descname"><span class="pre">cafile</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#brayns.network.websocket.ssl_client_context.SslClientContext.cafile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.network.websocket.ssl_client_context.SslClientContext.capath">
+<span class="sig-name descname"><span class="pre">capath</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#brayns.network.websocket.ssl_client_context.SslClientContext.capath" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+<section id="websocketerror">
+<h3>WebSocketError<a class="headerlink" href="#websocketerror" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.network.websocket.exceptions.web_socket_error"></span><dl class="py exception">
+<dt class="sig sig-object py" id="brayns.network.websocket.exceptions.web_socket_error.WebSocketError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">WebSocketError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reason</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.network.websocket.exceptions.web_socket_error.WebSocketError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="utils.html#brayns.utils.exceptions.error.Error" title="brayns.utils.exceptions.error.Error"><code class="xref py py-class docutils literal notranslate"><span class="pre">Error</span></code></a></p>
+<p>Base class of all network exceptions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>reason</strong> (<em>str</em>) – Short description of what happened.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.network.websocket.exceptions.web_socket_error.WebSocketError.reason">
+<span class="sig-name descname"><span class="pre">reason</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#brayns.network.websocket.exceptions.web_socket_error.WebSocketError.reason" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h2>
+<p>None</p>
+</section>
+</section>
+
+                
+  
+
+              
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+
+        <!-- Link to previous page -->
+        
+          <a href="movie.html"
+              title="movie"
+              class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+              rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back
+                    md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                movie
+              </span>
+            </div>
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          <a href="plugins.html"
+              title="plugins"
+              class="md-flex md-footer-nav__link md-footer-nav__link--next"
+              rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                plugins
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward
+                    md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+      
+        
+          
+          <div class="md-footer-copyright__company">
+            Blue Brain Project
+          </div>
+          
+          
+          <div class="md-footer-copyright__address__title">
+            Address
+          </div>
+          <div class="md-footer-copyright__address">
+            EPFL/Campus Biotech<br>Chemin des Mines 9,<br>CH-1202 Geneva<br>Switzerland
+          </div>
+          
+        
+        
+          <div class="md-footer-copyright__highlight">
+            &copy; Blue Brain Project/EPFL 2005-2022. All rights reserved.
+          </div>
+        
+        
+      </div>
+      
+
+      <!-- Social links -->
+      
+
+<!-- Social links in footer -->
+
+  <div class="md-footer-social">
+    <link rel="stylesheet" type="text/css"
+        href="../_static/fonts/font-awesome.css" />
+    
+    
+    <div class="md-footer-social__title">Follow the Blue Brain</div>
+    
+    
+    
+      <a href="https://www.linkedin.com/showcase/blue-brain-project/" class="md-footer-social__link
+            fa fa-linkedin-square"></a>
+    
+      <a href="https://twitter.com/bluebrainpjt?lang=en" class="md-footer-social__link
+            fa fa-twitter-square"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+<script src="../_static/javascripts/theme.js"></script>
+<script src="../_static/javascripts/utils.js"></script>
+
+      <script src="../_static/javascripts/application.718059d6.js"></script>
+      
+      <script>app.initialize({version:"5.2.2",url:{base:"../_static"}})</script>
+      
+    
+
+  </body>
+</html>

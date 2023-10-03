@@ -17,5 +17,5 @@
 .ui-view-TouchableView.disabled {
     cursor: default;
     filter: grayscale(100%);
-    opacity: .6;
+    opacity: 0.6;
 }

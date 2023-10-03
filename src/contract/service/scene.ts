@@ -15,6 +15,7 @@ export default interface SceneServiceInterface {
      */
     readonly models: Model[]
     getScene(): Promise<Scene>
+    removeModel(modelId: number): Promise<void>
 }
 
 export interface Scene {

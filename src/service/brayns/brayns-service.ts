@@ -4,7 +4,7 @@ import BraynsServiceInterface, {
     BraynsQuerySuccess,
     BraynsServiceAddress,
     BraynsUpdate,
-    LongTask
+    LongTask,
 } from "../../contract/service/brayns"
 import { TriggerableEventInterface } from "../../contract/tool/event"
 import SerializableData from "../../contract/type/serializable-data"
@@ -17,11 +17,16 @@ let globalIncrementalId = 0
 interface PendingQuery {
     id: string
     entryPointName: string
-    param: SerializableData
+    param?: unknown
     resolve(result: BraynsQueryResult): void
 }
 
 export default class BraynsService implements BraynsServiceInterface {
+    // By default, log nothing to the console (unless there is an error).
+    debug:
+        | boolean
+        | RegExp
+        | ((entryPointName: string, params?: any) => boolean) = false
     // For spontaneous updates coming from BraynsService.
     public readonly eventUpdate: TriggerableEventInterface<BraynsUpdate>
     // For scene images.
@@ -40,14 +45,18 @@ export default class BraynsService implements BraynsServiceInterface {
         this.eventConnectionStatus = makeEvent<boolean>()
     }
 
+    public get hostAndPort() {
+        return `${this.host}:${this.port}`
+    }
+
     /**
-     * @throws `{ code: number, message: string, data?: any }`
+     * @throws `{ code: number, message: string, data?: unknown }`
      */
-    async exec(entryPointName: string, param?: any): Promise<SerializableData> {
+    async exec(entryPointName: string, param?: unknown): Promise<unknown> {
         const data = await this.tryToExec(entryPointName, param)
         if (this.isError(data)) {
             console.error(
-                `Brayns query failure for entrypoint "${entryPointName}"!`
+                `Brayns query failure for entryPoint "${entryPointName}"!`
             )
             console.error("    Params:", param)
             console.error("    Error: ", data)
@@ -57,7 +66,7 @@ export default class BraynsService implements BraynsServiceInterface {
         return data.result
     }
 
-    execLongTask(entryPointName: string, param?: any): LongTask {
+    execLongTask(entryPointName: string, param?: unknown): LongTask {
         const { ws } = this
         if (!ws) throw Error("BraynsService is not connected yet!")
 
@@ -68,7 +77,7 @@ export default class BraynsService implements BraynsServiceInterface {
             method: entryPointName,
             params: param,
         }
-        const promise = new Promise<SerializableData>((resolve, reject) => {
+        const promise = new Promise<unknown>((resolve, reject) => {
             this.pendingQueries.set(id, {
                 id,
                 entryPointName,
@@ -116,19 +125,32 @@ export default class BraynsService implements BraynsServiceInterface {
     }
 
     async connect(): Promise<void> {
+        let url = ""
+        let isSecure = false
+        for (let maxLoops = 0; maxLoops < 5; maxLoops += 1) {
+            url = this.getWebSocketURL(isSecure).toString()
+            isSecure = !isSecure
+            console.log(`Attempting to connect "${url}"...`)
+            const success = await this.actualConnect(url)
+            if (success) return
+            await sleep(300)
+        }
+        throw Error(`Unable to connect to WebSocket service "${url}"!`)
+    }
+
+    private actualConnect(url: string): Promise<boolean> {
         if (this.ws) {
             this.ws.close()
             delete this.ws
         }
-        return new Promise((resolve, reject) => {
-            const url = this.getWebSocketURL()
+        return new Promise<boolean>((resolve) => {
             const protocol = "rockets"
-            const handleError = ex => {
+            const handleError = (ex) => {
                 console.error(
                     `Unable to connect to Brayns Service on "${url}"!`,
                     ex
                 )
-                reject(`Unable to connect to Brayns Service on "${url}"!`)
+                resolve(false)
             }
             const handleConnectionSuccess = () => {
                 const { ws } = this
@@ -136,9 +158,12 @@ export default class BraynsService implements BraynsServiceInterface {
 
                 ws.removeEventListener("open", handleConnectionSuccess)
                 ws.removeEventListener("error", handleError)
-                resolve()
+                resolve(true)
             }
             try {
+                console.log(
+                    `Connecting "${url}" with protocol "${protocol}"...`
+                )
                 const ws = new WebSocket(url, [protocol])
                 this.ws = ws
                 // This is very IMPORTANT!
@@ -153,14 +178,14 @@ export default class BraynsService implements BraynsServiceInterface {
                 ws.addEventListener("open", handleConnectionSuccess)
             } catch (ex) {
                 console.error(`Connection failed to ${url}!`, ex)
-                reject(ex)
+                resolve(false)
             }
         })
     }
 
     async tryToExec(
         entryPointName: string,
-        param: any = {}
+        params?: unknown
     ): Promise<BraynsQueryResult> {
         if (!this.ws) throw Error("BraynsService is not connected yet!")
 
@@ -170,14 +195,22 @@ export default class BraynsService implements BraynsServiceInterface {
                 jsonrpc: "2.0",
                 id,
                 method: entryPointName,
-                params: param,
+                params: params,
             }
-            this.pendingQueries.set(id, { id, entryPointName, param, resolve })
+            this.pendingQueries.set(id, {
+                id,
+                entryPointName,
+                param: params,
+                resolve,
+            })
             try {
                 const payload = JSON.stringify(message)
+                if (this.isDebugEnabled(entryPointName, params)) {
+                    console.log(">>>", entryPointName, params, id)
+                }
                 this.ws?.send(payload)
             } catch (ex) {
-                console.log(">>>", entryPointName, param)
+                console.error(">>>", entryPointName, params)
                 console.error(
                     "Unable to send a message through WebSocket: ",
                     ex
@@ -196,20 +229,32 @@ export default class BraynsService implements BraynsServiceInterface {
     private readonly pendingQueries = new Map<string, PendingQuery>()
     private readonly resources = new Map<string, SerializableData>()
 
-    private getWebSocketURL() {
+    private isDebugEnabled(entryPointName: string, params?: any): boolean {
+        const { debug } = this
+        if (debug === true || debug === false) return debug
+        if (typeof debug === "function") {
+            return debug(entryPointName, params)
+        }
+        debug.lastIndex = -1
+        return debug.test(entryPointName)
+    }
+
+    private getWebSocketURL(isSecure: boolean) {
         const RX_BB5_HOST = /^r[0-9]+i[0-9]+n[0-9]+$/g
         const { host, port } = this
+        const protocol = isSecure ? "wss" : "ws"
         if (RX_BB5_HOST.test(host)) {
             // Add suffix for fully qualified name.
-            return `ws://${host}.bbp.epfl.ch:${port}`
+            return `${protocol}://${host}.bbp.epfl.ch:${port}`
         }
-        return `ws://${host}:${port}`
+        return `${protocol}://${host}:${port}`
     }
 
     private handleMessage = (event: MessageEvent) => {
         if (typeof event.data === "string") {
             this.handleStringMessage(event.data)
         } else {
+            console.log("eventImage.trigger", event.data)
             this.eventImage.trigger(event.data)
         }
     }
@@ -244,10 +289,13 @@ export default class BraynsService implements BraynsServiceInterface {
         }
 
         this.pendingQueries.delete(id)
+        if (this.isDebugEnabled(query.entryPointName, params)) {
+            console.log("<<<", query.entryPointName, params, id)
+        }
         const result: BraynsQueryResult = {
             success: true,
             result: params,
-            entrypoint: query.entryPointName,
+            entryPoint: query.entryPointName,
             param: query.param,
         }
         query.resolve(result)
@@ -267,7 +315,7 @@ export default class BraynsService implements BraynsServiceInterface {
             code: error.code ?? 0,
             message: error.message ?? "Unknown error!",
             data: error.data,
-            entrypoint: query.entryPointName,
+            entryPoint: query.entryPointName,
             param: query.param,
         })
     }
@@ -279,7 +327,7 @@ export default class BraynsService implements BraynsServiceInterface {
         return btoa(`${globalIncrementalId++}`)
     }
 
-    private handleError = event => {
+    private handleError = (event) => {
         console.error("### [WS] Error:", event)
     }
 
@@ -290,4 +338,14 @@ export default class BraynsService implements BraynsServiceInterface {
     private readonly handleOpen = () => {
         this.eventConnectionStatus.trigger(true)
     }
+}
+
+/**
+ * Wait for `timeout` milliseconds.
+ * @param timeout Number of milliseconds to wait.
+ */
+export async function sleep(timeout: number): Promise<void> {
+    return new Promise((resolve) => {
+        window.setTimeout(resolve, timeout)
+    })
 }

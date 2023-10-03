@@ -24,7 +24,7 @@ export default function ColorView(props: ColorViewProps) {
     React.useEffect(() => setId(nextId()), [])
     const colors: React.CSSProperties = {
         color: "currentcolor",
-        backgroundColor: "transparent"
+        backgroundColor: "transparent",
     }
     if (valid) {
         const color = new Color(code)

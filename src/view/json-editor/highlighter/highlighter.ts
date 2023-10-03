@@ -1,6 +1,6 @@
-import Color from '@/ui/color'
+import Color from "@/ui/color"
 import ColorArrayEater from "./color-array-eater"
-import Rules from './rules'
+import Rules from "./rules"
 import { tokenize } from "./tokenizer"
 
 export interface ISection {
@@ -36,7 +36,10 @@ export function highlightJSON5(
             continue
         }
         if (prvSection && section.className === "symbol") {
-            const symbol = content.substr(section.start, section.length)
+            const symbol = content.substring(
+                section.start,
+                section.start + section.length
+            )
             if (symbol === ":") {
                 // Identify "keys". There are just after a colon (":").
                 prvSection.className = "key"
@@ -51,7 +54,7 @@ export function highlightJSON5(
 }
 
 function toHTML(content: string, sections: ISection[]): string {
-    return sections.map(section => mapSection(content, section)).join("")
+    return sections.map((section) => mapSection(content, section)).join("")
 }
 
 function mapSection(content: string, section: ISection) {

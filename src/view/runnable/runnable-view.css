@@ -5,18 +5,17 @@
 
 .view-RunnableView > div {
     margin: 0;
-    transition: opacity .2s;
+    transition: opacity 0.2s;
 }
 
 .view-RunnableView.running > div.children {
-    opacity: .25;
+    opacity: 0.25;
     pointer-events: none;
 }
 
 .view-RunnableView.running > div.overlay {
     opacity: 1;
 }
-
 
 .view-RunnableView > div.overlay {
     pointer-events: none;
@@ -42,8 +41,10 @@
 }
 
 @keyframes view-RunnableView-anim {
-  0% {
-    transform: rotate(0deg); }
-  100% {
-    transform: rotate(-360deg); } 
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
 }

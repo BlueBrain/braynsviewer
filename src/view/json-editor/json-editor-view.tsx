@@ -17,7 +17,16 @@ export interface JsonEditorViewProps {
 export default function JsonEditorView(props: JsonEditorViewProps) {
     const { label, onChange, onValid } = props
     const [value, setValue] = React.useState(props.value)
-    React.useEffect(() => setValue(props.value), [props.value])
+    React.useEffect(
+        () => {
+            if (JSON.stringify(value) === JSON.stringify(props.value)) return
+            setValue(props.value)
+        },
+        // We want this to trigger only when `props.value` changes,
+        // but not anytime `value` changes.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [props.value]
+    )
     const [valid, setValid] = React.useState(true)
     useDebouncedEffect(
         () => {
@@ -62,6 +71,8 @@ function getClassNames(props: JsonEditorViewProps, valid: boolean): string {
  * Check if `text` is a valid JSON5 string.
  */
 function isValid(text: string): boolean {
+    if (text.trim().length === 0) return true
+
     try {
         JSON5.parse(text)
         return true

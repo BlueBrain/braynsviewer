@@ -1,5 +1,4 @@
-import { TypeObjectDef } from '../type/type-definition'
-
+import { TypeObjectDef } from "../type/type-definition"
 
 export interface LoaderExplorerInterface {
     /**

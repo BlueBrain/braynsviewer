@@ -24,6 +24,7 @@
         "outDir": "./dist/",
         "paths": {
             "@/contract/*": ["contract/*"],
+            "@/mock/*": ["mock/*"],
             "@/tool/*": ["tool/*"],
             "@/ui/*": ["ui/*"],
             "@/view/*": ["view/*"],

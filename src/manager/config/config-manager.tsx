@@ -14,12 +14,12 @@ export default class ConfigManager implements ConfigManagerInterface {
             return { host, port }
         }
 
-        // 
-        return new Promise<BraynsAddress>(resolve => {
+        //
+        return new Promise<BraynsAddress>((resolve) => {
             const modal = new Modal({ align: "B", padding: "3rem" })
             modal.show(
                 <BraynsAddressInputView
-                    onClick={address => {
+                    onClick={(address) => {
                         modal.hide()
                         const params = new URLSearchParams(
                             window.location.search

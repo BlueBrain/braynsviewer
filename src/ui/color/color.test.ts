@@ -1,7 +1,7 @@
 /* tslint:disable no-magic-numbers */
 /* tslint:disable number-literal-format */
 
-import Color from './color'
+import Color from "./color"
 
 describe("Tfw.Color", () => {
     describe("mix()", () => {
@@ -10,16 +10,14 @@ describe("Tfw.Color", () => {
                 ["#000", "#fff", 0.0, "#000"],
                 ["#000", "#fff", 1.0, "#fff"],
                 ["#000", "#fff", 0.5, "#7f7f7f"],
-                ["#fff", "#000", 0.5, "#7f7f7f"]
+                ["#fff", "#000", 0.5, "#7f7f7f"],
             ]
             for (const testCase of cases) {
                 const [c1, c2, alpha, expected] = testCase
-                const color = Color.mix(
-                    new Color(c1),
-                    new Color(c2),
-                    alpha
+                const color = Color.mix(new Color(c1), new Color(c2), alpha)
+                expect(color.stringify()).toEqual(
+                    new Color(expected).stringify()
                 )
-                expect(color.stringify()).toEqual(new Color(expected).stringify())
             }
         })
     })
@@ -30,15 +28,14 @@ describe("Tfw.Color", () => {
                 ["#000", "#fff", 0.0, "#000"],
                 ["#000", "#fff", 1.0, "#fff"],
                 ["#000", "#fff", 0.5, "#7f7f7f"],
-                ["#fff", "#000", 0.5, "#7f7f7f"]
+                ["#fff", "#000", 0.5, "#7f7f7f"],
             ]
             for (const testCase of cases) {
                 const [c1, c2, alpha, expected] = testCase
-                const color = Color.ramp(
-                    [new Color(c1), new Color(c2)],
-                    alpha
+                const color = Color.ramp([new Color(c1), new Color(c2)], alpha)
+                expect(color.stringify()).toEqual(
+                    new Color(expected).stringify()
                 )
-                expect(color.stringify()).toEqual(new Color(expected).stringify())
             }
         })
 
@@ -47,7 +44,7 @@ describe("Tfw.Color", () => {
                 ["#000", "#fff", "#000"],
                 ["#000", "#123", "#fff"],
                 ["#000", "#995", "#7f7f7f"],
-                ["#fff", "#Fe560D", "#7f7f7f"]
+                ["#fff", "#Fe560D", "#7f7f7f"],
             ]
             for (const testCase of cases) {
                 const [c1, c2, c3] = testCase
@@ -103,23 +100,30 @@ describe("Tfw.Color", () => {
     describe(`bestContrast()`, () => {
         const testCases: Array<[string, string[], number]> = [
             ["#1d2ac1", ["#000", "#fff"], 1],
-            ["#2af112", ["#000", "#fff"], 0]
+            ["#2af112", ["#000", "#fff"], 0],
         ]
         for (const testCase of testCases) {
             const [backColor, foreColors, index] = testCase
-            it(`should work for (${backColor} : ${foreColors.join(", ")})`, () => {
-                expect(Color.bestContrast(backColor, ...foreColors))
-                    .toBe(foreColors[index])
+            it(`should work for (${backColor} : ${foreColors.join(
+                ", "
+            )})`, () => {
+                expect(Color.bestContrast(backColor, ...foreColors)).toBe(
+                    foreColors[index]
+                )
             })
         }
     })
 
     describe(`makeTransparent()`, () => {
         it(`should work with alpha = 0.33`, () => {
-            expect(Color.makeTransparent("#7abffc", 0.33).stringify()).toBe("#7abffc54")
+            expect(Color.makeTransparent("#7abffc", 0.33).stringify()).toBe(
+                "#7abffc54"
+            )
         })
         it(`should work with alpha = 1`, () => {
-            expect(Color.makeTransparent("#7abffc", 1).stringify()).toBe("#7abffc")
+            expect(Color.makeTransparent("#7abffc", 1).stringify()).toBe(
+                "#7abffc"
+            )
         })
     })
 
@@ -137,7 +141,7 @@ describe("Tfw.Color", () => {
             let hex = level.toString(16)
             if (hex.length < 2) hex = `0${hex}`
             if (hex.charAt(0) === hex.charAt(1)) continue
-            
+
             it(`should be consistent for Red ${hex}`, () => {
                 const code = `#${hex}0000`
                 const color = new Color(code)

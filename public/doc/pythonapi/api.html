@@ -1,0 +1,1397 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s]+">
+      
+      <link rel="shortcut icon" href="">
+      <meta name="generator" content="mkdocs-5.2.2, mkdocs-material-4.4.2">
+    
+<meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+<!-- Generator banner -->
+<meta name="generator" content="sphinx-5.2.2" />
+
+    
+      
+        <title>Python API reference - Brayns</title>
+      
+    
+    
+
+      <link rel="stylesheet" href="../_static/stylesheets/application.4031d38b.css">
+      
+        <link rel="stylesheet" href="../_static/stylesheets/application-palette.3e3d1dff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#2196f3">
+      
+    
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/stylesheets/theme.css" />
+
+    
+      <script src="../_static/javascripts/modernizr.74668098.js"></script>
+    
+    
+
+    <link rel="stylesheet" href="../_static/fonts/material-icons.css">
+    
+    
+    
+
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+    
+      
+
+<!-- Application header -->
+<header class="md-header" data-md-component="header">
+
+  <!-- Top-level navigation -->
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+
+      <!-- Link to home -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.epfl.ch/"
+            title="Brayns"
+            class="md-header-nav__button md-logo">
+          
+            <img src="../_static/images/epfl-logo-new.svg" width="24" height="24" />
+          
+        </a>
+      </div>
+
+      <!-- Button to toggle drawer -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button"
+            for="__drawer"></label>
+      </div>
+
+      
+      <!-- Home button to ecosystem -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div id="homeBtnContainer" class="documentation-homepage-icon">
+          <!-- this href will be overwritten by utils.js -->
+          <a href="#" id="homepageLink">
+            <i class="fa fa-home"></i>
+          </a>
+        </div>
+      </div>
+      
+
+      <!-- Header title -->
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title"
+            data-md-component="title">
+          
+          
+          <span class="md-header-nav__topic">
+            <a href="../index.html"
+                title="Brayns">
+            <span class="md-header-nav__prefix">
+            Blue Brain</span> &ndash;
+            Brayns<span class="md-header-nav__version">
+            2.0.0</span></a>
+          </span>
+          <span class="md-header-nav__topic">
+            <a href="" title="Python API reference">
+            <span class="md-header-nav__prefix">
+            Blue Brain</span> &ndash;
+            Brayns &ndash;
+            Python API reference<span class="md-header-nav__version">
+            2.0.0</span></a>
+          </span>
+        
+        
+        </div>
+      </div>
+
+      <!-- Button to open search dialogue -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button"
+              for="__search"></label>
+
+          <!-- Search interface -->
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+
+      <!-- Repository containing source -->
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.epfl.ch/" title="Brayns" class="md-nav__button md-logo">
+      
+        <img src="../_static/images/epfl-logo-new.svg" width="48" height="48">
+      
+    </a>
+    Brayns
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../index.html" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../install.html" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Usage
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Usage
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage_launchbraynsbackend.html" title="Running a Brayns backend service" class="md-nav__link">
+      Running a Brayns backend service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage_usepythonapi.html" title="Using Brayns Python API" class="md-nav__link">
+      Using Brayns Python API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage_usejsonrpcapi.html" title="Using Brayns JSON-RPC API" class="md-nav__link">
+      Using Brayns JSON-RPC API
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../plugins.html" title="Brayns plugins" class="md-nav__link">
+      Brayns plugins
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_connector.html" title="Connection to a running backend instance" class="md-nav__link">
+      Connection to a running backend instance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_loader.html" title="Load a model" class="md-nav__link">
+      Load a model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_snapshot.html" title="Take a snapshot" class="md-nav__link">
+      Take a snapshot
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_exporter.html" title="Export frames" class="md-nav__link">
+      Export frames
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_movie.html" title="Make a movie from exported frames" class="md-nav__link">
+      Make a movie from exported frames
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_service.html" title="Launch Brayns backend from Python" class="md-nav__link">
+      Launch Brayns backend from Python
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      JSON-RPC API reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        JSON-RPC API reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jsonrpcapi/api_atlasexplorer_methods.html" title="Atlas Explorer API methods" class="md-nav__link">
+      Atlas Explorer API methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jsonrpcapi/api_circuitinfo_methods.html" title="Circuit Info API methods" class="md-nav__link">
+      Circuit Info API methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jsonrpcapi/api_circuitexplorer_methods.html" title="Circuit Explorer API methods" class="md-nav__link">
+      Circuit Explorer API methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jsonrpcapi/api_core_methods.html" title="Core API methods" class="md-nav__link">
+      Core API methods
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
+    
+    <label class="md-nav__link" for="nav-7">
+      Python API reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Python API reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="core.html" title="core" class="md-nav__link">
+      core
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="movie.html" title="movie" class="md-nav__link">
+      movie
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="network.html" title="network" class="md-nav__link">
+      network
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="plugins.html" title="plugins" class="md-nav__link">
+      plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="service.html" title="service" class="md-nav__link">
+      service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="utils.html" title="utils" class="md-nav__link">
+      utils
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <section id="python-api-reference">
+<span id="pythonapi-label"></span><h1>Python API reference<a class="headerlink" href="#python-api-reference" title="Permalink to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core.html">core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core.html#ambientlight">AmbientLight</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.light.ambient_light.AmbientLight"><code class="docutils literal notranslate"><span class="pre">AmbientLight</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#application">Application</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.application.application.Application"><code class="docutils literal notranslate"><span class="pre">Application</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#box">Box</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.geometry.box.Box"><code class="docutils literal notranslate"><span class="pre">Box</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#camera">Camera</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.camera.camera.Camera"><code class="docutils literal notranslate"><span class="pre">Camera</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#capsule">Capsule</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.geometry.capsule.Capsule"><code class="docutils literal notranslate"><span class="pre">Capsule</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#carpaintmaterial">CarPaintMaterial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.material.car_paint_material.CarPaintMaterial"><code class="docutils literal notranslate"><span class="pre">CarPaintMaterial</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#clipplane">ClipPlane</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.clipping.clip_plane.ClipPlane"><code class="docutils literal notranslate"><span class="pre">ClipPlane</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#clippinggeometry">ClippingGeometry</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.clipping.clipping_geometry.ClippingGeometry"><code class="docutils literal notranslate"><span class="pre">ClippingGeometry</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#colorramp">ColorRamp</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.color_ramp.color_ramp.ColorRamp"><code class="docutils literal notranslate"><span class="pre">ColorRamp</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#controlpoint">ControlPoint</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.color_ramp.control_point.ControlPoint"><code class="docutils literal notranslate"><span class="pre">ControlPoint</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#defaultmaterial">DefaultMaterial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.material.default_material.DefaultMaterial"><code class="docutils literal notranslate"><span class="pre">DefaultMaterial</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#directionallight">DirectionalLight</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.light.directional_light.DirectionalLight"><code class="docutils literal notranslate"><span class="pre">DirectionalLight</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#emissivematerial">EmissiveMaterial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.material.emissive_material.EmissiveMaterial"><code class="docutils literal notranslate"><span class="pre">EmissiveMaterial</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#entrypoint">Entrypoint</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.api.entrypoint.Entrypoint"><code class="docutils literal notranslate"><span class="pre">Entrypoint</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#frameexporter">FrameExporter</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.snapshot.frame_exporter.FrameExporter"><code class="docutils literal notranslate"><span class="pre">FrameExporter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#geometry">Geometry</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.geometry.geometry.Geometry"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#glassmaterial">GlassMaterial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.material.glass_material.GlassMaterial"><code class="docutils literal notranslate"><span class="pre">GlassMaterial</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#interactiverenderer">InteractiveRenderer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.renderer.interactive_renderer.InteractiveRenderer"><code class="docutils literal notranslate"><span class="pre">InteractiveRenderer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#jsonschema">JsonSchema</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.api.json_schema.JsonSchema"><code class="docutils literal notranslate"><span class="pre">JsonSchema</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#jsontype">JsonType</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.api.json_type.JsonType"><code class="docutils literal notranslate"><span class="pre">JsonType</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#keyframe">KeyFrame</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.snapshot.key_frame.KeyFrame"><code class="docutils literal notranslate"><span class="pre">KeyFrame</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#light">Light</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.light.light.Light"><code class="docutils literal notranslate"><span class="pre">Light</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#loader">Loader</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.loader.loader.Loader"><code class="docutils literal notranslate"><span class="pre">Loader</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#loaderinfo">LoaderInfo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.loader.loader_info.LoaderInfo"><code class="docutils literal notranslate"><span class="pre">LoaderInfo</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#material">Material</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.material.material.Material"><code class="docutils literal notranslate"><span class="pre">Material</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#mattematerial">MatteMaterial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.material.matte_material.MatteMaterial"><code class="docutils literal notranslate"><span class="pre">MatteMaterial</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#meshloader">MeshLoader</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.loader.mesh_loader.MeshLoader"><code class="docutils literal notranslate"><span class="pre">MeshLoader</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#metalmaterial">MetalMaterial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.material.metal_material.MetalMaterial"><code class="docutils literal notranslate"><span class="pre">MetalMaterial</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#model">Model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.model.model.Model"><code class="docutils literal notranslate"><span class="pre">Model</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#opacitycurve">OpacityCurve</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.color_ramp.opacity_curve.OpacityCurve"><code class="docutils literal notranslate"><span class="pre">OpacityCurve</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#orthographicprojection">OrthographicProjection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.camera.orthographic_projection.OrthographicProjection"><code class="docutils literal notranslate"><span class="pre">OrthographicProjection</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#perspectiveprojection">PerspectiveProjection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.camera.perspective_projection.PerspectiveProjection"><code class="docutils literal notranslate"><span class="pre">PerspectiveProjection</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#plane">Plane</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.geometry.plane.Plane"><code class="docutils literal notranslate"><span class="pre">Plane</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#plasticmaterial">PlasticMaterial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.material.plastic_material.PlasticMaterial"><code class="docutils literal notranslate"><span class="pre">PlasticMaterial</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#productionrenderer">ProductionRenderer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.renderer.production_renderer.ProductionRenderer"><code class="docutils literal notranslate"><span class="pre">ProductionRenderer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#projection">Projection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.camera.projection.Projection"><code class="docutils literal notranslate"><span class="pre">Projection</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#quadlight">QuadLight</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.light.quad_light.QuadLight"><code class="docutils literal notranslate"><span class="pre">QuadLight</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#renderer">Renderer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.renderer.renderer.Renderer"><code class="docutils literal notranslate"><span class="pre">Renderer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#scene">Scene</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.model.scene.Scene"><code class="docutils literal notranslate"><span class="pre">Scene</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#simulation">Simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.simulation.simulation.Simulation"><code class="docutils literal notranslate"><span class="pre">Simulation</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#snapshot">Snapshot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.snapshot.snapshot.Snapshot"><code class="docutils literal notranslate"><span class="pre">Snapshot</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#sphere">Sphere</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.geometry.sphere.Sphere"><code class="docutils literal notranslate"><span class="pre">Sphere</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#timeunit">TimeUnit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.simulation.time_unit.TimeUnit"><code class="docutils literal notranslate"><span class="pre">TimeUnit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#valuerange">ValueRange</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.color_ramp.value_range.ValueRange"><code class="docutils literal notranslate"><span class="pre">ValueRange</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#version">Version</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.version.version.Version"><code class="docutils literal notranslate"><span class="pre">Version</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#versionerror">VersionError</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.version.version_error.VersionError"><code class="docutils literal notranslate"><span class="pre">VersionError</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core.html#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core.html#add-clipping-geometry">add_clipping_geometry</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.clipping.add_clipping_geometry.add_clipping_geometry"><code class="docutils literal notranslate"><span class="pre">add_clipping_geometry()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#add-geometries">add_geometries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.geometry.add_geometries.add_geometries"><code class="docutils literal notranslate"><span class="pre">add_geometries()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#add-light">add_light</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.light.add_light.add_light"><code class="docutils literal notranslate"><span class="pre">add_light()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#check-version">check_version</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.version.check_version.check_version"><code class="docutils literal notranslate"><span class="pre">check_version()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#clear-clipping-geometries">clear_clipping_geometries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.clipping.clear_clipping_geometries.clear_clipping_geometries"><code class="docutils literal notranslate"><span class="pre">clear_clipping_geometries()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#clear-lights">clear_lights</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.light.clear_lights.clear_lights"><code class="docutils literal notranslate"><span class="pre">clear_lights()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#clear-models">clear_models</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.model.clear_models.clear_models"><code class="docutils literal notranslate"><span class="pre">clear_models()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#enable-simulation">enable_simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.simulation.enable_simulation.enable_simulation"><code class="docutils literal notranslate"><span class="pre">enable_simulation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#get-application">get_application</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.application.get_application.get_application"><code class="docutils literal notranslate"><span class="pre">get_application()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#get-bounds">get_bounds</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.model.get_bounds.get_bounds"><code class="docutils literal notranslate"><span class="pre">get_bounds()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#get-camera">get_camera</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.camera.get_camera.get_camera"><code class="docutils literal notranslate"><span class="pre">get_camera()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#get-camera-name">get_camera_name</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.camera.get_camera_name.get_camera_name"><code class="docutils literal notranslate"><span class="pre">get_camera_name()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#get-camera-projection">get_camera_projection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.camera.get_camera_projection.get_camera_projection"><code class="docutils literal notranslate"><span class="pre">get_camera_projection()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#get-camera-view">get_camera_view</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.camera.get_camera_view.get_camera_view"><code class="docutils literal notranslate"><span class="pre">get_camera_view()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#get-color-ramp">get_color_ramp</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.color_ramp.get_color_ramp.get_color_ramp"><code class="docutils literal notranslate"><span class="pre">get_color_ramp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#get-entrypoint">get_entrypoint</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.api.get_entrypoint.get_entrypoint"><code class="docutils literal notranslate"><span class="pre">get_entrypoint()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#get-entrypoints">get_entrypoints</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.api.get_entrypoints.get_entrypoints"><code class="docutils literal notranslate"><span class="pre">get_entrypoints()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#get-loaders">get_loaders</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.loader.get_loaders.get_loaders"><code class="docutils literal notranslate"><span class="pre">get_loaders()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#get-material">get_material</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.material.get_material.get_material"><code class="docutils literal notranslate"><span class="pre">get_material()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#get-material-name">get_material_name</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.material.get_material_name.get_material_name"><code class="docutils literal notranslate"><span class="pre">get_material_name()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#get-methods">get_methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.api.get_methods.get_methods"><code class="docutils literal notranslate"><span class="pre">get_methods()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#get-model">get_model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.model.get_model.get_model"><code class="docutils literal notranslate"><span class="pre">get_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#get-models">get_models</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.model.get_models.get_models"><code class="docutils literal notranslate"><span class="pre">get_models()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#get-renderer">get_renderer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.renderer.get_renderer.get_renderer"><code class="docutils literal notranslate"><span class="pre">get_renderer()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#get-renderer-name">get_renderer_name</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.renderer.get_renderer_name.get_renderer_name"><code class="docutils literal notranslate"><span class="pre">get_renderer_name()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#get-scene">get_scene</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.model.get_scene.get_scene"><code class="docutils literal notranslate"><span class="pre">get_scene()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#get-simulation">get_simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.simulation.get_simulation.get_simulation"><code class="docutils literal notranslate"><span class="pre">get_simulation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#get-version">get_version</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.version.get_version.get_version"><code class="docutils literal notranslate"><span class="pre">get_version()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#look-at">look_at</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.camera.look_at.look_at"><code class="docutils literal notranslate"><span class="pre">look_at()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#remove-models">remove_models</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.model.remove_models.remove_models"><code class="docutils literal notranslate"><span class="pre">remove_models()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#set-camera">set_camera</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.camera.set_camera.set_camera"><code class="docutils literal notranslate"><span class="pre">set_camera()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#set-camera-projection">set_camera_projection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.camera.set_camera_projection.set_camera_projection"><code class="docutils literal notranslate"><span class="pre">set_camera_projection()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#set-camera-view">set_camera_view</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.camera.set_camera_view.set_camera_view"><code class="docutils literal notranslate"><span class="pre">set_camera_view()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#set-color-ramp">set_color_ramp</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.color_ramp.set_color_ramp.set_color_ramp"><code class="docutils literal notranslate"><span class="pre">set_color_ramp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#set-material">set_material</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.material.set_material.set_material"><code class="docutils literal notranslate"><span class="pre">set_material()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#set-renderer">set_renderer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.renderer.set_renderer.set_renderer"><code class="docutils literal notranslate"><span class="pre">set_renderer()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#set-simulation-frame">set_simulation_frame</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.simulation.set_simulation_frame.set_simulation_frame"><code class="docutils literal notranslate"><span class="pre">set_simulation_frame()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#update-application">update_application</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.application.update_application.update_application"><code class="docutils literal notranslate"><span class="pre">update_application()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core.html#update-model">update_model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core.html#brayns.core.model.update_model.update_model"><code class="docutils literal notranslate"><span class="pre">update_model()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="movie.html">movie</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="movie.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="movie.html#id1">Movie</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="movie.html#brayns.movie.movie.Movie"><code class="docutils literal notranslate"><span class="pre">Movie</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="movie.html#movieerror">MovieError</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="movie.html#brayns.movie.movie_error.MovieError"><code class="docutils literal notranslate"><span class="pre">MovieError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="movie.html#movieframes">MovieFrames</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="movie.html#brayns.movie.movie_frames.MovieFrames"><code class="docutils literal notranslate"><span class="pre">MovieFrames</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="movie.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network.html">network</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="network.html#connectionclosederror">ConnectionClosedError</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="network.html#brayns.network.websocket.exceptions.connection_closed_error.ConnectionClosedError"><code class="docutils literal notranslate"><span class="pre">ConnectionClosedError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="network.html#connector">Connector</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="network.html#brayns.network.connector.Connector"><code class="docutils literal notranslate"><span class="pre">Connector</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="network.html#instance">Instance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="network.html#brayns.network.instance.Instance"><code class="docutils literal notranslate"><span class="pre">Instance</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="network.html#invalidservercertificateerror">InvalidServerCertificateError</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="network.html#brayns.network.websocket.exceptions.invalid_server_certificate_error.InvalidServerCertificateError"><code class="docutils literal notranslate"><span class="pre">InvalidServerCertificateError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="network.html#logger">Logger</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="network.html#brayns.network.logger.Logger"><code class="docutils literal notranslate"><span class="pre">Logger</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="network.html#protocolerror">ProtocolError</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="network.html#brayns.network.websocket.exceptions.protocol_error.ProtocolError"><code class="docutils literal notranslate"><span class="pre">ProtocolError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="network.html#request">Request</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="network.html#brayns.network.jsonrpc.messages.request.Request"><code class="docutils literal notranslate"><span class="pre">Request</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="network.html#requesterror">RequestError</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="network.html#brayns.network.jsonrpc.messages.request_error.RequestError"><code class="docutils literal notranslate"><span class="pre">RequestError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="network.html#requestfuture">RequestFuture</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="network.html#brayns.network.jsonrpc.request_future.RequestFuture"><code class="docutils literal notranslate"><span class="pre">RequestFuture</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="network.html#requestprogress">RequestProgress</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="network.html#brayns.network.jsonrpc.messages.request_progress.RequestProgress"><code class="docutils literal notranslate"><span class="pre">RequestProgress</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="network.html#serviceunavailableerror">ServiceUnavailableError</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="network.html#brayns.network.websocket.exceptions.service_unavailable_error.ServiceUnavailableError"><code class="docutils literal notranslate"><span class="pre">ServiceUnavailableError</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="network.html#sslclientcontext">SslClientContext</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="network.html#brayns.network.websocket.ssl_client_context.SslClientContext"><code class="docutils literal notranslate"><span class="pre">SslClientContext</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="network.html#websocketerror">WebSocketError</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="network.html#brayns.network.websocket.exceptions.web_socket_error.WebSocketError"><code class="docutils literal notranslate"><span class="pre">WebSocketError</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="network.html#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#bbpcells">BbpCells</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#brayns.plugins.bbp.bbp_cells.BbpCells"><code class="docutils literal notranslate"><span class="pre">BbpCells</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#bbploader">BbpLoader</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#brayns.plugins.bbp.bbp_loader.BbpLoader"><code class="docutils literal notranslate"><span class="pre">BbpLoader</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#bbpreport">BbpReport</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#brayns.plugins.bbp.bbp_report.BbpReport"><code class="docutils literal notranslate"><span class="pre">BbpReport</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#bbpreporttype">BbpReportType</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#brayns.plugins.bbp.bbp_report_type.BbpReportType"><code class="docutils literal notranslate"><span class="pre">BbpReportType</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#cellid">CellId</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#brayns.plugins.coloring.cell_id.CellId"><code class="docutils literal notranslate"><span class="pre">CellId</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#colormethod">ColorMethod</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#brayns.plugins.coloring.color_method.ColorMethod"><code class="docutils literal notranslate"><span class="pre">ColorMethod</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#cylindricprojection">CylindricProjection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#brayns.plugins.cylindric_camera.cylindric_projection.CylindricProjection"><code class="docutils literal notranslate"><span class="pre">CylindricProjection</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#geometrytype">GeometryType</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#brayns.plugins.morphology.geometry_type.GeometryType"><code class="docutils literal notranslate"><span class="pre">GeometryType</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#morphology">Morphology</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#brayns.plugins.morphology.morphology.Morphology"><code class="docutils literal notranslate"><span class="pre">Morphology</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#morphologyloader">MorphologyLoader</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#brayns.plugins.morphology.morphology_loader.MorphologyLoader"><code class="docutils literal notranslate"><span class="pre">MorphologyLoader</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#sonataedgepopulation">SonataEdgePopulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#brayns.plugins.sonata.sonata_edge_population.SonataEdgePopulation"><code class="docutils literal notranslate"><span class="pre">SonataEdgePopulation</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#sonataloader">SonataLoader</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#brayns.plugins.sonata.sonata_loader.SonataLoader"><code class="docutils literal notranslate"><span class="pre">SonataLoader</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#sonatanodepopulation">SonataNodePopulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#brayns.plugins.sonata.sonata_node_population.SonataNodePopulation"><code class="docutils literal notranslate"><span class="pre">SonataNodePopulation</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#sonatanodes">SonataNodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#brayns.plugins.sonata.sonata_nodes.SonataNodes"><code class="docutils literal notranslate"><span class="pre">SonataNodes</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#sonatareport">SonataReport</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#brayns.plugins.sonata.sonata_report.SonataReport"><code class="docutils literal notranslate"><span class="pre">SonataReport</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#sonatareporttype">SonataReportType</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#brayns.plugins.sonata.sonata_report_type.SonataReportType"><code class="docutils literal notranslate"><span class="pre">SonataReportType</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="plugins.html#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#color-circuit">color_circuit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#brayns.plugins.coloring.color_circuit.color_circuit"><code class="docutils literal notranslate"><span class="pre">color_circuit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#color-circuit-by-id">color_circuit_by_id</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#brayns.plugins.coloring.color_circuit_by_id.color_circuit_by_id"><code class="docutils literal notranslate"><span class="pre">color_circuit_by_id()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#color-circuit-by-method">color_circuit_by_method</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#brayns.plugins.coloring.color_circuit_by_method.color_circuit_by_method"><code class="docutils literal notranslate"><span class="pre">color_circuit_by_method()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#get-color-method-values">get_color_method_values</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#brayns.plugins.coloring.get_color_method_values.get_color_method_values"><code class="docutils literal notranslate"><span class="pre">get_color_method_values()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html#get-color-methods">get_color_methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins.html#brayns.plugins.coloring.get_color_methods.get_color_methods"><code class="docutils literal notranslate"><span class="pre">get_color_methods()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="service.html">service</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="service.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="service.html#loglevel">LogLevel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="service.html#brayns.service.log_level.LogLevel"><code class="docutils literal notranslate"><span class="pre">LogLevel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#manager">Manager</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="service.html#brayns.service.manager.Manager"><code class="docutils literal notranslate"><span class="pre">Manager</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#plugin">Plugin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="service.html#brayns.service.plugin.Plugin"><code class="docutils literal notranslate"><span class="pre">Plugin</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#process">Process</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="service.html#brayns.service.process.Process"><code class="docutils literal notranslate"><span class="pre">Process</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#id1">Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="service.html#brayns.service.service.Service"><code class="docutils literal notranslate"><span class="pre">Service</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="service.html#sslservercontext">SslServerContext</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="service.html#brayns.service.ssl_server_context.SslServerContext"><code class="docutils literal notranslate"><span class="pre">SslServerContext</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="service.html#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="service.html#start">start</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="service.html#brayns.service.start.start"><code class="docutils literal notranslate"><span class="pre">start()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#bounds">Bounds</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#brayns.utils.bounds.bounds.Bounds"><code class="docutils literal notranslate"><span class="pre">Bounds</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#color3">Color3</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#brayns.utils.color.color3.Color3"><code class="docutils literal notranslate"><span class="pre">Color3</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#color4">Color4</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#brayns.utils.color.color4.Color4"><code class="docutils literal notranslate"><span class="pre">Color4</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#error">Error</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#brayns.utils.exceptions.error.Error"><code class="docutils literal notranslate"><span class="pre">Error</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#fovy">Fovy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#brayns.utils.view.fovy.Fovy"><code class="docutils literal notranslate"><span class="pre">Fovy</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#imageformat">ImageFormat</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#brayns.utils.image.image_format.ImageFormat"><code class="docutils literal notranslate"><span class="pre">ImageFormat</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#quaternion">Quaternion</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#brayns.utils.transform.quaternion.Quaternion"><code class="docutils literal notranslate"><span class="pre">Quaternion</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#resolution">Resolution</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#brayns.utils.image.resolution.Resolution"><code class="docutils literal notranslate"><span class="pre">Resolution</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#rotation">Rotation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#brayns.utils.transform.rotation.Rotation"><code class="docutils literal notranslate"><span class="pre">Rotation</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#transform">Transform</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#brayns.utils.transform.transform.Transform"><code class="docutils literal notranslate"><span class="pre">Transform</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#vector3">Vector3</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#brayns.utils.vector.vector3.Vector3"><code class="docutils literal notranslate"><span class="pre">Vector3</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#view">View</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#brayns.utils.view.view.View"><code class="docutils literal notranslate"><span class="pre">View</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#lower-bound">lower_bound</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#brayns.utils.bounds.lower_bound.lower_bound"><code class="docutils literal notranslate"><span class="pre">lower_bound()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#merge-bounds">merge_bounds</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#brayns.utils.bounds.merge_bounds.merge_bounds"><code class="docutils literal notranslate"><span class="pre">merge_bounds()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#parse-hex-color">parse_hex_color</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#brayns.utils.color.parse_hex_color.parse_hex_color"><code class="docutils literal notranslate"><span class="pre">parse_hex_color()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#parse-image-format">parse_image_format</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#brayns.utils.image.parse_image_format.parse_image_format"><code class="docutils literal notranslate"><span class="pre">parse_image_format()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#upper-bound">upper_bound</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#brayns.utils.bounds.upper_bound.upper_bound"><code class="docutils literal notranslate"><span class="pre">upper_bound()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+                
+  
+
+              
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+
+        <!-- Link to previous page -->
+        
+          <a href="../jsonrpcapi/api_core_methods.html"
+              title="Core API methods"
+              class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+              rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back
+                    md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Core API methods
+              </span>
+            </div>
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          <a href="core.html"
+              title="core"
+              class="md-flex md-footer-nav__link md-footer-nav__link--next"
+              rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                core
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward
+                    md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+      
+        
+          
+          <div class="md-footer-copyright__company">
+            Blue Brain Project
+          </div>
+          
+          
+          <div class="md-footer-copyright__address__title">
+            Address
+          </div>
+          <div class="md-footer-copyright__address">
+            EPFL/Campus Biotech<br>Chemin des Mines 9,<br>CH-1202 Geneva<br>Switzerland
+          </div>
+          
+        
+        
+          <div class="md-footer-copyright__highlight">
+            &copy; Blue Brain Project/EPFL 2005-2022. All rights reserved.
+          </div>
+        
+        
+      </div>
+      
+
+      <!-- Social links -->
+      
+
+<!-- Social links in footer -->
+
+  <div class="md-footer-social">
+    <link rel="stylesheet" type="text/css"
+        href="../_static/fonts/font-awesome.css" />
+    
+    
+    <div class="md-footer-social__title">Follow the Blue Brain</div>
+    
+    
+    
+      <a href="https://www.linkedin.com/showcase/blue-brain-project/" class="md-footer-social__link
+            fa fa-linkedin-square"></a>
+    
+      <a href="https://twitter.com/bluebrainpjt?lang=en" class="md-footer-social__link
+            fa fa-twitter-square"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+<script src="../_static/javascripts/theme.js"></script>
+<script src="../_static/javascripts/utils.js"></script>
+
+      <script src="../_static/javascripts/application.718059d6.js"></script>
+      
+      <script>app.initialize({version:"5.2.2",url:{base:"../_static"}})</script>
+      
+    
+
+  </body>
+</html>

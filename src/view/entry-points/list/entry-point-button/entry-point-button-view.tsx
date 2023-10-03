@@ -20,9 +20,7 @@ export default function EntryPointButtonView(props: EntryPointButtonViewProps) {
             title={description}
         >
             <div className="name">{name}</div>
-            <div className="doc">
-                {description}
-            </div>
+            <div className="doc">{description}</div>
         </Touchable>
     )
 }

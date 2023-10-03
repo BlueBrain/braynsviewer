@@ -13,12 +13,15 @@ export default function WizardView(props: WizardViewProps) {
     const { children, step } = props
     const stepIndex = Math.max(
         0,
-        children.findIndex(child => child.key === step)
+        children.findIndex((child) => child.key === step)
     )
     return (
         <div className={getClassNames(props)}>
             {children.map((child, index) => (
-                <div key={index} className={getChildClassNames(stepIndex, index)}>
+                <div
+                    key={index}
+                    className={getChildClassNames(stepIndex, index)}
+                >
                     {child}
                 </div>
             ))}
