@@ -267,20 +267,20 @@ export default class BraynsService implements BraynsServiceInterface {
             const data: unknown = JSON.parse(text)
             assertType<{
                 id: string
-                method: string
+                method?: string
                 result: unknown
                 params: unknown
                 error: unknown
             }>(data, {
                 id: "string",
-                method: "string",
+                method: ["?", "string"],
                 result: "unknown",
                 params: "unknown",
                 error: "unknown",
             })
             const { id, method, result, params, error } = data
             if (typeof id === "undefined") {
-                this.handleSpontaneousUpdate(method, params)
+                this.handleSpontaneousUpdate(method ?? "", params)
             } else if (typeof error !== "undefined") {
                 this.handleResponseError(id, error)
             } else {
