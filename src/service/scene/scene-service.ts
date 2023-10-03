@@ -2,7 +2,7 @@ import BraynsServiceInterface, { BraynsUpdate } from "@/contract/service/brayns"
 import SceneServiceInterface, { Model, Scene } from "@/contract/service/scene"
 import { TriggerableEventInterface } from "@/contract/tool/event"
 import { BoundingBox, Quaternion, Vector3 } from "@/contract/tool/geometry"
-import { isArray, isVector3, isVector4 } from "@/tool/type-check"
+import { isArray, isObject, isVector3, isVector4 } from "@/tool/type-check"
 
 export default class SceneService implements SceneServiceInterface {
     readonly eventChange: TriggerableEventInterface<SceneServiceInterface>
@@ -108,7 +108,8 @@ interface BraynsModelTransformation {
 }
 
 function isBraynsScene(data: unknown): data is BraynsScene {
-    if (!data || typeof data !== "object") return false
+    if (!isObject(data)) return false
+
     const { bounds, models } = data
     if (!isBoundingBox(bounds)) return false
     if (!isArray(models)) return false
@@ -119,7 +120,7 @@ function isBraynsScene(data: unknown): data is BraynsScene {
 }
 
 function isBraynsModel(data: unknown): data is BraynsModel {
-    if (!data || typeof data !== "object") return false
+    if (!isObject(data)) return false
     const {
         bounding_box,
         bounds,
@@ -144,7 +145,7 @@ function isBraynsModel(data: unknown): data is BraynsModel {
 }
 
 function isBoundingBox(data: unknown): data is BoundingBox {
-    if (!data || typeof data !== "object") return false
+    if (!isObject(data)) return false
     const { min, max } = data
     if (!isVector3(min)) return false
     if (!isVector3(max)) return false
@@ -152,12 +153,12 @@ function isBoundingBox(data: unknown): data is BoundingBox {
 }
 
 function isMetadata(data: unknown): data is { [key: string]: string } {
-    if (!data || typeof data !== "object") return false
+    if (!isObject(data)) return false
     return true
 }
 
 function isTransformation(data: unknown): data is BraynsModelTransformation {
-    if (!data || typeof data !== "object") return false
+    if (!isObject(data)) return false
     const { rotation, rotation_center, translation, scale } = data
     if (!isVector3(rotation_center)) return false
     if (!isVector3(translation)) return false

@@ -94,6 +94,6 @@ export default class ColorArrayEater {
 }
 
 function castFloat(data: unknown, defaultValue: number): number {
-    const value = parseFloat(data)
+    const value = Number(data)
     return isNaN(value) ? defaultValue : value
 }
