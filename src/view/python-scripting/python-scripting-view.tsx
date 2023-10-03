@@ -49,7 +49,7 @@ export default function PythonScriptingView(props: PythonScriptingViewProps) {
                     icon="python"
                     label="Generate"
                     enabled={validFilename}
-                    onClick={handleGenerateCode}
+                    onClick={() => void handleGenerateCode()}
                 />
                 <Button
                     className="flex0"

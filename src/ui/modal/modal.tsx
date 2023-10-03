@@ -15,11 +15,11 @@ export interface ModalOptions {
         | "BL"
         | "LB"
         | "BR"
-        | "BL"
+         
         | "TL"
         | "LT"
         | "TR"
-        | "TL"
+         
     padding: string
     transitionDuration: number
     /**

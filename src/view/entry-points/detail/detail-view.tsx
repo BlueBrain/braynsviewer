@@ -1,13 +1,13 @@
-import * as React from "react"
-import Button from "../../../ui/view/button"
-import DocumentationView from "./documentation/documentation-view"
-import EntryPointsServiceInterface from "../../../contract/service/entry-points"
-import Expand from "../../../ui/view/expand"
-import FloatingButton from "../../../ui/view/floating-button"
 import JSON5 from "json5"
+import * as React from "react"
+import EntryPointsServiceInterface from "../../../contract/service/entry-points"
+import { useLocalStorageState } from "../../../ui/hook/local-storage-state"
+import Button from "../../../ui/view/button"
+import Expand from "../../../ui/view/expand"
 import JsonEditorView from "../../json-editor/json-editor-view"
 import RunnableView from "../../runnable/runnable-view"
-import { useLocalStorageState } from "../../../ui/hook/local-storage-state"
+import DocumentationView from "./documentation/documentation-view"
+
 import "./detail-view.css"
 
 export interface DetailViewProps {
@@ -51,7 +51,7 @@ export default function DetailView(props: DetailViewProps) {
                     label="Execute"
                     icon="play"
                     color="accent"
-                    onClick={handleExec}
+                    onClick={() => void handleExec()}
                 />
             </header>
             <JsonEditorView

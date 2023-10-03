@@ -4,7 +4,6 @@ import SpontaneousUpdatesServiceInterface, {
     SpontaneousUpdateItemValue,
 } from "@/contract/service/spontaneous-updates"
 import { TriggerableEventInterface } from "@/contract/tool/event"
-import ObjectTool from "@/tool/object"
 
 export default class SpontaneousUpdatesService
     implements SpontaneousUpdatesServiceInterface
@@ -24,7 +23,7 @@ export default class SpontaneousUpdatesService
         for (const [name, values] of this.history.entries()) {
             items.push({
                 name,
-                values: values.map(ObjectTool.clone),
+                values: values.map((v) => structuredClone(v)),
             })
         }
         return items
@@ -40,7 +39,7 @@ export default class SpontaneousUpdatesService
     // ### Private ###
 
     private limit = 8
-    private history = new Map<string, SpontaneousUpdateItemValue[]>()
+    private readonly history = new Map<string, SpontaneousUpdateItemValue[]>()
 
     /**
      * @param update Last received Brayns spontaneous update.

@@ -24,11 +24,11 @@ export interface TextViewProps {
     /** A function or RegExp to validate the entry. */
     validator?: RegExp | ((value: string) => boolean)
     /** This is triggered only if the entry is valid. */
-    onChange?(value: string): void
+    onChange?(this: void, value: string): void
     /** Is the current entry valid? */
-    onValidation?(isValid: boolean): void
+    onValidation?(this: void, isValid: boolean): void
     /** Triggered whn the user pressed the ENTER key. */
-    onEnterPressed?(value: string): void
+    onEnterPressed?(this: void, value: string): void
 }
 
 let globalId = 1

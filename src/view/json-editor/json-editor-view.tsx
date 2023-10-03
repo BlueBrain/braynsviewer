@@ -10,8 +10,8 @@ export interface JsonEditorViewProps {
     className?: string
     label?: string
     value: string
-    onChange(value: string): void
-    onValid?(valid: boolean): void
+    onChange(this: void, value: string): void
+    onValid?(this: void, valid: boolean): void
 }
 
 export default function JsonEditorView(props: JsonEditorViewProps) {
@@ -24,7 +24,6 @@ export default function JsonEditorView(props: JsonEditorViewProps) {
         },
         // We want this to trigger only when `props.value` changes,
         // but not anytime `value` changes.
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         [props.value]
     )
     const [valid, setValid] = React.useState(true)

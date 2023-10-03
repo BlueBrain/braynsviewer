@@ -10,7 +10,11 @@ export function stringify(script: PythonScripting, indent = "    "): string {
 ${stringifyCode(code, indent, -1)}`
 }
 
-export function stringifyCode(code: CodeBloc, indent: string, level = 0) {
+export function stringifyCode(
+    code: CodeBloc,
+    indent: string,
+    level = 0
+): string {
     const prefix = repeat(indent, level)
     if (typeof code === "string") return `${prefix}${code}`
     return code.map((line) => stringifyCode(line, indent, level + 1)).join(`\n`)
@@ -60,7 +64,8 @@ ${Array.from(fromImports.keys())
             `from ${key} import ${Array.from(fromImports.get(key)?.keys() ?? [])
                 .sort()
                 .join(", ")}`
-    )}`
+    )
+    .join("\n")}`
 }
 
 /**

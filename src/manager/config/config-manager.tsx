@@ -14,7 +14,6 @@ export default class ConfigManager implements ConfigManagerInterface {
             return { host, port }
         }
 
-        //
         return new Promise<BraynsAddress>((resolve) => {
             const modal = new Modal({ align: "B", padding: "3rem" })
             modal.show(
@@ -26,6 +25,7 @@ export default class ConfigManager implements ConfigManagerInterface {
                         )
                         params.set("host", `${address.host}:${address.port}`)
                         window.location.search = `?${params.toString()}`
+                        resolve(address)
                     }}
                 />
             )

@@ -21,5 +21,5 @@ export default interface EntryPointsServiceInterface {
      * @param entryPointName "get-camera", "get-scene", 'add-light", ...
      * @param param A serializable param for the entry point.
      */
-    exec(entryPointName: string, param?: any): Promise<unknown>
+    exec(entryPointName: string, param?: unknown): Promise<unknown>
 }

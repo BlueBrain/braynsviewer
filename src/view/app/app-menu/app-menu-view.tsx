@@ -7,7 +7,7 @@ type Page = string
 export interface AppMenuViewProps {
     className?: string
     value: Page
-    onChange(page: Page): void
+    onChange(this: void, page: Page): void
 }
 
 const OPTIONS = {

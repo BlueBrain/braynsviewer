@@ -45,9 +45,17 @@ export function surround(
     }
     const last = code.length - 1
     if (typeof code[last] === "string") {
-        code[last] = `${code[last]}${suffix}`
+        code[last] = `${codeToString(code[last])}${suffix}`
     } else {
         code.push(prefix)
     }
     return code
+}
+
+function codeToString(code: PythonScripting | CodePortion): string {
+    if (typeof code === "string") return code
+
+    if (Array.isArray(code)) return code.map(codeToString).join("\n")
+
+    return codeToString(code.code)
 }

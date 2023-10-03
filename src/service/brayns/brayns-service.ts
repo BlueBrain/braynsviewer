@@ -1,3 +1,4 @@
+import { assertType } from "@/tool/type-check"
 import BraynsServiceInterface, {
     BraynsQueryFailure,
     BraynsQueryResult,
@@ -26,7 +27,7 @@ export default class BraynsService implements BraynsServiceInterface {
     debug:
         | boolean
         | RegExp
-        | ((entryPointName: string, params?: any) => boolean) = false
+        | ((entryPointName: string, params?: unknown) => boolean) = false
     // For spontaneous updates coming from BraynsService.
     public readonly eventUpdate: TriggerableEventInterface<BraynsUpdate>
     // For scene images.
@@ -229,7 +230,7 @@ export default class BraynsService implements BraynsServiceInterface {
     private readonly pendingQueries = new Map<string, PendingQuery>()
     private readonly resources = new Map<string, SerializableData>()
 
-    private isDebugEnabled(entryPointName: string, params?: any): boolean {
+    private isDebugEnabled(entryPointName: string, params?: unknown): boolean {
         const { debug } = this
         if (debug === true || debug === false) return debug
         if (typeof debug === "function") {
@@ -250,18 +251,33 @@ export default class BraynsService implements BraynsServiceInterface {
         return `${protocol}://${host}:${port}`
     }
 
-    private handleMessage = (event: MessageEvent) => {
+    private readonly handleMessage = (event: MessageEvent) => {
         if (typeof event.data === "string") {
             this.handleStringMessage(event.data)
         } else {
             console.log("eventImage.trigger", event.data)
-            this.eventImage.trigger(event.data)
+            if (event.data instanceof ArrayBuffer) {
+                this.eventImage.trigger(event.data)
+            }
         }
     }
 
     private handleStringMessage(text: string) {
         try {
-            const data = JSON.parse(text)
+            const data: unknown = JSON.parse(text)
+            assertType<{
+                id: string
+                method: string
+                result: unknown
+                params: unknown
+                error: unknown
+            }>(data, {
+                id: "string",
+                method: "string",
+                result: "unknown",
+                params: "unknown",
+                error: "unknown",
+            })
             const { id, method, result, params, error } = data
             if (typeof id === "undefined") {
                 this.handleSpontaneousUpdate(method, params)
@@ -276,11 +292,11 @@ export default class BraynsService implements BraynsServiceInterface {
         }
     }
 
-    private handleSpontaneousUpdate(name: string, value: SerializableData) {
+    private handleSpontaneousUpdate(name: string, value: unknown) {
         this.eventUpdate.trigger({ name, value })
     }
 
-    private handleResponse(id: string, params: any) {
+    private handleResponse(id: string, params: unknown) {
         const query = this.pendingQueries.get(id)
         if (typeof query === "undefined") {
             // Just ignore this message because it is not a response
@@ -301,7 +317,22 @@ export default class BraynsService implements BraynsServiceInterface {
         query.resolve(result)
     }
 
-    private handleResponseError(id: string, error: any) {
+    private handleResponseError(id: string, error: unknown) {
+        assertType<
+            | undefined
+            | Partial<{
+                  code: number
+                  message: string
+                  data: unknown
+              }>
+        >(error, [
+            "?",
+            {
+                code: ["?", "number"],
+                message: ["?", "string"],
+                data: ["?", "unknown"],
+            },
+        ])
         const query = this.pendingQueries.get(id)
         if (typeof query === "undefined") {
             // Just ignore this message because it is not a response
@@ -312,9 +343,9 @@ export default class BraynsService implements BraynsServiceInterface {
         this.pendingQueries.delete(id)
         query.resolve({
             success: false,
-            code: error.code ?? 0,
-            message: error.message ?? "Unknown error!",
-            data: error.data,
+            code: error?.code ?? 0,
+            message: error?.message ?? "Unknown error!",
+            data: error?.data,
             entryPoint: query.entryPointName,
             param: query.param,
         })
@@ -327,7 +358,7 @@ export default class BraynsService implements BraynsServiceInterface {
         return btoa(`${globalIncrementalId++}`)
     }
 
-    private handleError = (event) => {
+    private readonly handleError = (event) => {
         console.error("### [WS] Error:", event)
     }
 

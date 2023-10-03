@@ -13,7 +13,7 @@ export interface FloatingButtonViewProps<Tag> {
     color?: ColorName
     enabled?: boolean
     tag?: Tag
-    onClick?(tag?: Tag): void
+    onClick?(this: void, tag?: Tag): void
 }
 
 export default function FloatingButtonView<Tag>(

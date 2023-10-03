@@ -13,9 +13,9 @@ export interface SimpleComboViewProps {
     enabled?: boolean
     wide?: boolean
     width?: string
-    onChange(value: string): void
+    onChange(this: void, value: string): void
     /** Triggered when the user pressed the ENTER key. */
-    onEnterPressed?(value: string): void
+    onEnterPressed?(this: void, value: string): void
 }
 
 let globalId = 1

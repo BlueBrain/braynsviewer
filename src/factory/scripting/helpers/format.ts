@@ -1,4 +1,7 @@
 import { isObject, isVector3, isVector4 } from "@/tool/type-check"
+
+type CodeSection = string | CodeSection[]
+
 /**
  * It comes in handy to be able to stringify complex values to use
  * in Brayns entry-points.
@@ -10,7 +13,7 @@ export function formatValueAsPythonObject(
     value: unknown,
     prefix = "",
     suffix = ""
-) {
+): CodeSection {
     if (value === true) return `${prefix}True${suffix}`
     if (value === false) return `${prefix}False${suffix}`
     if (value === null) return `${prefix}None${suffix}`
@@ -49,7 +52,8 @@ function ifNotLast(text: string, arr: unknown[], index: number) {
     return arr.length - 1 !== index ? text : ""
 }
 
-function flattenOneLevel<T>(arr: T[]): T[] {
+function flattenOneLevel<T>(input: T | T[]): T[] {
+    const arr: T[] = Array.isArray(input) ? input : [input]
     const flatArray: T[] = []
     for (const item of arr) {
         if (Array.isArray(item)) flatArray.push(...item)

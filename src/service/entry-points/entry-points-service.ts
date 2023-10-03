@@ -1,10 +1,4 @@
-import {
-    assertBoolean,
-    assertObject,
-    assertObjectOrUndefined,
-    assertString,
-    isArray,
-} from "@/tool/type-check"
+import { assertType, isArray } from "@/tool/type-check"
 import JSON5 from "json5"
 import BraynsServiceInterface from "../../contract/service/brayns"
 import EntryPointsServiceInterface, {
@@ -18,7 +12,7 @@ export default class EntryPointsService implements EntryPointsServiceInterface {
      * Schemas can be put in cache because it's a definition that cannot
      * change during Brayns execution.
      */
-    private static schemas = new Map<string, EntryPointSchema>()
+    private static readonly schemas = new Map<string, EntryPointSchema>()
 
     constructor(private readonly brayns: BraynsServiceInterface) {}
 
@@ -93,13 +87,15 @@ export default class EntryPointsService implements EntryPointsServiceInterface {
     }
 }
 
-function assertSchemaMethod(data: any): asserts data is SchemaMethod {
-    assertObject(data)
-    const { async, description, title, params } = data
-    assertBoolean(async, "data.async")
-    assertString(description, "data.description")
-    assertString(title, "data.title")
-    assertObjectOrUndefined(params, "data.params")
+function assertSchemaMethod(data: unknown): asserts data is SchemaMethod {
+    assertType(data, {
+        async: "boolean",
+        description: "string",
+        title: "string",
+        plugin: "string",
+        params: ["?", ["map", "unknown"]],
+        returns: "unknown",
+    })
 }
 
 type SchemaType = SchemaObject
@@ -109,8 +105,8 @@ interface SchemaMethod {
     async: boolean
     plugin: string
     description: string
-    params: any
-    returns: any
+    params: unknown
+    returns: unknown
 }
 
 interface SchemaObject {
@@ -126,8 +122,10 @@ interface SchemaObject {
  * This function will ensure all mandatory attributes are set and
  * that they stick to our definition of TypeDef.
  */
-function sanitizeTypeDef(type: TypeDef | string | undefined): TypeDef {
+function sanitizeTypeDef(type: unknown): TypeDef {
     if (typeof type === "undefined") return { type: "undefined" }
+
+    assertType<TypeDef | string>(type, ["|", "string", ["map", "unknown"]])
 
     try {
         if (type === "string") return { type }

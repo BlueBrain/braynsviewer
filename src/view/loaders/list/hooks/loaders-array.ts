@@ -20,7 +20,7 @@ export function useLoadersArray(
                 setBusy(false)
             }
         }
-        later()
+        void later()
     }, [service, setBusy])
     return loaders
 }

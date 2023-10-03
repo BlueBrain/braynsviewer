@@ -22,7 +22,9 @@ export default class ImageFactory implements ImageFactoryInterface {
             img.src = url
             // Https://medium.com/dailyjs/image-loading-with-image-decode-b03652e7d2d2
             if (img.decode) {
-                img.decode().then(() => resolve(img))
+                img.decode()
+                    .then(() => resolve(img))
+                    .catch(console.error)
             } else {
                 img.onload = () => resolve(img)
             }

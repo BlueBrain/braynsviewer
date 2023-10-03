@@ -47,7 +47,7 @@ export default class SceneService implements SceneServiceInterface {
         max: [1, 1, 1],
     }
 
-    private handleBraynsUpdate = (update: BraynsUpdate) => {
+    private readonly handleBraynsUpdate = (update: BraynsUpdate) => {
         if (update.name !== SCENE_UPDATE) return
 
         const data = update.value
@@ -107,7 +107,7 @@ interface BraynsModelTransformation {
     translation: Vector3
 }
 
-function isBraynsScene(data: any): data is BraynsScene {
+function isBraynsScene(data: unknown): data is BraynsScene {
     if (!data || typeof data !== "object") return false
     const { bounds, models } = data
     if (!isBoundingBox(bounds)) return false
@@ -118,7 +118,7 @@ function isBraynsScene(data: any): data is BraynsScene {
     return true
 }
 
-function isBraynsModel(data: any): data is BraynsModel {
+function isBraynsModel(data: unknown): data is BraynsModel {
     if (!data || typeof data !== "object") return false
     const {
         bounding_box,
@@ -143,7 +143,7 @@ function isBraynsModel(data: any): data is BraynsModel {
     return true
 }
 
-function isBoundingBox(data: any): data is BoundingBox {
+function isBoundingBox(data: unknown): data is BoundingBox {
     if (!data || typeof data !== "object") return false
     const { min, max } = data
     if (!isVector3(min)) return false
@@ -151,12 +151,12 @@ function isBoundingBox(data: any): data is BoundingBox {
     return true
 }
 
-function isMetadata(data: any): data is { [key: string]: string } {
+function isMetadata(data: unknown): data is { [key: string]: string } {
     if (!data || typeof data !== "object") return false
     return true
 }
 
-function isTransformation(data: any): data is BraynsModelTransformation {
+function isTransformation(data: unknown): data is BraynsModelTransformation {
     if (!data || typeof data !== "object") return false
     const { rotation, rotation_center, translation, scale } = data
     if (!isVector3(rotation_center)) return false

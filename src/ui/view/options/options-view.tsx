@@ -8,7 +8,7 @@ export interface OptionsViewProps {
     label?: string
     value: string
     options: { [key: string]: string }
-    onClick(value: string): void
+    onClick(this: void, value: string): void
 }
 
 export default function OptionsView(props: OptionsViewProps) {

@@ -11,6 +11,7 @@ import ExtraParamView from "./extra-param"
 import SelectRenderer from "./select-renderer"
 
 import "./renderer-view.css"
+import { isCameraExtraParams } from "@/contract/service/camera"
 
 export interface RendererViewProps {
     className?: string
@@ -25,7 +26,7 @@ export default function RendererView(props: RendererViewProps) {
         React.useState<RendererCommonParams>(DEFAULT_PARAMS)
     const [type, setType] = React.useState("Undefined Renderer")
     const [types, setTypes] = React.useState(["perspective", "orthographic"])
-    const [extra, setExtra] = React.useState<any>(null)
+    const [extra, setExtra] = React.useState<unknown>(null)
     const [editMode, setEditMode] = React.useState(false)
     const [running, setRunning] = React.useState(true)
     const run: RunnableFunction = async (f) => {
@@ -41,7 +42,7 @@ export default function RendererView(props: RendererViewProps) {
     }
     React.useEffect(() => {
         const init = async () => {
-            run(async () => {
+            await run(async () => {
                 const data = await rendererService.getCommonParams()
                 setParams(data)
                 setType(data.type)
@@ -49,31 +50,38 @@ export default function RendererView(props: RendererViewProps) {
                 setExtra(await rendererService.getExtraParams())
             })
         }
-        if (!editMode) init()
+        if (!editMode) void init()
         const handleRendererChange = async (params: RendererCommonParams) => {
             if (editMode) return
 
             setParams(params)
             setType(params.type)
             setTypes(params.availableTypes)
-            run(async () => setExtra(await rendererService.getExtraParams()))
+            await run(async () =>
+                setExtra(await rendererService.getExtraParams())
+            )
         }
         const handleRendererExtraChange = (params: RendererExtraParams) => {
             if (editMode) return
 
             setExtra(params)
         }
-        rendererService.eventCommonParamsChange.add(handleRendererChange)
+        rendererService.eventCommonParamsChange.add(
+            (params: RendererCommonParams) => void handleRendererChange(params)
+        )
         rendererService.eventExtraParamsChange.add(handleRendererExtraChange)
         return () => {
-            rendererService.eventCommonParamsChange.remove(handleRendererChange)
+            rendererService.eventCommonParamsChange.remove(
+                (params: RendererCommonParams) =>
+                    void handleRendererChange(params)
+            )
             rendererService.eventExtraParamsChange.remove(
                 handleRendererExtraChange
             )
         }
     }, [rendererService, editMode])
     const handleApply = async () => {
-        run(
+        await run(
             async () =>
                 await rendererService.setCommonParams({
                     ...params,
@@ -113,7 +121,7 @@ export default function RendererView(props: RendererViewProps) {
                     />
                     <ButtonView
                         label="Change type"
-                        onClick={handleChangeRendererType}
+                        onClick={() => void handleChangeRendererType()}
                     />
                 </header>
                 <hr />
@@ -171,7 +179,7 @@ export default function RendererView(props: RendererViewProps) {
                         }
                     />
                 </div>
-                {extra && typeof extra === "object" && (
+                {isCameraExtraParams(extra) && (
                     <>
                         <hr />
                         <div className="extra-params">
@@ -203,7 +211,7 @@ export default function RendererView(props: RendererViewProps) {
                         enabled={editMode}
                         label="Apply"
                         color="accent"
-                        onClick={handleApply}
+                        onClick={() => void handleApply()}
                     />
                 </div>
             </Runnable>

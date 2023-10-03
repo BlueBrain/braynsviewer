@@ -1,4 +1,4 @@
-import { isArray, isVector3 } from "@/tool/type-check"
+import { isArray, isObject, isType } from "@/tool/type-check"
 import BraynsServiceInterface, {
     BraynsUpdate,
 } from "../../contract/service/brayns"
@@ -68,14 +68,14 @@ export default class RendererService implements RendererServiceInterface {
         return ensureRendererExtraParams(data)
     }
 
-    private handleBraynsUpdate = (update: BraynsUpdate) => {
+    private readonly handleBraynsUpdate = (update: BraynsUpdate) => {
         if (update.name === SET_COMMON_PARAMS)
             this.updateRendererCommonParams(update.value)
         else if (update.name === SET_EXTRA_PARAMS)
             this.updateRendererExtraParams(update.value)
     }
 
-    private updateRendererCommonParams = (value: any) => {
+    private readonly updateRendererCommonParams = (value: unknown) => {
         if (!isBraynsRenderer(value)) {
             console.error(
                 "Renderer common update has an unexpected format:",
@@ -86,7 +86,7 @@ export default class RendererService implements RendererServiceInterface {
         this.eventCommonParamsChange.trigger(castRendererCommonParams(value))
     }
 
-    private updateRendererExtraParams = (value: any) => {
+    private readonly updateRendererExtraParams = (value: unknown) => {
         this.eventExtraParamsChange.trigger(ensureRendererExtraParams(value))
     }
 }
@@ -103,37 +103,23 @@ interface BraynsRenderer {
     variance_threshold: number
 }
 
-function isBraynsRenderer(data: any): data is BraynsRenderer {
-    if (!data || typeof data !== "object") return false
-    const {
-        current,
-        accumulation,
-        background_color,
-        head_light,
-        max_accum_frames,
-        samples_per_pixel,
-        subsampling,
-        types,
-        variance_threshold,
-    } = data
-    if (typeof current !== "string") return false
-    if (typeof max_accum_frames !== "number") return false
-    if (typeof samples_per_pixel !== "number") return false
-    if (typeof subsampling !== "number") return false
-    if (typeof variance_threshold !== "number") return false
-    if (typeof accumulation !== "boolean") return false
-    if (typeof head_light !== "boolean") return false
-    if (!isVector3(background_color)) return false
-    if (!isArray(types)) return false
-    for (const type of types) {
-        if (typeof type !== "string") return false
-    }
-    return true
+function isBraynsRenderer(data: unknown): data is BraynsRenderer {
+    return isType(data, {
+        current: "string",
+        accumulation: "number",
+        background_color: ["array(3)", "number"],
+        head_light: "boolean",
+        max_accum_frames: "number",
+        samples_per_pixel: "number",
+        subsampling: "number",
+        types: ["array", "string"],
+        variance_threshold: "number",
+    })
 }
 
 type ExtraParam = number | string | boolean | [number, number, number]
 
-function isExtraParam(data: any): data is ExtraParam {
+function isExtraParam(data: unknown): data is ExtraParam {
     if (isArray(data)) {
         const [r, g, b] = data
         if (typeof r !== "number") return false
@@ -152,18 +138,23 @@ function isExtraParam(data: any): data is ExtraParam {
     }
 }
 
-function ensureRendererExtraParams(data: any) {
+function ensureRendererExtraParams(data: unknown) {
     if (!data || typeof data !== "object") {
         console.warn()
         return {}
     }
+
+    if (!isObject(data)) return {}
+
     const extraParams: RendererExtraParams = {}
     for (const key of Object.keys(data)) {
         const val = data[key]
         if (!isExtraParam(val)) {
             console.warn(`Extra param "${key}" is of unknown type:`, val)
+            extraParams[key] = ""
+        } else {
+            extraParams[key] = val
         }
-        extraParams[key] = val
     }
     return extraParams
 }

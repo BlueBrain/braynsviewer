@@ -20,7 +20,7 @@ export function useScreenLock(
                 }
             }
         }
-        later()
+        void later()
     }, [sceneView])
     return [locked, toggleLocked]
 }

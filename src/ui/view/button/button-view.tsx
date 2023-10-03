@@ -27,7 +27,7 @@ export interface ButtonViewProps<Tag> {
     reversed?: boolean
     visible?: boolean
     tag?: Tag
-    onClick?(tag?: Tag): void
+    onClick?(this: void, tag?: Tag): void
 }
 
 /**

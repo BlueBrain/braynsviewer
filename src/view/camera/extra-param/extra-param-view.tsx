@@ -11,13 +11,15 @@ export interface ExtraParamViewProps {
     enabled: boolean
     params: CameraExtraParams
     name: string
-    onChange(params: CameraExtraParams): void
+    onChange(this: void, params: CameraExtraParams): void
 }
 
 export default function ExtraParamView(props: ExtraParamViewProps) {
     const { enabled, params, name, onChange } = props
     const value = params[name]
-    const update = (v: any) => {
+    const update = (
+        v: number | boolean | string | [number, number, number]
+    ) => {
         onChange({
             ...params,
             [name]: v,

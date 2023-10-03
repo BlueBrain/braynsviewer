@@ -12,8 +12,8 @@ export interface FloatViewProps {
     wide?: boolean
     min?: number
     max?: number
-    onChange?(value: number): void
-    onEnterPressed?(value: number): void
+    onChange?(this: void, value: number): void
+    onEnterPressed?(this: void, value: number): void
 }
 
 export default function FloatView(props: FloatViewProps) {

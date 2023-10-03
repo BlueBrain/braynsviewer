@@ -13,17 +13,18 @@ export interface ExtraParamViewProps {
     enabled: boolean
     params: CameraExtraParams
     name: string
-    onChange(params: CameraExtraParams): void
+    onChange(this: void, params: CameraExtraParams): void
 }
 
 export default function ExtraParamView(props: ExtraParamViewProps) {
     const { enabled, params, name, onChange } = props
     const value = params[name]
-    const update = (v: any) => {
-        onChange({
+    const update = (value: CameraExtraParams) => {
+        const newParams: CameraExtraParams = {
             ...params,
-            [name]: v,
-        })
+            ...value,
+        }
+        onChange(newParams)
     }
     const className = getClassNames(props)
     switch (typeof value) {
@@ -34,7 +35,7 @@ export default function ExtraParamView(props: ExtraParamViewProps) {
                     enabled={enabled}
                     label={name}
                     value={value}
-                    onChange={update}
+                    onChange={(v) => update({ [name]: v })}
                 />
             )
         case "boolean":
@@ -45,14 +46,15 @@ export default function ExtraParamView(props: ExtraParamViewProps) {
                         enabled={enabled}
                         label={value ? "true" : "false"}
                         value={value}
-                        onChange={update}
+                        onChange={(v) => update({ [name]: v })}
                     />
                 </div>
             )
     }
     if (isColor(value)) {
         const handleColorChange = (code: string) => {
-            update(Color.fromColorOrString(code).toArrayRGB())
+            const color = Color.fromColorOrString(code).toArrayRGB()
+            update({ [name]: color })
         }
         return (
             <ColorInput
@@ -81,9 +83,10 @@ function getClassNames(props: ExtraParamViewProps): string {
     return classNames.join(" ")
 }
 
-function isColor(data: any): data is [number, number, number] {
+function isColor(data: unknown): data is [number, number, number] {
     if (!Array.isArray(data)) return false
-    const [r, g, b] = data
+
+    const [r, g, b] = data as unknown[]
     if (typeof r !== "number") return false
     if (typeof g !== "number") return false
     if (typeof b !== "number") return false

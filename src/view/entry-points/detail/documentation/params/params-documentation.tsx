@@ -154,24 +154,24 @@ function getClassNames(props: ParamsDocumentationProps): string {
     return classNames.join(" ")
 }
 
-function isTypeInteger(data: any): data is TypeIntegerDef {
+function isTypeInteger(data: unknown): data is TypeIntegerDef {
     if (!isObject(data)) return false
     const { type } = data
     return type === "integer"
 }
 
-function isTypeUndefined(data: any): data is BasicTypeDef {
+function isTypeUndefined(data: unknown): data is BasicTypeDef {
     if (!isObject(data)) return false
     const { type } = data
     return type === "undefined"
 }
 
-function isTypeEnum(data: any): data is { enum: string[] } {
+function isTypeEnum(data: unknown): data is { enum: string[] } {
     if (!isObject(data)) return false
     return isStringArray(data.enum)
 }
 
-function isTypeBasic(data: any): data is BasicTypeDef {
+function isTypeBasic(data: unknown): data is BasicTypeDef {
     if (!isObject(data)) return false
     const { type } = data
     return (
@@ -182,29 +182,29 @@ function isTypeBasic(data: any): data is BasicTypeDef {
     )
 }
 
-function isTypeVoid(data: any): data is TypeDef {
+function isTypeVoid(data: unknown): data is TypeDef {
     if (!isObject(data)) return false
     return Object.keys(data).length === 0
 }
 
-function isTypeObject(data: any): data is TypeObjectDef {
+function isTypeObject(data: unknown): data is TypeObjectDef {
     if (!isObject(data)) return false
     const { type } = data
     return type === "object"
 }
 
-function isTypeArray(data: any): data is TypeArrayDef {
+function isTypeArray(data: unknown): data is TypeArrayDef {
     if (!isObject(data)) return false
     const { type } = data
     return type === "array"
 }
 
-function isTypeOneOf(data: any): data is TypeOneOfDef {
+function isTypeOneOf(data: unknown): data is TypeOneOfDef {
     if (!isObject(data)) return false
     return typeof data.oneOf !== "undefined"
 }
 
-function isTypeAnyOf(data: any): data is TypeAnyOfDef {
+function isTypeAnyOf(data: unknown): data is TypeAnyOfDef {
     if (!isObject(data)) return false
     return typeof data.anyOf !== "undefined"
 }
@@ -223,6 +223,7 @@ function renderIntegerBoundaries(type: TypeIntegerDef) {
 
 function renderTitle(item: TypeDef) {
     if (!isObject(item)) return null
-    const { title } = item as any
+
+    const { title } = item
     if (typeof title === "string") return <span className="desc">{title}</span>
 }

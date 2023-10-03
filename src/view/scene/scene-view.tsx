@@ -28,9 +28,10 @@ export default function SceneView(props: SceneViewProps) {
         }
     }, [sceneService])
     React.useEffect(() => {
-        loadScene()
-        sceneService.eventChange.add(loadScene)
-        return () => sceneService.eventChange.remove(loadScene)
+        const asyncLoadScene = () => void loadScene()
+        asyncLoadScene()
+        sceneService.eventChange.add(asyncLoadScene)
+        return () => sceneService.eventChange.remove(asyncLoadScene)
     }, [loadScene, sceneService])
     const handleDeleteModel = async (model: Model) => {
         const confirm = await Modal.confirm({
@@ -48,7 +49,7 @@ export default function SceneView(props: SceneViewProps) {
         })
         if (!confirm) return
 
-        sceneService.removeModel(model.id)
+        void sceneService.removeModel(model.id)
     }
     return (
         <div className={getClassNames(props)}>
@@ -58,14 +59,16 @@ export default function SceneView(props: SceneViewProps) {
                         Scene: {models.length} model
                         {models.length > 1 ? "s" : ""}
                     </h1>
-                    <Button label="Refresh" onClick={loadScene} />
+                    <Button label="Refresh" onClick={() => void loadScene()} />
                 </header>
                 <div className="models-list">
                     {models.map((model) => (
                         <ModelButton
                             key={model.id}
                             model={model}
-                            onDelete={handleDeleteModel}
+                            onDelete={(model: Model) =>
+                                void handleDeleteModel(model)
+                            }
                         />
                     ))}
                 </div>

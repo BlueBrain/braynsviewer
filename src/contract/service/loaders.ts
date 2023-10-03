@@ -18,7 +18,7 @@ export interface LoaderPropertyDefinition {
     name: string
     // Display name (ex: Random seed for target subsetting).
     title: string
-    defaultValue?: any
+    defaultValue?: unknown
     description?: string
     type?: LoaderPropertyTypeDefinition
     minItems?: number
@@ -34,7 +34,7 @@ export interface LoaderDefinition {
 export interface AddModelParams {
     bounding_box?: boolean
     loader_name: string
-    loader_properties?: { [key: string]: any }
+    loader_properties?: { [key: string]: unknown }
     name?: string
     path: string
     transformation?: {
@@ -55,5 +55,5 @@ export default interface LoadersServiceInterface {
      *
      * @param params
      */
-    addModel(params: AddModelParams): Promise<any>
+    addModel(params: AddModelParams): Promise<unknown>
 }

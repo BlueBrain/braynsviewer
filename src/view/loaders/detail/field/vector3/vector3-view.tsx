@@ -6,8 +6,8 @@ import "./vector3-view.css"
 
 export interface Vector3ViewProps {
     className?: string
-    value: any
-    onChange(value: [number, number, number]): void
+    value: unknown
+    onChange(this: void, value: [number, number, number]): void
 }
 
 export default function Vector3View(props: Vector3ViewProps) {
@@ -52,7 +52,7 @@ function getClassNames(props: Vector3ViewProps): string {
     return classNames.join(" ")
 }
 
-function sanitize(value: any): [number, number, number] {
+function sanitize(value: unknown): [number, number, number] {
     if (!isNumberArray(value) || value.length < 3) return [0, 0, 0]
 
     return value.slice(0, 3) as [number, number, number]

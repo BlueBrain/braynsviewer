@@ -6,7 +6,11 @@ import Options from "@/ui/view/options"
 import Combo from "@/ui/view/simple-combo"
 import JSON5 from "json5"
 import * as React from "react"
-import { isArray } from "../../../../tool/type-check"
+import {
+    ensureNumber,
+    ensureString,
+    isArray,
+} from "../../../../tool/type-check"
 import JsonEditorView from "../../../json-editor/json-editor-view"
 import "./field-view.css"
 import Vector3Field from "./vector3"
@@ -14,8 +18,8 @@ import Vector3Field from "./vector3"
 export interface FieldViewProps {
     className?: string
     property: LoaderPropertyDefinition
-    values: { [key: string]: any }
-    onChange(values: { [key: string]: any }): void
+    values: { [key: string]: unknown }
+    onChange(this: void, values: { [key: string]: unknown }): void
 }
 
 export default function FieldView(props: FieldViewProps) {
@@ -24,7 +28,7 @@ export default function FieldView(props: FieldViewProps) {
     return (
         <div className={getClassNames(props)}>
             <b>{property.name}</b> <small>({property.title})</small>
-            {renderProperty(property, value, (newValue: any) => {
+            {renderProperty(property, value, (newValue: unknown) => {
                 if (JSON.stringify(value) === JSON.stringify(newValue)) return
                 onChange({ ...values, [property.name]: newValue })
             })}
@@ -45,14 +49,14 @@ function getClassNames(props: FieldViewProps): string {
 
 function renderProperty(
     property: LoaderPropertyDefinition,
-    value: any,
-    onChange: (value: any) => void
+    value: unknown,
+    onChange: (this: void, value: unknown) => void
 ) {
     if (Array.isArray(property.type)) {
         return (
             <Combo
                 wide={true}
-                value={value}
+                value={ensureString(value)}
                 values={property.type}
                 onChange={onChange}
             />
@@ -66,7 +70,7 @@ function renderProperty(
                 <InputText
                     label="String"
                     wide={true}
-                    value={value}
+                    value={ensureString(value)}
                     onChange={onChange}
                 />
             )
@@ -75,7 +79,7 @@ function renderProperty(
                 <InputFloat
                     label="Float number"
                     wide={true}
-                    value={value}
+                    value={ensureNumber(value, "0")}
                     onChange={onChange}
                 />
             )
@@ -84,7 +88,7 @@ function renderProperty(
                 <InputInteger
                     label="Integer"
                     wide={true}
-                    value={value}
+                    value={ensureNumber(value, "0")}
                     onChange={onChange}
                 />
             )

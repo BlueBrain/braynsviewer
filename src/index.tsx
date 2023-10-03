@@ -10,7 +10,7 @@ import {
     makeEntryPointsService,
 } from "./factory/global"
 
-start()
+void start()
 
 async function start() {
     Theme.apply(Theme.defaultDarkTheme)

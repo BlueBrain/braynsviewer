@@ -12,7 +12,7 @@ import "./loaders-list-view.css"
 export interface LoadersListViewProps {
     className?: string
     loadersService: LoadersServiceInterface
-    onSelect(loader: LoaderDefinition): void
+    onSelect(this: void, loader: LoaderDefinition): void
 }
 
 export default function LoadersListView(props: LoadersListViewProps) {

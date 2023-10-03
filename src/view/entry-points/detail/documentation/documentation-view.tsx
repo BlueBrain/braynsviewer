@@ -61,7 +61,7 @@ function useEntryPointSchema(
                 setSchema(await service.getEntryPointSchema(entryPointName))
             } catch (ex) {
                 console.error(ex)
-                Modal.error(
+                void Modal.error(
                     <div>
                         <b>
                             Unable to get schema for entry point{" "}
@@ -72,7 +72,7 @@ function useEntryPointSchema(
                 )
             }
         }
-        asyncFunction()
+        void asyncFunction()
     }, [service, entryPointName, setSchema])
 }
 

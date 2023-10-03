@@ -2,7 +2,7 @@ import LoadersServiceInterface, {
     AddModelParams,
     LoaderDefinition,
 } from "@/contract/service/loaders"
-import { isObject } from "@/tool/type-check"
+import { assertObject, isObject } from "@/tool/type-check"
 import { useLocalStorageState } from "@/ui/hook"
 import Modal from "@/ui/modal"
 import Button from "@/ui/view/button"
@@ -19,7 +19,7 @@ export interface LoaderDetailViewProps {
     className?: string
     loader?: LoaderDefinition
     loadersService: LoadersServiceInterface
-    onBack(): void
+    onBack(this: void): void
 }
 
 export default function LoaderDetailView(props: LoaderDetailViewProps) {
@@ -98,13 +98,13 @@ export default function LoaderDetailView(props: LoaderDetailViewProps) {
                             <Button
                                 icon="python"
                                 label="Export Code"
-                                onClick={handleExportCode}
+                                onClick={() => void handleExportCode()}
                             />
                             <Button
                                 icon="play"
                                 label="Execute Loader"
                                 color="accent"
-                                onClick={handleExecute}
+                                onClick={() => void handleExecute()}
                             />
                         </div>
                         <div className="extensions">
@@ -129,7 +129,7 @@ function getClassNames(props: LoaderDetailViewProps): string {
 }
 
 interface Values {
-    [key: string]: any
+    [key: string]: unknown
 }
 
 function makeAddModelParams(
@@ -153,17 +153,19 @@ function makeAddModelParams(
     return data
 }
 
-function prettify(dic: { [key: string]: any }, indent: string = ""): string {
+function prettify(dic: unknown, indent: string = ""): string {
+    if (!isObject(dic)) {
+        return JSON.stringify(dic)
+    }
+
     return `{
 ${indent}    ${Object.keys(dic)
-        .map(
-            (key) =>
-                `"${key}": ${
-                    isObject(dic[key])
-                        ? prettify(dic[key], `${indent}    `)
-                        : JSON.stringify(dic[key])
-                }`
-        )
+        .map((key) => {
+            const val = dic[key]
+            if (isObject(val)) return prettify(val, `${indent}    `)
+
+            return JSON.stringify(val)
+        })
         .join(`,\n    ${indent}`)}
 ${indent}}`
 }
@@ -185,10 +187,15 @@ function makeExecute(
         setExpandResult(false)
         try {
             const result = await loadersService.addModel(addModelParams)
+            assertObject(result)
             setResult(prettify(result))
             setExpandResult(true)
         } catch (ex) {
-            setError(prettify(ex))
+            if (isObject(ex)) {
+                setError(prettify(ex))
+            } else {
+                setError(JSON.stringify(ex))
+            }
             setExpandError(true)
         } finally {
             setBusy(false)

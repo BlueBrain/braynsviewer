@@ -88,7 +88,7 @@ export default class Color {
     /**
      * Check if a CSS stle string is an actual color.
      */
-    public static isValid(codeCSS: any): codeCSS is string {
+    public static isValid(codeCSS: unknown): codeCSS is string {
         if (typeof codeCSS !== "string") return false
         if (codeCSS.charAt(0) !== "#") return false
         switch (codeCSS.length) {
@@ -369,6 +369,7 @@ export default class Color {
     /**
      * @see https://en.wikipedia.org/wiki/HSL_and_HSV#Converting_to_RGB
      */
+    // eslint-disable-next-line max-statements
     public hsl2rgb() {
         const H = VAL_6 * this.H
         const S = this.S

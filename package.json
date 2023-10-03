@@ -19,7 +19,7 @@
         "deploy:dev": ". ./deployment/dev-deploy.sh",
         "start": "webpack serve --mode development",
         "build": "webpack --mode production",
-        "lint": "eslint -c .eslintrc.js 'src/**/*.ts' 'src/**/*.tsx'",
+        "lint": "eslint -c .eslintrc.yml 'src/**/*.ts' 'src/**/*.tsx'",
         "format": "npx prettier --write src/",
         "test": "jest --testTimeout 10000 --runInBand --detectOpenHandles --forceExit",
         "test:watch": "jest --watch",

@@ -25,7 +25,7 @@ export default async function SelectCamera(
 interface TypesListDialogProps {
     type: string
     types: string[]
-    onSelect(type: string | null): void
+    onSelect(this: void, type: string | null): void
 }
 
 function TypesListDialog(props: TypesListDialogProps) {

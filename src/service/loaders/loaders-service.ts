@@ -9,11 +9,7 @@ import {
     assertObject,
     assertString,
     assertStringArray,
-    assertBooleanOrUndefined,
-    assertStringOrUndefined,
-    assertStringArrayOrUndefined,
-    assertNumberOrUndefined,
-    assertObjectOrUndefined,
+    assertType,
 } from "@/tool/type-check"
 
 export default class LoadersService implements LoadersServiceInterface {
@@ -25,7 +21,7 @@ export default class LoadersService implements LoadersServiceInterface {
 
     constructor(private readonly brayns: BraynsServiceInterface) {}
 
-    async addModel(params: AddModelParams): Promise<any> {
+    async addModel(params: AddModelParams): Promise<unknown> {
         return await this.brayns.exec("add-model", params)
     }
 
@@ -90,7 +86,9 @@ interface InputParametersSchema {
     type?: string
 }
 
-function isLoadersExtensionDefArray(data: any): data is LoadersExtensionDef[] {
+function isLoadersExtensionDefArray(
+    data: unknown
+): data is LoadersExtensionDef[] {
     try {
         assertArray(data)
         for (let i = 0; i < data.length; i++) {
@@ -105,7 +103,7 @@ function isLoadersExtensionDefArray(data: any): data is LoadersExtensionDef[] {
 }
 
 function assertLoadersExtensionDef(
-    data: any,
+    data: unknown,
     prefix: string
 ): asserts data is LoadersExtensionDef {
     assertObject(data, prefix)
@@ -122,25 +120,17 @@ function assertInputParametersSchema(
     data: unknown,
     prefix: string
 ): asserts data is InputParametersSchema {
-    assertObject(data, prefix)
-    const { additionalProperties, properties, required, title, type } = data
-    assertBooleanOrUndefined(
-        additionalProperties,
-        `${prefix}.additionalProperties`
+    assertType(
+        data,
+        {
+            additionalProperties: ["?", "boolean"],
+            properties: ["?", ["map", "unknown"]],
+            required: ["?", ["array", "string"]],
+            title: ["?", "string"],
+            type: ["?", "string"],
+        },
+        prefix
     )
-    assertObjectOrUndefined(properties, `${prefix}.properties`)
-    if (properties) {
-        for (const propName of Object.keys(properties)) {
-            const prop = properties[propName]
-            assertLoadersSchemaProperty(
-                prop,
-                `${prefix}.properties.${propName}`
-            )
-        }
-    }
-    assertStringArrayOrUndefined(required, `${prefix}.required`)
-    assertStringOrUndefined(title, `${prefix}.title`)
-    assertStringOrUndefined(type, `${prefix}.type`)
 }
 
 interface LoadersSchemaProperty {
@@ -148,36 +138,10 @@ interface LoadersSchemaProperty {
     type?: string
     default?: string | number | boolean
     description?: string
-    enum?: any[]
+    enum?: unknown[]
     minItems?: number
     maxItems?: number
     items?: { type: string }
-}
-
-/**
- * Throw a meaningful exception if `property` is not
- * of type `LoadersSchemaProperty`.
- */
-function assertLoadersSchemaProperty(
-    property: any,
-    prefix: string
-): asserts property is LoadersSchemaProperty {
-    try {
-        assertObject(property, prefix)
-        const { title, type } = property
-        assertStringOrUndefined(title, `${prefix}.title`)
-        assertStringOrUndefined(type, `${prefix}.type`)
-        assertStringOrUndefined(property.description, `${prefix}.description`)
-        assertStringArrayOrUndefined(property.enum, `${prefix}.enum`)
-        assertNumberOrUndefined(property.minItems, `${prefix}.minItems`)
-        assertNumberOrUndefined(property.maxItems, `${prefix}.maxItems`)
-    } catch (ex) {
-        console.error(
-            `Property "${prefix}" is not of type "LoadersSchemaProperty":`,
-            property
-        )
-        throw ex
-    }
 }
 
 function parseInputParameters(

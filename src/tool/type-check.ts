@@ -1,33 +1,27 @@
-/**
- * `is*()` functions are useful to help Typescript to narrow the type of a var.
- * `assert*()` functions will throw an exception is the type is not the expected one.
- * These functions can be helpful when writing a complex type checker `is*()`
- * and being able to report where in the structure the type was wrong.
- */
-
 export function isObject(data: unknown): data is { [key: string]: unknown } {
+    if (!data) return false
     if (Array.isArray(data)) return false
     return typeof data === "object"
+}
+
+export function isNull(data: unknown): data is null {
+    return data === null
+}
+
+export function isNotNull(data: unknown): boolean {
+    return data !== null
 }
 
 export function assertObject(
     data: unknown,
     name = "data"
 ): asserts data is { [key: string]: unknown } {
-    if (!isObject(data)) {
-        console.error(`${name}:`, data)
-        throw Error(
-            `${name} was expected to be an object but we got ${typeof data}!`
-        )
+    if (Array.isArray(data)) {
+        console.error(name, data)
+        throw Error(`${name} was expected to be an object but we got an array!`)
     }
-}
-
-export function assertObjectOrUndefined(
-    data: unknown,
-    name = "data"
-): asserts data is { [key: string]: unknown } | undefined {
-    if (typeof data !== "undefined" && !isObject(data)) {
-        console.error(`${name}:`, data)
+    if (!isObject(data)) {
+        console.error(name, data)
         throw Error(
             `${name} was expected to be an object but we got ${typeof data}!`
         )
@@ -43,6 +37,7 @@ export function assertString(
     name = "data"
 ): asserts data is string {
     if (!isString(data)) {
+        console.error(name, data)
         throw Error(
             `${name} was expected to be a string but we got ${typeof data}!`
         )
@@ -50,22 +45,33 @@ export function assertString(
 }
 
 /**
- * Return `data` only if it is a string, otherwise return `defaultValue`.
+ * Return `data` only if it is a string, otherwise throw an exception.
  */
-export function ensureString(data: unknown, defaultValue: string): string {
-    return isString(data) ? data : defaultValue
+export function ensureFunction(data: unknown): () => void {
+    assertFunction(data)
+    return data
 }
 
-export function isStringOrUndefined(data: unknown): data is string | undefined {
+/**
+ * Return `data` only if it is a string, otherwise throw an exception.
+ */
+export function ensureString(data: unknown): string {
+    assertString(data)
+    return data
+}
+
+export function isStringOrIUndefined(
+    data: unknown
+): data is string | undefined {
     return typeof data === "string" || typeof data === "undefined"
 }
 
-export function assertStringOrUndefined(
+export function assertStringOrIUndefined(
     data: unknown,
     name = "data"
 ): asserts data is string | undefined {
-    if (!isStringOrUndefined(data)) {
-        console.error(`${name}:`, data)
+    if (!isStringOrIUndefined(data)) {
+        console.error(name, data)
         throw Error(
             `${name} was expected to ba a string or undefined but we got ${typeof data}!`
         )
@@ -81,17 +87,7 @@ export function assertNumber(
     name = "data"
 ): asserts data is number {
     if (!isNumber(data)) {
-        throw Error(
-            `${name} was expected to be a number but we got ${typeof data}!`
-        )
-    }
-}
-
-export function assertNumberOrUndefined(
-    data: unknown,
-    name = "data"
-): asserts data is number | undefined {
-    if (typeof data !== "undefined" && !isNumber(data)) {
+        console.error(name, data)
         throw Error(
             `${name} was expected to be a number but we got ${typeof data}!`
         )
@@ -99,14 +95,49 @@ export function assertNumberOrUndefined(
 }
 
 /**
- * Return `data` only if it is a number, otherwise return `defaultValue`.
+ * Return `data` only if it is a number, otherwise throw an exception.
  */
-export function ensureNumber(data: unknown, defaultValue: number): number {
-    return isNumber(data) ? data : defaultValue
+export function ensureNumber(data: unknown, name = "data"): number {
+    assertNumber(data, name)
+    return data
+}
+
+/**
+ * Return `data` only if it is a boolean, otherwise throw an exception.
+ */
+export function ensureBoolean(data: unknown, name = "data"): boolean {
+    assertBoolean(data, name)
+    return data
+}
+
+export function ensureUndefined(data: unknown, name = "data"): undefined {
+    assertUndefined(data, name)
+    return data
+}
+
+/**
+ * Return `data` only if it is a setter function, otherwise throw an exception.
+ */
+export function ensureSetter<ValueType>(
+    data: unknown,
+    name = "data"
+): (value: ValueType) => void {
+    assertFunction(data, name)
+    return data
 }
 
 export function isBoolean(data: unknown): data is boolean {
     return typeof data === "boolean"
+}
+
+export function isBooleanOrUndefined(
+    data: unknown
+): data is boolean | undefined {
+    return typeof data === "boolean" || typeof data === "undefined"
+}
+
+export function isUndefined(data: unknown): data is undefined {
+    return typeof data === "undefined"
 }
 
 export function assertBoolean(
@@ -114,19 +145,33 @@ export function assertBoolean(
     name = "data"
 ): asserts data is boolean {
     if (!isBoolean(data)) {
+        console.error(name, data)
         throw Error(
             `${name} was expected to be a boolean but we got ${typeof data}!`
         )
     }
 }
 
-export function assertBooleanOrUndefined(
+export function assertUndefined(
     data: unknown,
     name = "data"
-): asserts data is boolean | undefined {
-    if (typeof data !== "undefined" && !isBoolean(data)) {
+): asserts data is undefined {
+    if (!isUndefined(data)) {
+        console.error(name, data)
         throw Error(
-            `${name} was expected to be a boolean but we got ${typeof data}!`
+            `${name} was expected to be undefined but we got ${typeof data}!`
+        )
+    }
+}
+
+export function assertFunction(
+    data: unknown,
+    name = "data"
+): asserts data is () => void {
+    if (typeof data !== "function") {
+        console.error(name, data)
+        throw Error(
+            `${name} was expected to be a function but we got ${typeof data}!`
         )
     }
 }
@@ -149,19 +194,29 @@ export function assertStringArray(
     name = "data"
 ): asserts data is string[] {
     if (!isStringArray(data)) {
+        console.error(name, data)
         throw Error(
             `${name} was expected to be an array of strings but we got ${typeof data}!`
         )
     }
 }
 
-export function assertStringArrayOrUndefined(
+export function isNumberArray(data: unknown): data is number[] {
+    if (!Array.isArray(data)) return false
+    for (const item of data) {
+        if (!isNumber(item)) return false
+    }
+    return true
+}
+
+export function assertNumberArray(
     data: unknown,
     name = "data"
-): asserts data is string[] | undefined {
-    if (typeof data !== "undefined" && !isStringArray(data)) {
+): asserts data is number[] {
+    if (!isNumberArray(data)) {
+        console.error(name, data)
         throw Error(
-            `${name} was expected to be an array of strings but we got ${typeof data}!`
+            `${name} was expected to be an array of numbers but we got ${typeof data}!`
         )
     }
 }
@@ -175,18 +230,11 @@ export function assertArray(
     name = "data"
 ): asserts data is unknown[] {
     if (!isArray(data)) {
+        console.error(name, data)
         throw Error(
             `${name} was expected to be an array but we got ${typeof data}!`
         )
     }
-}
-
-export function isNumberArray(data: unknown): data is number[] {
-    if (!isArray(data)) return false
-    for (const element of data) {
-        if (!isNumber(element)) return false
-    }
-    return true
 }
 
 export function assertVector2Array(
@@ -223,6 +271,7 @@ export function assertVector2(
 
 export function isVector3(data: unknown): data is [number, number, number] {
     if (!isArray(data)) return false
+    if (data.length !== 3) return false
     const [x, y, z] = data as [unknown, unknown, unknown]
     return isNumber(x) && isNumber(y) && isNumber(z)
 }
@@ -242,8 +291,15 @@ export function isVector4(
     data: unknown
 ): data is [number, number, number, number] {
     if (!isArray(data)) return false
+    if (data.length !== 4) return false
     const [x, y, z, w] = data as [unknown, unknown, unknown, unknown]
     return isNumber(x) && isNumber(y) && isNumber(z) && isNumber(w)
+}
+
+export function isVector4OrUndefined(
+    data: unknown
+): data is [number, number, number, number] | undefined {
+    return isVector4(data) || isUndefined(data)
 }
 
 export function assertVector4(
@@ -256,4 +312,208 @@ export function assertVector4(
     assertNumber(y, `${suffix}[1]`)
     assertNumber(z, `${suffix}[2]`)
     assertNumber(w, `${suffix}[3]`)
+}
+
+export function assertOptionalArrayBuffer(
+    data: unknown,
+    suffix = "data"
+): asserts data is ArrayBuffer | undefined {
+    if (typeof data === "undefined") return
+    assertArrayBuffer(data, suffix)
+}
+
+export function assertArrayBuffer(
+    data: unknown,
+    suffix = "data"
+): asserts data is ArrayBuffer | undefined {
+    if (data instanceof ArrayBuffer) return
+    console.error(suffix, data)
+    throw Error(`${suffix} was expected to ba an ArrayBuffer!`)
+}
+
+export function isError(data: unknown): data is Error {
+    return data instanceof Error
+}
+
+export type TypeDef =
+    | "boolean"
+    | "null"
+    | "undefined"
+    | "string"
+    | "number"
+    | "function"
+    | "unknown"
+    | ["string", { min?: number; max?: number }]
+    | ["number", { min?: number; max?: number }]
+    | ["|", ...TypeDef[]]
+    | ["?", TypeDef]
+    | ["array", TypeDef]
+    | [`array(${number})`, TypeDef]
+    | ["map", TypeDef]
+    | { [name: string]: TypeDef }
+
+export function isType<T>(data: unknown, type: TypeDef): data is T {
+    try {
+        assertType(data, type)
+        return true
+    } catch (ex) {
+        console.warn(ex)
+        return false
+    }
+}
+
+export function assertType<T>(
+    data: unknown,
+    type: TypeDef,
+    prefix = "data"
+): asserts data is T {
+    if (type === "unknown") return
+
+    if (type === "null") {
+        if (data !== null) {
+            throw Error(
+                `Expected ${prefix} to be null and not a ${typeof data}!`
+            )
+        }
+        return
+    }
+
+    if (typeof type === "string") {
+        if (typeof data !== type) {
+            throw Error(
+                `Expected ${prefix} to be a string and not a ${typeof data}!`
+            )
+        }
+        return
+    }
+    if (Array.isArray(type)) {
+        const [kind] = type
+        switch (kind) {
+            case "array":
+                assertTypeArray(data, prefix, type)
+                return
+            case "map":
+                assertTypeMap(data, prefix, type)
+                return
+            case "?":
+                assertTypeOptional(data, prefix, type)
+                return
+            case "|":
+                assertTypeAlternative(data, prefix, type)
+                return
+            default:
+                if (kind.startsWith("array(")) {
+                    const size = parseInt(
+                        kind.substring("array(".length, kind.length - 1),
+                        10
+                    )
+                    assertTypeArrayWithDimension(
+                        data,
+                        prefix,
+                        type as [unknown, TypeDef],
+                        size
+                    )
+                    return
+                }
+                throw Error(
+                    `Don't know how to create a type guard for this kind of type: ${JSON.stringify(
+                        type
+                    )}`
+                )
+        }
+    }
+
+    if (typeof data !== "object")
+        throw Error(
+            `Expected ${prefix} to be an object and not a ${typeof data}!`
+        )
+
+    const obj = data as { [key: string]: unknown }
+    for (const name of Object.keys(type)) {
+        if (typeof name !== "string") continue
+
+        const objType = type[name]
+        if (objType) assertType(obj[name], type[name], `${prefix}.${name}`)
+    }
+}
+
+function assertTypeArrayWithDimension(
+    data: unknown,
+    prefix: string,
+    type: [unknown, TypeDef],
+    size: number
+) {
+    if (!Array.isArray(data))
+        throw Error(
+            `Expected ${prefix} to be an array and not a ${typeof data}!`
+        )
+    if (data.length !== size)
+        throw Error(
+            `${prefix} was expected to have a length of ${size}, but we got ${data.length}!`
+        )
+    const [, subType] = type
+    for (let i = 0; i < data.length; i += 1) {
+        assertType(data[i], subType, `${prefix}[${i}]`)
+    }
+}
+
+function assertTypeArray(
+    data: unknown,
+    prefix: string,
+    type: ["array", TypeDef]
+) {
+    if (!Array.isArray(data))
+        throw Error(
+            `Expected ${prefix} to be an array and not a ${typeof data}!`
+        )
+    const [, subType] = type
+    for (let i = 0; i < data.length; i += 1) {
+        assertType(data[i], subType, `${prefix}[${i}]`)
+    }
+}
+
+function assertTypeMap(data: unknown, prefix: string, type: ["map", TypeDef]) {
+    if (!isObject(data))
+        throw Error(
+            `Expected ${prefix} to be an object and not a ${typeof data}!`
+        )
+    const [, subType] = type
+    for (const key of Object.keys(data)) {
+        if (typeof key === "string") {
+            assertType(data[key], subType, `${prefix}[${key}]`)
+        }
+    }
+}
+
+function assertTypeOptional(
+    data: unknown,
+    prefix: string,
+    type: ["?", TypeDef]
+) {
+    if (typeof data === "undefined") return
+
+    const [, optionalType] = type
+    assertType(data, optionalType, prefix)
+}
+
+function assertTypeAlternative(
+    data: unknown,
+    prefix: string,
+    type: ["|", ...TypeDef[]]
+) {
+    const [, ...altTypes] = type
+    let lastException = Error(
+        `No type has been defined for this alternative: ${JSON.stringify(
+            type
+        )}!`
+    )
+    for (const altType of altTypes) {
+        try {
+            assertType(data, altType, prefix)
+            return
+        } catch (ex) {
+            if (ex instanceof Error) lastException = ex
+        }
+    }
+    throw lastException
 }

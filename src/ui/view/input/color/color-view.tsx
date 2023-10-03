@@ -12,8 +12,8 @@ export interface ColorViewProps {
     enabled?: boolean
     size?: number
     value: string
-    onChange?(value: string): void
-    onEnterPressed?(value: string): void
+    onChange?(this: void, value: string): void
+    onEnterPressed?(this: void, value: string): void
 }
 
 export default function ColorView(props: ColorViewProps) {

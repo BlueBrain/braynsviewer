@@ -17,7 +17,7 @@ export default interface BraynsServiceInterface {
      * @param entryPointName "get-camera", "get-scene", 'add-light", ...
      * @param param A serializable param for the entry point.
      */
-    exec(entryPointName: string, param?: any): Promise<unknown>
+    exec(entryPointName: string, param?: unknown): Promise<unknown>
 
     /**
      * A long task can be cancelled and can provide progress feedbacks.
@@ -27,7 +27,7 @@ export default interface BraynsServiceInterface {
      */
     execLongTask(
         entryPointName: string,
-        param?: any,
+        param?: unknown,
         onProgress?: (progress: { value: number; label?: string }) => void
     ): LongTask
     /**
@@ -35,7 +35,10 @@ export default interface BraynsServiceInterface {
      * if the query failed or succeded.
      * This method doesn't throw any exception.
      */
-    tryToExec(entryPointName: string, param?: any): Promise<BraynsQueryResult>
+    tryToExec(
+        entryPointName: string,
+        param?: unknown
+    ): Promise<BraynsQueryResult>
     /**
      * @see tryToExec()
      */
@@ -56,7 +59,7 @@ export default interface BraynsServiceInterface {
     debug:
         | boolean
         | RegExp
-        | ((entryPointName: string, params?: any) => boolean)
+        | ((entryPointName: string, params?: unknown) => boolean)
 }
 
 export interface LongTask {
@@ -94,5 +97,5 @@ export interface BraynsQueryFailure extends BraynsQuery {
     success: false
     code: number
     message: string
-    data?: any
+    data?: unknown
 }

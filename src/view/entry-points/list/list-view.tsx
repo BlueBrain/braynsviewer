@@ -54,10 +54,13 @@ function useEntryPoints(
     React.useEffect(() => {
         setLoading(true)
         try {
-            service.listAvailableEntryPoints().then((list) => {
-                setEntryPoints(list)
-                setLoading(false)
-            })
+            service
+                .listAvailableEntryPoints()
+                .then((list) => {
+                    setEntryPoints(list)
+                    setLoading(false)
+                })
+                .catch(console.error)
         } catch (ex) {
             setLoading(false)
         }

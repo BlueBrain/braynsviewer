@@ -2,7 +2,7 @@ import * as React from "react"
 import { LoaderDefinition } from "../../../../contract/service/loaders"
 
 interface Values {
-    [key: string]: any
+    [key: string]: unknown
 }
 
 /**
@@ -18,7 +18,7 @@ export function useLoaderValues(
             setValues({})
         } else {
             const { properties } = loader
-            const result: { [key: string]: any } = {}
+            const result: { [key: string]: unknown } = {}
             for (const property of properties) {
                 result[property.name] = property.defaultValue
             }
