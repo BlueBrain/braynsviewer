@@ -9,9 +9,6 @@ export interface EntryPointsViewProps {
     service: EntryPointsServiceInterface
 }
 
-const STEP_LIST = "list"
-const STEP_DETAIL = "detail"
-
 export default function EntryPointsView(props: EntryPointsViewProps) {
     const [entryPointName, setEntryPointName] = React.useState("")
     return (

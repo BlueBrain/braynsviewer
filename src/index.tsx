@@ -6,7 +6,6 @@ import Theme from "./ui/theme"
 import "./index.css"
 import {
     makeBraynsService,
-    makeCameraService,
     makeConfigManager,
     makeEntryPointsService,
 } from "./factory/global"
