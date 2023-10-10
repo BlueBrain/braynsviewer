@@ -1,10 +1,10 @@
+import { assertType, isArray } from "@/tool/type-check"
 import JSON5 from "json5"
 import BraynsServiceInterface from "../../contract/service/brayns"
 import EntryPointsServiceInterface, {
     EntryPointSchema,
-    TypeDef
+    TypeDef,
 } from "../../contract/service/entry-points"
-import SerializableData from "../../contract/type/serializable-data"
 import { PropertyDef } from "../../contract/type/type-definition"
 
 export default class EntryPointsService implements EntryPointsServiceInterface {
@@ -12,37 +12,38 @@ export default class EntryPointsService implements EntryPointsServiceInterface {
      * Schemas can be put in cache because it's a definition that cannot
      * change during Brayns execution.
      */
-    private static schemas = new Map<string, EntryPointSchema>()
+    private static readonly schemas = new Map<string, EntryPointSchema>()
 
     constructor(private readonly brayns: BraynsServiceInterface) {}
 
-    async exec(entryPointName: string, param?: any): Promise<SerializableData> {
+    async exec(entryPointName: string, param?: unknown): Promise<unknown> {
         return await this.brayns.exec(entryPointName, param)
     }
 
     async getEntryPointSchema(
         entryPointName: string
     ): Promise<EntryPointSchema> {
+        if (EntryPointsService.schemas.has(entryPointName)) {
+            return EntryPointsService.schemas.get(
+                entryPointName
+            ) as EntryPointSchema
+        }
         try {
-            if (EntryPointsService.schemas.has(entryPointName)) {
-                return EntryPointsService.schemas.get(
-                    entryPointName
-                ) as EntryPointSchema
-            }
-
             const data = await this.brayns.exec("schema", {
                 endpoint: entryPointName,
             })
-            if (!isSchemaMethod(data)) {
-                console.error("Bad schema:", data)
-                throw Error("Bad schema format!")
+            try {
+                assertSchemaMethod(data)
+            } catch (ex) {
+                console.error(data)
+                throw ex
             }
             try {
                 const schema: EntryPointSchema = {
                     spawnAsyncTask: data.async,
                     description: data.description,
                     name: data.title,
-                    params: data.params.map(sanitizeTypeDef),
+                    params: sanitizeTypeDef(data.params),
                     result: sanitizeTypeDef(data.returns),
                 }
                 EntryPointsService.schemas.set(entryPointName, schema)
@@ -71,11 +72,11 @@ export default class EntryPointsService implements EntryPointsServiceInterface {
             const data = await this.brayns.exec("registry")
             if (!isArray(data)) throw Error("We were expecting an array!")
 
-            const entrypoints: string[] = data.filter(
-                item => typeof item === "string"
+            const entryPoints: string[] = data.filter(
+                (item) => typeof item === "string"
             ) as string[]
-            entrypoints.sort()
-            return entrypoints
+            entryPoints.sort()
+            return entryPoints
         } catch (ex) {
             console.error(
                 "Unable to get the list of available entry points:",
@@ -86,37 +87,26 @@ export default class EntryPointsService implements EntryPointsServiceInterface {
     }
 }
 
-function isArray(data: any): data is any[] {
-    return Array.isArray(data)
-}
-
-function isDict(data: any): data is { [key: string]: any } {
-    if (typeof data !== "object") return false
-    if (Array.isArray(data)) return false
-
-    return true
-}
-
-function isSchemaMethod(data: any): data is SchemaMethod {
-    if (!isDict(data)) return false
-    const { type, async, description, title, params } = data
-    if (type !== "method") return false
-    if (typeof async !== "boolean") return false
-    if (typeof description !== "string") return false
-    if (typeof title !== "string") return false
-    if (!Array.isArray(params)) return false
-    return true
+function assertSchemaMethod(data: unknown): asserts data is SchemaMethod {
+    assertType(data, {
+        async: "boolean",
+        description: "string",
+        title: "string",
+        plugin: "string",
+        params: ["?", ["map", "unknown"]],
+        returns: "unknown",
+    })
 }
 
 type SchemaType = SchemaObject
 
 interface SchemaMethod {
-    type: "method"
     title: string
     async: boolean
+    plugin: string
     description: string
-    params: any[]
-    returns: any
+    params: unknown
+    returns: unknown
 }
 
 interface SchemaObject {
@@ -132,7 +122,11 @@ interface SchemaObject {
  * This function will ensure all mandatory attributes are set and
  * that they stick to our definition of TypeDef.
  */
-function sanitizeTypeDef(type: TypeDef | string): TypeDef {
+function sanitizeTypeDef(type: unknown): TypeDef {
+    if (typeof type === "undefined") return { type: "undefined" }
+
+    assertType<TypeDef | string>(type, ["|", "string", ["map", "unknown"]])
+
     try {
         if (type === "string") return { type }
         if (type === "number") return { type }
@@ -152,7 +146,7 @@ function sanitizeTypeDef(type: TypeDef | string): TypeDef {
             if (type.type === "object") {
                 return {
                     ...type,
-                    required: Array.isArray(type.required) ? type.required : [],
+                    required: isArray(type.required) ? type.required : [],
                     properties: sanitizeProperties(type.properties ?? {}),
                 }
             }

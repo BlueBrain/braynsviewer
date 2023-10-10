@@ -1,5 +1,5 @@
 import SpontaneousUpdatesServiceInterface, {
-    SpontaneousUpdateItem
+    SpontaneousUpdateItem,
 } from "@/contract/service/spontaneous-updates"
 import AsyncTool from "@/tool/async"
 import * as React from "react"
@@ -40,7 +40,7 @@ export default function SpontaneousUpdatesView(
                 </p>
             )}
             <div>
-                {history.map(item => (
+                {history.map((item) => (
                     <UpdateButton key={item.name} item={item} />
                 ))}
             </div>

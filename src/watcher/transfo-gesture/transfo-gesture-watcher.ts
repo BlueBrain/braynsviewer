@@ -1,14 +1,15 @@
 import { Manager, Input as HammerInput } from "hammerjs"
 import { TriggerableEventInterface } from "../../contract/tool/event"
 import TransfoGestureWatcherInterface, {
-    TranslationEvent
+    TranslationEvent,
 } from "../../contract/watcher/transfo-gesture"
 import Keys from "./keys-watcher"
 
 class HammerManager extends Manager {}
 
 export default class TransfoGestureWatcher
-    implements TransfoGestureWatcherInterface {
+    implements TransfoGestureWatcherInterface
+{
     public readonly eventOrbit: TriggerableEventInterface<TranslationEvent>
     public readonly eventMove: TriggerableEventInterface<TranslationEvent>
     public readonly eventZoom: TriggerableEventInterface<number>
@@ -53,12 +54,12 @@ export default class TransfoGestureWatcher
         const manager = new window.Hammer.Manager(this._element)
         manager.add(
             new window.Hammer.Pan({
-                pointers: 1
+                pointers: 1,
             })
         )
         const pan = new window.Hammer.Pan({
             event: "pan2",
-            pointers: 2
+            pointers: 2,
         })
         const pintch = new window.Hammer.Pinch({ threshold: 0.1 })
         manager.add(pan)
@@ -72,10 +73,14 @@ export default class TransfoGestureWatcher
         this._element.addEventListener("wheel", this.handleWheel)
     }
 
-    private handleContextMenu = evt => evt.preventDefault()
+    private readonly handleContextMenu = (evt: Event) => evt.preventDefault()
 
-    private handleHammerInput = (evt: HammerInput) => {
-        if (evt.type.startsWith("pan2") || Keys.altIsPressed || Keys.rightMouseButtonPressed) {
+    private readonly handleHammerInput = (evt: HammerInput) => {
+        if (
+            evt.type.startsWith("pan2") ||
+            Keys.altIsPressed ||
+            Keys.rightMouseButtonPressed
+        ) {
             this.eventMove.trigger(this.toTranslationEvent(evt))
         } else if (evt.type.startsWith("pan")) {
             this.handlePanOneFinger(evt)
@@ -84,11 +89,11 @@ export default class TransfoGestureWatcher
         }
     }
 
-    private handlePanOneFinger = (evt: HammerInput) => {
+    private readonly handlePanOneFinger = (evt: HammerInput) => {
         this.eventOrbit.trigger(this.toTranslationEvent(evt))
     }
 
-    private handlePintch = (evt: HammerInput) => {
+    private readonly handlePintch = (evt: HammerInput) => {
         const { scale } = evt
         if (scale <= 0) return
 
@@ -102,7 +107,7 @@ export default class TransfoGestureWatcher
         this.eventZoom.trigger(delta)
     }
 
-    private handleWheel = (evt: WheelEvent) => {
+    private readonly handleWheel = (evt: WheelEvent) => {
         const STEP = 100
         this.eventZoom.trigger(evt.deltaY > 0 ? STEP : -STEP)
     }
@@ -120,7 +125,7 @@ export default class TransfoGestureWatcher
             xOrigin: this.xOrigin,
             yOrigin: this.yOrigin,
             x: scale * evt.deltaX,
-            y: scale * evt.deltaY
+            y: scale * evt.deltaY,
         }
     }
 }

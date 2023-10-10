@@ -9,7 +9,7 @@ export interface CheckboxViewProps {
     enabled?: boolean
     wide?: boolean
     reverse?: boolean
-    onChange(value: boolean): void
+    onChange(this: void, value: boolean): void
 }
 
 export default function CheckboxView(props: CheckboxViewProps) {

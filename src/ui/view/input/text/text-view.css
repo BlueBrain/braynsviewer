@@ -2,6 +2,7 @@
     display: inline-flex;
     flex-direction: column;
     align-items: stretch;
+    margin: 0.25rem;
 }
 
 .ui-view-input-TextView input {
@@ -35,9 +36,15 @@
     display: flex;
     width: 100%;
     box-sizing: content-box;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .ui-view-input-TextView.wide * {
     width: 100%;
     box-sizing: border-box;
+}
+
+.ui-view-input-TextView .hide {
+    opacity: 0;
 }

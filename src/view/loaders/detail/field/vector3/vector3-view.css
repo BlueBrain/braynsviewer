@@ -1,0 +1,21 @@
+.view-loaders-detail-field-Vector3View {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.view-loaders-detail-field-Vector3View > * {
+    flex: 0 0 auto;
+}
+
+.view-loaders-detail-field-Vector3View > div.array {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.view-loaders-detail-field-Vector3View
+    > div.array
+    > div.ui-view-input-TextView {
+    width: 7rem;
+}

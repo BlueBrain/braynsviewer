@@ -8,18 +8,9 @@
     padding: 0;
     overflow: hidden;
     box-sizing: border-box;
-}
-
-.view-AppView > * {
-    flex: 1 1 auto;
-}
-
-.view-AppView > nav {
-    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
-    width: 30rem;
     background-color: var(--theme-color-screen);
     color: var(--theme-color-on-screen);
     box-shadow: var(--theme-shadow-header);
@@ -31,97 +22,24 @@
     align-items: stretch;
 }
 
-.view-AppView > main {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 30rem;
-    right: 0;
-    height: 100%;
-    width: calc(100% - 30rem);
-}
-
-.view-AppView > main.locked {
-    box-shadow: 0 0 0.5rem 0.25rem #f00 inset;
-    background-color: #000;
-}
-
-.view-AppView > main.locked > canvas {
-    border: 0.25rem solid transparent;
-    box-sizing: border-box;
-}
-
-.view-AppView > main > * {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-.view-AppView > main > canvas {
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.view-AppView > main > div.icons {
-    padding: 0.5rem;
-}
-
-.view-AppView > main > div.icons > * {
-    margin-bottom: 0.5rem;
-}
-
-.view-AppView > main > div.gizmo {
-    padding: 0.5rem;
-    left: 0;
-    top: 0;
-    right: auto;
-}
-
-.view-AppView > main > div.gizmo > div.lock-warning {
-    background-color: #000a;
-    color: #f02;
-    cursor: pointer;
-    font-size: 80%;
-    font-weight: bolder;
-}   
-
-.view-AppView > main > div.gizmo > div.lock-warning:hover {
-    text-decoration: underline;
-}
-
-.view-AppView > nav > header {
-    padding: 0;
-    z-index: 1;
-}
-.view-AppView > nav > header > div.flex {
+.view-AppView > * {
     flex: 0 0 auto;
+}
+
+.view-AppView > header {
+    padding: 0.5em;
+    z-index: 1;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    padding: 0 1em;
-}
-.view-AppView > nav > header > .menu {
-    margin-top: 1rem;
 }
 
-.view-AppView > nav > header > div.flex .inline {
-    display: inline-block;
-}
-
-.view-AppView > nav > header > div.flex .label {
-    opacity: 0.5;
-    font-size: 80%;
-}
-
-.view-AppView > nav > header .port {
+.view-AppView > header .port {
     opacity: 0.5;
 }
 
-.view-AppView > nav > menu {
+.view-AppView > menu {
     flex: 1 1 auto;
     overflow: auto;
     margin: 0;
@@ -129,7 +47,7 @@
     position: relative;
 }
 
-.view-AppView > nav > menu > div.fullheight {
+.view-AppView > menu > div.fullheight {
     position: absolute;
     left: 0;
     top: 0;

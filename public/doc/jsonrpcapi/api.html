@@ -1,0 +1,859 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s]+">
+      
+      <link rel="shortcut icon" href="">
+      <meta name="generator" content="mkdocs-5.2.2, mkdocs-material-4.4.2">
+    
+<meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+<!-- Generator banner -->
+<meta name="generator" content="sphinx-5.2.2" />
+
+    
+      
+        <title>JSON-RPC API reference - Brayns</title>
+      
+    
+    
+
+      <link rel="stylesheet" href="../_static/stylesheets/application.4031d38b.css">
+      
+        <link rel="stylesheet" href="../_static/stylesheets/application-palette.3e3d1dff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#2196f3">
+      
+    
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/stylesheets/theme.css" />
+
+    
+      <script src="../_static/javascripts/modernizr.74668098.js"></script>
+    
+    
+
+    <link rel="stylesheet" href="../_static/fonts/material-icons.css">
+    
+    
+    
+
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+    
+      
+
+<!-- Application header -->
+<header class="md-header" data-md-component="header">
+
+  <!-- Top-level navigation -->
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+
+      <!-- Link to home -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.epfl.ch/"
+            title="Brayns"
+            class="md-header-nav__button md-logo">
+          
+            <img src="../_static/images/epfl-logo-new.svg" width="24" height="24" />
+          
+        </a>
+      </div>
+
+      <!-- Button to toggle drawer -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button"
+            for="__drawer"></label>
+      </div>
+
+      
+      <!-- Home button to ecosystem -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div id="homeBtnContainer" class="documentation-homepage-icon">
+          <!-- this href will be overwritten by utils.js -->
+          <a href="#" id="homepageLink">
+            <i class="fa fa-home"></i>
+          </a>
+        </div>
+      </div>
+      
+
+      <!-- Header title -->
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title"
+            data-md-component="title">
+          
+          
+          <span class="md-header-nav__topic">
+            <a href="../index.html"
+                title="Brayns">
+            <span class="md-header-nav__prefix">
+            Blue Brain</span> &ndash;
+            Brayns<span class="md-header-nav__version">
+            2.0.0</span></a>
+          </span>
+          <span class="md-header-nav__topic">
+            <a href="" title="JSON-RPC API reference">
+            <span class="md-header-nav__prefix">
+            Blue Brain</span> &ndash;
+            Brayns &ndash;
+            JSON-RPC API reference<span class="md-header-nav__version">
+            2.0.0</span></a>
+          </span>
+        
+        
+        </div>
+      </div>
+
+      <!-- Button to open search dialogue -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button"
+              for="__search"></label>
+
+          <!-- Search interface -->
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+
+      <!-- Repository containing source -->
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.epfl.ch/" title="Brayns" class="md-nav__button md-logo">
+      
+        <img src="../_static/images/epfl-logo-new.svg" width="48" height="48">
+      
+    </a>
+    Brayns
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../index.html" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../install.html" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Usage
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Usage
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage_launchbraynsbackend.html" title="Running a Brayns backend service" class="md-nav__link">
+      Running a Brayns backend service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage_usepythonapi.html" title="Using Brayns Python API" class="md-nav__link">
+      Using Brayns Python API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage_usejsonrpcapi.html" title="Using Brayns JSON-RPC API" class="md-nav__link">
+      Using Brayns JSON-RPC API
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../plugins.html" title="Brayns plugins" class="md-nav__link">
+      Brayns plugins
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_connector.html" title="Connection to a running backend instance" class="md-nav__link">
+      Connection to a running backend instance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_loader.html" title="Load a model" class="md-nav__link">
+      Load a model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_snapshot.html" title="Take a snapshot" class="md-nav__link">
+      Take a snapshot
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_exporter.html" title="Export frames" class="md-nav__link">
+      Export frames
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_movie.html" title="Make a movie from exported frames" class="md-nav__link">
+      Make a movie from exported frames
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_service.html" title="Launch Brayns backend from Python" class="md-nav__link">
+      Launch Brayns backend from Python
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      JSON-RPC API reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        JSON-RPC API reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="api_atlasexplorer_methods.html" title="Atlas Explorer API methods" class="md-nav__link">
+      Atlas Explorer API methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="api_circuitinfo_methods.html" title="Circuit Info API methods" class="md-nav__link">
+      Circuit Info API methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="api_circuitexplorer_methods.html" title="Circuit Explorer API methods" class="md-nav__link">
+      Circuit Explorer API methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="api_core_methods.html" title="Core API methods" class="md-nav__link">
+      Core API methods
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Python API reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Python API reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pythonapi/core.html" title="core" class="md-nav__link">
+      core
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pythonapi/movie.html" title="movie" class="md-nav__link">
+      movie
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pythonapi/network.html" title="network" class="md-nav__link">
+      network
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pythonapi/plugins.html" title="plugins" class="md-nav__link">
+      plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pythonapi/service.html" title="service" class="md-nav__link">
+      service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pythonapi/utils.html" title="utils" class="md-nav__link">
+      utils
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <section id="json-rpc-api-reference">
+<span id="jsonrpcapi-label"></span><h1>JSON-RPC API reference<a class="headerlink" href="#json-rpc-api-reference" title="Permalink to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_atlasexplorer_methods.html">Atlas Explorer API methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_atlasexplorer_methods.html#get-available-atlas-usecases">get-available-atlas-usecases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_atlasexplorer_methods.html#visualize-atlas-usecase">visualize-atlas-usecase</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_circuitinfo_methods.html">Circuit Info API methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_circuitinfo_methods.html#ci-get-afferent-cell-ids">ci-get-afferent-cell-ids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_circuitinfo_methods.html#ci-get-cell-data">ci-get-cell-data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_circuitinfo_methods.html#ci-get-cell-ids">ci-get-cell-ids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_circuitinfo_methods.html#ci-get-cell-ids-from-model">ci-get-cell-ids-from-model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_circuitinfo_methods.html#ci-get-efferent-cell-ids">ci-get-efferent-cell-ids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_circuitinfo_methods.html#ci-get-projection-efferent-cell-ids">ci-get-projection-efferent-cell-ids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_circuitinfo_methods.html#ci-get-projections">ci-get-projections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_circuitinfo_methods.html#ci-get-report-info">ci-get-report-info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_circuitinfo_methods.html#ci-get-reports">ci-get-reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_circuitinfo_methods.html#ci-get-spike-report-info">ci-get-spike-report-info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_circuitinfo_methods.html#ci-get-targets">ci-get-targets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_circuitinfo_methods.html#ci-info">ci-info</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_circuitexplorer_methods.html">Circuit Explorer API methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_circuitexplorer_methods.html#color-circuit-by-id">color-circuit-by-id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_circuitexplorer_methods.html#color-circuit-by-method">color-circuit-by-method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_circuitexplorer_methods.html#color-circuit-by-single-color">color-circuit-by-single-color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_circuitexplorer_methods.html#get-circuit-color-method-variables">get-circuit-color-method-variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_circuitexplorer_methods.html#get-circuit-color-methods">get-circuit-color-methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_circuitexplorer_methods.html#set-circuit-thickness">set-circuit-thickness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_circuitexplorer_methods.html#trace-anterograde">trace-anterograde</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_core_methods.html">Core API methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#add-boxes">add-boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#add-capsules">add-capsules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#add-clip-plane">add-clip-plane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#add-light-ambient">add-light-ambient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#add-light-directional">add-light-directional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#add-light-quad">add-light-quad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#add-model">add-model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#add-planes">add-planes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#add-spheres">add-spheres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#cancel">cancel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#clear-clip-planes">clear-clip-planes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#clear-lights">clear-lights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#clear-models">clear-models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#enable-simulation">enable-simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#exit-later">exit-later</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#export-frames">export-frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#get-application-parameters">get-application-parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#get-camera-look-at">get-camera-look-at</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#get-camera-orthographic">get-camera-orthographic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#get-camera-perspective">get-camera-perspective</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#get-camera-type">get-camera-type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#get-loaders">get-loaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#get-material-carpaint">get-material-carpaint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#get-material-default">get-material-default</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#get-material-emissive">get-material-emissive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#get-material-glass">get-material-glass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#get-material-matte">get-material-matte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#get-material-metal">get-material-metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#get-material-plastic">get-material-plastic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#get-material-type">get-material-type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#get-model">get-model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#get-model-transfer-function">get-model-transfer-function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#get-renderer-interactive">get-renderer-interactive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#get-renderer-production">get-renderer-production</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#get-renderer-type">get-renderer-type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#get-scene">get-scene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#get-simulation-parameters">get-simulation-parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#get-version">get-version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#image-jpeg">image-jpeg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#inspect">inspect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#quit">quit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#registry">registry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#remove-model">remove-model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#schema">schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#set-application-parameters">set-application-parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#set-camera-look-at">set-camera-look-at</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#set-camera-orthographic">set-camera-orthographic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#set-camera-perspective">set-camera-perspective</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#set-material-carpaint">set-material-carpaint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#set-material-default">set-material-default</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#set-material-emissive">set-material-emissive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#set-material-glass">set-material-glass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#set-material-matte">set-material-matte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#set-material-metal">set-material-metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#set-material-plastic">set-material-plastic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#set-model-transfer-function">set-model-transfer-function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#set-renderer-interactive">set-renderer-interactive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#set-renderer-production">set-renderer-production</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#set-simulation-parameters">set-simulation-parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#snapshot">snapshot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#trigger-jpeg-stream">trigger-jpeg-stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#update-model">update-model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core_methods.html#upload-model">upload-model</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+                
+  
+
+              
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+
+        <!-- Link to previous page -->
+        
+          <a href="../examples_service.html"
+              title="Launch Brayns backend from Python"
+              class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+              rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back
+                    md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Launch Brayns backend from Python
+              </span>
+            </div>
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          <a href="api_atlasexplorer_methods.html"
+              title="Atlas Explorer API methods"
+              class="md-flex md-footer-nav__link md-footer-nav__link--next"
+              rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Atlas Explorer API methods
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward
+                    md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+      
+        
+          
+          <div class="md-footer-copyright__company">
+            Blue Brain Project
+          </div>
+          
+          
+          <div class="md-footer-copyright__address__title">
+            Address
+          </div>
+          <div class="md-footer-copyright__address">
+            EPFL/Campus Biotech<br>Chemin des Mines 9,<br>CH-1202 Geneva<br>Switzerland
+          </div>
+          
+        
+        
+          <div class="md-footer-copyright__highlight">
+            &copy; Blue Brain Project/EPFL 2005-2022. All rights reserved.
+          </div>
+        
+        
+      </div>
+      
+
+      <!-- Social links -->
+      
+
+<!-- Social links in footer -->
+
+  <div class="md-footer-social">
+    <link rel="stylesheet" type="text/css"
+        href="../_static/fonts/font-awesome.css" />
+    
+    
+    <div class="md-footer-social__title">Follow the Blue Brain</div>
+    
+    
+    
+      <a href="https://www.linkedin.com/showcase/blue-brain-project/" class="md-footer-social__link
+            fa fa-linkedin-square"></a>
+    
+      <a href="https://twitter.com/bluebrainpjt?lang=en" class="md-footer-social__link
+            fa fa-twitter-square"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+<script src="../_static/javascripts/theme.js"></script>
+<script src="../_static/javascripts/utils.js"></script>
+
+      <script src="../_static/javascripts/application.718059d6.js"></script>
+      
+      <script>app.initialize({version:"5.2.2",url:{base:"../_static"}})</script>
+      
+    
+
+  </body>
+</html>

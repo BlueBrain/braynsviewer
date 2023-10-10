@@ -11,9 +11,9 @@ export interface IValidationResult {
     err?: string
 }
 
-export function isValidationResult(value: any): value is IValidationResult {
+export function isValidationResult(value: unknown): value is IValidationResult {
     if (typeof value !== "object") return false
-    const { pos, err } = value as { pos: any; err: any }
+    const { pos, err } = value as { pos: unknown; err: unknown }
     if (typeof pos !== "number") return false
     if (pos < 0) return true
     if (typeof err !== "string") return false

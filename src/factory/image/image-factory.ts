@@ -18,11 +18,13 @@ export default class ImageFactory implements ImageFactoryInterface {
     async fromBlob(blob: Blob): Promise<HTMLImageElement> {
         const url = URL.createObjectURL(blob)
         const img = new Image()
-        return new Promise<HTMLImageElement>(resolve => {
+        return new Promise<HTMLImageElement>((resolve) => {
             img.src = url
             // Https://medium.com/dailyjs/image-loading-with-image-decode-b03652e7d2d2
             if (img.decode) {
-                img.decode().then(() => resolve(img))
+                img.decode()
+                    .then(() => resolve(img))
+                    .catch(console.error)
             } else {
                 img.onload = () => resolve(img)
             }

@@ -1,13 +1,12 @@
-import { TriggerableEventInterface } from "../../contract/tool/event"
-import BraynsServiceInterface, {
-    BraynsUpdate
-} from "../../contract/service/brayns"
+import BraynsServiceInterface, { BraynsUpdate } from "@/contract/service/brayns"
 import CameraServiceInterface, {
     CameraCommonParams,
     CameraCommonParamsInput,
-    CameraExtraParams
-} from "../../contract/service/camera"
-import { Quaternion, Vector3 } from "../../contract/tool/geometry"
+    CameraExtraParams,
+} from "@/contract/service/camera"
+import { TriggerableEventInterface } from "@/contract/tool/event"
+import { Quaternion, Vector3 } from "@/contract/tool/geometry"
+import { assertType } from "@/tool/type-check"
 
 const SET_COMMON_PARAMS = "set-camera"
 const GET_COMMON_PARAMS = "get-camera"
@@ -27,12 +26,14 @@ export default class CameraService implements CameraServiceInterface {
         brayns.eventUpdate.add(this.handleBraynsUpdate)
     }
 
-    async setCommonParams(params: Partial<CameraCommonParamsInput>): Promise<void> {
+    async setCommonParams(
+        params: Partial<CameraCommonParamsInput>
+    ): Promise<void> {
         await this.brayns.exec(SET_COMMON_PARAMS, {
             current: params.type,
             orientation: params.orientation,
             position: params.position,
-            target: params.target
+            target: params.target,
         })
     }
 
@@ -62,14 +63,14 @@ export default class CameraService implements CameraServiceInterface {
         return ensureCameraExtraParams(data)
     }
 
-    private handleBraynsUpdate = (update: BraynsUpdate) => {
+    private readonly handleBraynsUpdate = (update: BraynsUpdate) => {
         if (update.name === SET_COMMON_PARAMS)
             this.updateCameraCommonParams(update.value)
         else if (update.name === SET_EXTRA_PARAMS)
             this.updateCameraExtraParams(update.value)
     }
 
-    private updateCameraCommonParams = (value: any) => {
+    private readonly updateCameraCommonParams = (value: unknown) => {
         if (!isBraynsCamera(value)) {
             console.error(
                 "Camera common update has an unexpected format:",
@@ -80,7 +81,7 @@ export default class CameraService implements CameraServiceInterface {
         this.eventCommonParamsChange.trigger(castCameraCommonParams(value))
     }
 
-    private updateCameraExtraParams = (value: any) => {
+    private readonly updateCameraExtraParams = (value: unknown) => {
         this.eventExtraParamsChange.trigger(ensureCameraExtraParams(value))
     }
 }
@@ -93,41 +94,25 @@ interface BraynsCamera {
     types: string[]
 }
 
-function isBraynsCamera(data: any): data is BraynsCamera {
-    if (!data || typeof data !== "object") return false
-    const { current, orientation, position, target, types } = data
-    if (typeof current !== "string") return false
-    if (!isQuaternion(orientation)) return false
-    if (!isVector3(position)) return false
-    if (!isVector3(target)) return false
-    if (!Array.isArray(types)) return false
-    for (const type of types) {
-        if (typeof type !== "string") return false
+function isBraynsCamera(data: unknown): data is BraynsCamera {
+    try {
+        assertType(data, {
+            current: "string",
+            orientation: ["array(4)", "number"],
+            position: ["array(3)", "number"],
+            target: ["array(3)", "number"],
+            types: ["array", "string"],
+        })
+        return true
+    } catch (ex) {
+        console.error(ex)
+        return false
     }
-    return true
-}
-
-function isQuaternion(data: any): data is Quaternion {
-    if (!Array.isArray(data)) return false
-    if (data.length !== 4) return false
-    for (const item of data) {
-        if (typeof item !== "number") return false
-    }
-    return true
-}
-
-function isVector3(data: any): data is Vector3 {
-    if (!Array.isArray(data)) return false
-    if (data.length !== 3) return false
-    for (const item of data) {
-        if (typeof item !== "number") return false
-    }
-    return true
 }
 
 type ExtraParam = number | string | boolean
 
-function isExtraParam(data: any): data is ExtraParam {
+function isExtraParam(data: unknown): data is ExtraParam {
     switch (typeof data) {
         case "string":
         case "number":
@@ -138,7 +123,16 @@ function isExtraParam(data: any): data is ExtraParam {
     }
 }
 
-function ensureCameraExtraParams(data: any) {
+function ensureCameraExtraParams(data: unknown) {
+    try {
+        assertType<Record<string, string | number | boolean>>(data, [
+            "map",
+            ["|", "string", "number", "boolean"],
+        ])
+    } catch (ex) {
+        console.error(ex)
+        return {}
+    }
     if (!data || typeof data !== "object") {
         console.warn()
         return {}
@@ -160,6 +154,6 @@ function castCameraCommonParams(data: BraynsCamera): CameraCommonParams {
         orientation: data.orientation,
         position: data.position,
         target: data.target,
-        type: data.current
+        type: data.current,
     }
 }

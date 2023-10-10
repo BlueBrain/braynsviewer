@@ -1,12 +1,12 @@
-import Rules from './rules'
-import { tokenize } from './tokenizer'
+import Rules from "./rules"
+import { tokenize } from "./tokenizer"
 
 describe(`web-brayns/manager/syntax-highlighter/rules`, () => {
     describe(`JSON5`, () => {
         function check(content: string, expected: string[]) {
             it(`should tokenize "${content}" as expected`, () => {
                 const tokens = tokenize(content, Rules.JSON5_RULES)
-                const classNames = tokens.map(tkn => tkn.className)
+                const classNames = tokens.map((tkn) => tkn.className)
                 expect(classNames).toEqual(expected)
             })
         }
@@ -26,7 +26,14 @@ describe(`web-brayns/manager/syntax-highlighter/rules`, () => {
         check("[]", ["symbol", "symbol"])
         check("[[]]", ["symbol", "symbol", "symbol", "symbol"])
         check("[1,2]", ["symbol", "number", "symbol", "number", "symbol"])
-        check("[1,   2]", ["symbol", "number", "symbol", "space", "number", "symbol"])
+        check("[1,   2]", [
+            "symbol",
+            "number",
+            "symbol",
+            "space",
+            "number",
+            "symbol",
+        ])
         check("[1,'hello']", ["symbol", "number", "symbol", "string", "symbol"])
     })
 })

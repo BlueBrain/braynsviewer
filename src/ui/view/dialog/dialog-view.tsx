@@ -3,7 +3,6 @@ import Button from "../button"
 import { ColorName } from "../types"
 import "./dialog-view.css"
 
-
 export interface DialogViewProps {
     className?: string
     /** If a `title` is defined, a dark primary header will be displayed. */
@@ -19,9 +18,9 @@ export interface DialogViewProps {
      */
     colorOK?: ColorName
     /** Triggered when __OK__ button has been clicked */
-    onOK?(): void
+    onOK?(this: void): void
     /** Triggered when __Cancel__ button has been clicked */
-    onCancel?(): void
+    onCancel?(this: void): void
     /** If `true` don't display any __Cancel__ button. */
     hideCancel?: boolean
     /** Rename the __OK__ button. */

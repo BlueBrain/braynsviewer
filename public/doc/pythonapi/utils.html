@@ -1,0 +1,3945 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s]+">
+      
+      <link rel="shortcut icon" href="">
+      <meta name="generator" content="mkdocs-5.2.2, mkdocs-material-4.4.2">
+    
+<meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+<!-- Generator banner -->
+<meta name="generator" content="sphinx-5.2.2" />
+
+    
+      
+        <title>utils - Brayns</title>
+      
+    
+    
+
+      <link rel="stylesheet" href="../_static/stylesheets/application.4031d38b.css">
+      
+        <link rel="stylesheet" href="../_static/stylesheets/application-palette.3e3d1dff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#2196f3">
+      
+    
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/stylesheets/theme.css" />
+
+    
+      <script src="../_static/javascripts/modernizr.74668098.js"></script>
+    
+    
+
+    <link rel="stylesheet" href="../_static/fonts/material-icons.css">
+    
+    
+    
+
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#classes" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      
+
+<!-- Application header -->
+<header class="md-header" data-md-component="header">
+
+  <!-- Top-level navigation -->
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+
+      <!-- Link to home -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.epfl.ch/"
+            title="Brayns"
+            class="md-header-nav__button md-logo">
+          
+            <img src="../_static/images/epfl-logo-new.svg" width="24" height="24" />
+          
+        </a>
+      </div>
+
+      <!-- Button to toggle drawer -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button"
+            for="__drawer"></label>
+      </div>
+
+      
+      <!-- Home button to ecosystem -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div id="homeBtnContainer" class="documentation-homepage-icon">
+          <!-- this href will be overwritten by utils.js -->
+          <a href="#" id="homepageLink">
+            <i class="fa fa-home"></i>
+          </a>
+        </div>
+      </div>
+      
+
+      <!-- Header title -->
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title"
+            data-md-component="title">
+          
+          
+          <span class="md-header-nav__topic">
+            <a href="../index.html"
+                title="Brayns">
+            <span class="md-header-nav__prefix">
+            Blue Brain</span> &ndash;
+            Brayns<span class="md-header-nav__version">
+            2.0.0</span></a>
+          </span>
+          <span class="md-header-nav__topic">
+            <a href="" title="utils">
+            <span class="md-header-nav__prefix">
+            Blue Brain</span> &ndash;
+            Brayns &ndash;
+            utils<span class="md-header-nav__version">
+            2.0.0</span></a>
+          </span>
+        
+        
+        </div>
+      </div>
+
+      <!-- Button to open search dialogue -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button"
+              for="__search"></label>
+
+          <!-- Search interface -->
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+
+      <!-- Repository containing source -->
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.epfl.ch/" title="Brayns" class="md-nav__button md-logo">
+      
+        <img src="../_static/images/epfl-logo-new.svg" width="48" height="48">
+      
+    </a>
+    Brayns
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../index.html" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../install.html" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Usage
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Usage
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage_launchbraynsbackend.html" title="Running a Brayns backend service" class="md-nav__link">
+      Running a Brayns backend service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage_usepythonapi.html" title="Using Brayns Python API" class="md-nav__link">
+      Using Brayns Python API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage_usejsonrpcapi.html" title="Using Brayns JSON-RPC API" class="md-nav__link">
+      Using Brayns JSON-RPC API
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../plugins.html" title="Brayns plugins" class="md-nav__link">
+      Brayns plugins
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_connector.html" title="Connection to a running backend instance" class="md-nav__link">
+      Connection to a running backend instance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_loader.html" title="Load a model" class="md-nav__link">
+      Load a model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_snapshot.html" title="Take a snapshot" class="md-nav__link">
+      Take a snapshot
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_exporter.html" title="Export frames" class="md-nav__link">
+      Export frames
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_movie.html" title="Make a movie from exported frames" class="md-nav__link">
+      Make a movie from exported frames
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_service.html" title="Launch Brayns backend from Python" class="md-nav__link">
+      Launch Brayns backend from Python
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      JSON-RPC API reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        JSON-RPC API reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jsonrpcapi/api_atlasexplorer_methods.html" title="Atlas Explorer API methods" class="md-nav__link">
+      Atlas Explorer API methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jsonrpcapi/api_circuitinfo_methods.html" title="Circuit Info API methods" class="md-nav__link">
+      Circuit Info API methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jsonrpcapi/api_circuitexplorer_methods.html" title="Circuit Explorer API methods" class="md-nav__link">
+      Circuit Explorer API methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jsonrpcapi/api_core_methods.html" title="Core API methods" class="md-nav__link">
+      Core API methods
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
+    
+    <label class="md-nav__link" for="nav-7">
+      Python API reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Python API reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="core.html" title="core" class="md-nav__link">
+      core
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="movie.html" title="movie" class="md-nav__link">
+      movie
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="network.html" title="network" class="md-nav__link">
+      network
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="plugins.html" title="plugins" class="md-nav__link">
+      plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="service.html" title="service" class="md-nav__link">
+      service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        utils
+      </label>
+    
+    <a href="#" title="utils" class="md-nav__link md-nav__link--active">
+      utils
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bounds" class="md-nav__link">
+    Bounds
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.bounds.Bounds" class="md-nav__link">
+    Bounds
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.bounds.Bounds.center" class="md-nav__link">
+    Bounds.center
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.bounds.Bounds.depth" class="md-nav__link">
+    Bounds.depth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.bounds.Bounds.empty" class="md-nav__link">
+    Bounds.empty
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.bounds.Bounds.height" class="md-nav__link">
+    Bounds.height
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.bounds.Bounds.max" class="md-nav__link">
+    Bounds.max
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.bounds.Bounds.min" class="md-nav__link">
+    Bounds.min
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.bounds.Bounds.size" class="md-nav__link">
+    Bounds.size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.bounds.Bounds.width" class="md-nav__link">
+    Bounds.width
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color3" class="md-nav__link">
+    Color3
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color3.Color3" class="md-nav__link">
+    Color3
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color3.Color3.b" class="md-nav__link">
+    Color3.b
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color3.Color3.bbp_background" class="md-nav__link">
+    Color3.bbp_background
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color3.Color3.black" class="md-nav__link">
+    Color3.black
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color3.Color3.blue" class="md-nav__link">
+    Color3.blue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color3.Color3.g" class="md-nav__link">
+    Color3.g
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color3.Color3.green" class="md-nav__link">
+    Color3.green
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color3.Color3.r" class="md-nav__link">
+    Color3.r
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color3.Color3.red" class="md-nav__link">
+    Color3.red
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color3.Color3.white" class="md-nav__link">
+    Color3.white
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color4" class="md-nav__link">
+    Color4
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color4.Color4" class="md-nav__link">
+    Color4
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color4.Color4.a" class="md-nav__link">
+    Color4.a
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color4.Color4.from_color3" class="md-nav__link">
+    Color4.from_color3()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color4.Color4.opaque" class="md-nav__link">
+    Color4.opaque
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color4.Color4.transparent" class="md-nav__link">
+    Color4.transparent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color4.Color4.without_alpha" class="md-nav__link">
+    Color4.without_alpha
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error" class="md-nav__link">
+    Error
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.exceptions.error.Error" class="md-nav__link">
+    Error
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fovy" class="md-nav__link">
+    Fovy
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.fovy.Fovy" class="md-nav__link">
+    Fovy
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.fovy.Fovy.degrees" class="md-nav__link">
+    Fovy.degrees
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.fovy.Fovy.get_front_view" class="md-nav__link">
+    Fovy.get_front_view()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.fovy.Fovy.get_full_screen_distance" class="md-nav__link">
+    Fovy.get_full_screen_distance()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.fovy.Fovy.radians" class="md-nav__link">
+    Fovy.radians
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imageformat" class="md-nav__link">
+    ImageFormat
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.image.image_format.ImageFormat" class="md-nav__link">
+    ImageFormat
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.image.image_format.ImageFormat.JPEG" class="md-nav__link">
+    ImageFormat.JPEG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.image.image_format.ImageFormat.PNG" class="md-nav__link">
+    ImageFormat.PNG
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quaternion" class="md-nav__link">
+    Quaternion
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.quaternion.Quaternion" class="md-nav__link">
+    Quaternion
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.quaternion.Quaternion.angle_degrees" class="md-nav__link">
+    Quaternion.angle_degrees
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.quaternion.Quaternion.angle_radians" class="md-nav__link">
+    Quaternion.angle_radians
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.quaternion.Quaternion.axis" class="md-nav__link">
+    Quaternion.axis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.quaternion.Quaternion.conjugate" class="md-nav__link">
+    Quaternion.conjugate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.quaternion.Quaternion.identity" class="md-nav__link">
+    Quaternion.identity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.quaternion.Quaternion.inverse" class="md-nav__link">
+    Quaternion.inverse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.quaternion.Quaternion.w" class="md-nav__link">
+    Quaternion.w
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.quaternion.Quaternion.x" class="md-nav__link">
+    Quaternion.x
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.quaternion.Quaternion.y" class="md-nav__link">
+    Quaternion.y
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.quaternion.Quaternion.z" class="md-nav__link">
+    Quaternion.z
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolution" class="md-nav__link">
+    Resolution
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.image.resolution.Resolution" class="md-nav__link">
+    Resolution
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.image.resolution.Resolution.full_hd" class="md-nav__link">
+    Resolution.full_hd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.image.resolution.Resolution.height" class="md-nav__link">
+    Resolution.height
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.image.resolution.Resolution.production" class="md-nav__link">
+    Resolution.production
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.image.resolution.Resolution.ultra_hd" class="md-nav__link">
+    Resolution.ultra_hd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.image.resolution.Resolution.width" class="md-nav__link">
+    Resolution.width
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotation" class="md-nav__link">
+    Rotation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation" class="md-nav__link">
+    Rotation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.angle_degrees" class="md-nav__link">
+    Rotation.angle_degrees
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.angle_radians" class="md-nav__link">
+    Rotation.angle_radians
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.apply" class="md-nav__link">
+    Rotation.apply()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.axis" class="md-nav__link">
+    Rotation.axis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.combine" class="md-nav__link">
+    Rotation.combine()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.euler_degrees" class="md-nav__link">
+    Rotation.euler_degrees
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.euler_radians" class="md-nav__link">
+    Rotation.euler_radians
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.from_axis_angle" class="md-nav__link">
+    Rotation.from_axis_angle()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.from_euler" class="md-nav__link">
+    Rotation.from_euler()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.from_quaternion" class="md-nav__link">
+    Rotation.from_quaternion()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.identity" class="md-nav__link">
+    Rotation.identity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.inverse" class="md-nav__link">
+    Rotation.inverse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.quaternion" class="md-nav__link">
+    Rotation.quaternion
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transform" class="md-nav__link">
+    Transform
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.transform.Transform" class="md-nav__link">
+    Transform
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.transform.Transform.identity" class="md-nav__link">
+    Transform.identity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.transform.Transform.rotation" class="md-nav__link">
+    Transform.rotation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.transform.Transform.scale" class="md-nav__link">
+    Transform.scale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.transform.Transform.translation" class="md-nav__link">
+    Transform.translation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector3" class="md-nav__link">
+    Vector3
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3" class="md-nav__link">
+    Vector3
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.back" class="md-nav__link">
+    Vector3.back
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.cross" class="md-nav__link">
+    Vector3.cross()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.dot" class="md-nav__link">
+    Vector3.dot()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.down" class="md-nav__link">
+    Vector3.down
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.forward" class="md-nav__link">
+    Vector3.forward
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.full" class="md-nav__link">
+    Vector3.full()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.left" class="md-nav__link">
+    Vector3.left
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.one" class="md-nav__link">
+    Vector3.one
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.right" class="md-nav__link">
+    Vector3.right
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.up" class="md-nav__link">
+    Vector3.up
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.x" class="md-nav__link">
+    Vector3.x
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.y" class="md-nav__link">
+    Vector3.y
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.z" class="md-nav__link">
+    Vector3.z
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.zero" class="md-nav__link">
+    Vector3.zero
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    View
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.view.View" class="md-nav__link">
+    View
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.view.View.direction" class="md-nav__link">
+    View.direction
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.view.View.distance" class="md-nav__link">
+    View.distance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.view.View.position" class="md-nav__link">
+    View.position
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.view.View.rotate_around_target" class="md-nav__link">
+    View.rotate_around_target()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.view.View.target" class="md-nav__link">
+    View.target
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.view.View.up" class="md-nav__link">
+    View.up
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.view.View.vector" class="md-nav__link">
+    View.vector
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lower-bound" class="md-nav__link">
+    lower_bound
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.lower_bound.lower_bound" class="md-nav__link">
+    lower_bound()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-bounds" class="md-nav__link">
+    merge_bounds
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.merge_bounds.merge_bounds" class="md-nav__link">
+    merge_bounds()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse-hex-color" class="md-nav__link">
+    parse_hex_color
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.parse_hex_color.parse_hex_color" class="md-nav__link">
+    parse_hex_color()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse-image-format" class="md-nav__link">
+    parse_image_format
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.image.parse_image_format.parse_image_format" class="md-nav__link">
+    parse_image_format()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upper-bound" class="md-nav__link">
+    upper_bound
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.upper_bound.upper_bound" class="md-nav__link">
+    upper_bound()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bounds" class="md-nav__link">
+    Bounds
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.bounds.Bounds" class="md-nav__link">
+    Bounds
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.bounds.Bounds.center" class="md-nav__link">
+    Bounds.center
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.bounds.Bounds.depth" class="md-nav__link">
+    Bounds.depth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.bounds.Bounds.empty" class="md-nav__link">
+    Bounds.empty
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.bounds.Bounds.height" class="md-nav__link">
+    Bounds.height
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.bounds.Bounds.max" class="md-nav__link">
+    Bounds.max
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.bounds.Bounds.min" class="md-nav__link">
+    Bounds.min
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.bounds.Bounds.size" class="md-nav__link">
+    Bounds.size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.bounds.Bounds.width" class="md-nav__link">
+    Bounds.width
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color3" class="md-nav__link">
+    Color3
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color3.Color3" class="md-nav__link">
+    Color3
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color3.Color3.b" class="md-nav__link">
+    Color3.b
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color3.Color3.bbp_background" class="md-nav__link">
+    Color3.bbp_background
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color3.Color3.black" class="md-nav__link">
+    Color3.black
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color3.Color3.blue" class="md-nav__link">
+    Color3.blue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color3.Color3.g" class="md-nav__link">
+    Color3.g
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color3.Color3.green" class="md-nav__link">
+    Color3.green
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color3.Color3.r" class="md-nav__link">
+    Color3.r
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color3.Color3.red" class="md-nav__link">
+    Color3.red
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color3.Color3.white" class="md-nav__link">
+    Color3.white
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color4" class="md-nav__link">
+    Color4
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color4.Color4" class="md-nav__link">
+    Color4
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color4.Color4.a" class="md-nav__link">
+    Color4.a
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color4.Color4.from_color3" class="md-nav__link">
+    Color4.from_color3()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color4.Color4.opaque" class="md-nav__link">
+    Color4.opaque
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color4.Color4.transparent" class="md-nav__link">
+    Color4.transparent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.color4.Color4.without_alpha" class="md-nav__link">
+    Color4.without_alpha
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error" class="md-nav__link">
+    Error
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.exceptions.error.Error" class="md-nav__link">
+    Error
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fovy" class="md-nav__link">
+    Fovy
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.fovy.Fovy" class="md-nav__link">
+    Fovy
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.fovy.Fovy.degrees" class="md-nav__link">
+    Fovy.degrees
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.fovy.Fovy.get_front_view" class="md-nav__link">
+    Fovy.get_front_view()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.fovy.Fovy.get_full_screen_distance" class="md-nav__link">
+    Fovy.get_full_screen_distance()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.fovy.Fovy.radians" class="md-nav__link">
+    Fovy.radians
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imageformat" class="md-nav__link">
+    ImageFormat
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.image.image_format.ImageFormat" class="md-nav__link">
+    ImageFormat
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.image.image_format.ImageFormat.JPEG" class="md-nav__link">
+    ImageFormat.JPEG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.image.image_format.ImageFormat.PNG" class="md-nav__link">
+    ImageFormat.PNG
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quaternion" class="md-nav__link">
+    Quaternion
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.quaternion.Quaternion" class="md-nav__link">
+    Quaternion
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.quaternion.Quaternion.angle_degrees" class="md-nav__link">
+    Quaternion.angle_degrees
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.quaternion.Quaternion.angle_radians" class="md-nav__link">
+    Quaternion.angle_radians
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.quaternion.Quaternion.axis" class="md-nav__link">
+    Quaternion.axis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.quaternion.Quaternion.conjugate" class="md-nav__link">
+    Quaternion.conjugate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.quaternion.Quaternion.identity" class="md-nav__link">
+    Quaternion.identity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.quaternion.Quaternion.inverse" class="md-nav__link">
+    Quaternion.inverse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.quaternion.Quaternion.w" class="md-nav__link">
+    Quaternion.w
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.quaternion.Quaternion.x" class="md-nav__link">
+    Quaternion.x
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.quaternion.Quaternion.y" class="md-nav__link">
+    Quaternion.y
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.quaternion.Quaternion.z" class="md-nav__link">
+    Quaternion.z
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolution" class="md-nav__link">
+    Resolution
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.image.resolution.Resolution" class="md-nav__link">
+    Resolution
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.image.resolution.Resolution.full_hd" class="md-nav__link">
+    Resolution.full_hd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.image.resolution.Resolution.height" class="md-nav__link">
+    Resolution.height
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.image.resolution.Resolution.production" class="md-nav__link">
+    Resolution.production
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.image.resolution.Resolution.ultra_hd" class="md-nav__link">
+    Resolution.ultra_hd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.image.resolution.Resolution.width" class="md-nav__link">
+    Resolution.width
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotation" class="md-nav__link">
+    Rotation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation" class="md-nav__link">
+    Rotation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.angle_degrees" class="md-nav__link">
+    Rotation.angle_degrees
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.angle_radians" class="md-nav__link">
+    Rotation.angle_radians
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.apply" class="md-nav__link">
+    Rotation.apply()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.axis" class="md-nav__link">
+    Rotation.axis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.combine" class="md-nav__link">
+    Rotation.combine()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.euler_degrees" class="md-nav__link">
+    Rotation.euler_degrees
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.euler_radians" class="md-nav__link">
+    Rotation.euler_radians
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.from_axis_angle" class="md-nav__link">
+    Rotation.from_axis_angle()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.from_euler" class="md-nav__link">
+    Rotation.from_euler()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.from_quaternion" class="md-nav__link">
+    Rotation.from_quaternion()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.identity" class="md-nav__link">
+    Rotation.identity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.inverse" class="md-nav__link">
+    Rotation.inverse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.rotation.Rotation.quaternion" class="md-nav__link">
+    Rotation.quaternion
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transform" class="md-nav__link">
+    Transform
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.transform.Transform" class="md-nav__link">
+    Transform
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.transform.Transform.identity" class="md-nav__link">
+    Transform.identity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.transform.Transform.rotation" class="md-nav__link">
+    Transform.rotation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.transform.Transform.scale" class="md-nav__link">
+    Transform.scale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.transform.transform.Transform.translation" class="md-nav__link">
+    Transform.translation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector3" class="md-nav__link">
+    Vector3
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3" class="md-nav__link">
+    Vector3
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.back" class="md-nav__link">
+    Vector3.back
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.cross" class="md-nav__link">
+    Vector3.cross()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.dot" class="md-nav__link">
+    Vector3.dot()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.down" class="md-nav__link">
+    Vector3.down
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.forward" class="md-nav__link">
+    Vector3.forward
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.full" class="md-nav__link">
+    Vector3.full()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.left" class="md-nav__link">
+    Vector3.left
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.one" class="md-nav__link">
+    Vector3.one
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.right" class="md-nav__link">
+    Vector3.right
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.up" class="md-nav__link">
+    Vector3.up
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.x" class="md-nav__link">
+    Vector3.x
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.y" class="md-nav__link">
+    Vector3.y
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.z" class="md-nav__link">
+    Vector3.z
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.vector.vector3.Vector3.zero" class="md-nav__link">
+    Vector3.zero
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    View
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.view.View" class="md-nav__link">
+    View
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.view.View.direction" class="md-nav__link">
+    View.direction
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.view.View.distance" class="md-nav__link">
+    View.distance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.view.View.position" class="md-nav__link">
+    View.position
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.view.View.rotate_around_target" class="md-nav__link">
+    View.rotate_around_target()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.view.View.target" class="md-nav__link">
+    View.target
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.view.View.up" class="md-nav__link">
+    View.up
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.view.view.View.vector" class="md-nav__link">
+    View.vector
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lower-bound" class="md-nav__link">
+    lower_bound
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.lower_bound.lower_bound" class="md-nav__link">
+    lower_bound()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-bounds" class="md-nav__link">
+    merge_bounds
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.merge_bounds.merge_bounds" class="md-nav__link">
+    merge_bounds()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse-hex-color" class="md-nav__link">
+    parse_hex_color
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.color.parse_hex_color.parse_hex_color" class="md-nav__link">
+    parse_hex_color()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse-image-format" class="md-nav__link">
+    parse_image_format
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.image.parse_image_format.parse_image_format" class="md-nav__link">
+    parse_image_format()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upper-bound" class="md-nav__link">
+    upper_bound
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.utils.bounds.upper_bound.upper_bound" class="md-nav__link">
+    upper_bound()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <section id="utils">
+<h1>utils<a class="headerlink" href="#utils" title="Permalink to this heading">¶</a></h1>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.utils"></span><p>Brayns utilities.</p>
+<p>This subpackage contains all functionalities that are commonly used inside and
+outside the main package and are not directly related to the Web API.</p>
+<p>It includes helpers for algebra, imaging or coloring and the base exception.</p>
+</div>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h2>
+<section id="bounds">
+<h3>Bounds<a class="headerlink" href="#bounds" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.utils.bounds.bounds"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.utils.bounds.bounds.Bounds">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.utils.bounds.bounds.Bounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>3D boundary in world coordinates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min</strong> (<a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><em>Vector3</em></a>) – Minimum XYZ.</p></li>
+<li><p><strong>max</strong> (<a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><em>Vector3</em></a>) – Maximum XYZ.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.bounds.bounds.Bounds.center">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">center</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></em><a class="headerlink" href="#brayns.utils.bounds.bounds.Bounds.center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the center point of the bounds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>3D point of the center.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3">Vector3</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.bounds.bounds.Bounds.depth">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">depth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#brayns.utils.bounds.bounds.Bounds.depth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the depth of the bounds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>size.z.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.bounds.bounds.Bounds.empty">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">empty</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.bounds.bounds.Bounds" title="brayns.utils.bounds.bounds.Bounds"><span class="pre">Bounds</span></a></em><a class="headerlink" href="#brayns.utils.bounds.bounds.Bounds.empty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create empty bounds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Empty bounds in [0, 0, 0].</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#brayns.utils.bounds.bounds.Bounds" title="brayns.utils.bounds.bounds.Bounds">Bounds</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.bounds.bounds.Bounds.height">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#brayns.utils.bounds.bounds.Bounds.height" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the height of the bounds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>size.y.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.utils.bounds.bounds.Bounds.max">
+<span class="sig-name descname"><span class="pre">max</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></em><a class="headerlink" href="#brayns.utils.bounds.bounds.Bounds.max" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.utils.bounds.bounds.Bounds.min">
+<span class="sig-name descname"><span class="pre">min</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></em><a class="headerlink" href="#brayns.utils.bounds.bounds.Bounds.min" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.bounds.bounds.Bounds.size">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></em><a class="headerlink" href="#brayns.utils.bounds.bounds.Bounds.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the size of the bounds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Size XYZ (width, height, depth).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3">Vector3</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.bounds.bounds.Bounds.width">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#brayns.utils.bounds.bounds.Bounds.width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the width of the bounds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>size.x.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+<section id="color3">
+<h3>Color3<a class="headerlink" href="#color3" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.utils.color.color3"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.utils.color.color3.Color3">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Color3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.utils.color.color3.Color3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Vector</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</p>
+<p>Color with RGB normalized components.</p>
+<p>Color3 are vectors and can be manipulated as such.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> (<em>float</em>) – Red component 0-1.</p></li>
+<li><p><strong>g</strong> (<em>float</em>) – Green component 0-1.</p></li>
+<li><p><strong>b</strong> (<em>float</em>) – Blue component 0-1.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.utils.color.color3.Color3.b">
+<span class="sig-name descname"><span class="pre">b</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#brayns.utils.color.color3.Color3.b" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.color.color3.Color3.bbp_background">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bbp_background</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">T</span></em><a class="headerlink" href="#brayns.utils.color.color3.Color3.bbp_background" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a color of the BBP standard background (~blue).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>BBP background color [0.004, 0.016, 0.102].</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#brayns.utils.color.color3.Color3" title="brayns.utils.color.color3.Color3">Color3</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.color.color3.Color3.black">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">black</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">T</span></em><a class="headerlink" href="#brayns.utils.color.color3.Color3.black" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a black color.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Black color [0, 0, 0].</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#brayns.utils.color.color3.Color3" title="brayns.utils.color.color3.Color3">Color3</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.color.color3.Color3.blue">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">blue</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">T</span></em><a class="headerlink" href="#brayns.utils.color.color3.Color3.blue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a blue color.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>blue color [0, 0, 1].</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#brayns.utils.color.color3.Color3" title="brayns.utils.color.color3.Color3">Color3</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.utils.color.color3.Color3.g">
+<span class="sig-name descname"><span class="pre">g</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#brayns.utils.color.color3.Color3.g" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.color.color3.Color3.green">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">green</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">T</span></em><a class="headerlink" href="#brayns.utils.color.color3.Color3.green" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a green color.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>green color [0, 1, 0].</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#brayns.utils.color.color3.Color3" title="brayns.utils.color.color3.Color3">Color3</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.utils.color.color3.Color3.r">
+<span class="sig-name descname"><span class="pre">r</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#brayns.utils.color.color3.Color3.r" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.color.color3.Color3.red">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">red</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">T</span></em><a class="headerlink" href="#brayns.utils.color.color3.Color3.red" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a red color.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>red color [1, 0, 0].</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#brayns.utils.color.color3.Color3" title="brayns.utils.color.color3.Color3">Color3</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.color.color3.Color3.white">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">white</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">T</span></em><a class="headerlink" href="#brayns.utils.color.color3.Color3.white" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a white color.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>White color [1, 1, 1].</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#brayns.utils.color.color3.Color3" title="brayns.utils.color.color3.Color3">Color3</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+<section id="color4">
+<h3>Color4<a class="headerlink" href="#color4" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.utils.color.color4"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.utils.color.color4.Color4">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Color4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.utils.color.color4.Color4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#brayns.utils.color.color3.Color3" title="brayns.utils.color.color3.Color3"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color3</span></code></a></p>
+<p>Color with RGBA normalized components.</p>
+<p>Color4 are Color3 and can be manipulated as such but with alpha channel.</p>
+<p>Opaque is alpha = 1 and fully transparent is alpha = 0.</p>
+<p>Color3 standard colors, if used from Color4, will have an alpha of 1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>a</strong> (<em>float</em><em>, </em><em>optional</em>) – Alpha component, defaults to 1.0.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.utils.color.color4.Color4.a">
+<span class="sig-name descname"><span class="pre">a</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1.0</span></em><a class="headerlink" href="#brayns.utils.color.color4.Color4.a" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.utils.color.color4.Color4.from_color3">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_color3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#brayns.utils.color.color3.Color3" title="brayns.utils.color.color3.Color3"><span class="pre">Color3</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="headerlink" href="#brayns.utils.color.color4.Color4.from_color3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper to build a Color4 from a Color3.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>color</strong> (<a class="reference internal" href="#brayns.utils.color.color3.Color3" title="brayns.utils.color.color3.Color3"><em>Color3</em></a>) – Color3 to convert.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em><em>, </em><em>optional</em>) – Alpha channel, defaults to 1.0</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Color4 converted.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#brayns.utils.color.color4.Color4" title="brayns.utils.color.color4.Color4">Color4</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.color.color4.Color4.opaque">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">opaque</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.color.color4.Color4" title="brayns.utils.color.color4.Color4"><span class="pre">Color4</span></a></em><a class="headerlink" href="#brayns.utils.color.color4.Color4.opaque" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an identical color but with alpha = 1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Color but fully opaque.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#brayns.utils.color.color4.Color4" title="brayns.utils.color.color4.Color4">Color4</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.color.color4.Color4.transparent">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transparent</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.color.color4.Color4" title="brayns.utils.color.color4.Color4"><span class="pre">Color4</span></a></em><a class="headerlink" href="#brayns.utils.color.color4.Color4.transparent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an identical color but with alpha = 0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Color but fully transparent.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#brayns.utils.color.color4.Color4" title="brayns.utils.color.color4.Color4">Color4</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.color.color4.Color4.without_alpha">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">without_alpha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.color.color3.Color3" title="brayns.utils.color.color3.Color3"><span class="pre">Color3</span></a></em><a class="headerlink" href="#brayns.utils.color.color4.Color4.without_alpha" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper class to create a Color3 from a Color4.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Color3 converted.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#brayns.utils.color.color3.Color3" title="brayns.utils.color.color3.Color3">Color3</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+<section id="error">
+<h3>Error<a class="headerlink" href="#error" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.utils.exceptions.error"></span><dl class="py exception">
+<dt class="sig sig-object py" id="brayns.utils.exceptions.error.Error">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Error</span></span><a class="headerlink" href="#brayns.utils.exceptions.error.Error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Base class of all Brayns exceptions.</p>
+<p>Can be used to catch only brayns specific errors.</p>
+</dd></dl>
+
+</div>
+</section>
+<section id="fovy">
+<h3>Fovy<a class="headerlink" href="#fovy" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.utils.view.fovy"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.utils.view.fovy.Fovy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Fovy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degrees</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.utils.view.fovy.Fovy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Field of view (angle) of a camera.</p>
+<p>Construct with angle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>angle</strong> (<em>float</em>) – Angle value.</p></li>
+<li><p><strong>degrees</strong> (<em>bool</em><em>, </em><em>optional</em>) – True if angle is in degrees, defaults to False</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.view.fovy.Fovy.degrees">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">degrees</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#brayns.utils.view.fovy.Fovy.degrees" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get angle in degrees.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Angle in degrees.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.utils.view.fovy.Fovy.get_front_view">
+<span class="sig-name descname"><span class="pre">get_front_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#brayns.utils.bounds.bounds.Bounds" title="brayns.utils.bounds.bounds.Bounds"><span class="pre">Bounds</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#brayns.utils.view.view.View" title="brayns.utils.view.view.View"><span class="pre">View</span></a></span></span><a class="headerlink" href="#brayns.utils.view.fovy.Fovy.get_front_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the front view to see the target in full screen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>target</strong> (<a class="reference internal" href="#brayns.utils.bounds.bounds.Bounds" title="brayns.utils.bounds.bounds.Bounds"><em>Bounds</em></a>) – Bounds of the target to look.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Full screen view.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#brayns.utils.view.view.View" title="brayns.utils.view.view.View">View</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.utils.view.fovy.Fovy.get_full_screen_distance">
+<span class="sig-name descname"><span class="pre">get_full_screen_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#brayns.utils.view.fovy.Fovy.get_full_screen_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the distance to see a target of given height entirely.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>height</strong> (<em>float</em>) – Viewport height.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Distance to have the given viewport height.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.view.fovy.Fovy.radians">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">radians</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#brayns.utils.view.fovy.Fovy.radians" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get angle in radians.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Angle in radians.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+<section id="imageformat">
+<h3>ImageFormat<a class="headerlink" href="#imageformat" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.utils.image.image_format"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.utils.image.image_format.ImageFormat">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ImageFormat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.utils.image.image_format.ImageFormat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Enumeration of all supported image format.</p>
+<p>Values are the image format file extension without the dot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>JPEG</strong> – JPEG format, smaller but lose quality.</p></li>
+<li><p><strong>PNG</strong> – PNG format, bigger but lossless.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.utils.image.image_format.ImageFormat.JPEG">
+<span class="sig-name descname"><span class="pre">JPEG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'jpg'</span></em><a class="headerlink" href="#brayns.utils.image.image_format.ImageFormat.JPEG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.utils.image.image_format.ImageFormat.PNG">
+<span class="sig-name descname"><span class="pre">PNG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'png'</span></em><a class="headerlink" href="#brayns.utils.image.image_format.ImageFormat.PNG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+<section id="quaternion">
+<h3>Quaternion<a class="headerlink" href="#quaternion" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.utils.transform.quaternion"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.utils.transform.quaternion.Quaternion">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Quaternion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.utils.transform.quaternion.Quaternion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Vector</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</p>
+<p>Quaternion with XYZW components.</p>
+<p>Provides vector operations (componentwise) and quaternion special operators
+(multiplication, conjugate, etc).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – X component.</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – Y component.</p></li>
+<li><p><strong>z</strong> (<em>float</em>) – Z component.</p></li>
+<li><p><strong>w</strong> (<em>float</em>) – W component.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.transform.quaternion.Quaternion.angle_degrees">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">angle_degrees</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#brayns.utils.transform.quaternion.Quaternion.angle_degrees" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.transform.quaternion.Quaternion.angle_radians">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">angle_radians</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#brayns.utils.transform.quaternion.Quaternion.angle_radians" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.transform.quaternion.Quaternion.axis">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">axis</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></em><a class="headerlink" href="#brayns.utils.transform.quaternion.Quaternion.axis" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.transform.quaternion.Quaternion.conjugate">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">conjugate</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.transform.quaternion.Quaternion" title="brayns.utils.transform.quaternion.Quaternion"><span class="pre">Quaternion</span></a></em><a class="headerlink" href="#brayns.utils.transform.quaternion.Quaternion.conjugate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.transform.quaternion.Quaternion.identity">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">identity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.transform.quaternion.Quaternion" title="brayns.utils.transform.quaternion.Quaternion"><span class="pre">Quaternion</span></a></em><a class="headerlink" href="#brayns.utils.transform.quaternion.Quaternion.identity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quaternion with XYZW components.</p>
+<p>Provides vector operations (componentwise) and quaternion special operators
+(multiplication, conjugate, etc).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – X component.</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – Y component.</p></li>
+<li><p><strong>z</strong> (<em>float</em>) – Z component.</p></li>
+<li><p><strong>w</strong> (<em>float</em>) – W component.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.transform.quaternion.Quaternion.inverse">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inverse</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.transform.quaternion.Quaternion" title="brayns.utils.transform.quaternion.Quaternion"><span class="pre">Quaternion</span></a></em><a class="headerlink" href="#brayns.utils.transform.quaternion.Quaternion.inverse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.utils.transform.quaternion.Quaternion.w">
+<span class="sig-name descname"><span class="pre">w</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1.0</span></em><a class="headerlink" href="#brayns.utils.transform.quaternion.Quaternion.w" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.utils.transform.quaternion.Quaternion.x">
+<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#brayns.utils.transform.quaternion.Quaternion.x" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.utils.transform.quaternion.Quaternion.y">
+<span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#brayns.utils.transform.quaternion.Quaternion.y" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.utils.transform.quaternion.Quaternion.z">
+<span class="sig-name descname"><span class="pre">z</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#brayns.utils.transform.quaternion.Quaternion.z" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+<section id="resolution">
+<h3>Resolution<a class="headerlink" href="#resolution" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.utils.image.resolution"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.utils.image.resolution.Resolution">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Resolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.utils.image.resolution.Resolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Vector</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</p>
+<p>Image resolution.</p>
+<p>Resolution is a Vector of integers and can be handled as such.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>int</em>) – Image width in pixels.</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – Image height in pixels.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.image.resolution.Resolution.full_hd">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">full_hd</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.image.resolution.Resolution" title="brayns.utils.image.resolution.Resolution"><span class="pre">Resolution</span></a></em><a class="headerlink" href="#brayns.utils.image.resolution.Resolution.full_hd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a full HD (1920x1080) resolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Full HD resolution.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#brayns.utils.image.resolution.Resolution" title="brayns.utils.image.resolution.Resolution">Resolution</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.utils.image.resolution.Resolution.height">
+<span class="sig-name descname"><span class="pre">height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#brayns.utils.image.resolution.Resolution.height" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.image.resolution.Resolution.production">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">production</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.image.resolution.Resolution" title="brayns.utils.image.resolution.Resolution"><span class="pre">Resolution</span></a></em><a class="headerlink" href="#brayns.utils.image.resolution.Resolution.production" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a production (15360x8640) resolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Production resolution.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#brayns.utils.image.resolution.Resolution" title="brayns.utils.image.resolution.Resolution">Resolution</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.image.resolution.Resolution.ultra_hd">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ultra_hd</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.image.resolution.Resolution" title="brayns.utils.image.resolution.Resolution"><span class="pre">Resolution</span></a></em><a class="headerlink" href="#brayns.utils.image.resolution.Resolution.ultra_hd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a 4K (3840x2160) resolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Ultra HD resolution.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#brayns.utils.image.resolution.Resolution" title="brayns.utils.image.resolution.Resolution">Resolution</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.utils.image.resolution.Resolution.width">
+<span class="sig-name descname"><span class="pre">width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#brayns.utils.image.resolution.Resolution.width" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+<section id="rotation">
+<h3>Rotation<a class="headerlink" href="#rotation" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.utils.transform.rotation"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.utils.transform.rotation.Rotation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Rotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quaternion</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#brayns.utils.transform.quaternion.Quaternion" title="brayns.utils.transform.quaternion.Quaternion"><span class="pre">Quaternion</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.utils.transform.rotation.Rotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Arbitrary 3D rotation.</p>
+<p>Can be constructed from euler angles, quaternion or axis and angle.</p>
+<p>Can also be converted to such types.</p>
+<p>Quaternions are automatically normalized (otherwise it is not a rotation).</p>
+<p>Use normalized quaternion internally.</p>
+<p>Euler angles only support XYZ order.</p>
+<p>Serialize / deserialize methods are low level JSON API.</p>
+<p>Can be combined (a.combine(b) is rotation a and then b).</p>
+<p>Can be applied on a given point around a given center (origin by default).</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.transform.rotation.Rotation.angle_degrees">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">angle_degrees</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#brayns.utils.transform.rotation.Rotation.angle_degrees" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.transform.rotation.Rotation.angle_radians">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">angle_radians</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#brayns.utils.transform.rotation.Rotation.angle_radians" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.utils.transform.rotation.Rotation.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Vector3(x=0.0,</span> <span class="pre">y=0.0,</span> <span class="pre">z=0.0)</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></span></span><a class="headerlink" href="#brayns.utils.transform.rotation.Rotation.apply" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.transform.rotation.Rotation.axis">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">axis</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></em><a class="headerlink" href="#brayns.utils.transform.rotation.Rotation.axis" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.utils.transform.rotation.Rotation.combine">
+<span class="sig-name descname"><span class="pre">combine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#brayns.utils.transform.rotation.Rotation" title="brayns.utils.transform.rotation.Rotation"><span class="pre">Rotation</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#brayns.utils.transform.rotation.Rotation" title="brayns.utils.transform.rotation.Rotation"><span class="pre">Rotation</span></a></span></span><a class="headerlink" href="#brayns.utils.transform.rotation.Rotation.combine" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.transform.rotation.Rotation.euler_degrees">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">euler_degrees</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></em><a class="headerlink" href="#brayns.utils.transform.rotation.Rotation.euler_degrees" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.transform.rotation.Rotation.euler_radians">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">euler_radians</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></em><a class="headerlink" href="#brayns.utils.transform.rotation.Rotation.euler_radians" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.utils.transform.rotation.Rotation.from_axis_angle">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_axis_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degrees</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#brayns.utils.transform.rotation.Rotation" title="brayns.utils.transform.rotation.Rotation"><span class="pre">Rotation</span></a></span></span><a class="headerlink" href="#brayns.utils.transform.rotation.Rotation.from_axis_angle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.utils.transform.rotation.Rotation.from_euler">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_euler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">euler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">degrees</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#brayns.utils.transform.rotation.Rotation" title="brayns.utils.transform.rotation.Rotation"><span class="pre">Rotation</span></a></span></span><a class="headerlink" href="#brayns.utils.transform.rotation.Rotation.from_euler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.utils.transform.rotation.Rotation.from_quaternion">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_quaternion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quaternion</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#brayns.utils.transform.quaternion.Quaternion" title="brayns.utils.transform.quaternion.Quaternion"><span class="pre">Quaternion</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#brayns.utils.transform.rotation.Rotation" title="brayns.utils.transform.rotation.Rotation"><span class="pre">Rotation</span></a></span></span><a class="headerlink" href="#brayns.utils.transform.rotation.Rotation.from_quaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.transform.rotation.Rotation.identity">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">identity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.transform.rotation.Rotation" title="brayns.utils.transform.rotation.Rotation"><span class="pre">Rotation</span></a></em><a class="headerlink" href="#brayns.utils.transform.rotation.Rotation.identity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arbitrary 3D rotation.</p>
+<p>Can be constructed from euler angles, quaternion or axis and angle.</p>
+<p>Can also be converted to such types.</p>
+<p>Quaternions are automatically normalized (otherwise it is not a rotation).</p>
+<p>Use normalized quaternion internally.</p>
+<p>Euler angles only support XYZ order.</p>
+<p>Serialize / deserialize methods are low level JSON API.</p>
+<p>Can be combined (a.combine(b) is rotation a and then b).</p>
+<p>Can be applied on a given point around a given center (origin by default).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.transform.rotation.Rotation.inverse">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inverse</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.transform.rotation.Rotation" title="brayns.utils.transform.rotation.Rotation"><span class="pre">Rotation</span></a></em><a class="headerlink" href="#brayns.utils.transform.rotation.Rotation.inverse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.transform.rotation.Rotation.quaternion">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">quaternion</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.transform.quaternion.Quaternion" title="brayns.utils.transform.quaternion.Quaternion"><span class="pre">Quaternion</span></a></em><a class="headerlink" href="#brayns.utils.transform.rotation.Rotation.quaternion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+<section id="transform">
+<h3>Transform<a class="headerlink" href="#transform" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.utils.transform.transform"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.utils.transform.transform.Transform">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">translation:</span> <span class="pre">~brayns.utils.vector.vector3.Vector3</span> <span class="pre">=</span> <span class="pre">Vector3(x=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z=0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotation:</span> <span class="pre">~brayns.utils.transform.rotation.Rotation</span> <span class="pre">=</span> <span class="pre">&lt;brayns.utils.transform.rotation.Rotation</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale:</span> <span class="pre">~brayns.utils.vector.vector3.Vector3</span> <span class="pre">=</span> <span class="pre">Vector3(x=1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y=1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z=1.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.utils.transform.transform.Transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>3D transformation.</p>
+<p>Used to move models in 3D space.</p>
+<p>It is equivalent to a TRS matrix multiplication.</p>
+<p>It means we first scale the point at the origin, then rotate around the same
+origin and finally we translate it to its position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>translation</strong> (<a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><em>Vector3</em></a><em>, </em><em>optional</em>) – Translation, defaults to zero.</p></li>
+<li><p><strong>rotation</strong> (<a class="reference internal" href="#brayns.utils.transform.rotation.Rotation" title="brayns.utils.transform.rotation.Rotation"><em>Rotation</em></a><em>, </em><em>optional</em>) – Rotation, defaults to identity.</p></li>
+<li><p><strong>scale</strong> (<a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><em>Vector3</em></a><em>, </em><em>optional</em>) – Scaling, defaults to one.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.transform.transform.Transform.identity">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">identity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.transform.transform.Transform" title="brayns.utils.transform.transform.Transform"><span class="pre">Transform</span></a></em><a class="headerlink" href="#brayns.utils.transform.transform.Transform.identity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an identity transform (doesn’t do anything).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Identity transform.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#brayns.utils.transform.transform.Transform" title="brayns.utils.transform.transform.Transform">Transform</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.utils.transform.transform.Transform.rotation">
+<span class="sig-name descname"><span class="pre">rotation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.transform.rotation.Rotation" title="brayns.utils.transform.rotation.Rotation"><span class="pre">Rotation</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;brayns.utils.transform.rotation.Rotation</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#brayns.utils.transform.transform.Transform.rotation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.utils.transform.transform.Transform.scale">
+<span class="sig-name descname"><span class="pre">scale</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Vector3(x=1.0,</span> <span class="pre">y=1.0,</span> <span class="pre">z=1.0)</span></em><a class="headerlink" href="#brayns.utils.transform.transform.Transform.scale" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.utils.transform.transform.Transform.translation">
+<span class="sig-name descname"><span class="pre">translation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Vector3(x=0.0,</span> <span class="pre">y=0.0,</span> <span class="pre">z=0.0)</span></em><a class="headerlink" href="#brayns.utils.transform.transform.Transform.translation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+<section id="vector3">
+<h3>Vector3<a class="headerlink" href="#vector3" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.utils.vector.vector3"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.utils.vector.vector3.Vector3">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Vector3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.utils.vector.vector3.Vector3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Vector</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</p>
+<p>3D vector with XYZ components.</p>
+<p>Provides scalar and dot product in addition to Vector operators.</p>
+<p>Also gives the basic space directions (up, down, front, etc…).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – X component.</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – Y component.</p></li>
+<li><p><strong>z</strong> (<em>float</em>) – Z component.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.vector.vector3.Vector3.back">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">back</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></em><a class="headerlink" href="#brayns.utils.vector.vector3.Vector3.back" title="Permalink to this definition">¶</a></dt>
+<dd><p>3D vector with XYZ components.</p>
+<p>Provides scalar and dot product in addition to Vector operators.</p>
+<p>Also gives the basic space directions (up, down, front, etc…).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – X component.</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – Y component.</p></li>
+<li><p><strong>z</strong> (<em>float</em>) – Z component.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.utils.vector.vector3.Vector3.cross">
+<span class="sig-name descname"><span class="pre">cross</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></span></span><a class="headerlink" href="#brayns.utils.vector.vector3.Vector3.cross" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.utils.vector.vector3.Vector3.dot">
+<span class="sig-name descname"><span class="pre">dot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#brayns.utils.vector.vector3.Vector3.dot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.vector.vector3.Vector3.down">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">down</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></em><a class="headerlink" href="#brayns.utils.vector.vector3.Vector3.down" title="Permalink to this definition">¶</a></dt>
+<dd><p>3D vector with XYZ components.</p>
+<p>Provides scalar and dot product in addition to Vector operators.</p>
+<p>Also gives the basic space directions (up, down, front, etc…).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – X component.</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – Y component.</p></li>
+<li><p><strong>z</strong> (<em>float</em>) – Z component.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.vector.vector3.Vector3.forward">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">forward</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></em><a class="headerlink" href="#brayns.utils.vector.vector3.Vector3.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>3D vector with XYZ components.</p>
+<p>Provides scalar and dot product in addition to Vector operators.</p>
+<p>Also gives the basic space directions (up, down, front, etc…).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – X component.</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – Y component.</p></li>
+<li><p><strong>z</strong> (<em>float</em>) – Z component.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.utils.vector.vector3.Vector3.full">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">full</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></span></span><a class="headerlink" href="#brayns.utils.vector.vector3.Vector3.full" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.vector.vector3.Vector3.left">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">left</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></em><a class="headerlink" href="#brayns.utils.vector.vector3.Vector3.left" title="Permalink to this definition">¶</a></dt>
+<dd><p>3D vector with XYZ components.</p>
+<p>Provides scalar and dot product in addition to Vector operators.</p>
+<p>Also gives the basic space directions (up, down, front, etc…).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – X component.</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – Y component.</p></li>
+<li><p><strong>z</strong> (<em>float</em>) – Z component.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.vector.vector3.Vector3.one">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">one</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></em><a class="headerlink" href="#brayns.utils.vector.vector3.Vector3.one" title="Permalink to this definition">¶</a></dt>
+<dd><p>3D vector with XYZ components.</p>
+<p>Provides scalar and dot product in addition to Vector operators.</p>
+<p>Also gives the basic space directions (up, down, front, etc…).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – X component.</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – Y component.</p></li>
+<li><p><strong>z</strong> (<em>float</em>) – Z component.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.vector.vector3.Vector3.right">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">right</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></em><a class="headerlink" href="#brayns.utils.vector.vector3.Vector3.right" title="Permalink to this definition">¶</a></dt>
+<dd><p>3D vector with XYZ components.</p>
+<p>Provides scalar and dot product in addition to Vector operators.</p>
+<p>Also gives the basic space directions (up, down, front, etc…).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – X component.</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – Y component.</p></li>
+<li><p><strong>z</strong> (<em>float</em>) – Z component.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.vector.vector3.Vector3.up">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">up</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></em><a class="headerlink" href="#brayns.utils.vector.vector3.Vector3.up" title="Permalink to this definition">¶</a></dt>
+<dd><p>3D vector with XYZ components.</p>
+<p>Provides scalar and dot product in addition to Vector operators.</p>
+<p>Also gives the basic space directions (up, down, front, etc…).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – X component.</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – Y component.</p></li>
+<li><p><strong>z</strong> (<em>float</em>) – Z component.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.utils.vector.vector3.Vector3.x">
+<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#brayns.utils.vector.vector3.Vector3.x" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.utils.vector.vector3.Vector3.y">
+<span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#brayns.utils.vector.vector3.Vector3.y" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.utils.vector.vector3.Vector3.z">
+<span class="sig-name descname"><span class="pre">z</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#brayns.utils.vector.vector3.Vector3.z" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.vector.vector3.Vector3.zero">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">zero</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></em><a class="headerlink" href="#brayns.utils.vector.vector3.Vector3.zero" title="Permalink to this definition">¶</a></dt>
+<dd><p>3D vector with XYZ components.</p>
+<p>Provides scalar and dot product in addition to Vector operators.</p>
+<p>Also gives the basic space directions (up, down, front, etc…).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – X component.</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – Y component.</p></li>
+<li><p><strong>z</strong> (<em>float</em>) – Z component.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+<section id="view">
+<h3>View<a class="headerlink" href="#view" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.utils.view.view"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.utils.view.view.View">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">View</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Vector3(x=0.0,</span> <span class="pre">y=0.0,</span> <span class="pre">z=0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Vector3(x=0.0,</span> <span class="pre">y=0.0,</span> <span class="pre">z=1.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">up</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Vector3(x=0.0,</span> <span class="pre">y=1.0,</span> <span class="pre">z=0.0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.utils.view.view.View" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represent a viewpoint with position and target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>position</strong> (<a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><em>Vector3</em></a>) – Observation position.</p></li>
+<li><p><strong>target</strong> (<a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><em>Vector3</em></a>) – Target position.</p></li>
+<li><p><strong>up</strong> (<a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><em>Vector3</em></a><em>, </em><em>optional</em>) – Up vector, defaults to +Y (global up).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.view.view.View.direction">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">direction</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></em><a class="headerlink" href="#brayns.utils.view.view.View.direction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get normalized view vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>View vector normalized.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3">Vector3</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.view.view.View.distance">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">distance</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#brayns.utils.view.view.View.distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the distance between the observator and the target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>View vector norm.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.utils.view.view.View.position">
+<span class="sig-name descname"><span class="pre">position</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Vector3(x=0.0,</span> <span class="pre">y=0.0,</span> <span class="pre">z=0.0)</span></em><a class="headerlink" href="#brayns.utils.view.view.View.position" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.utils.view.view.View.rotate_around_target">
+<span class="sig-name descname"><span class="pre">rotate_around_target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rotation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#brayns.utils.transform.rotation.Rotation" title="brayns.utils.transform.rotation.Rotation"><span class="pre">Rotation</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#brayns.utils.view.view.View.rotate_around_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate the observation position around the target.</p>
+<p>Rotate position around target and up around origin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rotation</strong> (<a class="reference internal" href="#brayns.utils.transform.rotation.Rotation" title="brayns.utils.transform.rotation.Rotation"><em>Rotation</em></a>) – Observation point rotation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.utils.view.view.View.target">
+<span class="sig-name descname"><span class="pre">target</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Vector3(x=0.0,</span> <span class="pre">y=0.0,</span> <span class="pre">z=1.0)</span></em><a class="headerlink" href="#brayns.utils.view.view.View.target" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.utils.view.view.View.up">
+<span class="sig-name descname"><span class="pre">up</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Vector3(x=0.0,</span> <span class="pre">y=1.0,</span> <span class="pre">z=0.0)</span></em><a class="headerlink" href="#brayns.utils.view.view.View.up" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.utils.view.view.View.vector">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vector</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></em><a class="headerlink" href="#brayns.utils.view.view.View.vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get view vector (target - position).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>View vector.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3">Vector3</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h2>
+<section id="lower-bound">
+<h3>lower_bound<a class="headerlink" href="#lower-bound" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.utils.bounds.lower_bound"></span><dl class="py function">
+<dt class="sig sig-object py" id="brayns.utils.bounds.lower_bound.lower_bound">
+<span class="sig-name descname"><span class="pre">lower_bound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">brayns.utils.vector.vector3.Vector3</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></span></span><a class="headerlink" href="#brayns.utils.bounds.lower_bound.lower_bound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take the smallest value for each component and make a new vector.</p>
+<p>Example: lower_bound([1, -2, 3], [-1, 2, -3]) = [-1, -2, -3].</p>
+<p>Return zero if values are empty.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>values</strong> (<em>list</em><em>[</em><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><em>Vector3</em></a><em>]</em>) – Values to find the lower bound.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lowest value for each component among given values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3">Vector3</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</section>
+<section id="merge-bounds">
+<h3>merge_bounds<a class="headerlink" href="#merge-bounds" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.utils.bounds.merge_bounds"></span><dl class="py function">
+<dt class="sig sig-object py" id="brayns.utils.bounds.merge_bounds.merge_bounds">
+<span class="sig-name descname"><span class="pre">merge_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#brayns.utils.bounds.bounds.Bounds" title="brayns.utils.bounds.bounds.Bounds"><span class="pre">brayns.utils.bounds.bounds.Bounds</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#brayns.utils.bounds.bounds.Bounds" title="brayns.utils.bounds.bounds.Bounds"><span class="pre">Bounds</span></a></span></span><a class="headerlink" href="#brayns.utils.bounds.merge_bounds.merge_bounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the union of all given bounds.</p>
+<p>Returns Bounds.empty if values are empty.</p>
+<p>Assume that all bounds are valid (ie min &lt;= max for each component).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>values</strong> (<em>list</em><em>[</em><a class="reference internal" href="#brayns.utils.bounds.bounds.Bounds" title="brayns.utils.bounds.bounds.Bounds"><em>Bounds</em></a><em>]</em>) – Bounds to merge.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Union of all bounds in values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#brayns.utils.bounds.bounds.Bounds" title="brayns.utils.bounds.bounds.Bounds">Bounds</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</section>
+<section id="parse-hex-color">
+<h3>parse_hex_color<a class="headerlink" href="#parse-hex-color" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.utils.color.parse_hex_color"></span><dl class="py function">
+<dt class="sig sig-object py" id="brayns.utils.color.parse_hex_color.parse_hex_color">
+<span class="sig-name descname"><span class="pre">parse_hex_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#brayns.utils.color.color3.Color3" title="brayns.utils.color.color3.Color3"><span class="pre">Color3</span></a></span></span><a class="headerlink" href="#brayns.utils.color.parse_hex_color.parse_hex_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse an hexadecimal color string to Color3.</p>
+<p>The string can be just digits (0a12f5), prefixed with a hash (#0a12f5) or
+with 0x (0x0a12f5).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>str</em>) – Color code.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Color parsed.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#brayns.utils.color.color3.Color3" title="brayns.utils.color.color3.Color3">Color3</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</section>
+<section id="parse-image-format">
+<h3>parse_image_format<a class="headerlink" href="#parse-image-format" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.utils.image.parse_image_format"></span><dl class="py function">
+<dt class="sig sig-object py" id="brayns.utils.image.parse_image_format.parse_image_format">
+<span class="sig-name descname"><span class="pre">parse_image_format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">pathlib.Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#brayns.utils.image.image_format.ImageFormat" title="brayns.utils.image.image_format.ImageFormat"><span class="pre">ImageFormat</span></a></span></span><a class="headerlink" href="#brayns.utils.image.parse_image_format.parse_image_format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the image format from a file path using its extension.</p>
+<p>Supports both string and pathlib.Path input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em><em> | </em><em>pathlib.Path</em>) – Image file path.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Image format.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#brayns.utils.image.image_format.ImageFormat" title="brayns.utils.image.image_format.ImageFormat">ImageFormat</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</section>
+<section id="upper-bound">
+<h3>upper_bound<a class="headerlink" href="#upper-bound" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.utils.bounds.upper_bound"></span><dl class="py function">
+<dt class="sig sig-object py" id="brayns.utils.bounds.upper_bound.upper_bound">
+<span class="sig-name descname"><span class="pre">upper_bound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">brayns.utils.vector.vector3.Vector3</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><span class="pre">Vector3</span></a></span></span><a class="headerlink" href="#brayns.utils.bounds.upper_bound.upper_bound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take the highest value for each component and make a new vector.</p>
+<p>Example: upper_bound([1, -2, 3], [-1, 2, -3]) = [1, 2, 3].</p>
+<p>Return zero if values are empty.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>values</strong> (<em>list</em><em>[</em><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3"><em>Vector3</em></a><em>]</em>) – Values to find the upper bound.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Highest value for each component among given values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#brayns.utils.vector.vector3.Vector3" title="brayns.utils.vector.vector3.Vector3">Vector3</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</section>
+</section>
+</section>
+
+                
+  
+
+              
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+
+        <!-- Link to previous page -->
+        
+          <a href="service.html"
+              title="service"
+              class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+              rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back
+                    md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                service
+              </span>
+            </div>
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+      </nav>
+    </div>
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+      
+        
+          
+          <div class="md-footer-copyright__company">
+            Blue Brain Project
+          </div>
+          
+          
+          <div class="md-footer-copyright__address__title">
+            Address
+          </div>
+          <div class="md-footer-copyright__address">
+            EPFL/Campus Biotech<br>Chemin des Mines 9,<br>CH-1202 Geneva<br>Switzerland
+          </div>
+          
+        
+        
+          <div class="md-footer-copyright__highlight">
+            &copy; Blue Brain Project/EPFL 2005-2022. All rights reserved.
+          </div>
+        
+        
+      </div>
+      
+
+      <!-- Social links -->
+      
+
+<!-- Social links in footer -->
+
+  <div class="md-footer-social">
+    <link rel="stylesheet" type="text/css"
+        href="../_static/fonts/font-awesome.css" />
+    
+    
+    <div class="md-footer-social__title">Follow the Blue Brain</div>
+    
+    
+    
+      <a href="https://www.linkedin.com/showcase/blue-brain-project/" class="md-footer-social__link
+            fa fa-linkedin-square"></a>
+    
+      <a href="https://twitter.com/bluebrainpjt?lang=en" class="md-footer-social__link
+            fa fa-twitter-square"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+<script src="../_static/javascripts/theme.js"></script>
+<script src="../_static/javascripts/utils.js"></script>
+
+      <script src="../_static/javascripts/application.718059d6.js"></script>
+      
+      <script>app.initialize({version:"5.2.2",url:{base:"../_static"}})</script>
+      
+    
+
+  </body>
+</html>

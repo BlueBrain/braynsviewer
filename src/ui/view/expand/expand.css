@@ -1,7 +1,7 @@
 .tfw-view-Expand {
     display: block;
     padding: 0 16px;
-    --transition-delay: .2s;
+    --transition-delay: 0.2s;
 }
 
 .tfw-view-Expand > button {
@@ -71,8 +71,10 @@
     visibility: visible;
     overflow: unset;
     opacity: 1;
-    transition: opacity var(--transition-delay),
-        transform var(--transition-delay), visibility var(--transition-delay),
+    transition:
+        opacity var(--transition-delay),
+        transform var(--transition-delay),
+        visibility var(--transition-delay),
         max-height var(--transition-delay);
     transform: translateX(0);
     max-height: max-content;
@@ -82,7 +84,8 @@
     visibility: hidden;
     overflow: unset;
     opacity: 0;
-    transition: opacity var(--transition-delay),
+    transition:
+        opacity var(--transition-delay),
         transform var(--transition-delay),
         visibility var(--transition-delay) step-end,
         max-height var(--transition-delay) step-end;

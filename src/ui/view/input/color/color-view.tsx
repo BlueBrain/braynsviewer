@@ -12,8 +12,8 @@ export interface ColorViewProps {
     enabled?: boolean
     size?: number
     value: string
-    onChange?(value: string): void
-    onEnterPressed?(value: string): void
+    onChange?(this: void, value: string): void
+    onEnterPressed?(this: void, value: string): void
 }
 
 export default function ColorView(props: ColorViewProps) {
@@ -24,7 +24,7 @@ export default function ColorView(props: ColorViewProps) {
     React.useEffect(() => setId(nextId()), [])
     const colors: React.CSSProperties = {
         color: "currentcolor",
-        backgroundColor: "transparent"
+        backgroundColor: "transparent",
     }
     if (valid) {
         const color = new Color(code)

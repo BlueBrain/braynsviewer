@@ -10,7 +10,9 @@ import { TriggerableEventInterface } from "../contract/tool/event"
  * onClick.add( (point: IPoint) => ... )
  * ```
  */
-export default class Event<TArgument> implements TriggerableEventInterface<TArgument> {
+export default class Event<TArgument>
+    implements TriggerableEventInterface<TArgument>
+{
     private listeners: Array<(arg: TArgument) => void> = []
 
     /**

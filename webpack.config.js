@@ -1,8 +1,8 @@
 const package = require("./package.json")
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyPlugin = require('copy-webpack-plugin')
-const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const path = require("path")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const CopyPlugin = require("copy-webpack-plugin")
+const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 
 module.exports = {
     cache: {
@@ -21,6 +21,7 @@ module.exports = {
         enforceExtension: false,
         alias: {
             "@/contract": path.resolve(__dirname, "src/contract"),
+            "@/mock": path.resolve(__dirname, "src/mock"),
             "@/tool": path.resolve(__dirname, "src/tool"),
             "@/ui": path.resolve(__dirname, "src/ui"),
             "@/view": path.resolve(__dirname, "src/view"),
@@ -40,7 +41,7 @@ module.exports = {
         hot: true,
         // Open WebBrowser.
         open: true,
-        port: process.env.PORT || 30453,
+        port: process.env.PORT || 8082,
     },
     plugins: [
         new CleanWebpackPlugin({
@@ -52,7 +53,7 @@ module.exports = {
             patterns: [
                 {
                     from: path.resolve(__dirname, "public"),
-                    filter: async path => {
+                    filter: async (path) => {
                         return !path.endsWith("index.html")
                     },
                 },
@@ -125,12 +126,6 @@ module.exports = {
                     "style-loader",
                     {
                         loader: "css-loader",
-                        options: {
-                            sourceMap: true,
-                        },
-                    },
-                    {
-                        loader: "sass-loader",
                         options: {
                             sourceMap: true,
                         },

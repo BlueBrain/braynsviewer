@@ -1,5 +1,5 @@
 import * as React from "react"
-import Touchable from "../../../ui/view/touchable"
+import Options from "@/ui/view/options"
 import "./app-menu-view.css"
 
 type Page = string
@@ -7,31 +7,19 @@ type Page = string
 export interface AppMenuViewProps {
     className?: string
     value: Page
-    onChange(page: Page): void
+    onChange(this: void, page: Page): void
 }
 
-const MENU_ITEMS: Array<[key: string, label: string]> = [
-    ["models", "Models"],
-    ["loaders", "Loaders"],
-    ["camera", "Camera"],
-    ["renderer", "Renderer"],
-    ["entrypoints", "API"],
-    ["broadcast", "Events"],
-]
+const OPTIONS = {
+    entryPoints: "API",
+    python: "Python",
+}
 
 export default function AppMenuView(props: AppMenuViewProps) {
     const { value, onChange } = props
     return (
         <div className={getClassNames(props)}>
-            {MENU_ITEMS.map(([key, label]) => (
-                <Touchable
-                key={key}
-                    className={`menu-item theme-color-primary${
-                        key === value ? "-light" : ""
-                    }`}
-                    onClick={()=>onChange(key)}
-                >{label}</Touchable>
-            ))}
+            <Options options={OPTIONS} value={value} onClick={onChange} />
         </div>
     )
 }

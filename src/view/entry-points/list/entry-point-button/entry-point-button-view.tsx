@@ -7,7 +7,7 @@ export interface EntryPointButtonViewProps {
     className?: string
     service: EntryPointsServiceInterface
     name: string
-    onClick(name: string): void
+    onClick(this: void, name: string): void
 }
 
 export default function EntryPointButtonView(props: EntryPointButtonViewProps) {
@@ -20,9 +20,7 @@ export default function EntryPointButtonView(props: EntryPointButtonViewProps) {
             title={description}
         >
             <div className="name">{name}</div>
-            <div className="doc">
-                {description}
-            </div>
+            <div className="doc">{description}</div>
         </Touchable>
     )
 }
@@ -50,7 +48,7 @@ function useDescription(
                 setDescription(`${ex}`)
             }
         }
-        asyncFunction()
+        void asyncFunction()
     }, [service, entryPointName])
     return description
 }

@@ -1,0 +1,19 @@
+arrowParens: always
+bracketSameLine: false
+bracketSpacing: true
+embeddedLanguageFormatting: auto
+endOfLine: lf
+htmlWhitespaceSensitivity: css
+insertPragma: false
+jsxSingleQuote: false
+printWidth: 80
+proseWrap: preserve
+quoteProps: as-needed
+requirePragma: false
+semi: false
+# It's easy to mixup single quotes with backticks.
+singleQuote: false
+tabWidth: 4
+useTabs: false
+vueIndentScriptAndStyle: false
+trailingComma: es5

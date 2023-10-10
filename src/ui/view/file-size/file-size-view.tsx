@@ -11,7 +11,7 @@ export interface FileSizeViewProps {
 }
 
 /**
- * Human friendly size label.  
+ * Human friendly size label.
  * It displays the unit Kb, Mb, Gb and Tb with different colors.
  */
 export default function FileSizeView(props: FileSizeViewProps) {
@@ -33,11 +33,7 @@ function getClassNames(props: FileSizeViewProps): string {
 
 function getHumanReadableSize(size: number, unit: string = ""): JSX.Element {
     if (unit.length > 0) {
-        return (
-            <span
-                className={unit.toLowerCase()}
-            >{`${size} ${unit}`}</span>
-        )
+        return <span className={unit.toLowerCase()}>{`${size} ${unit}`}</span>
     }
 
     if (size < 1024)

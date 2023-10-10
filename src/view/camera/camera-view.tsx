@@ -1,6 +1,7 @@
 import CameraServiceInterface, {
     CameraCommonParams,
-    CameraExtraParams
+    CameraExtraParams,
+    isCameraExtraParams,
 } from "@/contract/service/camera"
 import { Quaternion, Vector3 } from "@/contract/tool/geometry"
 import ButtonView from "@/ui/view/button"
@@ -11,7 +12,6 @@ import Runnable from "../../view/runnable"
 import "./camera-view.css"
 import ExtraParamView from "./extra-param"
 import SelectCamera from "./select-camera"
-
 
 export interface CameraViewProps {
     className?: string
@@ -25,10 +25,10 @@ export default function CameraView(props: CameraViewProps) {
     const [transfo, setTransfo] = React.useState(REST_TRANSFO)
     const [type, setType] = React.useState("Undefined Camera")
     const [types, setTypes] = React.useState(["perspective", "orthographic"])
-    const [extra, setExtra] = React.useState<any>(null)
+    const [extra, setExtra] = React.useState<unknown>(null)
     const [editMode, setEditMode] = React.useState(false)
     const [running, setRunning] = React.useState(true)
-    const run: RunnableFunction = async f => {
+    const run: RunnableFunction = async (f) => {
         try {
             setRunning(true)
             return await f()
@@ -40,8 +40,8 @@ export default function CameraView(props: CameraViewProps) {
         }
     }
     React.useEffect(() => {
-        const init = async () => {
-            run(async () => {
+        const init = () => {
+            void run(async () => {
                 const data = await cameraService.getCommonParams()
                 setTransfo(data)
                 setType(data.type)
@@ -50,13 +50,13 @@ export default function CameraView(props: CameraViewProps) {
             })
         }
         if (!editMode) init()
-        const handleCameraChange = async (params: CameraCommonParams) => {
+        const handleCameraChange = (params: CameraCommonParams) => {
             if (editMode) return
 
             setTransfo(params)
             setType(params.type)
             setTypes(params.availableTypes)
-            run(async () => setExtra(await cameraService.getExtraParams()))
+            void run(async () => setExtra(await cameraService.getExtraParams()))
         }
         const handleCameraExtraChange = (params: CameraExtraParams) => {
             if (editMode) return
@@ -70,12 +70,12 @@ export default function CameraView(props: CameraViewProps) {
             cameraService.eventExtraParamsChange.remove(handleCameraExtraChange)
         }
     }, [cameraService, editMode])
-    const handleApply = async () => {
-        run(
+    const handleApply = () => {
+        void run(
             async () =>
                 await cameraService.setCommonParams({
                     ...transfo,
-                    type
+                    type,
                 })
         )
     }
@@ -85,7 +85,7 @@ export default function CameraView(props: CameraViewProps) {
 
         await run(async () => {
             await cameraService.setCommonParams({
-                type: selectedType
+                type: selectedType,
             })
             setType(selectedType)
             setExtra(await cameraService.getExtraParams())
@@ -105,7 +105,7 @@ export default function CameraView(props: CameraViewProps) {
                     />
                     <ButtonView
                         label="Change type"
-                        onClick={handleChangeCameraType}
+                        onClick={() => void handleChangeCameraType()}
                     />
                 </header>
                 <hr />
@@ -146,11 +146,11 @@ export default function CameraView(props: CameraViewProps) {
                         ))}
                     </div>
                 </div>
-                {extra && typeof extra === "object" && (
+                {isCameraExtraParams(extra) && (
                     <>
                         <hr />
                         <div className="extra-params">
-                            {Object.keys(extra).map(name => (
+                            {Object.keys(extra).map((name) => (
                                 <ExtraParamView
                                     key={name}
                                     enabled={editMode}
@@ -204,7 +204,7 @@ interface CameraTransformation {
 const REST_TRANSFO: CameraTransformation = {
     position: [0, 0, -1],
     target: [0, 0, 0],
-    orientation: [0, 0, 0, 1]
+    orientation: [0, 0, 0, 1],
 }
 
 function notImplemented() {

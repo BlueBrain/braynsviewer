@@ -1,1 +1,1 @@
-export { default } from './brayns-address-input-view'
+export { default } from "./brayns-address-input-view"

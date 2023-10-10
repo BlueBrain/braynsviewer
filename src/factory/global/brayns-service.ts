@@ -1,7 +1,9 @@
-import BraynsServiceInterface, { BraynsServiceAddress } from "../../contract/service/brayns"
+import BraynsServiceInterface, {
+    BraynsServiceAddress,
+} from "../../contract/service/brayns"
 import BraynsService from "../../service/brayns"
 
-import makeEvent from './event'
+import makeEvent from "./event"
 
 const globalBraynsServices = new Map<string, BraynsServiceInterface>()
 

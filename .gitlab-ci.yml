@@ -1,16 +1,22 @@
-include:
-  - project: viz/ci/gitlabpipelines
-    file: index.yml
+stages:
+    - build-ts
 
-build:
-  extends: .build-ts
-
-docker:
-  variables:
-    CI_REGISTRY_IMAGE: docker-registry-default.ocp.bbp.epfl.ch/bbp-ou-visualization/brayns-viewer
-  extends: .build-image-using-kaniko
-
-publish:
-  variables:
-    CI_REGISTRY_IMAGE: docker-registry-default.ocp.bbp.epfl.ch/bbp-ou-visualization/brayns-viewer
-  extends: .publish-image-using-kaniko
+.build-ts:
+    stage: test
+    image:
+        name: node:$NODE_VERSION
+        entrypoint: [""]
+    variables:
+        CI: "true"
+        CWD: .
+        NODE_VERSION: 18.12.0
+    script:
+        - echo $NODE_VERSION
+        - cd "$CWD"
+        - npm install
+        - npm run build
+        - npm run test
+    rules:
+        - if: $CI_MERGE_REQUEST_IID
+        # run on default branch in order to upload coverage report
+        - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
