@@ -4,23 +4,22 @@ import EntryPointsServiceInterface from "../../../contract/service/entry-points"
 import { useLocalStorageState } from "../../../ui/hook/local-storage-state"
 import Button from "../../../ui/view/button"
 import Expand from "../../../ui/view/expand"
-import FloatingButton from "../../../ui/view/floating-button"
 import JsonEditorView from "../../json-editor/json-editor-view"
 import RunnableView from "../../runnable/runnable-view"
-import "./detail-view.css"
 import DocumentationView from "./documentation/documentation-view"
+
+import "./detail-view.css"
 
 export interface DetailViewProps {
     className?: string
     entryPointName: string
     service: EntryPointsServiceInterface
-    onBack(): void
 }
 
 export default function DetailView(props: DetailViewProps) {
-    const { entryPointName, service, onBack } = props
+    const { entryPointName, service } = props
     const [params, setParams] = useLocalStorageState(
-        "{}",
+        "",
         `entry-point/${entryPointName}/params`
     )
     const [executing, setExecuting] = React.useState(false)
@@ -42,25 +41,24 @@ export default function DetailView(props: DetailViewProps) {
         setError(null)
         setExpandOutput(false)
     }, [entryPointName])
+    if (!entryPointName) return null
+
     return (
         <RunnableView className={getClassNames(props)} running={executing}>
             <header>
-                <FloatingButton icon="arrow-left" onClick={onBack} />
                 <h1>{entryPointName}</h1>
+                <Button
+                    label="Execute"
+                    icon="play"
+                    color="accent"
+                    onClick={() => void handleExec()}
+                />
             </header>
             <JsonEditorView
                 label="Parameters"
                 value={params}
                 onChange={setParams}
             />
-            <div className="exec-button">
-                <Button
-                    label="Execute"
-                    icon="play"
-                    color="accent"
-                    onClick={handleExec}
-                />
-            </div>
             {hasAnyOutput && (
                 <Expand label="Output" value={expandOutput}>
                     {result && <pre className="result">{result}</pre>}
@@ -108,10 +106,13 @@ function makeHandleExec(
         setExecuting(true)
         setError(null)
         try {
-            const result = await service.exec(entryPointName, JSON5.parse(params))
+            const result = await service.exec(
+                entryPointName,
+                params ? JSON5.parse(params) : undefined
+            )
             setResult(JSON5.stringify(result, null, "  "))
         } catch (ex) {
-            console.error(`Unable to exec entrypoint "${entryPointName}"!`, ex)
+            console.error(`Unable to exec entryPoint "${entryPointName}"!`, ex)
             setError(JSON5.stringify(ex, null, "  "))
         } finally {
             setExecuting(false)

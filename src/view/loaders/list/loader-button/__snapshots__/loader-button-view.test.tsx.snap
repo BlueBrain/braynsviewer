@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoaderButtonView/> in view/loaders should be consistent with previous snapshot 1`] = `
+<button
+  className="custom ui-view-TouchableView custom view-loaders-LoaderButtonView"
+  onClick={[Function]}
+>
+  <div>
+    mesh
+  </div>
+  <div
+    title=".obj, .blend"
+  >
+    .obj, .blend
+  </div>
+</button>
+`;

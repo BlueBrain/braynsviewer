@@ -1,7 +1,7 @@
 import * as React from "react"
 import {
     SpontaneousUpdateItem,
-    SpontaneousUpdateItemValue
+    SpontaneousUpdateItemValue,
 } from "../../../contract/service/spontaneous-updates"
 import Modal from "../../../ui/modal"
 import Dialog from "../../../ui/view/dialog"
@@ -26,7 +26,7 @@ export default function UpdateButtonView(props: UpdateButtonViewProps) {
             </button>
             {expanded && (
                 <div className="details">
-                    {item.values.map(data => (
+                    {item.values.map((data) => (
                         <button
                             key={data.timestamp}
                             onClick={() => showDetails(item.name, data)}

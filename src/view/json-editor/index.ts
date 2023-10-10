@@ -1,1 +1,1 @@
-export { default } from './json-editor-view'
+export { default } from "./json-editor-view"

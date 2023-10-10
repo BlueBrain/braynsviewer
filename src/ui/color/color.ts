@@ -57,7 +57,11 @@ export default class Color {
         return Color.fromRGBA(R, G, B, A)
     }
 
-    public static fromHSL(hue: number, saturation: number, luminance: number): Color {
+    public static fromHSL(
+        hue: number,
+        saturation: number,
+        luminance: number
+    ): Color {
         const color = new Color()
         color.H = hue
         color.S = saturation
@@ -66,7 +70,12 @@ export default class Color {
         return color
     }
 
-    public static fromHSLA(hue: number, saturation: number, luminance: number, alpha: number): Color {
+    public static fromHSLA(
+        hue: number,
+        saturation: number,
+        luminance: number,
+        alpha: number
+    ): Color {
         const color = new Color()
         color.H = hue
         color.S = saturation
@@ -79,14 +88,14 @@ export default class Color {
     /**
      * Check if a CSS stle string is an actual color.
      */
-    public static isValid(codeCSS: any): codeCSS is string {
+    public static isValid(codeCSS: unknown): codeCSS is string {
         if (typeof codeCSS !== "string") return false
         if (codeCSS.charAt(0) !== "#") return false
         switch (codeCSS.length) {
-            case '#RGB'.length:
-            case '#RGBA'.length:
-            case '#RRGGBB'.length:
-            case '#RRGGBBAA'.length:
+            case "#RGB".length:
+            case "#RGBA".length:
+            case "#RRGGBB".length:
+            case "#RRGGBBAA".length:
                 return true
             default:
                 return false
@@ -96,14 +105,13 @@ export default class Color {
     /**
      * @see http://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef
      */
-    public static contrast(background: ColorOrString | undefined, foreground: ColorOrString | undefined): number {
+    public static contrast(
+        background: ColorOrString | undefined,
+        foreground: ColorOrString | undefined
+    ): number {
         const backColor = Color.fromColorOrString(background)
         const color2 = Color.fromColorOrString(foreground)
-        const foreColor = Color.mix(
-            backColor,
-            color2,
-            color2.A
-        )
+        const foreColor = Color.mix(backColor, color2, color2.A)
         const lum1 = backColor.luminance()
         const lum2 = foreColor.luminance()
         const CONTRAST_EPSILON = 0.05
@@ -115,11 +123,11 @@ export default class Color {
 
     /**
      * Return the color with better contrast on a given surface.
-     * 
+     *
      * @param backColor Color of the background surface.
      * @param foreColors Possible colors for a text on this surface.
      */
-    public static bestContrast<T extends (Color | string)>(
+    public static bestContrast<T extends Color | string>(
         backColor: ColorOrString,
         ...foreColors: T[]
     ): T {
@@ -144,7 +152,7 @@ export default class Color {
      * If the color is invalid, return -1.
      */
     public static luminance(colorOrString: ColorOrString | undefined): number {
-        if (typeof colorOrString === 'undefined') return 0
+        if (typeof colorOrString === "undefined") return 0
         return Color.fromColorOrString(colorOrString).luminance()
     }
 
@@ -169,7 +177,10 @@ export default class Color {
         return Color.luminanceStep(colorOrString) === 1
     }
 
-    public static makeDarker(colorOrString: ColorOrString, luminancePercentage: number = 0.5): Color {
+    public static makeDarker(
+        colorOrString: ColorOrString,
+        luminancePercentage: number = 0.5
+    ): Color {
         if (luminancePercentage <= 0) return new Color("#000")
         const color = Color.fromColorOrString(colorOrString)
         if (luminancePercentage >= 1) return color
@@ -181,7 +192,10 @@ export default class Color {
         )
     }
 
-    public static makeHueRotated(colorOrString: ColorOrString, rotation: number = 0.5): Color {
+    public static makeHueRotated(
+        colorOrString: ColorOrString,
+        rotation: number = 0.5
+    ): Color {
         const color = Color.fromColorOrString(colorOrString)
         color.rgb2hsl()
         // The `floor` is used to deal with negative numbers.
@@ -203,7 +217,11 @@ export default class Color {
      * If alpha is 0, the resulting color is `color1`,
      * if alpha is 1, the resulting color is `color2`.
      */
-    public static mix(colorOrString1: ColorOrString, colorOrString2: ColorOrString, alpha: number = 0.5): Color {
+    public static mix(
+        colorOrString1: ColorOrString,
+        colorOrString2: ColorOrString,
+        alpha: number = 0.5
+    ): Color {
         const color1 = Color.fromColorOrString(colorOrString1)
         const color2 = Color.fromColorOrString(colorOrString2)
         const beta = 1 - alpha
@@ -212,7 +230,7 @@ export default class Color {
             alpha * color2.R + beta * color1.R,
             alpha * color2.G + beta * color1.G,
             alpha * color2.B + beta * color1.B,
-            alpha * color2.A + beta * color1.A,
+            alpha * color2.A + beta * color1.A
         )
     }
 
@@ -251,7 +269,12 @@ export default class Color {
      * @param   alpha - Value between 0 and 1.
      * @returns New instance of Color.
      */
-    public static fromRGBA(red: number, green: number, blue: number, alpha: number) {
+    public static fromRGBA(
+        red: number,
+        green: number,
+        blue: number,
+        alpha: number
+    ) {
         const color = new Color()
         color.R = red
         color.G = green
@@ -270,9 +293,14 @@ export default class Color {
     /**
      * Create an array of colors by interpolating on other colors.
      */
-    public static interpolate(colors: Array<Color | string>, arrayLength: number): Color[] {
+    public static interpolate(
+        colors: Array<Color | string>,
+        arrayLength: number
+    ): Color[] {
         if (arrayLength < 1) return []
-        const input = colors.map(c => typeof c === 'string' ? new Color(c) : c)
+        const input = colors.map((c) =>
+            typeof c === "string" ? new Color(c) : c
+        )
         const result: Color[] = []
 
         for (let step = 1; step <= arrayLength; step++) {
@@ -341,12 +369,13 @@ export default class Color {
     /**
      * @see https://en.wikipedia.org/wiki/HSL_and_HSV#Converting_to_RGB
      */
+    // eslint-disable-next-line max-statements
     public hsl2rgb() {
         const H = VAL_6 * this.H
         const S = this.S
         const L = this.L
         const chroma = (1 - Math.abs(L + L - 1)) * S
-        const x = chroma * (1 - Math.abs(H % VAL_2 - 1))
+        const x = chroma * (1 - Math.abs((H % VAL_2) - 1))
 
         let R = 0
         let G = 0
@@ -354,19 +383,31 @@ export default class Color {
 
         if (H < VAL_3) {
             if (H < VAL_1) {
-                R = chroma; G = x; B = 0
+                R = chroma
+                G = x
+                B = 0
             } else if (H < VAL_2) {
-                R = x; G = chroma; B = 0
+                R = x
+                G = chroma
+                B = 0
             } else {
                 // H == 2.
-                R = 0; G = chroma; B = x
+                R = 0
+                G = chroma
+                B = x
             }
         } else if (H < VAL_4) {
-            R = 0; G = x; B = chroma
+            R = 0
+            G = x
+            B = chroma
         } else if (H < VAL_5) {
-            R = x; G = 0; B = chroma
+            R = x
+            G = 0
+            B = chroma
         } else {
-            R = chroma; G = 0; B = x
+            R = chroma
+            G = 0
+            B = x
         }
 
         const shift = L - chroma * HALF
@@ -386,13 +427,16 @@ export default class Color {
         const SHIFT = 0.055
         const BETA = 0.9478672985781991 // = 1/1.055
         const GAMMA = 2.4
-        const vR = R < THRESHOLD ? R * ALPHA : Math.pow((R + SHIFT) * BETA, GAMMA)
-        const vG = G < THRESHOLD ? R * ALPHA : Math.pow((G + SHIFT) * BETA, GAMMA)
-        const vB = B < THRESHOLD ? R * ALPHA : Math.pow((B + SHIFT) * BETA, GAMMA)
+        const vR =
+            R < THRESHOLD ? R * ALPHA : Math.pow((R + SHIFT) * BETA, GAMMA)
+        const vG =
+            G < THRESHOLD ? R * ALPHA : Math.pow((G + SHIFT) * BETA, GAMMA)
+        const vB =
+            B < THRESHOLD ? R * ALPHA : Math.pow((B + SHIFT) * BETA, GAMMA)
         const cR = 0.2126
         const cG = 0.7152
         const cB = 0.0722
-        return (cR * vR) + (cG * vG) + (cB * vB)
+        return cR * vR + cG * vG + cB * vB
     }
 
     /**
@@ -436,9 +480,10 @@ export default class Color {
         } else {
             this.S = delta / (1 - Math.abs(this.L + this.L - 1))
             if (max === R) {
-                this.H = G >= B ?
-                    INV_6 * ((G - B) / delta) :
-                    INV_6 * ((B - G) / delta)
+                this.H =
+                    G >= B
+                        ? INV_6 * ((G - B) / delta)
+                        : INV_6 * ((B - G) / delta)
             } else if (max === G) {
                 this.H = INV_6 * (VAL_2 + (B - R) / delta)
             } else {
@@ -448,9 +493,10 @@ export default class Color {
     }
 
     public stringify() {
-        let color = hexa2(this.R * MAX_BYTE_VALUE)
-            + hexa2(this.G * MAX_BYTE_VALUE)
-            + hexa2(this.B * MAX_BYTE_VALUE)
+        let color =
+            hexa2(this.R * MAX_BYTE_VALUE) +
+            hexa2(this.G * MAX_BYTE_VALUE) +
+            hexa2(this.B * MAX_BYTE_VALUE)
         if (this.A < 1) {
             color += hexa2(this.A * MAX_BYTE_VALUE)
         }
@@ -473,8 +519,11 @@ export default class Color {
             if (color.length === SIX) {
                 color = color.charAt(0) + color.charAt(TWO) + color.charAt(FOUR)
             } else {
-                color = color.charAt(0) + color.charAt(TWO)
-                    + color.charAt(FOUR) + color.charAt(SIX)
+                color =
+                    color.charAt(0) +
+                    color.charAt(TWO) +
+                    color.charAt(FOUR) +
+                    color.charAt(SIX)
             }
         }
 
@@ -582,7 +631,8 @@ export default class Color {
 }
 
 const RX_RGB = /^RGB[\s(]+([0-9]+)[^0-9]+([0-9]+)[^0-9]+([0-9]+)/
-const RX_RGBA = /^RGBA[\s(]+([0-9]+)[^0-9]+([0-9]+)[^0-9]+([0-9]+)[^0-9.]+([0-9.]+)/
+const RX_RGBA =
+    /^RGBA[\s(]+([0-9]+)[^0-9]+([0-9]+)[^0-9]+([0-9]+)[^0-9.]+([0-9.]+)/
 const RX_HSL = /^HSL[\s(]+([0-9]+)[^0-9]+([0-9]+)[^0-9]+([0-9]+)/
 
 function clamp01(value: number): number {
@@ -592,7 +642,10 @@ function clamp01(value: number): number {
 function hexa2(value: number) {
     // Warning! The EPSILON below is used to get rid of a Javascript miscalculation
     // which was responsible of (new Color("#f40000")).stringify() === "#f30000".
-    let out = Math.min(Math.max(Math.floor(value + EPSILON), 0), MAX_BYTE_VALUE).toString(16)
+    let out = Math.min(
+        Math.max(Math.floor(value + EPSILON), 0),
+        MAX_BYTE_VALUE
+    ).toString(16)
     if (out.length < "FF".length) out = `0${out}`
 
     return out

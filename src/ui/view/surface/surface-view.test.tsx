@@ -5,20 +5,20 @@
 // If a test failed just because you intended to improve the component,
 // just call `jest --updateSnapshot`.
 
-import React from 'react'
-import Renderer from 'react-test-renderer'
-import SurfaceView, { SurfaceViewProps } from './surface-view'
+import React from "react"
+import Renderer from "react-test-renderer"
+import SurfaceView, { SurfaceViewProps } from "./surface-view"
 
 function view(partialProps: Partial<SurfaceViewProps>) {
     const props: SurfaceViewProps = {
         children: [],
-        ...partialProps
+        ...partialProps,
     }
     return Renderer.create(<SurfaceView {...props} />).toJSON()
 }
 
-describe('<SurfaceView/> in ui/view', () => {
-    it('should be consistent with previous snapshot', () => {
+describe("<SurfaceView/> in ui/view", () => {
+    it("should be consistent with previous snapshot", () => {
         expect(view({})).toMatchSnapshot()
     })
 })

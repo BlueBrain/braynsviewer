@@ -24,7 +24,7 @@ export default function ListView(props: ListViewProps) {
                 onChange={setFilter}
             />
             <div className="list">
-                {filteredEntryPoints.map(name => (
+                {filteredEntryPoints.map((name) => (
                     <EntryPointButton
                         key={name}
                         onClick={() => props.onClick(name)}
@@ -54,10 +54,13 @@ function useEntryPoints(
     React.useEffect(() => {
         setLoading(true)
         try {
-            service.listAvailableEntryPoints().then(list => {
-                setEntryPoints(list)
-                setLoading(false)
-            })
+            service
+                .listAvailableEntryPoints()
+                .then((list) => {
+                    setEntryPoints(list)
+                    setLoading(false)
+                })
+                .catch(console.error)
         } catch (ex) {
             setLoading(false)
         }
@@ -69,8 +72,8 @@ function filterEntryPoints(filter: string, entryPoints: string[]): string[] {
     const cleanFilter = filter.trim().toLowerCase()
     if (cleanFilter.length === 0) return entryPoints
 
-    const filters = cleanFilter.split(" ").filter(item => item.length > 0)
-    return entryPoints.filter(item => {
+    const filters = cleanFilter.split(" ").filter((item) => item.length > 0)
+    return entryPoints.filter((item) => {
         const cleanItem = item.toLowerCase()
         for (const filterPart of filters) {
             if (!cleanItem.includes(filterPart)) return false

@@ -34,7 +34,9 @@ div.ui-view-ButtonView.flat > button:hover {
 div.ui-view-ButtonView.outline > button {
     background-color: transparent;
     color: var(--theme-color-primary);
-    box-shadow: 0 0 0 0.25rem currentcolor inset, var(--theme-shadow-button);
+    box-shadow:
+        0 0 0 0.25rem currentcolor inset,
+        var(--theme-shadow-button);
 }
 
 div.ui-view-ButtonView > button > svg {

@@ -25,11 +25,11 @@ export default function BraynsAddressInputView(
                 value={value}
                 wide={true}
                 label="Brayns service host and port"
-                onChange={v => {
+                onChange={(v) => {
                     setValue(v)
                     setValid(isValid(v))
                 }}
-                onEnterPressed={v => {
+                onEnterPressed={(v) => {
                     if (isValid(v)) props.onClick(makeAddress(v))
                 }}
             />
@@ -46,7 +46,7 @@ function makeAddress(value: string): BraynsAddress {
     const [host, port] = value.split(":")
     return {
         host,
-        port: parseInt(port, 10)
+        port: parseInt(port, 10),
     }
 }
 

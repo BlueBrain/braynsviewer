@@ -1,0 +1,1952 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s]+">
+      
+      <link rel="shortcut icon" href="">
+      <meta name="generator" content="mkdocs-5.2.2, mkdocs-material-4.4.2">
+    
+<meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+<!-- Generator banner -->
+<meta name="generator" content="sphinx-5.2.2" />
+
+    
+      
+        <title>service - Brayns</title>
+      
+    
+    
+
+      <link rel="stylesheet" href="../_static/stylesheets/application.4031d38b.css">
+      
+        <link rel="stylesheet" href="../_static/stylesheets/application-palette.3e3d1dff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#2196f3">
+      
+    
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/stylesheets/theme.css" />
+
+    
+      <script src="../_static/javascripts/modernizr.74668098.js"></script>
+    
+    
+
+    <link rel="stylesheet" href="../_static/fonts/material-icons.css">
+    
+    
+    
+
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#classes" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      
+
+<!-- Application header -->
+<header class="md-header" data-md-component="header">
+
+  <!-- Top-level navigation -->
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+
+      <!-- Link to home -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.epfl.ch/"
+            title="Brayns"
+            class="md-header-nav__button md-logo">
+          
+            <img src="../_static/images/epfl-logo-new.svg" width="24" height="24" />
+          
+        </a>
+      </div>
+
+      <!-- Button to toggle drawer -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button"
+            for="__drawer"></label>
+      </div>
+
+      
+      <!-- Home button to ecosystem -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div id="homeBtnContainer" class="documentation-homepage-icon">
+          <!-- this href will be overwritten by utils.js -->
+          <a href="#" id="homepageLink">
+            <i class="fa fa-home"></i>
+          </a>
+        </div>
+      </div>
+      
+
+      <!-- Header title -->
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title"
+            data-md-component="title">
+          
+          
+          <span class="md-header-nav__topic">
+            <a href="../index.html"
+                title="Brayns">
+            <span class="md-header-nav__prefix">
+            Blue Brain</span> &ndash;
+            Brayns<span class="md-header-nav__version">
+            2.0.0</span></a>
+          </span>
+          <span class="md-header-nav__topic">
+            <a href="" title="service">
+            <span class="md-header-nav__prefix">
+            Blue Brain</span> &ndash;
+            Brayns &ndash;
+            service<span class="md-header-nav__version">
+            2.0.0</span></a>
+          </span>
+        
+        
+        </div>
+      </div>
+
+      <!-- Button to open search dialogue -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button"
+              for="__search"></label>
+
+          <!-- Search interface -->
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+
+      <!-- Repository containing source -->
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.epfl.ch/" title="Brayns" class="md-nav__button md-logo">
+      
+        <img src="../_static/images/epfl-logo-new.svg" width="48" height="48">
+      
+    </a>
+    Brayns
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../index.html" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../install.html" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Usage
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Usage
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage_launchbraynsbackend.html" title="Running a Brayns backend service" class="md-nav__link">
+      Running a Brayns backend service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage_usepythonapi.html" title="Using Brayns Python API" class="md-nav__link">
+      Using Brayns Python API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage_usejsonrpcapi.html" title="Using Brayns JSON-RPC API" class="md-nav__link">
+      Using Brayns JSON-RPC API
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../plugins.html" title="Brayns plugins" class="md-nav__link">
+      Brayns plugins
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_connector.html" title="Connection to a running backend instance" class="md-nav__link">
+      Connection to a running backend instance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_loader.html" title="Load a model" class="md-nav__link">
+      Load a model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_snapshot.html" title="Take a snapshot" class="md-nav__link">
+      Take a snapshot
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_exporter.html" title="Export frames" class="md-nav__link">
+      Export frames
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_movie.html" title="Make a movie from exported frames" class="md-nav__link">
+      Make a movie from exported frames
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../examples_service.html" title="Launch Brayns backend from Python" class="md-nav__link">
+      Launch Brayns backend from Python
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      JSON-RPC API reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        JSON-RPC API reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jsonrpcapi/api_atlasexplorer_methods.html" title="Atlas Explorer API methods" class="md-nav__link">
+      Atlas Explorer API methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jsonrpcapi/api_circuitinfo_methods.html" title="Circuit Info API methods" class="md-nav__link">
+      Circuit Info API methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jsonrpcapi/api_circuitexplorer_methods.html" title="Circuit Explorer API methods" class="md-nav__link">
+      Circuit Explorer API methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jsonrpcapi/api_core_methods.html" title="Core API methods" class="md-nav__link">
+      Core API methods
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
+    
+    <label class="md-nav__link" for="nav-7">
+      Python API reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Python API reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="core.html" title="core" class="md-nav__link">
+      core
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="movie.html" title="movie" class="md-nav__link">
+      movie
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="network.html" title="network" class="md-nav__link">
+      network
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="plugins.html" title="plugins" class="md-nav__link">
+      plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        service
+      </label>
+    
+    <a href="#" title="service" class="md-nav__link md-nav__link--active">
+      service
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loglevel" class="md-nav__link">
+    LogLevel
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.log_level.LogLevel" class="md-nav__link">
+    LogLevel
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.log_level.LogLevel.CRITICAL" class="md-nav__link">
+    LogLevel.CRITICAL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.log_level.LogLevel.DEBUG" class="md-nav__link">
+    LogLevel.DEBUG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.log_level.LogLevel.ERROR" class="md-nav__link">
+    LogLevel.ERROR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.log_level.LogLevel.INFO" class="md-nav__link">
+    LogLevel.INFO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.log_level.LogLevel.OFF" class="md-nav__link">
+    LogLevel.OFF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.log_level.LogLevel.TRACE" class="md-nav__link">
+    LogLevel.TRACE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.log_level.LogLevel.WARN" class="md-nav__link">
+    LogLevel.WARN
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manager" class="md-nav__link">
+    Manager
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.manager.Manager" class="md-nav__link">
+    Manager
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.manager.Manager.instance" class="md-nav__link">
+    Manager.instance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.manager.Manager.process" class="md-nav__link">
+    Manager.process
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.manager.Manager.stop" class="md-nav__link">
+    Manager.stop()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugin" class="md-nav__link">
+    Plugin
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.plugin.Plugin" class="md-nav__link">
+    Plugin
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.plugin.Plugin.ATLAS_EXPLORER" class="md-nav__link">
+    Plugin.ATLAS_EXPLORER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.plugin.Plugin.CIRCUIT_EXPLORER" class="md-nav__link">
+    Plugin.CIRCUIT_EXPLORER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.plugin.Plugin.CYLINDRIC_CAMERA" class="md-nav__link">
+    Plugin.CYLINDRIC_CAMERA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.plugin.Plugin.DTI" class="md-nav__link">
+    Plugin.DTI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.plugin.Plugin.all" class="md-nav__link">
+    Plugin.all
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process" class="md-nav__link">
+    Process
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.process.Process" class="md-nav__link">
+    Process
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.process.Process.alive" class="md-nav__link">
+    Process.alive
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.process.Process.logs" class="md-nav__link">
+    Process.logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.process.Process.stop" class="md-nav__link">
+    Process.stop()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id1" class="md-nav__link">
+    Service
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.service.Service" class="md-nav__link">
+    Service
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.service.Service.env" class="md-nav__link">
+    Service.env
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.service.Service.executable" class="md-nav__link">
+    Service.executable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.service.Service.get_command_line" class="md-nav__link">
+    Service.get_command_line()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.service.Service.log_level" class="md-nav__link">
+    Service.log_level
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.service.Service.plugins" class="md-nav__link">
+    Service.plugins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.service.Service.ssl_context" class="md-nav__link">
+    Service.ssl_context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.service.Service.start" class="md-nav__link">
+    Service.start()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.service.Service.uri" class="md-nav__link">
+    Service.uri
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sslservercontext" class="md-nav__link">
+    SslServerContext
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.ssl_server_context.SslServerContext" class="md-nav__link">
+    SslServerContext
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.ssl_server_context.SslServerContext.ca_location" class="md-nav__link">
+    SslServerContext.ca_location
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.ssl_server_context.SslServerContext.certificate_file" class="md-nav__link">
+    SslServerContext.certificate_file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.ssl_server_context.SslServerContext.private_key_file" class="md-nav__link">
+    SslServerContext.private_key_file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.ssl_server_context.SslServerContext.private_key_passphrase" class="md-nav__link">
+    SslServerContext.private_key_passphrase
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start" class="md-nav__link">
+    start
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.start.start" class="md-nav__link">
+    start()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="utils.html" title="utils" class="md-nav__link">
+      utils
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loglevel" class="md-nav__link">
+    LogLevel
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.log_level.LogLevel" class="md-nav__link">
+    LogLevel
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.log_level.LogLevel.CRITICAL" class="md-nav__link">
+    LogLevel.CRITICAL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.log_level.LogLevel.DEBUG" class="md-nav__link">
+    LogLevel.DEBUG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.log_level.LogLevel.ERROR" class="md-nav__link">
+    LogLevel.ERROR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.log_level.LogLevel.INFO" class="md-nav__link">
+    LogLevel.INFO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.log_level.LogLevel.OFF" class="md-nav__link">
+    LogLevel.OFF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.log_level.LogLevel.TRACE" class="md-nav__link">
+    LogLevel.TRACE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.log_level.LogLevel.WARN" class="md-nav__link">
+    LogLevel.WARN
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manager" class="md-nav__link">
+    Manager
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.manager.Manager" class="md-nav__link">
+    Manager
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.manager.Manager.instance" class="md-nav__link">
+    Manager.instance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.manager.Manager.process" class="md-nav__link">
+    Manager.process
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.manager.Manager.stop" class="md-nav__link">
+    Manager.stop()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugin" class="md-nav__link">
+    Plugin
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.plugin.Plugin" class="md-nav__link">
+    Plugin
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.plugin.Plugin.ATLAS_EXPLORER" class="md-nav__link">
+    Plugin.ATLAS_EXPLORER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.plugin.Plugin.CIRCUIT_EXPLORER" class="md-nav__link">
+    Plugin.CIRCUIT_EXPLORER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.plugin.Plugin.CYLINDRIC_CAMERA" class="md-nav__link">
+    Plugin.CYLINDRIC_CAMERA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.plugin.Plugin.DTI" class="md-nav__link">
+    Plugin.DTI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.plugin.Plugin.all" class="md-nav__link">
+    Plugin.all
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process" class="md-nav__link">
+    Process
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.process.Process" class="md-nav__link">
+    Process
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.process.Process.alive" class="md-nav__link">
+    Process.alive
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.process.Process.logs" class="md-nav__link">
+    Process.logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.process.Process.stop" class="md-nav__link">
+    Process.stop()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id1" class="md-nav__link">
+    Service
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.service.Service" class="md-nav__link">
+    Service
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.service.Service.env" class="md-nav__link">
+    Service.env
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.service.Service.executable" class="md-nav__link">
+    Service.executable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.service.Service.get_command_line" class="md-nav__link">
+    Service.get_command_line()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.service.Service.log_level" class="md-nav__link">
+    Service.log_level
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.service.Service.plugins" class="md-nav__link">
+    Service.plugins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.service.Service.ssl_context" class="md-nav__link">
+    Service.ssl_context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.service.Service.start" class="md-nav__link">
+    Service.start()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.service.Service.uri" class="md-nav__link">
+    Service.uri
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sslservercontext" class="md-nav__link">
+    SslServerContext
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.ssl_server_context.SslServerContext" class="md-nav__link">
+    SslServerContext
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.ssl_server_context.SslServerContext.ca_location" class="md-nav__link">
+    SslServerContext.ca_location
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.ssl_server_context.SslServerContext.certificate_file" class="md-nav__link">
+    SslServerContext.certificate_file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.ssl_server_context.SslServerContext.private_key_file" class="md-nav__link">
+    SslServerContext.private_key_file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.ssl_server_context.SslServerContext.private_key_passphrase" class="md-nav__link">
+    SslServerContext.private_key_passphrase
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start" class="md-nav__link">
+    start
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brayns.service.start.start" class="md-nav__link">
+    start()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <section id="service">
+<h1>service<a class="headerlink" href="#service" title="Permalink to this heading">¶</a></h1>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.service"></span><p>Subpackage start braynsService as a subprocess from Python.</p>
+<p>Provides mainly helpers to generate the command line.</p>
+</div>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h2>
+<section id="loglevel">
+<h3>LogLevel<a class="headerlink" href="#loglevel" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.service.log_level"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.service.log_level.LogLevel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LogLevel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.service.log_level.LogLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Server (braynsService backend) log level.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.service.log_level.LogLevel.CRITICAL">
+<span class="sig-name descname"><span class="pre">CRITICAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'critical'</span></em><a class="headerlink" href="#brayns.service.log_level.LogLevel.CRITICAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.service.log_level.LogLevel.DEBUG">
+<span class="sig-name descname"><span class="pre">DEBUG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'debug'</span></em><a class="headerlink" href="#brayns.service.log_level.LogLevel.DEBUG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.service.log_level.LogLevel.ERROR">
+<span class="sig-name descname"><span class="pre">ERROR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'error'</span></em><a class="headerlink" href="#brayns.service.log_level.LogLevel.ERROR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.service.log_level.LogLevel.INFO">
+<span class="sig-name descname"><span class="pre">INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'info'</span></em><a class="headerlink" href="#brayns.service.log_level.LogLevel.INFO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.service.log_level.LogLevel.OFF">
+<span class="sig-name descname"><span class="pre">OFF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'off'</span></em><a class="headerlink" href="#brayns.service.log_level.LogLevel.OFF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.service.log_level.LogLevel.TRACE">
+<span class="sig-name descname"><span class="pre">TRACE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'trace'</span></em><a class="headerlink" href="#brayns.service.log_level.LogLevel.TRACE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.service.log_level.LogLevel.WARN">
+<span class="sig-name descname"><span class="pre">WARN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'warn'</span></em><a class="headerlink" href="#brayns.service.log_level.LogLevel.WARN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+<section id="manager">
+<h3>Manager<a class="headerlink" href="#manager" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.service.manager"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.service.manager.Manager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Manager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">process</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#brayns.service.process.Process" title="brayns.service.process.Process"><span class="pre">Process</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="network.html#brayns.network.instance.Instance" title="brayns.network.instance.Instance"><span class="pre">Instance</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.service.manager.Manager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<p>Wrapper to manage a <code class="docutils literal notranslate"><span class="pre">Process</span></code> connected to an <code class="docutils literal notranslate"><span class="pre">Instance</span></code>.</p>
+<p>Contains a process running braynService and an instance connected to it.</p>
+<p>Once done with this object, <code class="docutils literal notranslate"><span class="pre">stop()</span></code> must be called to disconnect the
+instance and kill the process, using the context manager or by hand.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>process</strong> (<a class="reference internal" href="#brayns.service.process.Process" title="brayns.service.process.Process"><em>Process</em></a>) – Process running braynsService.</p></li>
+<li><p><strong>instance</strong> (<a class="reference internal" href="network.html#brayns.network.instance.Instance" title="brayns.network.instance.Instance"><em>Instance</em></a>) – Instance connected to <code class="docutils literal notranslate"><span class="pre">process</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Create new instance of Manager(process, instance)</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.service.manager.Manager.instance">
+<span class="sig-name descname"><span class="pre">instance</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="network.html#brayns.network.instance.Instance" title="brayns.network.instance.Instance"><span class="pre">Instance</span></a></em><a class="headerlink" href="#brayns.service.manager.Manager.instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.service.manager.Manager.process">
+<span class="sig-name descname"><span class="pre">process</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.service.process.Process" title="brayns.service.process.Process"><span class="pre">Process</span></a></em><a class="headerlink" href="#brayns.service.manager.Manager.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.service.manager.Manager.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#brayns.service.manager.Manager.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disconnect the instance and kill the process.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+<section id="plugin">
+<h3>Plugin<a class="headerlink" href="#plugin" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.service.plugin"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.service.plugin.Plugin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Plugin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.service.plugin.Plugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>All built-in plugins for braynsService.</p>
+<p>Plugins are loaded when the backend instance is started and cannot be
+changed afterward.</p>
+<p>The value is the name of the plugin dynamic library (.so).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.service.plugin.Plugin.ATLAS_EXPLORER">
+<span class="sig-name descname"><span class="pre">ATLAS_EXPLORER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'braynsAtlasExplorer'</span></em><a class="headerlink" href="#brayns.service.plugin.Plugin.ATLAS_EXPLORER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.service.plugin.Plugin.CIRCUIT_EXPLORER">
+<span class="sig-name descname"><span class="pre">CIRCUIT_EXPLORER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'braynsCircuitExplorer'</span></em><a class="headerlink" href="#brayns.service.plugin.Plugin.CIRCUIT_EXPLORER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.service.plugin.Plugin.CYLINDRIC_CAMERA">
+<span class="sig-name descname"><span class="pre">CYLINDRIC_CAMERA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'braynsCylindricCamera'</span></em><a class="headerlink" href="#brayns.service.plugin.Plugin.CYLINDRIC_CAMERA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.service.plugin.Plugin.DTI">
+<span class="sig-name descname"><span class="pre">DTI</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'braynsDTI'</span></em><a class="headerlink" href="#brayns.service.plugin.Plugin.DTI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.service.plugin.Plugin.all">
+<em class="property"><span class="pre">class</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">all</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#brayns.service.plugin.Plugin.all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shortcut to get all the plugin names.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+<section id="process">
+<h3>Process<a class="headerlink" href="#process" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.service.process"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.service.process.Process">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.service.process.Process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Process running a braynsService backend.</p>
+<p>The process must be stopped using terminate() once done with it, otherwise
+it will run forever. Use context manager (ie with process: …) to avoid
+mistakes.</p>
+<p>The last lines of the process logs can be retreived using <code class="docutils literal notranslate"><span class="pre">logs</span></code>.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.service.process.Process.alive">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">alive</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#brayns.service.process.Process.alive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the process is still running.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="brayns.service.process.Process.logs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">logs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#brayns.service.process.Process.logs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the last logs (stdout + stderr) from the process.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.service.process.Process.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#brayns.service.process.Process.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop the backend service by terminating the process.</p>
+<p>Must be called through the context manager (i.e. ‘with’) or manually to
+avoid the process to run forever.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+<section id="id1">
+<h3>Service<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.service.service"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.service.service.Service">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Service</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uri:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ssl_context:</span> <span class="pre">~typing.Optional[~brayns.service.ssl_server_context.SslServerContext]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level:</span> <span class="pre">~brayns.service.log_level.LogLevel</span> <span class="pre">=</span> <span class="pre">LogLevel.WARN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plugins:</span> <span class="pre">list[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">executable:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'braynsService'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env:</span> <span class="pre">dict[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.service.service.Service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class used to start a braynsService subprocess.</p>
+<p>Use a braynsService executable to start a subprocess. By default it looks
+for a ‘braynsService’ binary in the PATH but it can be changed.</p>
+<p>URI is the websocket server URI (ip:port). Use 0.0.0.0 as wildcard to allow
+connections from any machine.</p>
+<p>SSL server settings can be specified using optional certificate, key, CA and
+password.</p>
+<p>The backend log level can also be specified using <code class="docutils literal notranslate"><span class="pre">log_level</span></code>.</p>
+<p>Custom environment variables can also be set for the subprocess, for example
+to override the PATH and load specific libraries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>uri</strong> (<em>str</em>) – Service URI with format ‘host:port’.</p></li>
+<li><p><strong>ssl_context</strong> (<a class="reference internal" href="#brayns.service.ssl_server_context.SslServerContext" title="brayns.service.ssl_server_context.SslServerContext"><em>SslServerContext</em></a><em> | </em><em>None</em><em>, </em><em>optional</em>) – SSL context if secure, defaults to None.</p></li>
+<li><p><strong>log_level</strong> (<a class="reference internal" href="#brayns.service.log_level.LogLevel" title="brayns.service.log_level.LogLevel"><em>LogLevel</em></a><em>, </em><em>optional</em>) – Process log level, defaults to LogLevel.WARN.</p></li>
+<li><p><strong>plugins</strong> (<em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Plugins to load, defaults to all built-in plugins.</p></li>
+<li><p><strong>executable</strong> (<em>str</em><em>, </em><em>optional</em>) – braynsService executable, defaults to ‘braynService’.</p></li>
+<li><p><strong>env</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em><em>, </em><em>optional</em>) – Subprocess environment variables, default to empty.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.service.service.Service.env">
+<span class="sig-name descname"><span class="pre">env</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#brayns.service.service.Service.env" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.service.service.Service.executable">
+<span class="sig-name descname"><span class="pre">executable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'braynsService'</span></em><a class="headerlink" href="#brayns.service.service.Service.executable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.service.service.Service.get_command_line">
+<span class="sig-name descname"><span class="pre">get_command_line</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#brayns.service.service.Service.get_command_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the command line to start braynsService.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Command line arguments.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.service.service.Service.log_level">
+<span class="sig-name descname"><span class="pre">log_level</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.service.log_level.LogLevel" title="brayns.service.log_level.LogLevel"><span class="pre">LogLevel</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'warn'</span></em><a class="headerlink" href="#brayns.service.service.Service.log_level" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.service.service.Service.plugins">
+<span class="sig-name descname"><span class="pre">plugins</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#brayns.service.service.Service.plugins" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.service.service.Service.ssl_context">
+<span class="sig-name descname"><span class="pre">ssl_context</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#brayns.service.ssl_server_context.SslServerContext" title="brayns.service.ssl_server_context.SslServerContext"><span class="pre">brayns.service.ssl_server_context.SslServerContext</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#brayns.service.service.Service.ssl_context" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="brayns.service.service.Service.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#brayns.service.process.Process" title="brayns.service.process.Process"><span class="pre">Process</span></a></span></span><a class="headerlink" href="#brayns.service.service.Service.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start a new process for a braynsService backend.</p>
+<p>Return the process which runs the service.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Service process.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#brayns.service.process.Process" title="brayns.service.process.Process">Process</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.service.service.Service.uri">
+<span class="sig-name descname"><span class="pre">uri</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#brayns.service.service.Service.uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+<section id="sslservercontext">
+<h3>SslServerContext<a class="headerlink" href="#sslservercontext" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.service.ssl_server_context"></span><dl class="py class">
+<dt class="sig sig-object py" id="brayns.service.ssl_server_context.SslServerContext">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SslServerContext</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">private_key_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">private_key_passphrase</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">certificate_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ca_location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#brayns.service.ssl_server_context.SslServerContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Server SSL context.</p>
+<p>Can be used to start a braynsService instance with SSL enabled. Optional
+parameters such as the server private key, certificate and trusted CAs can
+be specified here.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.service.ssl_server_context.SslServerContext.ca_location">
+<span class="sig-name descname"><span class="pre">ca_location</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#brayns.service.ssl_server_context.SslServerContext.ca_location" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.service.ssl_server_context.SslServerContext.certificate_file">
+<span class="sig-name descname"><span class="pre">certificate_file</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#brayns.service.ssl_server_context.SslServerContext.certificate_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.service.ssl_server_context.SslServerContext.private_key_file">
+<span class="sig-name descname"><span class="pre">private_key_file</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#brayns.service.ssl_server_context.SslServerContext.private_key_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="brayns.service.ssl_server_context.SslServerContext.private_key_passphrase">
+<span class="sig-name descname"><span class="pre">private_key_passphrase</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#brayns.service.ssl_server_context.SslServerContext.private_key_passphrase" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h2>
+<section id="start">
+<h3>start<a class="headerlink" href="#start" title="Permalink to this heading">¶</a></h3>
+<div class="autodoc-output docutils container">
+<span class="target" id="module-brayns.service.start"></span><dl class="py function">
+<dt class="sig sig-object py" id="brayns.service.start.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#brayns.service.service.Service" title="brayns.service.service.Service"><span class="pre">Service</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">connector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="network.html#brayns.network.connector.Connector" title="brayns.network.connector.Connector"><span class="pre">Connector</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#brayns.service.manager.Manager" title="brayns.service.manager.Manager"><span class="pre">Manager</span></a></span></span><a class="headerlink" href="#brayns.service.start.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start a braynsService instance and connect to it.</p>
+<p>Returns the service process and the connected instance (see <code class="docutils literal notranslate"><span class="pre">Manager</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> (<a class="reference internal" href="#brayns.service.service.Service" title="brayns.service.service.Service"><em>Service</em></a>) – Service specifications.</p></li>
+<li><p><strong>connector</strong> (<a class="reference internal" href="network.html#brayns.network.connector.Connector" title="brayns.network.connector.Connector"><em>Connector</em></a>) – Connection specifications.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Running process and connected instance.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#brayns.service.manager.Manager" title="brayns.service.manager.Manager">Manager</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</section>
+</section>
+</section>
+
+                
+  
+
+              
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+
+        <!-- Link to previous page -->
+        
+          <a href="plugins.html"
+              title="plugins"
+              class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+              rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back
+                    md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                plugins
+              </span>
+            </div>
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          <a href="utils.html"
+              title="utils"
+              class="md-flex md-footer-nav__link md-footer-nav__link--next"
+              rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                utils
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward
+                    md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+      
+        
+          
+          <div class="md-footer-copyright__company">
+            Blue Brain Project
+          </div>
+          
+          
+          <div class="md-footer-copyright__address__title">
+            Address
+          </div>
+          <div class="md-footer-copyright__address">
+            EPFL/Campus Biotech<br>Chemin des Mines 9,<br>CH-1202 Geneva<br>Switzerland
+          </div>
+          
+        
+        
+          <div class="md-footer-copyright__highlight">
+            &copy; Blue Brain Project/EPFL 2005-2022. All rights reserved.
+          </div>
+        
+        
+      </div>
+      
+
+      <!-- Social links -->
+      
+
+<!-- Social links in footer -->
+
+  <div class="md-footer-social">
+    <link rel="stylesheet" type="text/css"
+        href="../_static/fonts/font-awesome.css" />
+    
+    
+    <div class="md-footer-social__title">Follow the Blue Brain</div>
+    
+    
+    
+      <a href="https://www.linkedin.com/showcase/blue-brain-project/" class="md-footer-social__link
+            fa fa-linkedin-square"></a>
+    
+      <a href="https://twitter.com/bluebrainpjt?lang=en" class="md-footer-social__link
+            fa fa-twitter-square"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+<script src="../_static/javascripts/theme.js"></script>
+<script src="../_static/javascripts/utils.js"></script>
+
+      <script src="../_static/javascripts/application.718059d6.js"></script>
+      
+      <script>app.initialize({version:"5.2.2",url:{base:"../_static"}})</script>
+      
+    
+
+  </body>
+</html>

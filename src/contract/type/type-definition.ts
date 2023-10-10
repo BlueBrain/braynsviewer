@@ -9,7 +9,7 @@ export type TypeDef =
     | TypeAnyOfDef
 
 export interface BasicTypeDef {
-    type: "string" | "number" | "boolean" | "null"
+    type: "string" | "number" | "boolean" | "null" | "undefined"
 }
 
 interface EnumValue<T> {

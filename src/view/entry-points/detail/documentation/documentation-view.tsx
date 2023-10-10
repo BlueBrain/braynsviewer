@@ -1,5 +1,5 @@
 import EntryPointsServiceInterface, {
-    EntryPointSchema
+    EntryPointSchema,
 } from "@/contract/service/entry-points"
 import Modal from "@/ui/modal"
 import Expand from "@/ui/view/expand"
@@ -18,26 +18,7 @@ export default function DocumentationView(props: DocumentationViewProps) {
     const { service, entryPointName } = props
     const [schema, setSchema] = React.useState<null | EntryPointSchema>(null)
     const [expanded, setExpanded] = React.useState(false)
-    React.useEffect(() => {
-        if (!entryPointName) return
-        const asyncFunction = async () => {
-            try {
-                setSchema(await service.getEntryPointSchema(entryPointName))
-            } catch (ex) {
-                console.error(ex)
-                Modal.error(
-                    <div>
-                        <b>
-                            Unable to get schema for entry point{" "}
-                            <code>{entryPointName}</code>
-                        </b>
-                        <pre>{`${ex}`}</pre>
-                    </div>
-                )
-            }
-        }
-        asyncFunction()
-    }, [service, entryPointName])
+    useEntryPointSchema(entryPointName, setSchema, service)
     return (
         <div className={getClassNames(props)}>
             {schema && (
@@ -52,7 +33,7 @@ export default function DocumentationView(props: DocumentationViewProps) {
                     <h2>Input</h2>
                     <ParamsDocumentation params={schema.params} />
                     <h2>Output</h2>
-                    <ParamsDocumentation params={[schema.result]} />
+                    <ParamsDocumentation params={schema.result} />
                     <Expand
                         className="technical-view theme-color-section"
                         label="Schema in JSON format"
@@ -66,6 +47,33 @@ export default function DocumentationView(props: DocumentationViewProps) {
             )}
         </div>
     )
+}
+
+function useEntryPointSchema(
+    entryPointName: string,
+    setSchema: React.Dispatch<React.SetStateAction<EntryPointSchema | null>>,
+    service: EntryPointsServiceInterface
+) {
+    React.useEffect(() => {
+        if (!entryPointName) return
+        const asyncFunction = async () => {
+            try {
+                setSchema(await service.getEntryPointSchema(entryPointName))
+            } catch (ex) {
+                console.error(ex)
+                void Modal.error(
+                    <div>
+                        <b>
+                            Unable to get schema for entry point{" "}
+                            <code>{entryPointName}</code>
+                        </b>
+                        <pre>{`${ex}`}</pre>
+                    </div>
+                )
+            }
+        }
+        void asyncFunction()
+    }, [service, entryPointName, setSchema])
 }
 
 function getClassNames(props: DocumentationViewProps): string {

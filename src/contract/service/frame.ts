@@ -13,7 +13,7 @@ export default interface FrameServiceInterface {
      * @param quality 0 (worst) to 1 (best).
      */
     setCompressionQuality(quality: number): Promise<void>
-    
+
     takeSnapshot(options: SnapshotOptions): Promise<HTMLImageElement>
 }
 

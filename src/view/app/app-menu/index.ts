@@ -1,1 +1,1 @@
-export { default } from './app-menu-view'
+export { default } from "./app-menu-view"

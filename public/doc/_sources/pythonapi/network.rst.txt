@@ -1,0 +1,116 @@
+network
+=======
+
+.. automodule:: brayns.network
+
+Classes
+-------
+
+ConnectionClosedError
+~~~~~~~~~~~~~~~~~~~~~
+
+.. automodule:: brayns.network.websocket.exceptions.connection_closed_error
+    :members: ConnectionClosedError
+    :undoc-members:
+    :show-inheritance:
+
+Connector
+~~~~~~~~~
+
+.. automodule:: brayns.network.connector
+    :members: Connector
+    :undoc-members:
+    :show-inheritance:
+
+Instance
+~~~~~~~~
+
+.. automodule:: brayns.network.instance
+    :members: Instance
+    :undoc-members:
+    :show-inheritance:
+
+InvalidServerCertificateError
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. automodule:: brayns.network.websocket.exceptions.invalid_server_certificate_error
+    :members: InvalidServerCertificateError
+    :undoc-members:
+    :show-inheritance:
+
+Logger
+~~~~~~
+
+.. automodule:: brayns.network.logger
+    :members: Logger
+    :undoc-members:
+    :show-inheritance:
+
+ProtocolError
+~~~~~~~~~~~~~
+
+.. automodule:: brayns.network.websocket.exceptions.protocol_error
+    :members: ProtocolError
+    :undoc-members:
+    :show-inheritance:
+
+Request
+~~~~~~~
+
+.. automodule:: brayns.network.jsonrpc.messages.request
+    :members: Request
+    :undoc-members:
+    :show-inheritance:
+
+RequestError
+~~~~~~~~~~~~
+
+.. automodule:: brayns.network.jsonrpc.messages.request_error
+    :members: RequestError
+    :undoc-members:
+    :show-inheritance:
+
+RequestFuture
+~~~~~~~~~~~~~
+
+.. automodule:: brayns.network.jsonrpc.request_future
+    :members: RequestFuture
+    :undoc-members:
+    :show-inheritance:
+
+RequestProgress
+~~~~~~~~~~~~~~~
+
+.. automodule:: brayns.network.jsonrpc.messages.request_progress
+    :members: RequestProgress
+    :undoc-members:
+    :show-inheritance:
+
+ServiceUnavailableError
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. automodule:: brayns.network.websocket.exceptions.service_unavailable_error
+    :members: ServiceUnavailableError
+    :undoc-members:
+    :show-inheritance:
+
+SslClientContext
+~~~~~~~~~~~~~~~~
+
+.. automodule:: brayns.network.websocket.ssl_client_context
+    :members: SslClientContext
+    :undoc-members:
+    :show-inheritance:
+
+WebSocketError
+~~~~~~~~~~~~~~
+
+.. automodule:: brayns.network.websocket.exceptions.web_socket_error
+    :members: WebSocketError
+    :undoc-members:
+    :show-inheritance:
+
+Functions
+---------
+
+None

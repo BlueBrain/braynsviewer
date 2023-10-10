@@ -5,22 +5,9 @@ import Dialog from "../view/dialog"
 import { ColorName } from "../view/types"
 import "./modal.css"
 
-
 export interface ModalOptions {
-    align:
-        | ""
-        | "L"
-        | "R"
-        | "T"
-        | "B"
-        | "BL"
-        | "LB"
-        | "BR"
-        | "BL"
-        | "TL"
-        | "LT"
-        | "TR"
-        | "TL"
+    align: "" | "L" | "R" | "T" | "B" | "BL" | "LB" | "BR" | "TL" | "LT" | "TR"
+
     padding: string
     transitionDuration: number
     /**
@@ -85,7 +72,7 @@ export default class Modal {
     }
 
     static async confirm(options: ConfirmOptions): Promise<boolean> {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             const modal = new Modal({
                 autoClosable: true,
                 ...options,
@@ -113,7 +100,7 @@ export default class Modal {
         content: JSX.Element | string,
         options: Partial<ModalOptions> = {}
     ): Promise<void> {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             const modal = new Modal(options)
             const hide = () => {
                 modal.hide()
@@ -136,7 +123,7 @@ export default class Modal {
         content: JSX.Element | string,
         options: Partial<ModalOptions> = {}
     ): Promise<void> {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             const modal = new Modal(options)
             const hide = () => {
                 modal.hide()
@@ -160,7 +147,7 @@ export default class Modal {
         promise: Promise<T>,
         options: Partial<ModalOptions> = {}
     ): Promise<T> {
-        return new Promise(resolve => {
+        return new Promise((resolve, reject) => {
             const modal = new Modal(options)
             modal.show(
                 <div className="ui-Modal-promise-waiter">
@@ -172,7 +159,10 @@ export default class Modal {
                 modal.hide()
                 resolve(arg)
             }
-            promise.then(hide, hide)
+            promise.then(hide, (ex) => {
+                modal.hide()
+                reject(ex)
+            })
         })
     }
 }

@@ -1,12 +1,8 @@
-import { TriggerableEventInterface } from "../../contract/tool/event"
-import SceneServiceInterface, {
-    Model,
-    Scene
-} from "../../contract/service/scene"
-import { BoundingBox, Quaternion, Vector3 } from "../../contract/tool/geometry"
-import BraynsServiceInterface, {
-    BraynsUpdate
-} from "../../contract/service/brayns"
+import BraynsServiceInterface, { BraynsUpdate } from "@/contract/service/brayns"
+import SceneServiceInterface, { Model, Scene } from "@/contract/service/scene"
+import { TriggerableEventInterface } from "@/contract/tool/event"
+import { BoundingBox, Quaternion, Vector3 } from "@/contract/tool/geometry"
+import { isArray, isObject, isVector3, isVector4 } from "@/tool/type-check"
 
 export default class SceneService implements SceneServiceInterface {
     readonly eventChange: TriggerableEventInterface<SceneServiceInterface>
@@ -36,17 +32,22 @@ export default class SceneService implements SceneServiceInterface {
         this.update(data)
         return {
             boundingBox: this._boundingBox,
-            models: this._models
+            models: this._models,
         }
+    }
+
+    async removeModel(modelId: number): Promise<void> {
+        await this.brayns.exec("remove-model", { ids: [modelId] })
+        this.eventChange.trigger(this)
     }
 
     private _models: Model[] = []
     private _boundingBox: BoundingBox = {
         min: [0, 0, 0],
-        max: [1, 1, 1]
+        max: [1, 1, 1],
     }
 
-    private handleBraynsUpdate = (update: BraynsUpdate) => {
+    private readonly handleBraynsUpdate = (update: BraynsUpdate) => {
         if (update.name !== SCENE_UPDATE) return
 
         const data = update.value
@@ -60,7 +61,7 @@ export default class SceneService implements SceneServiceInterface {
 
     private update(data: BraynsScene) {
         this._boundingBox = data.bounds
-        this._models = data.models.map(model => ({
+        this._models = data.models.map((model) => ({
             boundingBox: model.bounds,
             boundingBoxVisible: model.bounding_box,
             id: model.id,
@@ -72,9 +73,9 @@ export default class SceneService implements SceneServiceInterface {
                 orientation: model.transformation.rotation,
                 rotationCenter: model.transformation.rotation_center,
                 scale: model.transformation.scale,
-                translation: model.transformation.translation
+                translation: model.transformation.translation,
             },
-            visible: model.visible
+            visible: model.visible,
         }))
     }
 }
@@ -106,19 +107,20 @@ interface BraynsModelTransformation {
     translation: Vector3
 }
 
-function isBraynsScene(data: any): data is BraynsScene {
-    if (!data || typeof data !== "object") return false
+function isBraynsScene(data: unknown): data is BraynsScene {
+    if (!isObject(data)) return false
+
     const { bounds, models } = data
     if (!isBoundingBox(bounds)) return false
-    if (!Array.isArray(models)) return false
+    if (!isArray(models)) return false
     for (const model of models) {
         if (!isBraynsModel(model)) return false
     }
     return true
 }
 
-function isBraynsModel(data: any): data is BraynsModel {
-    if (!data || typeof data !== "object") return false
+function isBraynsModel(data: unknown): data is BraynsModel {
+    if (!isObject(data)) return false
     const {
         bounding_box,
         bounds,
@@ -128,7 +130,7 @@ function isBraynsModel(data: any): data is BraynsModel {
         name,
         path,
         transformation,
-        visible
+        visible,
     } = data
     if (typeof bounding_box !== "boolean") return false
     if (!isBoundingBox(bounds)) return false
@@ -142,44 +144,25 @@ function isBraynsModel(data: any): data is BraynsModel {
     return true
 }
 
-function isBoundingBox(data: any): data is BoundingBox {
-    if (!data || typeof data !== "object") return false
+function isBoundingBox(data: unknown): data is BoundingBox {
+    if (!isObject(data)) return false
     const { min, max } = data
     if (!isVector3(min)) return false
     if (!isVector3(max)) return false
     return true
 }
 
-function isVector3(data: any): data is Vector3 {
-    if (!Array.isArray(data)) return false
-    const [x, y, z] = data
-    if (typeof x !== "number") return false
-    if (typeof y !== "number") return false
-    if (typeof z !== "number") return false
+function isMetadata(data: unknown): data is { [key: string]: string } {
+    if (!isObject(data)) return false
     return true
 }
 
-function isQuaternion(data: any): data is Vector3 {
-    if (!Array.isArray(data)) return false
-    const [a, b, c, d] = data
-    if (typeof a !== "number") return false
-    if (typeof b !== "number") return false
-    if (typeof c !== "number") return false
-    if (typeof d !== "number") return false
-    return true
-}
-
-function isMetadata(data: any): data is { [key: string]: string } {
-    if (!data || typeof data !== "object") return false
-    return true
-}
-
-function isTransformation(data: any): data is BraynsModelTransformation {
-    if (!data || typeof data !== "object") return false
+function isTransformation(data: unknown): data is BraynsModelTransformation {
+    if (!isObject(data)) return false
     const { rotation, rotation_center, translation, scale } = data
     if (!isVector3(rotation_center)) return false
     if (!isVector3(translation)) return false
     if (!isVector3(scale)) return false
-    if (!isQuaternion(rotation)) return false
+    if (!isVector4(rotation)) return false
     return true
 }

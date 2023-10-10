@@ -8,7 +8,7 @@ import * as React from "react"
  * @param storageKey Key where to store it in local storage.
  */
 export function useLocalStorageState<T>(
-    defaultValue: T | ((value: any) => T),
+    defaultValue: T | ((value: unknown) => T),
     storageKey: string
 ): [value: T, setValue: (value: T) => void] {
     const [value, setValue] = React.useState<T>(
@@ -27,7 +27,7 @@ export function useLocalStorageState<T>(
     ]
 }
 
-function get<T>(key: string, defaultValue: T | ((value: any) => T)): T {
+function get<T>(key: string, defaultValue: T | ((value: unknown) => T)): T {
     const text = window.localStorage.getItem(key)
     let value = null
     try {
@@ -41,6 +41,6 @@ function get<T>(key: string, defaultValue: T | ((value: any) => T)): T {
     return value === null ? defaultValue : value
 }
 
-function isFunction<T>(data: any): data is (value: any) => T {
+function isFunction<T>(data: unknown): data is (value: unknown) => T {
     return typeof data === "function"
 }

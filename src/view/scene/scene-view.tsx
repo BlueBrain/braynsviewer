@@ -1,5 +1,6 @@
 import * as React from "react"
 import Button from "../../ui/view/button"
+import Modal from "@/ui/modal"
 import SceneServiceInterface, { Model } from "../../contract/service/scene"
 import Runnable from "../runnable"
 import ModelButton from "./model-button"
@@ -19,7 +20,6 @@ export default function SceneView(props: SceneViewProps) {
         setRunning(true)
         try {
             const data = await sceneService.getScene()
-            console.log("[scene-view] data = ", data) // @FIXME: Remove this line written on 2021-04-23 at 09:07
             setModels(data.models)
         } catch (ex) {
             console.error(ex)
@@ -28,13 +28,29 @@ export default function SceneView(props: SceneViewProps) {
         }
     }, [sceneService])
     React.useEffect(() => {
-        loadScene()
-        const handleUpdate = () => {
-            setModels(sceneService.models)
-        }
-        sceneService.eventChange.add(handleUpdate)
-        return () => sceneService.eventChange.remove(handleUpdate)
+        const asyncLoadScene = () => void loadScene()
+        asyncLoadScene()
+        sceneService.eventChange.add(asyncLoadScene)
+        return () => sceneService.eventChange.remove(asyncLoadScene)
     }, [loadScene, sceneService])
+    const handleDeleteModel = async (model: Model) => {
+        const confirm = await Modal.confirm({
+            content: (
+                <div>
+                    <p>You are about to delete this model:</p>
+                    <ul>
+                        <li>
+                            <b>{model.name}</b> &nbsp; <span>#{model.id}</span>
+                        </li>
+                        <li>{model.loaderName}</li>
+                    </ul>
+                </div>
+            ),
+        })
+        if (!confirm) return
+
+        void sceneService.removeModel(model.id)
+    }
     return (
         <div className={getClassNames(props)}>
             <Runnable running={running}>
@@ -43,11 +59,17 @@ export default function SceneView(props: SceneViewProps) {
                         Scene: {models.length} model
                         {models.length > 1 ? "s" : ""}
                     </h1>
-                    <Button label="Refresh" onClick={loadScene} />
+                    <Button label="Refresh" onClick={() => void loadScene()} />
                 </header>
                 <div className="models-list">
-                    {models.map(model => (
-                        <ModelButton key={model.id} model={model} />
+                    {models.map((model) => (
+                        <ModelButton
+                            key={model.id}
+                            model={model}
+                            onDelete={(model: Model) =>
+                                void handleDeleteModel(model)
+                            }
+                        />
                     ))}
                 </div>
             </Runnable>

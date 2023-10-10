@@ -1,0 +1,27 @@
+.view-loaders-detail-FieldView {
+    margin: 0 -1rem;
+    padding: 1rem;
+    background-color: var(--theme-color-screen);
+}
+
+.view-loaders-detail-FieldView:nth-child(2n) {
+    background-color: var(--theme-color-section);
+}
+
+.view-loaders-detail-FieldView small {
+    opacity: 0.5;
+    font-size: 0.8em;
+}
+
+.view-loaders-detail-FieldView p {
+    font-size: 80%;
+    opacity: 0.75;
+}
+
+.view-loaders-detail-FieldView > div {
+    margin-bottom: -0.5rem;
+}
+
+.view-loaders-detail-FieldView.boolean > div {
+    margin-bottom: 1rem;
+}

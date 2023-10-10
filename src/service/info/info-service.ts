@@ -1,5 +1,6 @@
+import { isType } from "@/tool/type-check"
 import BraynsServiceInterface, {
-    BraynsUpdate
+    BraynsUpdate,
 } from "../../contract/service/brayns"
 import InfoServiceInterface, { Version } from "../../contract/service/info"
 import { TriggerableEventInterface } from "../../contract/tool/event"
@@ -21,8 +22,11 @@ export default class InfoService implements InfoServiceInterface {
     ) {
         this.eventChange = makeEvent()
         brayns.eventUpdate.add(this.handleBraynsUpdate)
-        brayns.exec(GET_STATISTICS).then(this.updateStatistics)
-        brayns.exec(GET_VERSION).then(this.updateVersion)
+        brayns
+            .exec(GET_STATISTICS)
+            .then(this.updateStatistics)
+            .catch(console.error)
+        brayns.exec(GET_VERSION).then(this.updateVersion).catch(console.error)
     }
 
     get version() {
@@ -37,7 +41,7 @@ export default class InfoService implements InfoServiceInterface {
         return this._memoryUsage
     }
 
-    private updateVersion = (data: any) => {
+    private readonly updateVersion = (data: unknown) => {
         if (!isVersion(data)) {
             console.error("Received bad format when asking for version!", data)
             throw new Error("Bad version format!")
@@ -46,12 +50,12 @@ export default class InfoService implements InfoServiceInterface {
         this.eventChange.trigger(this)
     }
 
-    private handleBraynsUpdate = (update: BraynsUpdate) => {
+    private readonly handleBraynsUpdate = (update: BraynsUpdate) => {
         if (update.name !== STATISTICS_UPDATE) return
         this.updateStatistics(update.value)
     }
 
-    private updateStatistics = (value: any): boolean => {
+    private readonly updateStatistics = (value: unknown): boolean => {
         if (!isStatisticsResult(value)) {
             console.error("Bad format for statistics:", value)
             return false
@@ -70,14 +74,13 @@ const STATISTICS_UPDATE = "set-statistics"
 /**
  * Typecheck for version.
  */
-function isVersion(data: any): data is Version {
-    if (!data || typeof data !== "object") return false
-    const { major, minor, patch, revision } = data
-    if (typeof major !== "number") return false
-    if (typeof minor !== "number") return false
-    if (typeof patch !== "number") return false
-    if (typeof revision !== "string") return false
-    return true
+function isVersion(data: unknown): data is Version {
+    return isType<Version>(data, {
+        major: "number",
+        minor: "number",
+        patch: "number",
+        revision: "string",
+    })
 }
 
 interface StatisticsResult {
@@ -88,10 +91,9 @@ interface StatisticsResult {
 /**
  * Typecheck for statistics.
  */
-function isStatisticsResult(data: any): data is StatisticsResult {
-    if (!data && typeof data !== "object") return false
-    const { fps, scene_size_in_bytes } = data
-    if (typeof fps !== "number") return false
-    if (typeof scene_size_in_bytes !== "number") return false
-    return true
+function isStatisticsResult(data: unknown): data is StatisticsResult {
+    return isType<StatisticsResult>(data, {
+        fps: "number",
+        scene_size_in_bytes: "number",
+    })
 }

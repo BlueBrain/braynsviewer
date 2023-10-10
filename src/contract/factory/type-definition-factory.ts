@@ -1,5 +1,4 @@
-import { TypeDef } from '../type/type-definition'
-
+import { TypeDef } from "../type/type-definition"
 
 export interface TypeDefinitionFactoryInterface {
     /**

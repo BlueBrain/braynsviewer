@@ -3,9 +3,8 @@
  */
 import * as React from "react"
 import IconFactory from "../../factory/icon"
-import { ColorName } from '../types'
+import { ColorName } from "../types"
 import "./floating-button-view.css"
-
 
 export interface FloatingButtonViewProps<Tag> {
     className?: string
@@ -14,7 +13,7 @@ export interface FloatingButtonViewProps<Tag> {
     color?: ColorName
     enabled?: boolean
     tag?: Tag
-    onClick?(tag?: Tag): void
+    onClick?(this: void, tag?: Tag): void
 }
 
 export default function FloatingButtonView<Tag>(
@@ -41,6 +40,6 @@ function getClassNames<Tag>(props: FloatingButtonViewProps<Tag>): string {
     }
     if (small === true) classNames.push("small")
     if (enabled === false) classNames.push("disabled")
-    classNames.push(`theme-color-${color ?? 'primary'}`)
+    classNames.push(`theme-color-${color ?? "primary"}`)
     return classNames.join(" ")
 }

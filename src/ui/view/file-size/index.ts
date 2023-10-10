@@ -1,1 +1,1 @@
-export { default } from './file-size-view'
+export { default } from "./file-size-view"

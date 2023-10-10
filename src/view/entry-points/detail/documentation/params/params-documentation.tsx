@@ -5,30 +5,46 @@ import {
     TypeArrayDef,
     TypeIntegerDef,
     TypeObjectDef,
-    TypeOneOfDef
+    TypeOneOfDef,
 } from "@/contract/type/type-definition"
+import { isObject, isStringArray } from "@/tool/type-check"
 import * as React from "react"
 import "./params-documentation.css"
 
 export interface ParamsDocumentationProps {
     className?: string
-    params: TypeDef[]
+    params: TypeDef
 }
 
 export default function ParamsDocumentation(props: ParamsDocumentationProps) {
     const { params } = props
     return (
         <div className={getClassNames(props)}>
-            {params.map((param, index) => (
-                <div className="param" key={index}>
-                    {renderType(param)}
-                </div>
-            ))}
+            <div className="param">{renderType(params)}</div>
         </div>
     )
 }
 
 function renderType(type: TypeDef): JSX.Element {
+    if (isTypeUndefined(type)) {
+        return (
+            <>
+                <span className="type">UNDEF</span>{" "}
+            </>
+        )
+    }
+    if (isTypeEnum(type)) {
+        return (
+            <>
+                <span className="type">ENUM</span>{" "}
+                <code>
+                    {"{ "}
+                    {type.enum.map((item) => JSON.stringify(item)).join(", ")}
+                    {" }"}
+                </code>
+            </>
+        )
+    }
     if (isTypeInteger(type)) {
         return (
             <>
@@ -66,7 +82,7 @@ function renderType(type: TypeDef): JSX.Element {
                     One among {type.oneOf.length} types
                 </span>
                 <ol>
-                    {type.oneOf.map(item => (
+                    {type.oneOf.map((item) => (
                         <li>
                             {renderTitle(item)}
                             {renderType(item)}
@@ -81,7 +97,7 @@ function renderType(type: TypeDef): JSX.Element {
             <>
                 <span className="type">Any of {type.anyOf.length} types</span>
                 <ol>
-                    {type.anyOf.map(item => (
+                    {type.anyOf.map((item) => (
                         <li>
                             {renderTitle(item)}
                             {renderType(item)}
@@ -97,7 +113,7 @@ function renderType(type: TypeDef): JSX.Element {
             return <span className="type">DICTIONARY</span>
         return (
             <ul>
-                {propertyNames.map(propertyName => {
+                {propertyNames.map((propertyName) => {
                     const property = type.properties[propertyName]
                     return (
                         <li key={propertyName}>
@@ -122,7 +138,7 @@ function renderType(type: TypeDef): JSX.Element {
     if (isTypeVoid(type)) {
         return <span className="type">VOID</span>
     }
-    console.warn("🚀 [params-documentation] Don't know what it is = ", type) // @FIXME: Remove this line written on 2021-09-21 at 16:48
+    console.warn("🚀 [params-documentation] Don't know what it is = ", type)
     return <pre>{JSON.stringify(type)}</pre>
 }
 
@@ -138,18 +154,24 @@ function getClassNames(props: ParamsDocumentationProps): string {
     return classNames.join(" ")
 }
 
-function isObject(data: any): data is { [key: string]: any } {
-    if (Array.isArray(data)) return false
-    return typeof data === "object"
-}
-
-function isTypeInteger(data: any): data is TypeIntegerDef {
+function isTypeInteger(data: unknown): data is TypeIntegerDef {
     if (!isObject(data)) return false
     const { type } = data
     return type === "integer"
 }
 
-function isTypeBasic(data: any): data is BasicTypeDef {
+function isTypeUndefined(data: unknown): data is BasicTypeDef {
+    if (!isObject(data)) return false
+    const { type } = data
+    return type === "undefined"
+}
+
+function isTypeEnum(data: unknown): data is { enum: string[] } {
+    if (!isObject(data)) return false
+    return isStringArray(data.enum)
+}
+
+function isTypeBasic(data: unknown): data is BasicTypeDef {
     if (!isObject(data)) return false
     const { type } = data
     return (
@@ -160,29 +182,29 @@ function isTypeBasic(data: any): data is BasicTypeDef {
     )
 }
 
-function isTypeVoid(data: any): data is TypeDef {
+function isTypeVoid(data: unknown): data is TypeDef {
     if (!isObject(data)) return false
     return Object.keys(data).length === 0
 }
 
-function isTypeObject(data: any): data is TypeObjectDef {
+function isTypeObject(data: unknown): data is TypeObjectDef {
     if (!isObject(data)) return false
     const { type } = data
     return type === "object"
 }
 
-function isTypeArray(data: any): data is TypeArrayDef {
+function isTypeArray(data: unknown): data is TypeArrayDef {
     if (!isObject(data)) return false
     const { type } = data
     return type === "array"
 }
 
-function isTypeOneOf(data: any): data is TypeOneOfDef {
+function isTypeOneOf(data: unknown): data is TypeOneOfDef {
     if (!isObject(data)) return false
     return typeof data.oneOf !== "undefined"
 }
 
-function isTypeAnyOf(data: any): data is TypeAnyOfDef {
+function isTypeAnyOf(data: unknown): data is TypeAnyOfDef {
     if (!isObject(data)) return false
     return typeof data.anyOf !== "undefined"
 }
@@ -201,6 +223,7 @@ function renderIntegerBoundaries(type: TypeIntegerDef) {
 
 function renderTitle(item: TypeDef) {
     if (!isObject(item)) return null
-    const { title } = item as any
-    if (typeof title === 'string') return <span className="desc">{title}</span>
+
+    const { title } = item
+    if (typeof title === "string") return <span className="desc">{title}</span>
 }
