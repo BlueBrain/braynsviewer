@@ -7,6 +7,7 @@ import PythonScriptingView from "../python-scripting"
 import AppMenu from "./app-menu"
 
 import "./app-view.css"
+import CodeFactory from "../code-factory/code-factory"
 
 export interface AppViewProps {
     className?: string
@@ -23,14 +24,6 @@ export default function AppView(props: AppViewProps) {
         <div className={getClassNames(props)}>
             <header className="theme-color-primary-dark theme-shadow-header">
                 <AppMenu className="menu" value={page} onChange={setPage} />
-                {/* <div>
-                    <a
-                        href="https://brayns.readthedocs.io/en/latest/"
-                        target="_doc_"
-                    >
-                        Brayns Documentation
-                    </a>
-                </div> */}
                 <div>
                     <a href="./doc/" target="_doc_">
                         Brayns Documentation
@@ -47,6 +40,7 @@ export default function AppView(props: AppViewProps) {
                         key="entryPoints"
                         service={entryPointsService}
                     />
+                    <CodeFactory key="factory" service={entryPointsService} />
                     <PythonScriptingView key="python" brayns={braynsService} />
                 </Stack>
             </menu>

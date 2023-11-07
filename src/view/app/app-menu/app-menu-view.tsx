@@ -12,6 +12,7 @@ export interface AppMenuViewProps {
 
 const OPTIONS = {
     entryPoints: "API",
+    factory: "Factory",
     python: "Python",
 }
 

@@ -1,3 +1,5 @@
+import { isType } from "@/tool/type-check"
+
 export type TypeDef =
     | BasicTypeDef
     | TypeIntegerDef
@@ -12,6 +14,12 @@ export interface BasicTypeDef {
     type: "string" | "number" | "boolean" | "null" | "undefined"
 }
 
+export function isBasicTypeDef(data: unknown): data is BasicTypeDef {
+    return isType(data, {
+        type: ["literal", "string", "number", "boolean", "null", "undefined"],
+    })
+}
+
 interface EnumValue<T> {
     value: T
     description?: string
@@ -21,6 +29,12 @@ export interface TypeIntegerDef {
     type: "integer"
     minimum?: number
     maximum?: number
+}
+
+export function isTypeIntegerDef(data: unknown): data is TypeIntegerDef {
+    return isType(data, {
+        type: ["literal", "integer"],
+    })
 }
 
 export interface TypeStringEnumDef {
@@ -43,11 +57,23 @@ export interface TypeArrayDef {
     title?: string
 }
 
+export function isTypeArrayDef(data: TypeDef): data is TypeArrayDef {
+    return isType(data, {
+        type: ["literal", "array"],
+    })
+}
+
 export interface TypeObjectDef {
     type: "object"
     properties: { [key: string]: PropertyDef }
     required: string[]
     description: string
+}
+
+export function isTypeObjectDef(data: TypeDef): data is TypeObjectDef {
+    return isType(data, {
+        type: ["literal", "object"],
+    })
 }
 
 export type PropertyDef =

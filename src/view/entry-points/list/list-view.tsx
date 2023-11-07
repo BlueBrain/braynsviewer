@@ -1,8 +1,11 @@
 import * as React from "react"
+
+import { useEntryPoints } from "@/hooks/entry-points"
 import EntryPointsServiceInterface from "../../../contract/service/entry-points"
 import Input from "../../../ui/view/input/text"
 import Runnable from "../../runnable/runnable-view"
 import EntryPointButton from "./entry-point-button"
+
 import "./list-view.css"
 
 export interface ListViewProps {
@@ -12,13 +15,15 @@ export interface ListViewProps {
 }
 
 export default function ListView(props: ListViewProps) {
-    const [loading, entryPoints] = useEntryPoints(props.service)
+    const entryPoints = useEntryPoints(props.service)
     const [filter, setFilter] = React.useState("")
     const filteredEntryPoints: string[] = filterEntryPoints(filter, entryPoints)
     return (
-        <Runnable className={getClassNames(props)} running={loading}>
+        <Runnable className={getClassNames(props)} running={!entryPoints}>
             <Input
-                label={`Filter (${filteredEntryPoints.length} / ${entryPoints.length})`}
+                label={`Filter (${filteredEntryPoints.length} / ${
+                    (entryPoints ?? []).length
+                })`}
                 wide={true}
                 value={filter}
                 onChange={setFilter}
@@ -46,29 +51,12 @@ function getClassNames(props: ListViewProps): string {
     return classNames.join(" ")
 }
 
-function useEntryPoints(
-    service: EntryPointsServiceInterface
-): [loading: boolean, entryPoints: string[]] {
-    const [loading, setLoading] = React.useState(true)
-    const [entryPoints, setEntryPoints] = React.useState<string[]>([])
-    React.useEffect(() => {
-        setLoading(true)
-        try {
-            service
-                .listAvailableEntryPoints()
-                .then((list) => {
-                    setEntryPoints(list)
-                    setLoading(false)
-                })
-                .catch(console.error)
-        } catch (ex) {
-            setLoading(false)
-        }
-    }, [service])
-    return [loading, entryPoints]
-}
+function filterEntryPoints(
+    filter: string,
+    entryPoints: string[] | undefined | null
+): string[] {
+    if (!entryPoints) return []
 
-function filterEntryPoints(filter: string, entryPoints: string[]): string[] {
     const cleanFilter = filter.trim().toLowerCase()
     if (cleanFilter.length === 0) return entryPoints
 

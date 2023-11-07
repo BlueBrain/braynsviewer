@@ -40,11 +40,11 @@ export default class EntryPointsService implements EntryPointsServiceInterface {
             }
             try {
                 const schema: EntryPointSchema = {
-                    spawnAsyncTask: data.async,
+                    spawnAsyncTask: data.async ?? false,
                     description: data.description,
-                    name: data.title,
+                    name: data.title ?? entryPointName,
                     params: sanitizeTypeDef(data.params),
-                    result: sanitizeTypeDef(data.returns),
+                    result: sanitizeTypeDef(data.result ?? data.returns),
                 }
                 EntryPointsService.schemas.set(entryPointName, schema)
                 return schema
@@ -89,24 +89,26 @@ export default class EntryPointsService implements EntryPointsServiceInterface {
 
 function assertSchemaMethod(data: unknown): asserts data is SchemaMethod {
     assertType(data, {
-        async: "boolean",
+        async: ["?", "boolean"],
         description: "string",
-        title: "string",
-        plugin: "string",
+        title: ["?", "string"],
+        plugin: ["?", "string"],
         params: ["?", ["map", "unknown"]],
-        returns: "unknown",
+        returns: ["?", "unknown"],
+        result: ["?", "unknown"],
     })
 }
 
 type SchemaType = SchemaObject
 
 interface SchemaMethod {
-    title: string
-    async: boolean
-    plugin: string
+    title?: string
+    async?: boolean
+    plugin?: string
     description: string
     params: unknown
-    returns: unknown
+    returns?: unknown
+    result?: unknown
 }
 
 interface SchemaObject {

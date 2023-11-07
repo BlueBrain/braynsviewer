@@ -1,19 +1,17 @@
+import JSON5 from "json5"
+import * as React from "react"
+
 import { LoaderPropertyDefinition } from "@/contract/service/loaders"
 import InputFloat from "@/ui/view/input/float"
 import InputInteger from "@/ui/view/input/integer"
 import InputText from "@/ui/view/input/text"
 import Options from "@/ui/view/options"
 import Combo from "@/ui/view/simple-combo"
-import JSON5 from "json5"
-import * as React from "react"
-import {
-    ensureNumber,
-    ensureString,
-    isArray,
-} from "../../../../tool/type-check"
+import { ensureNumber, ensureString, isArray } from "@/tool/type-check"
 import JsonEditorView from "../../../json-editor/json-editor-view"
-import "./field-view.css"
 import Vector3Field from "./vector3"
+
+import "./field-view.css"
 
 export interface FieldViewProps {
     className?: string

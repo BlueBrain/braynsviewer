@@ -20,11 +20,7 @@ module.exports = {
         extensions: [".tsx", ".ts", ".js", ".jsx", ".wasm"],
         enforceExtension: false,
         alias: {
-            "@/contract": path.resolve(__dirname, "src/contract"),
-            "@/mock": path.resolve(__dirname, "src/mock"),
-            "@/tool": path.resolve(__dirname, "src/tool"),
-            "@/ui": path.resolve(__dirname, "src/ui"),
-            "@/view": path.resolve(__dirname, "src/view"),
+            "@": path.resolve(__dirname, "src"),
         },
     },
     devtool: "inline-source-map",

@@ -12,22 +12,14 @@
         "extendedDiagnostics": false,
         "incremental": false,
         "jsx": "react",
-        "lib": [
-            "dom",
-            "dom.iterable",
-            "es6"
-        ],
+        "lib": ["dom", "dom.iterable", "es6"],
         "module": "CommonJS",
         "moduleResolution": "node",
         "noImplicitAny": false,
         "noImplicitReturns": false,
         "outDir": "./dist/",
         "paths": {
-            "@/contract/*": ["contract/*"],
-            "@/mock/*": ["mock/*"],
-            "@/tool/*": ["tool/*"],
-            "@/ui/*": ["ui/*"],
-            "@/view/*": ["view/*"],
+            "@/*": ["*"],
             "*": ["src/*", "node_modules/*"]
         },
         "removeComments": false,
@@ -39,7 +31,7 @@
         "target": "es5"
     },
     "output": ["./dist"],
-    "files": ["src/index.tsx"],
+    "files": ["src/index.tsx", "src/view/code-factory/make-code.tsx"],
     "include": [
         "./src/**/*.ts",
         "./src/**/*.tsx",
@@ -51,10 +43,5 @@
         "./src/**/*.gif",
         "./src/**/*.webp"
     ],
-    "exclude": [
-        "node_modules/",
-        "doc/",
-        "**/*.spec.*",
-        "**/*.test.*"
-  ]
+    "exclude": ["node_modules/", "doc/", "**/*.spec.*", "**/*.test.*"]
 }

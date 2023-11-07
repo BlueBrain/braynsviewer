@@ -1,4 +1,4 @@
-import { isNumberArray } from "@/tool/type-check"
+import { isType } from "@/tool/type-check"
 import Color from "@/ui/color"
 import InputFloat from "@/ui/view/input/float"
 import * as React from "react"
@@ -53,7 +53,8 @@ function getClassNames(props: Vector3ViewProps): string {
 }
 
 function sanitize(value: unknown): [number, number, number] {
-    if (!isNumberArray(value) || value.length < 3) return [0, 0, 0]
+    if (!isType<[number, number, number]>(value, ["array(3)", "number"]))
+        return [0, 0, 0]
 
-    return value.slice(0, 3) as [number, number, number]
+    return value
 }
