@@ -1,0 +1,94 @@
+.tfw-view-Expand {
+    display: block;
+    padding: 0 16px;
+    --transition-delay: 0.2s;
+}
+
+.tfw-view-Expand > button {
+    background: inherit;
+    color: inherit;
+}
+
+.tfw-view-Expand .head {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 32px;
+    font-family: Roboto, josefin-sans, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    font-variant: small-caps;
+    font-variant: common-ligatures small-caps;
+    cursor: pointer;
+}
+
+.tfw-view-Expand .head > div.icons {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    margin: 0 8px 0 0;
+}
+
+.tfw-view-Expand .head > div.icons > * {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s;
+}
+
+.tfw-view-Expand .head > div.icons > *:first-child {
+    transform: rotate(0);
+    opacity: 1;
+}
+
+.tfw-view-Expand .head > div.icons > *:last-child {
+    transform: rotate(-90deg);
+    opacity: 0;
+}
+
+.tfw-view-Expand[aria-expanded="true"] .head > div.icons > *:first-child {
+    transform: rotate(90deg);
+    opacity: 0;
+}
+
+.tfw-view-Expand[aria-expanded="true"] .head > div.icons > *:last-child {
+    transform: rotate(0);
+    opacity: 1;
+}
+
+.tfw-view-Expand > div.body {
+    padding: 0 0 0 16px;
+    margin: 0;
+}
+
+.tfw-view-Expand[aria-expanded="true"] > div.body {
+    visibility: visible;
+    overflow: unset;
+    opacity: 1;
+    transition:
+        opacity var(--transition-delay),
+        transform var(--transition-delay),
+        visibility var(--transition-delay),
+        max-height var(--transition-delay);
+    transform: translateX(0);
+    max-height: max-content;
+}
+
+.tfw-view-Expand[aria-expanded="false"] > div.body {
+    visibility: hidden;
+    overflow: unset;
+    opacity: 0;
+    transition:
+        opacity var(--transition-delay),
+        transform var(--transition-delay),
+        visibility var(--transition-delay) step-end,
+        max-height var(--transition-delay) step-end;
+    transform: translateX(25%);
+    max-height: 0;
+}

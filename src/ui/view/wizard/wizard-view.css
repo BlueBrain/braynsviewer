@@ -1,0 +1,27 @@
+.ui-view-WizardView {
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+}
+
+.ui-view-WizardView > div {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--theme-color-frame);
+    transition: transform 0.2s;
+    transform: translateX(0);
+}
+
+.ui-view-WizardView > div.left {
+    transform: translateX(-100%);
+}
+
+.ui-view-WizardView > div.right {
+    transform: translateX(100%);
+}

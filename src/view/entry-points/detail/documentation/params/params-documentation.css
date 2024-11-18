@@ -1,0 +1,46 @@
+.view-entryPoints-detail-documentation-ParamsDocumentation span.desc {
+    font-size: 80%;
+    opacity: 0.5;
+}
+
+.view-entryPoints-detail-documentation-ParamsDocumentation span.type {
+    font-size: 90%;
+    background-color: var(--theme-color-section);
+    color: var(--theme-color-on-section);
+    margin: 0 0.25em;
+    padding: 0.125em 0.25em;
+}
+
+.view-entryPoints-detail-documentation-ParamsDocumentation span.property {
+    font-weight: normal;
+    color: var(--theme-color-accent-dark);
+}
+
+.view-entryPoints-detail-documentation-ParamsDocumentation
+    span.property.required {
+    font-weight: 900;
+    color: var(--theme-color-accent);
+}
+
+.view-entryPoints-detail-documentation-ParamsDocumentation
+    span.property.optional::after {
+    content: "?";
+    color: var(--theme-color-on-frame);
+    margin: 0 0.25em;
+}
+
+.view-entryPoints-detail-documentation-ParamsDocumentation ul {
+    margin: 0;
+    padding: 0 1rem;
+}
+
+.view-entryPoints-detail-documentation-ParamsDocumentation ol {
+    margin: 0;
+    padding: 0 2rem;
+}
+
+.view-entryPoints-detail-documentation-ParamsDocumentation pre {
+    margin: 0;
+    background-color: var(--theme-color-error);
+    color: var(--theme-color-on-error);
+}

@@ -1,0 +1,29 @@
+.ui-view-FileSizeView {
+    padding: 0;
+}
+
+.ui-view-FileSizeView > span {
+    padding: 3px 6px;
+    border-radius: 6px;
+    margin: 0;
+}
+
+.ui-view-FileSizeView > span.kb {
+    background: white;
+    color: #000;
+}
+
+.ui-view-FileSizeView > span.mb {
+    background: yellow;
+    color: #000;
+}
+
+.ui-view-FileSizeView > span.gb {
+    background: orange;
+    color: #000;
+}
+
+.ui-view-FileSizeView > span.tb {
+    background: red;
+    color: #fff;
+}

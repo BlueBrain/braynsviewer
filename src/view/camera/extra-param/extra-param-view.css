@@ -1,0 +1,23 @@
+.view-camera-ExtraParamView {
+    max-width: 14rem;
+    min-width: 14rem;
+}
+
+.view-camera-ExtraParamView.boolean {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.view-camera-ExtraParamView.error {
+    background-color: var(--theme-color-error);
+    color: var(--theme-color-on-error);
+    overflow: hidden;
+    padding: 0.25em;
+}
+
+.view-camera-ExtraParamView.error > div {
+    font-size: 80%;
+    opacity: 0.5;
+}

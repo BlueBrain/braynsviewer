@@ -1,0 +1,47 @@
+{
+    "compilerOptions": {
+        "alwaysStrict": false,
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "./src/",
+        "composite": false,
+        "declaration": true,
+        "declarationMap": true,
+        "diagnostics": true,
+        "downlevelIteration": true,
+        "esModuleInterop": true,
+        "extendedDiagnostics": false,
+        "incremental": false,
+        "jsx": "react",
+        "lib": ["dom", "dom.iterable", "es6"],
+        "module": "CommonJS",
+        "moduleResolution": "node",
+        "noImplicitAny": false,
+        "noImplicitReturns": false,
+        "outDir": "./dist/",
+        "paths": {
+            "@/*": ["*"],
+            "*": ["src/*", "node_modules/*"]
+        },
+        "removeComments": false,
+        "resolveJsonModule": true,
+        "rootDir": "./src/",
+        "sourceMap": true,
+        "strict": false,
+        "strictNullChecks": true,
+        "target": "es5"
+    },
+    "output": ["./dist"],
+    "files": ["src/index.tsx", "src/view/code-factory/make-code.tsx"],
+    "include": [
+        "./src/**/*.ts",
+        "./src/**/*.tsx",
+        "./src/**/*.css",
+        "./src/**/*.svg",
+        "./src/**/*.png",
+        "./src/**/*.jpg",
+        "./src/**/*.jpeg",
+        "./src/**/*.gif",
+        "./src/**/*.webp"
+    ],
+    "exclude": ["node_modules/", "doc/", "**/*.spec.*", "**/*.test.*"]
+}

@@ -1,0 +1,15 @@
+.ui-view-FlexView {
+    display: flex;
+}
+
+.ui-view-FlexView > * {
+    flex: 0 0 auto;
+}
+
+.ui-view-FlexView > *.flex0 {
+    flex: 0 0 auto;
+}
+
+.ui-view-FlexView > *.flex1 {
+    flex: 1 1 auto;
+}

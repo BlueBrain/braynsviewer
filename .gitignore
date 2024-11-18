@@ -1,0 +1,7 @@
+**/node_modules/
+**/build/
+**/dist/
+**/*.orig
+jest.config.debug
+.vscode
+**/test-coverage/

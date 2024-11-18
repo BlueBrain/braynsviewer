@@ -1,0 +1,1015 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s]+">
+      
+      <link rel="shortcut icon" href="">
+      <meta name="generator" content="mkdocs-5.2.2, mkdocs-material-4.4.2">
+    
+<meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+<!-- Generator banner -->
+<meta name="generator" content="sphinx-5.2.2" />
+
+    
+      
+        <title>Connection to a running backend instance - Brayns</title>
+      
+    
+    
+
+      <link rel="stylesheet" href="_static/stylesheets/application.4031d38b.css">
+      
+        <link rel="stylesheet" href="_static/stylesheets/application-palette.3e3d1dff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#2196f3">
+      
+    
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/stylesheets/theme.css" />
+
+    
+      <script src="_static/javascripts/modernizr.74668098.js"></script>
+    
+    
+
+    <link rel="stylesheet" href="_static/fonts/material-icons.css">
+    
+    
+    
+
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#connector" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      
+
+<!-- Application header -->
+<header class="md-header" data-md-component="header">
+
+  <!-- Top-level navigation -->
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+
+      <!-- Link to home -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.epfl.ch/"
+            title="Brayns"
+            class="md-header-nav__button md-logo">
+          
+            <img src="_static/images/epfl-logo-new.svg" width="24" height="24" />
+          
+        </a>
+      </div>
+
+      <!-- Button to toggle drawer -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button"
+            for="__drawer"></label>
+      </div>
+
+      
+      <!-- Home button to ecosystem -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div id="homeBtnContainer" class="documentation-homepage-icon">
+          <!-- this href will be overwritten by utils.js -->
+          <a href="#" id="homepageLink">
+            <i class="fa fa-home"></i>
+          </a>
+        </div>
+      </div>
+      
+
+      <!-- Header title -->
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title"
+            data-md-component="title">
+          
+          
+          <span class="md-header-nav__topic">
+            <a href="index.html"
+                title="Brayns">
+            <span class="md-header-nav__prefix">
+            Blue Brain</span> &ndash;
+            Brayns<span class="md-header-nav__version">
+            2.0.0</span></a>
+          </span>
+          <span class="md-header-nav__topic">
+            <a href="" title="Connection to a running backend instance">
+            <span class="md-header-nav__prefix">
+            Blue Brain</span> &ndash;
+            Brayns &ndash;
+            Connection to a running backend instance<span class="md-header-nav__version">
+            2.0.0</span></a>
+          </span>
+        
+        
+        </div>
+      </div>
+
+      <!-- Button to open search dialogue -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button"
+              for="__search"></label>
+
+          <!-- Search interface -->
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+
+      <!-- Repository containing source -->
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.epfl.ch/" title="Brayns" class="md-nav__button md-logo">
+      
+        <img src="_static/images/epfl-logo-new.svg" width="48" height="48">
+      
+    </a>
+    Brayns
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="index.html" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="install.html" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Usage
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Usage
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="usage_launchbraynsbackend.html" title="Running a Brayns backend service" class="md-nav__link">
+      Running a Brayns backend service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="usage_usepythonapi.html" title="Using Brayns Python API" class="md-nav__link">
+      Using Brayns Python API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="usage_usejsonrpcapi.html" title="Using Brayns JSON-RPC API" class="md-nav__link">
+      Using Brayns JSON-RPC API
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="plugins.html" title="Brayns plugins" class="md-nav__link">
+      Brayns plugins
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Connection to a running backend instance
+      </label>
+    
+    <a href="#" title="Connection to a running backend instance" class="md-nav__link md-nav__link--active">
+      Connection to a running backend instance
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connector" class="md-nav__link">
+    Connector
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uri" class="md-nav__link">
+    URI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssl-context" class="md-nav__link">
+    SSL context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binary-frames" class="md-nav__link">
+    Binary frames
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logger" class="md-nav__link">
+    Logger
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attempts" class="md-nav__link">
+    Attempts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instance" class="md-nav__link">
+    Instance
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples_loader.html" title="Load a model" class="md-nav__link">
+      Load a model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples_snapshot.html" title="Take a snapshot" class="md-nav__link">
+      Take a snapshot
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples_exporter.html" title="Export frames" class="md-nav__link">
+      Export frames
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples_movie.html" title="Make a movie from exported frames" class="md-nav__link">
+      Make a movie from exported frames
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="examples_service.html" title="Launch Brayns backend from Python" class="md-nav__link">
+      Launch Brayns backend from Python
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      JSON-RPC API reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        JSON-RPC API reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="jsonrpcapi/api_atlasexplorer_methods.html" title="Atlas Explorer API methods" class="md-nav__link">
+      Atlas Explorer API methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="jsonrpcapi/api_circuitinfo_methods.html" title="Circuit Info API methods" class="md-nav__link">
+      Circuit Info API methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="jsonrpcapi/api_circuitexplorer_methods.html" title="Circuit Explorer API methods" class="md-nav__link">
+      Circuit Explorer API methods
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="jsonrpcapi/api_core_methods.html" title="Core API methods" class="md-nav__link">
+      Core API methods
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Python API reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Python API reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="pythonapi/core.html" title="core" class="md-nav__link">
+      core
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="pythonapi/movie.html" title="movie" class="md-nav__link">
+      movie
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="pythonapi/network.html" title="network" class="md-nav__link">
+      network
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="pythonapi/plugins.html" title="plugins" class="md-nav__link">
+      plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="pythonapi/service.html" title="service" class="md-nav__link">
+      service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="pythonapi/utils.html" title="utils" class="md-nav__link">
+      utils
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connector" class="md-nav__link">
+    Connector
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uri" class="md-nav__link">
+    URI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssl-context" class="md-nav__link">
+    SSL context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binary-frames" class="md-nav__link">
+    Binary frames
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logger" class="md-nav__link">
+    Logger
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attempts" class="md-nav__link">
+    Attempts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instance" class="md-nav__link">
+    Instance
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <section id="connection-to-a-running-backend-instance">
+<h1>Connection to a running backend instance<a class="headerlink" href="#connection-to-a-running-backend-instance" title="Permalink to this heading">¶</a></h1>
+<p>Now that the Python package is installed and that we saw how to basically
+connect to a braynsService instance (backend), we can see more advanced
+connection settings.</p>
+<section id="connector">
+<h2>Connector<a class="headerlink" href="#connector" title="Permalink to this heading">¶</a></h2>
+<p>The connector is a simple dataclass object (struct) that holds the connection
+settings. It is required to be able to connect to an instance and needs at least
+the URI of the backend server as seen previously.</p>
+<p>Here is an example of connector with more settings:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">brayns</span>
+
+<span class="n">connector</span> <span class="o">=</span> <span class="n">brayns</span><span class="o">.</span><span class="n">Connector</span><span class="p">(</span>
+    <span class="n">uri</span><span class="o">=</span><span class="s1">&#39;localhost:5000&#39;</span><span class="p">,</span>
+    <span class="n">ssl_context</span><span class="o">=</span><span class="n">brayns</span><span class="o">.</span><span class="n">SslClientContext</span><span class="p">(</span>
+        <span class="n">cafile</span><span class="o">=</span><span class="s1">&#39;certification_authority.pem&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">binary_handler</span><span class="o">=</span><span class="k">lambda</span> <span class="n">data</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)),</span>
+    <span class="n">logger</span><span class="o">=</span><span class="n">brayns</span><span class="o">.</span><span class="n">Logger</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">),</span>
+    <span class="n">max_attempts</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">attempt_period</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="k">with</span> <span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span> <span class="k">as</span> <span class="n">instance</span><span class="p">:</span>
+    <span class="n">instance</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;schema&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;endpoint&#39;</span><span class="p">:</span> <span class="s1">&#39;get-version&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+<section id="uri">
+<h3>URI<a class="headerlink" href="#uri" title="Permalink to this heading">¶</a></h3>
+<p>The URI parameter is used to find the backend instance as mentioned in the
+usage section <a class="reference internal" href="usage_usepythonapi.html#usepythonapi-label"><span class="std std-ref">Using Brayns Python API</span></a>.</p>
+</section>
+<section id="ssl-context">
+<h3>SSL context<a class="headerlink" href="#ssl-context" title="Permalink to this heading">¶</a></h3>
+<p>The SSL context depends on the backend SSL settings. If left to None (the
+default), the connection will not be secured. The <cite>ssl_context</cite> should be chosen
+as follows:</p>
+<ul class="simple">
+<li><p>If the backend is not secure, it can be left to None.</p></li>
+<li><dl class="simple">
+<dt>If the backend certificate is signed by a recognized certification authority</dt><dd><p>(CA) installed on the client machine, it can be default constructed.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>If the backend certificate is signed by a custom CA (or self-signed), this CA</dt><dd><p>can be set as trusted by setting it in the SSL context (like above).</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="binary-frames">
+<h3>Binary frames<a class="headerlink" href="#binary-frames" title="Permalink to this heading">¶</a></h3>
+<p>A Brayns instance can stream binary frames (images) on demand. It is mainly used
+for the Web client (BraynsCircuitStudio) but they can be handled by a callback
+specified in the connector (here it just prints it).</p>
+</section>
+<section id="logger">
+<h3>Logger<a class="headerlink" href="#logger" title="Permalink to this heading">¶</a></h3>
+<p>The connector and the instance (once connected) log messages that can be useful
+for debugging. By default Brayns logs to stdout and only messages with severity
+WARN or superior. This level can be changed by passing brayns.Logger as <cite>logger</cite>
+to the connector, constructed with the level from logging built-in module.</p>
+<p>User can specify a custom logger to redirect the logs or change the level as
+long as the logger is a subclass of logging.Logger. Brayns default logger can
+be constructed with brayns.Logger(&lt;level&gt;).</p>
+<p>Usually for production it is better not to log anything but warnings (default).
+However, logging.INFO can be used to trace JSON-RPC messages (useful for
+debugging).</p>
+<p>For more advanced debug, logging.DEBUG can be used but it prints the requests /
+replies content (not only the method and ID) so it can be very verbose.</p>
+</section>
+<section id="attempts">
+<h3>Attempts<a class="headerlink" href="#attempts" title="Permalink to this heading">¶</a></h3>
+<p>By default, if the connection to the backend fails, <cite>Connector.connect</cite> will
+raise an exception and cancel the connection. A new attempts can then safely be
+made.</p>
+<p>However, it can be convenient to try multiple times (or forever) if the backend
+if not available yet. For example if you started a braynsService instance
+automatically, you have no way to know when it is ready from the Python and
+might want to wait for it in the <cite>connect()</cite> call.</p>
+<p>That’s why the connector can be configured to try <cite>max_attempts</cite> times to reach
+the backend before raising an exception with a delay of <cite>attempt_period</cite> between
+each try. If <cite>max_attempts</cite> is set to None, the connector will try to connect
+indefinitely until it manages to reach the backend (<cite>attempt_period</cite> is still
+taken into account).</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>If another connection error occurs than the service being unavailable (SSL
+error, protocol error), retrying is pointless, as the same error will be
+raised again and again. Therefore, these kind of errors are raised
+regardless of <cite>max_attempts</cite> and <cite>attempt_period</cite>.</p>
+</div>
+</section>
+</section>
+<section id="instance">
+<h2>Instance<a class="headerlink" href="#instance" title="Permalink to this heading">¶</a></h2>
+<p>Once <cite>connector.connect()</cite> succeeds, a backend instance <cite>brayns.Instance</cite> is
+returned. It can be used to send raw JSON-RPC requests to braynsService.</p>
+<p>The instance must be disconnected using <cite>instance.disconnect()</cite> once user is
+done with it. It can be done automatically using a context manager (like above).</p>
+<p>However using the low level JSON-RPC API can be tedious and is subject to
+changes, that is why it is better to use high level functionalities provided
+as functions and classes by the package (see next sections).</p>
+</section>
+</section>
+
+                
+  
+
+              
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+
+        <!-- Link to previous page -->
+        
+          <a href="examples.html"
+              title="Examples"
+              class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+              rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back
+                    md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Examples
+              </span>
+            </div>
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          <a href="examples_loader.html"
+              title="Load a model"
+              class="md-flex md-footer-nav__link md-footer-nav__link--next"
+              rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Load a model
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward
+                    md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+      
+        
+          
+          <div class="md-footer-copyright__company">
+            Blue Brain Project
+          </div>
+          
+          
+          <div class="md-footer-copyright__address__title">
+            Address
+          </div>
+          <div class="md-footer-copyright__address">
+            EPFL/Campus Biotech<br>Chemin des Mines 9,<br>CH-1202 Geneva<br>Switzerland
+          </div>
+          
+        
+        
+          <div class="md-footer-copyright__highlight">
+            &copy; Blue Brain Project/EPFL 2005-2022. All rights reserved.
+          </div>
+        
+        
+      </div>
+      
+
+      <!-- Social links -->
+      
+
+<!-- Social links in footer -->
+
+  <div class="md-footer-social">
+    <link rel="stylesheet" type="text/css"
+        href="_static/fonts/font-awesome.css" />
+    
+    
+    <div class="md-footer-social__title">Follow the Blue Brain</div>
+    
+    
+    
+      <a href="https://www.linkedin.com/showcase/blue-brain-project/" class="md-footer-social__link
+            fa fa-linkedin-square"></a>
+    
+      <a href="https://twitter.com/bluebrainpjt?lang=en" class="md-footer-social__link
+            fa fa-twitter-square"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+<script src="_static/javascripts/theme.js"></script>
+<script src="_static/javascripts/utils.js"></script>
+
+      <script src="_static/javascripts/application.718059d6.js"></script>
+      
+      <script>app.initialize({version:"5.2.2",url:{base:"./_static"}})</script>
+      
+    
+
+  </body>
+</html>

@@ -1,0 +1,5 @@
+location %BRAYNSVIEWER_BASE_PATH% {
+    rewrite ^([^.]*[^/])$ $1/ permanent;
+    alias %BRAYNSVIEWER_NGINX_HTML_ROOT%;
+    index index.html;
+}

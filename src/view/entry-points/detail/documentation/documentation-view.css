@@ -1,0 +1,9 @@
+.view-entryPoints-detail-DocumentationView {
+    margin-top: 2rem;
+}
+
+.view-entryPoints-detail-DocumentationView .technical-view {
+    margin: 1rem 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--theme-color-on-section-opacity-20);
+}

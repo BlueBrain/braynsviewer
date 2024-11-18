@@ -1,0 +1,32 @@
+.view-entryPoints-list-EntryPointButtonView {
+    background-color: var(--theme-color-frame);
+    color: var(--theme-color-on-frame);
+    padding: 0.25em 0.5em;
+    border-radius: 0.5em;
+    width: calc(100% - 2rem);
+    margin: 0.125em 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.view-entryPoints-list-EntryPointButtonView:hover {
+    background-color: var(--theme-color-accent);
+    color: var(--theme-color-on-accent);
+}
+
+.view-entryPoints-list-EntryPointButtonView > div {
+    flex: 0 0 auto;
+}
+
+.view-entryPoints-list-EntryPointButtonView > div.doc {
+    flex: 1 1 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0.5;
+    font-size: 80%;
+    display: block;
+    text-align: left;
+}

@@ -1,0 +1,19 @@
+.view-SceneView header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5rem;
+}
+
+.view-SceneView header > * {
+    flex: 0 0 auto;
+}
+
+.view-SceneView header > h1 {
+    flex: 1 1 auto;
+}
+
+.view-SceneView div.models-list > button {
+    width: 100%;
+}

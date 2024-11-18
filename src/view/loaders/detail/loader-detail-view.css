@@ -1,0 +1,38 @@
+.view-loaders-LoaderDetailView {
+    padding: 1rem;
+}
+
+.view-loaders-LoaderDetailView header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.view-loaders-LoaderDetailView div.extensions > b {
+    opacity: 0.5;
+}
+
+.view-loaders-LoaderDetailView div.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.view-loaders-LoaderDetailView pre.error,
+.view-loaders-LoaderDetailView pre.result {
+    padding: 0.5rem;
+    margin: 0 -1rem 0 -2rem;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.view-loaders-LoaderDetailView pre.error {
+    background-color: var(--theme-color-error);
+    color: var(--theme-color-on-error);
+}
+
+.view-loaders-LoaderDetailView pre.result {
+    background-color: var(--theme-color-primary-light);
+    color: var(--theme-color-on-primary-light);
+}

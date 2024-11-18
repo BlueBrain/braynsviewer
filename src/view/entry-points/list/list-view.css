@@ -1,0 +1,11 @@
+.view-entryPoints-ListView .entry-point {
+    background-color: var(--theme-color-frame);
+    color: var(--theme-color-on-frame);
+    padding: 0.125em 0.5em;
+    border-radius: 0.5em;
+}
+
+.view-entryPoints-ListView .entry-point:hover {
+    background-color: var(--theme-color-accent);
+    color: var(--theme-color-on-accent);
+}

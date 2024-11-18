@@ -1,0 +1,44 @@
+.ui-view-input-ColorView {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.ui-view-input-ColorView input {
+    line-height: 2rem;
+    border: none;
+    box-shadow: var(--theme-shadow-button);
+    padding: 0 0.5rem;
+    font-weight: bolder;
+}
+
+.ui-view-input-ColorView.invalid input,
+.ui-view-input-ColorView.invalid input:focus {
+    text-decoration: wavy;
+    font-weight: normal;
+    outline: 2px solid var(--theme-color-error);
+}
+
+.ui-view-input-ColorView input:focus {
+    outline: 1px dotted var(--theme-color-accent-light);
+}
+
+.ui-view-input-ColorView input[disabled] {
+    box-shadow: none;
+    outline: 1px solid var(--theme-color-input-opacity-50);
+    background-color: inherit;
+    color: inherit;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.ui-view-input-ColorView.wide {
+    display: flex;
+    width: 100%;
+    box-sizing: content-box;
+}
+
+.ui-view-input-ColorView.wide * {
+    width: 100%;
+    box-sizing: border-box;
+}

@@ -1,0 +1,102 @@
+div.ui-Modal {
+    --transition-duration: 0.3s;
+    --padding: 1rem;
+    --background-color: var(--theme-color-screen-opacity-50);
+
+    z-index: 9999999;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: var(--padding);
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: background-color var(--transition-duration);
+    background-color: transparent;
+    box-sizing: border-box;
+}
+
+div.ui-Modal.align-left {
+    justify-content: flex-start;
+}
+
+div.ui-Modal.align-right {
+    justify-content: flex-end;
+}
+
+div.ui-Modal.align-top {
+    align-items: flex-start;
+}
+
+div.ui-Modal.align-bottom {
+    align-items: flex-end;
+}
+
+div.ui-Modal.show {
+    transition: background-color var(--transition-duration);
+    background-color: var(--background-color);
+}
+
+div.ui-Modal > div {
+    transform: scale(0);
+    opacity: 0;
+    transition: all var(--transition-duration);
+    max-width: 100vw;
+    max-height: 100vh;
+}
+
+div.ui-Modal.show > div {
+    transform: scale(1);
+    opacity: 1;
+    transition: all var(--transition-duration);
+}
+
+div.ui-Modal-error {
+    margin: 0;
+    padding: 1rem;
+    background-color: var(--theme-color-error);
+    color: var(--theme-color-on-error);
+    width: 480px;
+    overflow-x: auto;
+}
+
+div.ui-Modal-error pre {
+    white-space: pre;
+    font-size: 80%;
+}
+
+.ui-Modal-promise-waiter {
+    padding: 1rem;
+    background-color: var(--theme-color-frame-opacity-90);
+    color: var(--theme-color-on-frame);
+    display: inline flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 300px;
+}
+
+.ui-Modal-promise-waiter > * {
+    flex: 1 1 auto;
+}
+
+.ui-Modal-promise-waiter > svg {
+    flex: 0 0 2rem;
+    animation: ui-Modal-anim 1s linear infinite;
+}
+
+@keyframes ui-Modal-anim {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}

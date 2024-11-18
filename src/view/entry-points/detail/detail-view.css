@@ -1,0 +1,36 @@
+.view-entryPoints-DetailView {
+    padding: 0;
+}
+
+.view-entryPoints-DetailView header {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.view-entryPoints-DetailView header > h1 {
+    font-family: monospace;
+    flex: 1 1 auto;
+}
+
+.view-entryPoints-DetailView div.exec-button {
+    text-align: right;
+}
+
+.view-entryPoints-DetailView pre {
+    font-size: 80%;
+    padding: 0.5em;
+}
+
+.view-entryPoints-DetailView pre.result {
+    background-color: var(--theme-color-section);
+    color: var(--theme-color-on-section);
+}
+
+.view-entryPoints-DetailView pre.error {
+    background-color: var(--theme-color-error);
+    color: var(--theme-color-on-error);
+}

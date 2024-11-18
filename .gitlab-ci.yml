@@ -1,0 +1,22 @@
+stages:
+    - build-ts
+
+.build-ts:
+    stage: test
+    image:
+        name: node:$NODE_VERSION
+        entrypoint: [""]
+    variables:
+        CI: "true"
+        CWD: .
+        NODE_VERSION: 18.12.0
+    script:
+        - echo $NODE_VERSION
+        - cd "$CWD"
+        - npm install
+        - npm run build
+        - npm run test
+    rules:
+        - if: $CI_MERGE_REQUEST_IID
+        # run on default branch in order to upload coverage report
+        - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

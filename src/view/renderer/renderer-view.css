@@ -1,0 +1,52 @@
+.view-RendererView div.common {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: stretch;
+    max-width: calc(100% - 2rem);
+    margin: 2rem 1rem;
+}
+
+.view-RendererView div.common > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.view-RendererView div.common div.num {
+    font-family: monospace;
+}
+
+.view-RendererView div.center {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.view-RendererView div.center > * {
+    width: 8rem;
+}
+
+.view-RendererView div.extra-params {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0.25rem;
+}
+
+.view-RendererView header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem;
+}
+
+.view-RendererView header > *:last-child {
+    flex: 0 0 auto;
+}

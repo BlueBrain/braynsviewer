@@ -1,0 +1,59 @@
+.view-AppView {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--theme-color-screen);
+    color: var(--theme-color-on-screen);
+    box-shadow: var(--theme-shadow-header);
+    overflow: hidden;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.view-AppView > * {
+    flex: 0 0 auto;
+}
+
+.view-AppView > header {
+    padding: 0.5em;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.view-AppView > header .port {
+    opacity: 0.5;
+}
+
+.view-AppView > menu {
+    flex: 1 1 auto;
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.view-AppView > menu > div.fullheight {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}

@@ -1,0 +1,66 @@
+@font-face {
+    font-family: "SuisseIntl";
+    src: url("https://portal.bluebrain.epfl.ch/wp-content/themes/bluebrainer/assets/fonts/SuisseIntl-Light.ttf");
+    font-weight: 300;
+    font-display: fallback;
+}
+@font-face {
+    font-family: "SuisseIntl";
+    src: url("https://portal.bluebrain.epfl.ch/wp-content/themes/bluebrainer/assets/fonts/SuisseIntl-Regular.otf");
+    font-weight: 400;
+    font-display: fallback;
+}
+@font-face {
+    font-family: "SuisseIntl";
+    src: url("https://portal.bluebrain.epfl.ch/wp-content/themes/bluebrainer/assets/fonts/SuisseIntl-SemiBold.otf");
+    font-weight: 700;
+    font-display: fallback;
+}
+
+html,
+body,
+#root {
+    font-family: "SuisseIntl", sans-serif !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2 {
+    border: 0.0625em solid currentColor;
+    border-image: linear-gradient(to right, currentColor, transparent) 0 0 1 0;
+}
+
+h1 {
+    font-size: 1.2rem;
+}
+
+h2 {
+    font-size: 1.1rem;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    width: 100%;
+    margin: 1rem 0;
+    background-image: linear-gradient(
+        to left,
+        transparent,
+        currentColor,
+        currentColor,
+        transparent
+    );
+}
+
+a,
+a:visited {
+    color: var(--theme-color-accent);
+}
