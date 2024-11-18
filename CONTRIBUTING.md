@@ -12,7 +12,7 @@ As a contributor, here are the guidelines we would like you to follow:
 
 # Got a Question?
 
-Please do not hesitate to raise an issue on [github project page](https://github.com/BlueBrain/brayns-circuit-studio/issues).
+Please do not hesitate to raise an issue on [github project page](https://github.com/BlueBrain/brayns-api-viewer/issues).
 
 # Found a Bug?
 
@@ -113,7 +113,7 @@ the main (upstream) repository:
     git pull --ff upstream master
     ```
 
-[github]: https://github.com/BlueBrain/brayns-circuit-studio
+[github]: https://github.com/BlueBrain/brayns-api-viewer
 
 # Development Environment
 
