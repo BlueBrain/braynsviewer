@@ -41,5 +41,8 @@ docker run -p 127.0.0.1:9999:8080/tcp brayns-viewer
 firefox 127.0.0.1:9999
 ```
 
-### Deploy in Kubernetes
+## Funding & Acknowledgment
 
+The development of this software was supported by funding to the Blue Brain Project, a research center of the École polytechnique fédérale de Lausanne (EPFL), from the Swiss government's ETH Board of the Swiss Federal Institutes of Technology.
+
+Copyright (c) 2024 Blue Brain Project/EPFL
